@@ -289,7 +289,7 @@
     .ti-control-pause:hover , .ti-control-play:hover {
         transform: scale(1.1);
         background-color: #ffffff14;
-        padding: 3px;
+        padding: 5px;
         border-radius: 8px;
         color: orangered;
         cursor: pointer;
