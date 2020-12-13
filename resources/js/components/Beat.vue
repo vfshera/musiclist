@@ -108,8 +108,8 @@
                                         title: response.data
                                     });
 
-                                    localStorage.removeItem('readBeat')
-                                    this.$store.commit('setReadBeat', {});
+                                    localStorage.removeItem('viewBeat')
+                                    this.$store.commit('setViewBeat', {});
                                     this.prevPage();
                                 }else if(response.status == 403){
                                     Toast.fire({

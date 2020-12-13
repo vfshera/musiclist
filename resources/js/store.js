@@ -4,12 +4,13 @@ import Vue from 'vue'
  Vue.use(Vuex)
 let localReadBlog = localStorage.getItem('readBlog');
 let localDrum = localStorage.getItem('viewDrumkit');
+let localBeat = localStorage.getItem('viewBeat');
 
  export default  new Vuex.Store({
      state:{
          readBlog: (localReadBlog) ? JSON.parse(localReadBlog) : {},
          currDrumkit: (localDrum) ? JSON.parse(localDrum) : {},
-         currBeat: (localDrum) ? JSON.parse(localDrum) : {},
+         currBeat: (localBeat) ? JSON.parse(localBeat) : {},
          csrftoken: "",
          isPlayerMax: false,
          loggedUser: null,

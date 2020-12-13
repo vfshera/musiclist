@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Beat;
 use App\Http\Resources\BeatsResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
 
 class BeatController extends Controller
@@ -95,9 +96,9 @@ class BeatController extends Controller
 
         if( $beatImgFile->storeAs('public/beats/covers/', $beatImgFileName )  &&  $BeatSampleFile->storeAs('public/beats/samples/', $BeatSampleFileName )  && $BeatZipFile->storeAs('public/beats/zips/', $BeatZipFileName ) ){
 
-            $beatImg = 'public/beats/covers/'.$beat->image;
+            $beatImg = 'public/beats/covers/'.$beat->cover;
             $beatSample = 'public/beats/samples/'.$beat->sample;
-            $beatZip = 'public/beats/zips/'.$beat->drumkit;
+            $beatZip = 'public/beats/zips/'.$beat->beat;
 
             if(Storage::exists($beatImg) && Storage::exists($beatZip) && Storage::exists($beatSample) && Storage::delete([$beatImg,$beatZip,$beatSample])){
 
@@ -131,7 +132,7 @@ class BeatController extends Controller
     }
 
     public function download(Beat $beat){
-        $pathToFile = 'public/beats/zips/'.$beat->drumkit;
+        $pathToFile = 'public/beats/zips/'.$beat->beat;
 
         $headers = array(
             'Content-Type : application/octet-stream',
@@ -146,9 +147,9 @@ class BeatController extends Controller
 
     public function destroy(Beat $beat)
     {
-        $beatImg = 'public/beats/covers/'.$beat->image;
+        $beatImg = 'public/beats/covers/'.$beat->cover;
         $beatSample = 'public/beats/samples/'.$beat->sample;
-        $beatZip = 'public/beats/zips/'.$beat->drumkit;
+        $beatZip = 'public/beats/zips/'.$beat->beat;
 
 
         if(Storage::exists($beatImg) && Storage::exists($beatZip) && Storage::exists($beatSample) && Storage::delete([$beatImg,$beatZip,$beatSample])){

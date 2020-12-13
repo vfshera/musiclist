@@ -2239,9 +2239,9 @@ __webpack_require__.r(__webpack_exports__);
                 icon: 'success',
                 title: response.data
               });
-              localStorage.removeItem('readBeat');
+              localStorage.removeItem('viewBeat');
 
-              _this.$store.commit('setReadBeat', {});
+              _this.$store.commit('setViewBeat', {});
 
               _this.prevPage();
             } else if (response.status == 403) {
@@ -68822,11 +68822,12 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
 var localReadBlog = localStorage.getItem('readBlog');
 var localDrum = localStorage.getItem('viewDrumkit');
+var localBeat = localStorage.getItem('viewBeat');
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
   state: {
     readBlog: localReadBlog ? JSON.parse(localReadBlog) : {},
     currDrumkit: localDrum ? JSON.parse(localDrum) : {},
-    currBeat: localDrum ? JSON.parse(localDrum) : {},
+    currBeat: localBeat ? JSON.parse(localBeat) : {},
     csrftoken: "",
     isPlayerMax: false,
     loggedUser: null,

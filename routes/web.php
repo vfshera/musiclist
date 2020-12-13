@@ -47,6 +47,8 @@ Route::group(['middleware' => ['auth']], function (){
     Route::delete('/deleteBeat/{beat}' , 'BeatController@destroy');
 
 
+
+    //default
     Route::get('/{any}', 'HomeController@index')->where('any', '.*');
 });
 
