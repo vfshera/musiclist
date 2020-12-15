@@ -15,7 +15,7 @@
                         0:00
                     </div>
                     <div class="about-song">
-                        <div class="song-info" :class="{ 'name-playing': isPlaying }">
+                        <div class="song-info" :class="{ 'beat-title-playing': isPlaying }">
                             {{ this.music.title }}
                         </div>
                         <div class="song-progress">
@@ -205,23 +205,26 @@
         font-weight: bold;
     }
 
-    .name-playing{
-        background: linear-gradient(90deg, #ff0000,#ffff00,#ff00f3,#0033ff,#7fff00,#ff00c4,#08f7fe,#f5d300,#a5d8f3,#fdc7d7,#00feca,#ff8b8b,#f85125,#ce96fb,#ff0000);
-        background-size: 1000%;
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
-        animation: smoothgradient 100s linear infinite;
-    }
+    .beat-title-playing{
 
-    @keyframes smoothgradient {
-        0% {
-            background-position: 0%;
-     }
-        100%{
-            background-position: 1000%;
-
-        }
     }
+    /*.name-playing{*/
+    /*    background: linear-gradient(90deg, #ff0000,#ffff00,#ff00f3,#0033ff,#7fff00,#ff00c4,#08f7fe,#f5d300,#a5d8f3,#fdc7d7,#00feca,#ff8b8b,#f85125,#ce96fb,#ff0000);*/
+    /*    background-size: 1000%;*/
+    /*    -webkit-text-fill-color: transparent;*/
+    /*    -webkit-background-clip: text;*/
+    /*    animation: smoothgradient 100s linear infinite;*/
+    /*}*/
+
+    /*@keyframes smoothgradient {*/
+    /*    0% {*/
+    /*        background-position: 0%;*/
+    /* }*/
+    /*    100%{*/
+    /*        background-position: 1000%;*/
+
+    /*    }*/
+    /*}*/
 
     .mini-player:hover{
         border: 1px #ffffff22 solid;

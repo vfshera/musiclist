@@ -310,23 +310,26 @@
         </div>
 
 
-
     </div>
 </template>
 
 <script>
 
+    import Share from "./Share";
     export default {
         name : "Home",
+        components: {Share},
         data(){
             return{
                 beats: [],
                 blogs: [],
                 drumkits: [],
+
             }
         },
 
         methods:{
+
             sanitizeText(size,text){
 
                     return text.slice(0, size)+ '...';

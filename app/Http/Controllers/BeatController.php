@@ -38,15 +38,15 @@ class BeatController extends Controller
         ]);
 
         $beatImgFile =  $request->file('cover');
-        $beatImgFileName = time()."_"."BEAT_IMG_".strtolower(str_replace(' ', '_',$beatImgFile->getClientOriginalName()));
+        $beatImgFileName = time()."BI".strtolower(str_replace(' ', '_',$beatImgFile->getClientOriginalName()));
 
         $BeatZipFile =  $request->file('beat');
         $randomName = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890');
-        $dzipMidName = substr($randomName, 0, 10);
-        $BeatZipFileName = "BZIP_".$dzipMidName."_".time().".zip";
+        $dzipMidName = substr($randomName, 0, 12);
+        $BeatZipFileName = $dzipMidName."BZIP".time().".zip";
 
         $BeatSampleFile =  $request->file('sample');
-        $BeatSampleFileName = time()."_"."BEAT_SAMPLE_".strtolower(str_replace(' ', '_',$BeatSampleFile->getClientOriginalName()));
+        $BeatSampleFileName = time()."BS".strtolower(str_replace(' ', '_',$BeatSampleFile->getClientOriginalName()));
 
         if( $beatImgFile->storeAs('public/beats/covers/', $beatImgFileName )  &&  $BeatSampleFile->storeAs('public/beats/samples/', $BeatSampleFileName )  && $BeatZipFile->storeAs('public/beats/zips/', $BeatZipFileName ) ){
 
@@ -84,15 +84,15 @@ class BeatController extends Controller
 
 
         $beatImgFile =  $request->file('cover');
-        $beatImgFileName = time()."_"."BEAT_IMG_".strtolower(str_replace(' ', '_',$beatImgFile->getClientOriginalName()));
+        $beatImgFileName = time()."BI".strtolower(str_replace(' ', '_',$beatImgFile->getClientOriginalName()));
 
         $BeatZipFile =  $request->file('beat');
         $randomName = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890');
-        $dzipMidName = substr($randomName, 0, 10);
-        $BeatZipFileName = "BZIP_".$dzipMidName."_".time().".zip";
+        $dzipMidName = substr($randomName, 0, 12);
+        $BeatZipFileName = $dzipMidName."BZIP".time().".zip";
 
         $BeatSampleFile =  $request->file('sample');
-        $BeatSampleFileName = time()."_"."BEAT_SAMPLE_".strtolower(str_replace(' ', '_',$BeatSampleFile->getClientOriginalName()));
+        $BeatSampleFileName = time()."BS".strtolower(str_replace(' ', '_',$BeatSampleFile->getClientOriginalName()));
 
         if( $beatImgFile->storeAs('public/beats/covers/', $beatImgFileName )  &&  $BeatSampleFile->storeAs('public/beats/samples/', $BeatSampleFileName )  && $BeatZipFile->storeAs('public/beats/zips/', $BeatZipFileName ) ){
 

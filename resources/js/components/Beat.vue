@@ -18,7 +18,7 @@
             <div class="lds-dual-ring" v-show="isProcessing"></div>
             <div class="beat-cover-info pt-2 px-3">
                 <div class="beat-cover">
-                    <img :src="beat.cover" alt="Dancehall" height="300px">
+                    <img :src="beat.cover" :alt="beat.title" height="300px">
                     <div class="beat-tags p-1 d-flex justify-content-around">
                         <span v-for="tag in beat.tags.split(',')">
                             #{{ tag }}
@@ -26,6 +26,7 @@
                     </div>
                 </div>
                 <div class="beat-info">
+                    <h3>Details</h3>
                     <div class="beat-about">{{ beat.about }}</div>
                 </div>
             </div>
@@ -336,6 +337,7 @@
 
     .beat-info{
         min-width: 49%;
+        max-width: 50%;
     }
     .beat-container{
         height: 100%;
