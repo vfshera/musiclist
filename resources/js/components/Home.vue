@@ -190,7 +190,7 @@
                         <div class="card__img--hover"  :style="{ backgroundImage: `url(${  blog.image } )` }" ></div>
                     </a>
                     <div class="card__info">
-                        <span class="card__category">{{ (blog.title.length > 15 ) ? sanitizeText(15 , blog.title ) : blog.title }}</span>
+                        <span class="card__category">{{ (blog.type.length > 15 ) ? sanitizeText(15 , blog.type ) : blog.type }}</span>
                         <h3 class="card__title">{{ (blog.title.length > 45 ) ? sanitizeText(45 , blog.title ) : blog.title }}</h3>
                     </div>
                 </article>

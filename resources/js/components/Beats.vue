@@ -106,9 +106,9 @@
                                         <label for="sample">Sample Audio</label>
                                         <input @change="getBeatSample" id="sample" required type="file">
                                     </div>
-                                    <div class="price">
+                                    <div class="price-sec">
                                         <label for="beat-price">Beat Price</label>
-                                        <input id="beat-price" required type="number"  v-model="price" class="form-control mt-2" >
+                                        <input id="beat-price" required type="number"  v-model="price" class="form-control " >
                                     </div>
                                 </div>
                             </div>
@@ -557,6 +557,10 @@
         height: 20%;
         font-size: 13px;
         text-align: center;
+    }
+
+    .price-sec{
+
     }
     .beat-item{
         width: 100%;

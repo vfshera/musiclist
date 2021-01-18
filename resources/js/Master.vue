@@ -16,11 +16,13 @@
 
          </div>
          <div class="clearfix"></div>
+
+
          <footer class="site-footer">
              <div class="footer-inner bg-white">
                  <div class="row">
                      <div class="col-sm-6">
-                         Copyright &copy; 2018 Tony On The Track
+                         Copyright &copy; {{ new Date().getFullYear() }} Tony On The Track
                      </div>
                      <div class="col-sm-6 text-right">
                      </div>
