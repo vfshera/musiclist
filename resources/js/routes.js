@@ -48,8 +48,9 @@ export const  routes = [
         meta: { requiresAuth : true}
     },
     {
-        path : '/blog',
+        path : '/blog/:id/:title',
         component : Blog,
+        name: 'blog',
         meta: { requiresAuth : true}
     },
     {

@@ -3176,7 +3176,15 @@ __webpack_require__.r(__webpack_exports__);
       localStorage.setItem('readBlog', JSON.stringify(blog));
       this.$store.commit('setReadBlog', blog);
       this.isProcessing = false;
-      this.$router.push('/blog');
+      var title = blog.title.toLowerCase().replace(/ /g, "-");
+      var id = blog.id;
+      this.$router.push({
+        name: 'blog',
+        params: {
+          id: id,
+          title: title
+        }
+      });
     },
     postBlog: function postBlog() {
       var _this = this;
@@ -68876,8 +68884,9 @@ var routes = [{
     requiresAuth: true
   }
 }, {
-  path: '/blog',
+  path: '/blog/:id/:title',
   component: _components_Blog__WEBPACK_IMPORTED_MODULE_5__["default"],
+  name: 'blog',
   meta: {
     requiresAuth: true
   }

@@ -143,7 +143,10 @@
 
                  this.$store.commit('setReadBlog', blog);
                 this.isProcessing = false;
-                this.$router.push('/blog')
+
+                let title = blog.title.toLowerCase().replace(/ /g , "-");
+                let id = blog.id;
+                this.$router.push({ name : 'blog' , params : {  id , title }})
             },
             postBlog(){
                 this.isPosting = true;
