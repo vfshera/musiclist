@@ -666,8 +666,8 @@
      background-size: 175%;
  }
  figure:hover:after {
-     content: '♣︎';
-     background-color: rgba(255, 69, 0, 0.8);
+     content: '\2665';
+     background-color: rgba(255, 69, 0, 0.7);
      color: white;
      font-size: 72px;
      z-index: 2;
@@ -877,7 +877,9 @@
     #beats {
 
     }
+
     #drumkits{
+        margin-top: 100px !important;
         display: flex;
         justify-content: space-between;
         flex-direction: column;
@@ -885,6 +887,7 @@
 
     }
     #blog {
+        margin-top: 100px !important;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -895,7 +898,7 @@
     }
 
     #gallery {
-
+        margin-top: 100px !important;
     }
 
     .imgBox{

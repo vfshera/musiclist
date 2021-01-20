@@ -31,6 +31,7 @@ class BlogController extends Controller
                         'content' => 'required',
                         'image'  => 'required|image',
                         'title' => 'required',
+                        'type' => 'required',
                         'reflink'  => '',
                     ]);
 
@@ -43,6 +44,7 @@ class BlogController extends Controller
 
             $blog->content = $data['content'];
             $blog->title = $data['title'];
+            $blog->type = $data['type'];
             $blog->reflink = ($data['reflink']) ? $data['reflink'] : '';
             $blog->image =$blogImgFileName;
 
@@ -68,6 +70,7 @@ class BlogController extends Controller
             'content' => 'required',
             'image'  => 'required|image',
             'title' => 'required',
+            'type' => 'required',
             'reflink'  => '',
         ]);
 

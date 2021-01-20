@@ -54,9 +54,22 @@
                         </div>
                        <div class="add-blog-body px-1 ">
                           <div class="row blog-head ">
-                              <div class="blog-image col-md-5">
-                                  <input @change="fileSelected" required type="file">
-                                  <label for="">CHOOSE IMAGE</label>
+                              <div class="blog-img-cat col-md-5">
+                                  <div class="blog-image ">
+                                      <label for="">CHOOSE IMAGE</label>
+                                      <input @change="fileSelected" class="form-control mt-2"  required type="file">
+
+                                  </div>
+
+                                  <div class="blog-category mt-2">
+                                      <label for="category">Category</label>
+                                      <select name="category" v-model="category" class="form-control mt-2" id="cat">
+                                          <option value="Entertainment">Entertainment</option>
+                                          <option value="Development">Development</option>
+                                          <option value="Politics">Politics</option>
+                                          <option value="Social">Social</option>
+                                      </select>
+                                  </div>
                               </div>
                              <div class="link-n-title col-md-7">
                                  <div class="blog-title ">
@@ -102,6 +115,7 @@
                 isPosting: false,
                 file:null,
                 title: '',
+                category: '',
                 content: '',
                 reflink: '',
                 pagination: {}
@@ -116,6 +130,7 @@
                 this.title = ''
                 this.content = ''
                 this.reflink = ''
+                this.category = ''
             },
             viewBlog(blog){
                 this.isProcessing = true;
@@ -137,6 +152,7 @@
                 fd.append('image',this.file)
                 fd.append('title',this.title)
                 fd.append('reflink',this.reflink)
+                fd.append('type',this.category)
                 fd.append('content',this.content)
 
 
@@ -363,11 +379,7 @@
     }
 
     .blog-image{
-        border: green 3px dashed;
-        border-radius: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
     }
 
     .blog-title{

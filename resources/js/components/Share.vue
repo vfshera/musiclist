@@ -12,7 +12,7 @@
                             <a :href="shareTweeter" class="share-items" onclick="window.open(this.href, 'twitterwindow','left=70,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;"><i class="ti-twitter share-icons"></i></a>
                             <a :href="shareFacebook" class="share-items" onclick="window.open(this.href, 'facebookwindow','left=70,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;"><i class="ti-facebook share-icons"></i></a>
                             <a :href="shareWhatsApp" class="share-items" onclick="window.open(this.href, 'whatsappwindow','left=70,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;" ><i class="fa fa-whatsapp share-icons"></i></a>
-                            <i class="ti-clipboard share-items share-icons">
+                            <i class="ti-clipboard share-items share-icons" @click.prevent="copyClip">
 
                             </i>
                         </div>
@@ -34,6 +34,11 @@
 
             }
         },
+    methods:{
+            copyClip(){
+                alert("Copy To Clipboard!!")
+            }
+    },
         computed:{
             sharableLink:function () {
                 return window.location.href;
