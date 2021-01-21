@@ -2548,6 +2548,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2561,6 +2564,7 @@ __webpack_require__.r(__webpack_exports__);
       about: '',
       tags: [],
       tag: '',
+      key: '',
       price: '',
       cover: null,
       sample: null,
@@ -9704,7 +9708,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.tags-list[data-v-680ad5a2]{\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    margin-top: 10px;\n}\n.tags-list span[data-v-680ad5a2]{\n    font-weight: bold;\n    margin: 5px;\n}\n.tags-ul[data-v-680ad5a2] {\n    display: flex;\n}\n.tags-ul .tag-item[data-v-680ad5a2]{\n    height: 100%;\n    background-color: #111111;\n    color: white;\n    border-radius: 5px;\n}\n.track-tags[data-v-680ad5a2]{\n    font-size: .75rem;\n}\n.track-tags span[data-v-680ad5a2] {\n    color: white;\n    background-color: #908887;\n    padding: 3px 7px;\n    margin: 0px 3px;\n    border-radius: 5px;\n}\n.typing-progress[data-v-680ad5a2]{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.lds-dual-ring[data-v-680ad5a2] {\n\n    display: inline-block;\n    width: 80px;\n    height: 80px;\n}\n.lds-dual-ring[data-v-680ad5a2]:after {\n    position: absolute;\n    top:45%;\n    left:56%;\n    content: \" \";\n    display: block;\n    width: 64px;\n    height: 64px;\n    margin: 8px;\n    border-radius: 50%;\n    border: 6px solid orangered;\n    border-color: orangered transparent orangered transparent;\n    -webkit-animation: lds-dual-ring-data-v-680ad5a2 1.2s linear infinite;\n            animation: lds-dual-ring-data-v-680ad5a2 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring-data-v-680ad5a2 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring-data-v-680ad5a2 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n.posting-beat[data-v-680ad5a2]{\n    position: absolute;\n    top: 49%;\n    left: 43%;\n}\n.loader[data-v-680ad5a2] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-680ad5a2] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-680ad5a2]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-680ad5a2 0.6s infinite;\n            animation: lds-ellipsis1-data-v-680ad5a2 0.6s infinite;\n}\n.loader div[data-v-680ad5a2]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-680ad5a2 0.6s infinite;\n            animation: lds-ellipsis2-data-v-680ad5a2 0.6s infinite;\n}\n.loader div[data-v-680ad5a2]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-680ad5a2 0.6s infinite;\n            animation: lds-ellipsis2-data-v-680ad5a2 0.6s infinite;\n}\n.loader div[data-v-680ad5a2]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-680ad5a2 0.6s infinite;\n            animation: lds-ellipsis3-data-v-680ad5a2 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-680ad5a2 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-680ad5a2 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-680ad5a2 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-680ad5a2 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-680ad5a2 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-680ad5a2 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n.content-link input[data-v-680ad5a2], .beat-title input[data-v-680ad5a2]{\n    width: 100%;\n}\n.link-n-title[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n}\n.content-body[data-v-680ad5a2]{\n}\n.add-beat-body[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    min-height:60vh;\n}\n.beat-cover[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: flex-start;\n}\n.beat-title[data-v-680ad5a2]{\n}\n.beat-head[data-v-680ad5a2]{\n    height: 30%;\n    width: 100%;\n}\n.beat[data-v-680ad5a2]{\n    background-color: white;\n    margin: 2px 0px;\n    padding: 3px;\n    display: flex;\n    align-items: center;\n    border-radius: 3px;\n}\n.beat-content[data-v-680ad5a2]{\n    height: 70%;\n    width: 100%;\n}\n.content-link[data-v-680ad5a2]{\n}\n.beat-controls[data-v-680ad5a2]{\n    display: flex;\n    justify-content: flex-end;\n}\n.beat-cards[data-v-680ad5a2]{\n    display: flex;\n   flex-direction: column;\n    background-color: #EBECF1;\n    height: 100%;\n}\n.beat-item img[data-v-680ad5a2]{\n    height: 10%;\n    width: 10%;\n\n    -o-object-fit: contain;\n\n       object-fit: contain;\n}\n.caption[data-v-680ad5a2]{\n    height: 20%;\n    font-size: 13px;\n    text-align: center;\n}\n.price[data-v-680ad5a2]{\n    height: 20%;\n    font-size: 13px;\n    text-align: center;\n}\n.price-sec[data-v-680ad5a2]{\n}\n.beat-item[data-v-680ad5a2]{\n    width: 100%;\n    height: 50px;\n    border-radius: 5px;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);\n    transition: .1s ease-in-out;\n}\n.beat-item[data-v-680ad5a2]:hover{\n    transform: scale(1.02);\n    border: 2px #007bff33 solid;\n    box-shadow: 0 4px 10px 0 #007bff45 , 0 6px 22px 0 #007bff45;\n}\n.new-btn[data-v-680ad5a2]{\n    width: 100px;\n}\n.new-btn[data-v-680ad5a2]:hover{\n    font-weight: bold;\n}\n.search-bar input[data-v-680ad5a2]{\n    width: 96%;\n    text-align: center;\n}\n.search-bar[data-v-680ad5a2]{\n    border: #11111133 1px solid;\n    width: 40%;\n    height: 40px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-radius: 25px;\n    transition: .2s ease-in-out;\n}\n.search-bar[data-v-680ad5a2]:hover{\n    border: #11111177 2px solid;\n}\n.search-bar-focused[data-v-680ad5a2]{\n    border: #0275d8 2px solid !important;\n}\n.beat[data-v-680ad5a2]:hover{\n    background: linear-gradient(145deg, #ffffffaa, #ffffffee);\n    box-shadow:  3px 3px 5px #EBECF2,\n    -3px -3px 5px #EBECF2;\n}\n.beat-menu[data-v-680ad5a2]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 3px #11111155 solid;\n}\n.beats[data-v-680ad5a2]{\n    width: 80.5vw;\n    height: 83vh;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.beats-container[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    border-radius: 10px;\n    width: 98%;\n    height: 98%;\n    background-color: #FFFFFF;\n    box-shadow: #11111122 ;\n}\n", ""]);
+exports.push([module.i, "\n.tags-list[data-v-680ad5a2]{\n    height: 15%;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    margin-top: 10px;\n}\n.tags-list span[data-v-680ad5a2]{\n    font-weight: bold;\n    margin: 5px;\n}\n.tags-ul[data-v-680ad5a2] {\n    display: flex;\n}\n.tags-ul .tag-item[data-v-680ad5a2]{\n    height: 100%;\n    background-color: #111111;\n    color: white;\n    border-radius: 5px;\n}\n.track-tags[data-v-680ad5a2]{\n    font-size: .75rem;\n}\n.track-tags span[data-v-680ad5a2] {\n    color: white;\n    background-color: #908887;\n    padding: 3px 7px;\n    margin: 0px 3px;\n    border-radius: 5px;\n}\n.typing-progress[data-v-680ad5a2]{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.lds-dual-ring[data-v-680ad5a2] {\n\n    display: inline-block;\n    width: 80px;\n    height: 80px;\n}\n.lds-dual-ring[data-v-680ad5a2]:after {\n    position: absolute;\n    top:45%;\n    left:56%;\n    content: \" \";\n    display: block;\n    width: 64px;\n    height: 64px;\n    margin: 8px;\n    border-radius: 50%;\n    border: 6px solid orangered;\n    border-color: orangered transparent orangered transparent;\n    -webkit-animation: lds-dual-ring-data-v-680ad5a2 1.2s linear infinite;\n            animation: lds-dual-ring-data-v-680ad5a2 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring-data-v-680ad5a2 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring-data-v-680ad5a2 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n.posting-beat[data-v-680ad5a2]{\n    position: absolute;\n    top: 49%;\n    left: 43%;\n}\n.loader[data-v-680ad5a2] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-680ad5a2] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-680ad5a2]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-680ad5a2 0.6s infinite;\n            animation: lds-ellipsis1-data-v-680ad5a2 0.6s infinite;\n}\n.loader div[data-v-680ad5a2]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-680ad5a2 0.6s infinite;\n            animation: lds-ellipsis2-data-v-680ad5a2 0.6s infinite;\n}\n.loader div[data-v-680ad5a2]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-680ad5a2 0.6s infinite;\n            animation: lds-ellipsis2-data-v-680ad5a2 0.6s infinite;\n}\n.loader div[data-v-680ad5a2]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-680ad5a2 0.6s infinite;\n            animation: lds-ellipsis3-data-v-680ad5a2 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-680ad5a2 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-680ad5a2 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-680ad5a2 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-680ad5a2 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-680ad5a2 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-680ad5a2 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n.content-link input[data-v-680ad5a2], .beat-title input[data-v-680ad5a2]{\n    width: 100%;\n}\n.link-n-title[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n}\n.content-body[data-v-680ad5a2]{\n}\n.add-beat-body[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    min-height:60vh;\n}\n.beat-cover[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: flex-start;\n}\n.beat-title[data-v-680ad5a2]{\n}\n.beat-head[data-v-680ad5a2]{\n    min-height: 85%;\n    width: 100%;\n}\n.beat-head div[data-v-680ad5a2]{\n    margin-bottom: 20px;\n}\n.beat[data-v-680ad5a2]{\n    background-color: white;\n    margin: 2px 0px;\n    padding: 3px;\n    display: flex;\n    align-items: center;\n    border-radius: 3px;\n}\n.content-link[data-v-680ad5a2]{\n}\n.beat-controls[data-v-680ad5a2]{\n    display: flex;\n    justify-content: flex-end;\n}\n.beat-cards[data-v-680ad5a2]{\n    display: flex;\n   flex-direction: column;\n    background-color: #EBECF1;\n    height: 100%;\n}\n.beat-item img[data-v-680ad5a2]{\n    height: 10%;\n    width: 10%;\n\n    -o-object-fit: contain;\n\n       object-fit: contain;\n}\n.caption[data-v-680ad5a2]{\n    height: 20%;\n    font-size: 13px;\n    text-align: center;\n}\n.price[data-v-680ad5a2]{\n    height: 20%;\n    font-size: 13px;\n    text-align: center;\n}\n.price-sec[data-v-680ad5a2]{\n}\n.beat-item[data-v-680ad5a2]{\n    width: 100%;\n    height: 50px;\n    border-radius: 5px;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);\n    transition: .1s ease-in-out;\n}\n.beat-item[data-v-680ad5a2]:hover{\n    transform: scale(1.02);\n    border: 2px #007bff33 solid;\n    box-shadow: 0 4px 10px 0 #007bff45 , 0 6px 22px 0 #007bff45;\n}\n.new-btn[data-v-680ad5a2]{\n    width: 100px;\n}\n.new-btn[data-v-680ad5a2]:hover{\n    font-weight: bold;\n}\n.search-bar input[data-v-680ad5a2]{\n    width: 96%;\n    text-align: center;\n}\n.search-bar[data-v-680ad5a2]{\n    border: #11111133 1px solid;\n    width: 40%;\n    height: 40px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-radius: 25px;\n    transition: .2s ease-in-out;\n}\n.search-bar[data-v-680ad5a2]:hover{\n    border: #11111177 2px solid;\n}\n.search-bar-focused[data-v-680ad5a2]{\n    border: #0275d8 2px solid !important;\n}\n.beat[data-v-680ad5a2]:hover{\n    background: linear-gradient(145deg, #ffffffaa, #ffffffee);\n    box-shadow:  3px 3px 5px #EBECF2,\n    -3px -3px 5px #EBECF2;\n}\n.beat-menu[data-v-680ad5a2]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 3px #11111155 solid;\n}\n.beats[data-v-680ad5a2]{\n    width: 80.5vw;\n    height: 83vh;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.beats-container[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    border-radius: 10px;\n    width: 98%;\n    height: 98%;\n    background-color: #FFFFFF;\n    box-shadow: #11111122 ;\n}\n", ""]);
 
 // exports
 
@@ -46475,13 +46479,14 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "add-beat-body px-1 " }, [
                   _c("div", { staticClass: "row beat-head " }, [
-                    _c("div", { staticClass: "beat-cover col-md-6" }, [
-                      _c("div", { staticClass: "cover" }, [
+                    _c("div", { staticClass: "cover-key-tags col-md-6" }, [
+                      _c("div", { staticClass: "cover " }, [
                         _c("label", { attrs: { for: "beat-cover" } }, [
                           _vm._v("Beat Cover")
                         ]),
                         _vm._v(" "),
                         _c("input", {
+                          staticClass: "form-control mt-2",
                           attrs: {
                             id: "beat-cover",
                             required: "",
@@ -46491,14 +46496,48 @@ var render = function() {
                         })
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "zip" }, [
-                        _c("label", { attrs: { for: "beat-zip" } }, [
-                          _vm._v("Beat Zip")
+                      _c("div", { staticClass: "content-link" }, [
+                        _c("label", { attrs: { for: "sample" } }, [
+                          _vm._v("Sample Audio")
                         ]),
                         _vm._v(" "),
                         _c("input", {
-                          attrs: { id: "beat-zip", required: "", type: "file" },
-                          on: { change: _vm.getBeatZip }
+                          staticClass: "form-control mt-2",
+                          attrs: { id: "sample", required: "", type: "file" },
+                          on: { change: _vm.getBeatSample }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "zip" }, [
+                        _c("label", { attrs: { for: "beat-key" } }, [
+                          _vm._v("Beat Key")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.key,
+                              expression: "key"
+                            }
+                          ],
+                          staticClass: "form-control mt-2",
+                          attrs: {
+                            id: "beat-key",
+                            required: "",
+                            type: "text",
+                            placeholder: "Key of the beat ...."
+                          },
+                          domProps: { value: _vm.key },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.key = $event.target.value
+                            }
+                          }
                         })
                       ]),
                       _vm._v(" "),
@@ -46521,7 +46560,8 @@ var render = function() {
                           attrs: {
                             id: "beat-tags",
                             required: "",
-                            type: "text"
+                            type: "text",
+                            placeholder: "Beat Tags go here ...."
                           },
                           domProps: { value: _vm.tag },
                           on: {
@@ -46591,20 +46631,9 @@ var render = function() {
                         })
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "content-link" }, [
-                        _c("label", { attrs: { for: "sample" } }, [
-                          _vm._v("Sample Audio")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          attrs: { id: "sample", required: "", type: "file" },
-                          on: { change: _vm.getBeatSample }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "price-sec" }, [
-                        _c("label", { attrs: { for: "beat-price" } }, [
-                          _vm._v("Beat Price")
+                      _c("div", { staticClass: "basic " }, [
+                        _c("label", { attrs: { for: "basic-link " } }, [
+                          _vm._v("BASIC LICENSE")
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -46616,11 +46645,78 @@ var render = function() {
                               expression: "price"
                             }
                           ],
-                          staticClass: "form-control ",
+                          staticClass: "form-control mt-2",
                           attrs: {
-                            id: "beat-price",
+                            id: "basic-link",
                             required: "",
-                            type: "number"
+                            type: "text",
+                            placeholder: "Link to Basic Beat"
+                          },
+                          domProps: { value: _vm.price },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.price = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "premium " }, [
+                        _c("label", { attrs: { for: "premium-link " } }, [
+                          _vm._v("PREMIUM LICENSE")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.price,
+                              expression: "price"
+                            }
+                          ],
+                          staticClass: "form-control mt-2",
+                          attrs: {
+                            id: "premium-link",
+                            required: "",
+                            type: "text",
+                            placeholder: "Link to Premium Beat"
+                          },
+                          domProps: { value: _vm.price },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.price = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "unlimited " }, [
+                        _c("label", { attrs: { for: "unlimited-link " } }, [
+                          _vm._v("UNLIMITED LICENSE")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.price,
+                              expression: "price"
+                            }
+                          ],
+                          staticClass: "form-control mt-2 ",
+                          attrs: {
+                            id: "unlimited-link",
+                            required: "",
+                            type: "text",
+                            placeholder: "Link to Unlimited Beat"
                           },
                           domProps: { value: _vm.price },
                           on: {
@@ -46680,48 +46776,7 @@ var render = function() {
                         0
                       )
                     ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "beat-content mt-2" }, [
-                    _c("div", { staticClass: "content-body " }, [
-                      _c("textarea", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.about,
-                            expression: "about"
-                          }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "beat-content",
-                          required: "",
-                          id: "",
-                          cols: "30",
-                          rows: "10",
-                          placeholder: "put beat content here ...."
-                        },
-                        domProps: { value: _vm.about },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.about = $event.target.value
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "typing-progress" }, [
-                      _c("span", [
-                        _vm._v(
-                          _vm._s(_vm.numOfCharacters) + " / 982 Characters "
-                        )
-                      ])
-                    ])
-                  ])
+                  )
                 ])
               ]),
               _vm._v(" "),

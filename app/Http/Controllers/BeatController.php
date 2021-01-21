@@ -33,24 +33,22 @@ class BeatController extends Controller
             'title' => 'required',
             'tags' => 'required',
             'price' => 'required',
-            'beat'  => 'required|mimes:zip,application/x-zip-compressed',
+            'key'  => 'required',
+            'basic'  => 'required',
+            'premium'  => 'required',
+            'unlimited'  => 'required',
             'sample'  => 'required|mimes:application/octet-stream,mpeg,mpga,mp3,wav',
         ]);
 
         $beatImgFile =  $request->file('cover');
         $beatImgFileName = time()."BI".strtolower(str_replace(' ', '_',$beatImgFile->getClientOriginalName()));
 
-        $BeatZipFile =  $request->file('beat');
-        $randomName = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890');
-        $dzipMidName = substr($randomName, 0, 12);
-        $BeatZipFileName = $dzipMidName."BZIP".time().".zip";
-
         $BeatSampleFile =  $request->file('sample');
         $BeatSampleFileName = time()."BS".strtolower(str_replace(' ', '_',$BeatSampleFile->getClientOriginalName()));
 
-        if( $beatImgFile->storeAs('public/beats/covers/', $beatImgFileName )  &&  $BeatSampleFile->storeAs('public/beats/samples/', $BeatSampleFileName )  && $BeatZipFile->storeAs('public/beats/zips/', $BeatZipFileName ) ){
+        if( $beatImgFile->storeAs('public/beats/covers/', $beatImgFileName )  &&  $BeatSampleFile->storeAs('public/beats/samples/', $BeatSampleFileName ) ){
 
-            $data['beat'] = $BeatZipFileName;
+
             $data['sample'] = $BeatSampleFileName;
             $data['cover'] =$beatImgFileName;
 
@@ -78,7 +76,10 @@ class BeatController extends Controller
             'title' => 'required',
             'tags' => 'required',
             'price' => 'required',
-            'beat'  => 'required|mimes:zip',
+            'key'  => 'required',
+            'basic'  => 'required',
+            'premium'  => 'required',
+            'unlimited'  => 'required',
             'sample'  => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav',
         ]);
 
@@ -86,24 +87,19 @@ class BeatController extends Controller
         $beatImgFile =  $request->file('cover');
         $beatImgFileName = time()."BI".strtolower(str_replace(' ', '_',$beatImgFile->getClientOriginalName()));
 
-        $BeatZipFile =  $request->file('beat');
-        $randomName = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890');
-        $dzipMidName = substr($randomName, 0, 12);
-        $BeatZipFileName = $dzipMidName."BZIP".time().".zip";
+
 
         $BeatSampleFile =  $request->file('sample');
         $BeatSampleFileName = time()."BS".strtolower(str_replace(' ', '_',$BeatSampleFile->getClientOriginalName()));
 
-        if( $beatImgFile->storeAs('public/beats/covers/', $beatImgFileName )  &&  $BeatSampleFile->storeAs('public/beats/samples/', $BeatSampleFileName )  && $BeatZipFile->storeAs('public/beats/zips/', $BeatZipFileName ) ){
+        if( $beatImgFile->storeAs('public/beats/covers/', $beatImgFileName )  &&  $BeatSampleFile->storeAs('public/beats/samples/', $BeatSampleFileName )){
 
             $beatImg = 'public/beats/covers/'.$beat->cover;
             $beatSample = 'public/beats/samples/'.$beat->sample;
-            $beatZip = 'public/beats/zips/'.$beat->beat;
 
-            if(Storage::exists($beatImg) && Storage::exists($beatZip) && Storage::exists($beatSample) && Storage::delete([$beatImg,$beatZip,$beatSample])){
+            if(Storage::exists($beatImg) && Storage::exists($beatSample)){
 
                 $data['cover'] = $beatImgFileName;
-                $data['beat'] = $BeatZipFileName;
                 $data['sample'] = $BeatSampleFileName;
 
                 if($beat->update($data)){
@@ -119,9 +115,8 @@ class BeatController extends Controller
             }else{
 
                 $replacerImgName = 'public/beats/covers/'.$beatImgFileName;
-                $replacerZipName = 'public/beats/zips/'.$BeatZipFileName;
                 $replacerSampleName = 'public/beats/samples/'.$BeatSampleFileName;
-                Storage::delete([$replacerImgName,$replacerZipName,$replacerSampleName]);
+                Storage::delete([$replacerImgName,$replacerSampleName]);
 
                 return response('Failed To Update Beat Image', Response::HTTP_FORBIDDEN);
             }
@@ -132,6 +127,8 @@ class BeatController extends Controller
     }
 
     public function download(Beat $beat){
+
+//        rewrite
         $pathToFile = 'public/beats/zips/'.$beat->beat;
 
         $headers = array(

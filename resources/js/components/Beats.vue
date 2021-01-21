@@ -83,18 +83,25 @@
                         </div>
                         <div class="add-beat-body px-1 ">
                             <div class="row beat-head ">
-                                <div class="beat-cover col-md-6">
-                                    <div class="cover">
+                                <div class="cover-key-tags col-md-6">
+                                    <div class="cover ">
                                         <label for="beat-cover">Beat Cover</label>
-                                        <input @change="getBeatCover" id="beat-cover" required type="file">
+                                        <input @change="getBeatCover" id="beat-cover" required type="file" class="form-control mt-2">
                                     </div>
+
+                                    <div class="content-link">
+                                        <label for="sample">Sample Audio</label>
+                                        <input @change="getBeatSample" id="sample" required type="file" class="form-control mt-2">
+                                    </div>
+
                                     <div class="zip">
-                                        <label for="beat-zip">Beat Zip</label>
-                                        <input @change="getBeatZip" id="beat-zip" required type="file">
+                                        <label for="beat-key">Beat Key</label>
+                                        <input v-model="key" id="beat-key" required type="text" class="form-control mt-2" placeholder="Key of the beat ....">
                                     </div>
+
                                     <div class="tags">
                                         <label for="beat-tags">Beat Tags</label>
-                                        <input id="beat-tags" v-model.trim="tag" required type="text" @keypress.prevent.stop.enter="addTag" class="form-control mt-2" >
+                                        <input id="beat-tags" v-model.trim="tag" required type="text" @keypress.prevent.stop.enter="addTag" class="form-control mt-2"  placeholder="Beat Tags go here ....">
                                     </div>
                                 </div>
                                 <div class="link-n-title col-md-6">
@@ -102,13 +109,18 @@
                                         <label for="title">Beat Title</label>
                                         <input type="text" id="title" required v-model="title" name="title" class="form-control mt-2" placeholder="Beat title goes here ....">
                                     </div>
-                                    <div class="content-link">
-                                        <label for="sample">Sample Audio</label>
-                                        <input @change="getBeatSample" id="sample" required type="file">
+
+                                    <div class="basic ">
+                                        <label for="basic-link ">BASIC LICENSE</label>
+                                        <input id="basic-link" required type="text"  v-model="price" class="form-control mt-2" placeholder="Link to Basic Beat">
                                     </div>
-                                    <div class="price-sec">
-                                        <label for="beat-price">Beat Price</label>
-                                        <input id="beat-price" required type="number"  v-model="price" class="form-control " >
+                                    <div class="premium ">
+                                        <label for="premium-link ">PREMIUM LICENSE</label>
+                                        <input id="premium-link" required type="text"  v-model="price" class="form-control mt-2" placeholder="Link to Premium Beat">
+                                    </div>
+                                    <div class="unlimited ">
+                                        <label for="unlimited-link ">UNLIMITED LICENSE</label>
+                                        <input id="unlimited-link" required type="text"  v-model="price" class="form-control mt-2 " placeholder="Link to Unlimited Beat">
                                     </div>
                                 </div>
                             </div>
@@ -121,16 +133,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="beat-content mt-2">
 
-                                <div class="content-body ">
-                                    <textarea name="beat-content" required v-model="about" class="form-control"  id="" cols="30" rows="10" placeholder="put beat content here ...."></textarea>
-                                </div>
-                                <div class="typing-progress">
-
-                                    <span>{{ numOfCharacters }} / 982 Characters </span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -157,6 +160,7 @@
                 about: '',
                 tags: [],
                 tag: '',
+                key: '',
                 price: '',
                 cover:null,
                 sample: null,
@@ -357,6 +361,7 @@
 <style scoped>
 
     .tags-list{
+        height: 15%;
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -513,8 +518,11 @@
     }
 
     .beat-head{
-        height: 30%;
+        min-height: 85%;
         width: 100%;
+    }
+    .beat-head div{
+        margin-bottom: 20px;
     }
     .beat{
         background-color: white;
@@ -523,10 +531,6 @@
         display: flex;
         align-items: center;
         border-radius: 3px;
-    }
-    .beat-content{
-        height: 70%;
-        width: 100%;
     }
 
     .content-link{
