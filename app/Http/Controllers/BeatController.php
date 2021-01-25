@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Beat;
 use App\Http\Resources\BeatsResource;
+use App\Rules\AudioValidator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,16 +29,14 @@ class BeatController extends Controller
     {
 //        dd($request->all());
         $data = $request->validate([
-            'about' => 'required',
             'cover'  => 'required|image|mimes:jpg,png,jpeg',
             'title' => 'required',
             'tags' => 'required',
-            'price' => 'required',
-            'key'  => 'required',
+            'bpmkey'  => 'required',
             'basic'  => 'required',
             'premium'  => 'required',
             'unlimited'  => 'required',
-            'sample'  => 'required|mimes:application/octet-stream,mpeg,mpga,mp3,wav',
+            'sample'  => ['required' , new AudioValidator()],
         ]);
 
         $beatImgFile =  $request->file('cover');
@@ -71,16 +70,14 @@ class BeatController extends Controller
     public function update(Request $request, Beat $beat)
     {
         $data = $request->validate([
-            'about' => 'required',
             'cover'  => 'required|image|mimes:jpg,png,jpeg',
             'title' => 'required',
             'tags' => 'required',
-            'price' => 'required',
-            'key'  => 'required',
+            'bpmkey'  => 'required',
             'basic'  => 'required',
             'premium'  => 'required',
             'unlimited'  => 'required',
-            'sample'  => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav',
+            'sample'  => ['required' , new AudioValidator()],
         ]);
 
 
@@ -146,10 +143,9 @@ class BeatController extends Controller
     {
         $beatImg = 'public/beats/covers/'.$beat->cover;
         $beatSample = 'public/beats/samples/'.$beat->sample;
-        $beatZip = 'public/beats/zips/'.$beat->beat;
 
 
-        if(Storage::exists($beatImg) && Storage::exists($beatZip) && Storage::exists($beatSample) && Storage::delete([$beatImg,$beatZip,$beatSample])){
+        if(Storage::exists($beatImg) && Storage::exists($beatSample) && Storage::delete([$beatImg,$beatSample])){
 
             if($beat->delete()){
                 return response('Beat Deleted', Response::HTTP_OK);

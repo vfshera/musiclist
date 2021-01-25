@@ -71,7 +71,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addBeatModalLongTitle" style="display: inline-block">Add Beat</h5>
+                        <h4 class="modal-title" id="addBeatModalLongTitle" style="display: inline-block">Add Beat</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -95,13 +95,13 @@
                                     </div>
 
                                     <div class="zip">
-                                        <label for="beat-key">Beat Key</label>
-                                        <input v-model="key" id="beat-key" required type="text" class="form-control mt-2" placeholder="Key of the beat ....">
+                                        <label for="beat-key">BPM , Key</label>
+                                        <input v-model="bpmkey" id="beat-key" required type="text" class="form-control mt-2" placeholder="As 96.0 , C# Major ....">
                                     </div>
 
                                     <div class="tags">
                                         <label for="beat-tags">Beat Tags</label>
-                                        <input id="beat-tags" v-model.trim="tag" required type="text" @keypress.prevent.stop.enter="addTag" class="form-control mt-2"  placeholder="Beat Tags go here ....">
+                                        <input id="beat-tags" v-model.trim="tag" required type="text" @keypress.prevent.stop.enter="addTag" class="form-control mt-2"  placeholder="Afrobeat , Gengetone , Hip Hop ....">
                                     </div>
                                 </div>
                                 <div class="link-n-title col-md-6">
@@ -111,17 +111,36 @@
                                     </div>
 
                                     <div class="basic ">
-                                        <label for="basic-link ">BASIC LICENSE</label>
-                                        <input id="basic-link" required type="text"  v-model="price" class="form-control mt-2" placeholder="Link to Basic Beat">
+                                        <label for="basic-link ">BASIC LICENSE
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                        </label>
+                                        <input id="basic-link" required type="text"  v-model="basic" class="form-control mt-2" placeholder="Link to Basic Beat">
                                     </div>
                                     <div class="premium ">
-                                        <label for="premium-link ">PREMIUM LICENSE</label>
-                                        <input id="premium-link" required type="text"  v-model="price" class="form-control mt-2" placeholder="Link to Premium Beat">
+                                        <label for="premium-link ">PREMIUM LICENSE
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                        </label>
+                                        <input id="premium-link" required type="text"  v-model="premium" class="form-control mt-2" placeholder="Link to Premium Beat">
                                     </div>
                                     <div class="unlimited ">
-                                        <label for="unlimited-link ">UNLIMITED LICENSE</label>
-                                        <input id="unlimited-link" required type="text"  v-model="price" class="form-control mt-2 " placeholder="Link to Unlimited Beat">
+                                        <label for="unlimited-link ">UNLIMITED LICENSE
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                        </label>
+                                        <input id="unlimited-link" required type="text"  v-model="unlimited" class="form-control mt-2 " placeholder="Link to Unlimited Beat">
                                     </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input" id="freecustomRadio" name="free"  @change="setBeatValue">
+                                    <label class="custom-control-label" for="freecustomRadio">Free Beat</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input" id="paidcustomRadio" name="paid" value="true" @change="setBeatValue">
+                                    <label class="custom-control-label" for="paidcustomRadio">Paid Beat</label>
                                 </div>
                             </div>
                             <div class="tags-list col-md-12" v-show="tags.length > 0">
@@ -155,13 +174,14 @@
                 search: '',
                 isProcessing: true,
                 isPosting: false,
-                beat:null,
                 title: '',
-                about: '',
                 tags: [],
                 tag: '',
-                key: '',
-                price: '',
+                bpmkey: '',
+                basic: '',
+                premium: '',
+                unlimited: '',
+                isFree: false,
                 cover:null,
                 sample: null,
                 pagination: {}
@@ -169,6 +189,9 @@
             }
         },
         methods:{
+            setBeatValue(e){
+                console.log(e.target.name)
+            },
             formatTags(tags){
                var tags = tags.split(",")
 
@@ -205,8 +228,10 @@
                 this.beat = null;
                 this.title = '';
                 this.tags = [];
-                this.about = '';
-                this.price = '';
+                this.bpmkey = '';
+                this.basic = '';
+                this.premium = '';
+                this.unlimited = '';
                 this.cover = null;
                 this.sample = null;
             },
@@ -234,9 +259,10 @@
                 fd.append('cover',this.cover)
                 fd.append('title',this.title)
                 fd.append('sample',this.sample)
-                fd.append('beat',this.beat)
-                fd.append('about',this.about)
-                fd.append('price',this.price)
+                fd.append('basic',this.basic)
+                fd.append('bpmkey',this.bpmkey)
+                fd.append('premium',this.premium)
+                fd.append('unlimited',this.unlimited)
                 fd.append('tags',this.tags)
 
 
@@ -360,6 +386,15 @@
 
 <style scoped>
 
+    .basic label i{
+        color: #ffd300;
+    }
+    .premium label i{
+        color: #007bff;
+    }
+    .unlimited label i{
+        color: green;
+    }
     .tags-list{
         height: 15%;
         display: flex;
@@ -522,7 +557,7 @@
         width: 100%;
     }
     .beat-head div{
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
     .beat{
         background-color: white;

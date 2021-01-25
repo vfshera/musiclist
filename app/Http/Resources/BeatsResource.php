@@ -17,10 +17,8 @@ class BeatsResource extends JsonResource
         return [
             'id'  => $this->id,
             'title'  => $this->title,
-            'about'  => $this->about,
             'tags'  => $this->tags,
             'cover'  =>  asset('/storage/beats/covers/'.$this->cover),
-            'beat'  =>  asset('/storage/beats/zips/'.$this->beat),
             'sample' =>  asset('/storage/beats/samples/'.$this->sample),
             'price' =>  ($this->price > 0 ) ? '$'.$this->price : 'FREE',
             'isFree' =>  ($this->price == 0 ) ? true : false,
