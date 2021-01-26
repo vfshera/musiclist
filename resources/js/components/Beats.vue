@@ -84,47 +84,47 @@
                         <div class="add-beat-body px-1 ">
                             <div class="row beat-head ">
                                 <div class="cover-key-tags col-md-6">
-                                    <div class="cover ">
+                                    <div class="cover withmb">
                                         <label for="beat-cover">Beat Cover</label>
                                         <input @change="getBeatCover" id="beat-cover" required type="file" class="form-control mt-2">
                                     </div>
 
-                                    <div class="content-link">
+                                    <div class="content-link withmb">
                                         <label for="sample">Sample Audio</label>
                                         <input @change="getBeatSample" id="sample" required type="file" class="form-control mt-2">
                                     </div>
 
-                                    <div class="zip">
+                                    <div class="zip withmb">
                                         <label for="beat-key">BPM , Key</label>
                                         <input v-model="bpmkey" id="beat-key" required type="text" class="form-control mt-2" placeholder="As 96.0 , C# Major ....">
                                     </div>
 
-                                    <div class="tags">
+                                    <div class="tags ">
                                         <label for="beat-tags">Beat Tags</label>
                                         <input id="beat-tags" v-model.trim="tag" required type="text" @keypress.prevent.stop.enter="addTag" class="form-control mt-2"  placeholder="Afrobeat , Gengetone , Hip Hop ....">
                                     </div>
                                 </div>
-                                <div class="link-n-title col-md-6">
-                                    <div class="beat-title ">
+                                <div class="link-n-title col-md-6 ">
+                                    <div class="beat-title withmb">
                                         <label for="title">Beat Title</label>
                                         <input type="text" id="title" required v-model="title" name="title" class="form-control mt-2" placeholder="Beat title goes here ....">
                                     </div>
 
-                                    <div class="basic ">
-                                        <label for="basic-link ">BASIC LICENSE
+                                    <div class="basic withmb">
+                                        <label for="basic-link ">MP3 LINK
                                             <i class="fa fa-usd" aria-hidden="true"></i>
                                         </label>
                                         <input id="basic-link" required type="text"  v-model="basic" class="form-control mt-2" placeholder="Link to Basic Beat">
                                     </div>
-                                    <div class="premium ">
-                                        <label for="premium-link ">PREMIUM LICENSE
+                                    <div class="premium withmb">
+                                        <label for="premium-link ">MP3 + WAV LINK
                                             <i class="fa fa-usd" aria-hidden="true"></i>
                                             <i class="fa fa-usd" aria-hidden="true"></i>
                                         </label>
                                         <input id="premium-link" required type="text"  v-model="premium" class="form-control mt-2" placeholder="Link to Premium Beat">
                                     </div>
                                     <div class="unlimited ">
-                                        <label for="unlimited-link ">UNLIMITED LICENSE
+                                        <label for="unlimited-link ">MP3 + WAV + STEMS LINK
                                             <i class="fa fa-usd" aria-hidden="true"></i>
                                             <i class="fa fa-usd" aria-hidden="true"></i>
                                             <i class="fa fa-usd" aria-hidden="true"></i>
@@ -133,17 +133,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" class="custom-control-input" id="freecustomRadio" name="free"  @change="setBeatValue">
-                                    <label class="custom-control-label" for="freecustomRadio">Free Beat</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" class="custom-control-input" id="paidcustomRadio" name="paid" value="true" @change="setBeatValue">
-                                    <label class="custom-control-label" for="paidcustomRadio">Paid Beat</label>
-                                </div>
-                            </div>
-                            <div class="tags-list col-md-12" v-show="tags.length > 0">
+
+                            <div class="tags-list col-md-12 mt-3" v-show="tags.length > 0">
                                 <span>TAGS </span>
                                 <ul class="tags-ul">
                                     <li class="tag-item px-2 mx-1" v-for="(tag, index) in setTags" :key="index">
@@ -151,6 +142,10 @@
                                         <span @click="tags.splice(index, 1)" style="cursor: pointer">&times;</span>
                                     </li>
                                 </ul>
+                            </div>
+                            <div class="payment mt-2">
+                                <input type="checkbox" class="payswitch" :checked="isPaid" @change="setBeatValue">
+                                <label for="">{{ (isPaid) ? "PAID BEAT" : "FREE BEAT"}} </label>
                             </div>
 
                         </div>
@@ -181,7 +176,7 @@
                 basic: '',
                 premium: '',
                 unlimited: '',
-                isFree: false,
+                isPaid: true,
                 cover:null,
                 sample: null,
                 pagination: {}
@@ -190,7 +185,7 @@
         },
         methods:{
             setBeatValue(e){
-                console.log(e.target.name)
+                this.isPaid = e.target.checked
             },
             formatTags(tags){
                var tags = tags.split(",")
@@ -225,13 +220,13 @@
             },
 
             resetBeat(){
-                this.beat = null;
                 this.title = '';
                 this.tags = [];
                 this.bpmkey = '';
                 this.basic = '';
                 this.premium = '';
                 this.unlimited = '';
+                this.isPaid = true;
                 this.cover = null;
                 this.sample = null;
             },
@@ -253,54 +248,64 @@
 
             },
             postBeat(){
-                this.isPosting = true;
+                if(this.title != '' && this.bpmkey != '' && this.basic  != ''  && this.premium  != '' && this.unlimited  != '' && this.cover != null && this.sample != null  )
+                {
+                    this.isPosting = true;
 
-                let fd = new FormData();
-                fd.append('cover',this.cover)
-                fd.append('title',this.title)
-                fd.append('sample',this.sample)
-                fd.append('basic',this.basic)
-                fd.append('bpmkey',this.bpmkey)
-                fd.append('premium',this.premium)
-                fd.append('unlimited',this.unlimited)
-                fd.append('tags',this.tags)
+                    let fd = new FormData();
+                    fd.append('cover',this.cover)
+                    fd.append('title',this.title)
+                    fd.append('sample',this.sample)
+                    fd.append('basic',this.basic)
+                    fd.append('bpmkey',this.bpmkey)
+                    fd.append('premium',this.premium)
+                    fd.append('unlimited',this.unlimited)
+                    fd.append('ispaid',this.isPaid)
+                    fd.append('tags',this.tags)
 
 
-                axios.post( '/addBeat',fd,
-                    {
-                        headers: {
-                            'Content-Type': 'multipart/form-data'
+                    axios.post( '/addBeat',fd,
+                        {
+                            headers: {
+                                'Content-Type': 'multipart/form-data'
+                            }
+                        }).then( res =>{
+                        this.isPosting = false;
+
+                        if(res.status == 201){
+                            Fire.$emit('BeatChanged');
+
+                            Toast.fire({
+                                icon: 'success',
+                                title: res.data
+                            });
+
+                            this.resetBeat();
+
+                            this.modalOpenClose('#addBeatModal', 'close');
+
+                        }else if(res.status == 403){
+                            Toast.fire({
+                                icon: 'error',
+                                title: res.data
+                            });
+                        }else{
+                            Toast.fire({
+                                icon: 'error',
+                                title: 'Something wiered Happened!'
+                            });
                         }
-                    }).then( res =>{
-                    this.isPosting = false;
 
-                    if(res.status == 201){
-                        Fire.$emit('BeatChanged');
+                    }).catch(err => {
+                        console.log(err)
+                    })
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Ensure All Fields Are Filled!',
+                    })
+                }
 
-                        Toast.fire({
-                            icon: 'success',
-                            title: res.data
-                        });
-
-                        this.resetBeat();
-
-                        this.modalOpenClose('#addBeatModal', 'close');
-
-                    }else if(res.status == 403){
-                        Toast.fire({
-                            icon: 'error',
-                            title: res.data
-                        });
-                    }else{
-                        Toast.fire({
-                            icon: 'error',
-                            title: 'Something wiered Happened!'
-                        });
-                    }
-
-                }).catch(err => {
-                    console.log(err)
-                })
             },
             fetchBeats(beatsurl){
                 let beats_url = beatsurl || '/getBeats';
@@ -386,6 +391,45 @@
 
 <style scoped>
 
+    .payment{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .payswitch{
+        position: relative;
+        height:20px;
+        width:60px;
+        -webkit-appearance: none;
+        background:#c6c6c6;
+        outline:none;
+        border-radius: 10px;
+        box-shadow:inset 0 0 5px rgba(0,0,0,.2);
+    }
+
+
+    .payswitch:checked{
+        background:#03a9f4;
+    }
+
+
+    .payswitch:before{
+        content: "";
+        position: absolute;
+        top:.25px;
+        left: .5px;
+        height: 19.5px;
+        width:19.5px;
+        background-color: white;
+        border-radius: 50%;
+        box-shadow: inset 0 2px 5px rgba(0,0,0,.2);
+        transition: .5s;
+    }
+
+    .payswitch:checked:before{
+        left: 39.5px;
+    }
     .basic label i{
         color: #ffd300;
     }
@@ -556,7 +600,7 @@
         min-height: 85%;
         width: 100%;
     }
-    .beat-head div{
+    .withmb{
         margin-bottom: 30px;
     }
     .beat{

@@ -33,6 +33,7 @@ class BeatController extends Controller
             'title' => 'required',
             'tags' => 'required',
             'bpmkey'  => 'required',
+            'ispaid'  => 'required',
             'basic'  => 'required',
             'premium'  => 'required',
             'unlimited'  => 'required',
@@ -49,7 +50,8 @@ class BeatController extends Controller
 
 
             $data['sample'] = $BeatSampleFileName;
-            $data['cover'] =$beatImgFileName;
+            $data['cover'] = $beatImgFileName;
+            $data['ispaid'] = ($data['ispaid']) ? '1' : '0';
 
              Beat::create($data);
 

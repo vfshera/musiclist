@@ -18,10 +18,13 @@ class CreateBeatsTable extends Migration
             $table->string('title');
             $table->string('about');
             $table->string('cover');
-            $table->string('beat');
             $table->string('sample');
+            $table->string('bpmkey');
+            $table->string('basic');
+            $table->string('premium');
+            $table->string('unlimited');
             $table->string('tags');
-            $table->double('price', 5,2);
+            $table->boolean('ispaid')->default(true);
             $table->timestamps();
         });
     }

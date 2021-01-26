@@ -20,8 +20,8 @@ class BeatsResource extends JsonResource
             'tags'  => $this->tags,
             'cover'  =>  asset('/storage/beats/covers/'.$this->cover),
             'sample' =>  asset('/storage/beats/samples/'.$this->sample),
-            'price' =>  ($this->price > 0 ) ? '$'.$this->price : 'FREE',
-            'isFree' =>  ($this->price == 0 ) ? true : false,
+            'price' =>  ($this->ispaid > 0 ) ? '$'.$this->price : 'FREE',
+            'isPaid' =>  ($this->ispaid == 0 ) ? true : false,
         ];
     }
 }
