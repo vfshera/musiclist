@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="The Official website for Producer Tony Gregory aka TonyOnTheTrack! | Get Your Bangers Here! | Gengetone, Drill, Hip Hop, Afrobeats">
+        <meta name="keywords" content="Producer, Beat Maker, Beats, TonyOnTheTrack,Tony Gregory,Gengetone, Drill, Hip Hop, Kenya Beats,Afrobeats,Music">
 
         <title>TONY ON THE TRACK</title>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">

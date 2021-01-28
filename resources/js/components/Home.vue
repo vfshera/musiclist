@@ -3,7 +3,7 @@
         <div id="hero" >
           <div class="info">
               <h1>Tony On The Track</h1>
-              <p class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum libero perspiciatis, praesentium ratione saepe sapiente sed sint temporibus velit vero! Ab aliquam asperiores consequatur dolore esse ipsam libero necessitatibus neque nesciunt, numquam odio quas similique voluptatibus? Eum libero nulla ullam!</p>
+              <p class="container">The Official Website For Bangers</p>
           </div>
         </div>
         <div id="beats"  class=" my-5" >

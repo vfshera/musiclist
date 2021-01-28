@@ -2564,7 +2564,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3744,6 +3743,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3756,6 +3759,7 @@ __webpack_require__.r(__webpack_exports__);
       title: '',
       type: '',
       about: '',
+      dprice: '',
       cover: null,
       sample: null,
       pagination: {}
@@ -9737,7 +9741,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.payment[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n.payswitch[data-v-680ad5a2]{\n    position: relative;\n    height:20px;\n    width:60px;\n    -webkit-appearance: none;\n    background:#c6c6c6;\n    outline:none;\n    border-radius: 10px;\n    box-shadow:inset 0 0 5px rgba(0,0,0,.2);\n}\n.payswitch[data-v-680ad5a2]:checked{\n    background:#03a9f4;\n}\n.payswitch[data-v-680ad5a2]:before{\n    content: \"\";\n    position: absolute;\n    top:.25px;\n    left: .5px;\n    height: 19.5px;\n    width:19.5px;\n    background-color: white;\n    border-radius: 50%;\n    box-shadow: inset 0 2px 5px rgba(0,0,0,.2);\n    transition: .5s;\n}\n.payswitch[data-v-680ad5a2]:checked:before{\n    left: 39.5px;\n}\n.basic label i[data-v-680ad5a2]{\n    color: #ffd300;\n}\n.premium label i[data-v-680ad5a2]{\n    color: #007bff;\n}\n.unlimited label i[data-v-680ad5a2]{\n    color: green;\n}\n.tags-list[data-v-680ad5a2]{\n    height: 15%;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    margin-top: 10px;\n}\n.tags-list span[data-v-680ad5a2]{\n    font-weight: bold;\n    margin: 5px;\n}\n.tags-ul[data-v-680ad5a2] {\n    display: flex;\n}\n.tags-ul .tag-item[data-v-680ad5a2]{\n    height: 100%;\n    background-color: #111111;\n    color: white;\n    border-radius: 5px;\n}\n.track-tags[data-v-680ad5a2]{\n    font-size: .75rem;\n}\n.track-tags span[data-v-680ad5a2] {\n    color: white;\n    background-color: #908887;\n    padding: 3px 7px;\n    margin: 0px 3px;\n    border-radius: 5px;\n}\n.typing-progress[data-v-680ad5a2]{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.lds-dual-ring[data-v-680ad5a2] {\n\n    display: inline-block;\n    width: 80px;\n    height: 80px;\n}\n.lds-dual-ring[data-v-680ad5a2]:after {\n    position: absolute;\n    top:45%;\n    left:56%;\n    content: \" \";\n    display: block;\n    width: 64px;\n    height: 64px;\n    margin: 8px;\n    border-radius: 50%;\n    border: 6px solid orangered;\n    border-color: orangered transparent orangered transparent;\n    -webkit-animation: lds-dual-ring-data-v-680ad5a2 1.2s linear infinite;\n            animation: lds-dual-ring-data-v-680ad5a2 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring-data-v-680ad5a2 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring-data-v-680ad5a2 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n.posting-beat[data-v-680ad5a2]{\n    position: absolute;\n    top: 49%;\n    left: 43%;\n}\n.loader[data-v-680ad5a2] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-680ad5a2] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-680ad5a2]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-680ad5a2 0.6s infinite;\n            animation: lds-ellipsis1-data-v-680ad5a2 0.6s infinite;\n}\n.loader div[data-v-680ad5a2]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-680ad5a2 0.6s infinite;\n            animation: lds-ellipsis2-data-v-680ad5a2 0.6s infinite;\n}\n.loader div[data-v-680ad5a2]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-680ad5a2 0.6s infinite;\n            animation: lds-ellipsis2-data-v-680ad5a2 0.6s infinite;\n}\n.loader div[data-v-680ad5a2]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-680ad5a2 0.6s infinite;\n            animation: lds-ellipsis3-data-v-680ad5a2 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-680ad5a2 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-680ad5a2 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-680ad5a2 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-680ad5a2 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-680ad5a2 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-680ad5a2 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n.content-link input[data-v-680ad5a2], .beat-title input[data-v-680ad5a2]{\n    width: 100%;\n}\n.link-n-title[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n}\n.content-body[data-v-680ad5a2]{\n}\n.add-beat-body[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    min-height:60vh;\n}\n.beat-cover[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: flex-start;\n}\n.beat-title[data-v-680ad5a2]{\n}\n.beat-head[data-v-680ad5a2]{\n    min-height: 85%;\n    width: 100%;\n}\n.withmb[data-v-680ad5a2]{\n    margin-bottom: 30px;\n}\n.beat[data-v-680ad5a2]{\n    background-color: white;\n    margin: 2px 0px;\n    padding: 3px;\n    display: flex;\n    align-items: center;\n    border-radius: 3px;\n}\n.content-link[data-v-680ad5a2]{\n}\n.beat-controls[data-v-680ad5a2]{\n    display: flex;\n    justify-content: flex-end;\n}\n.beat-cards[data-v-680ad5a2]{\n    display: flex;\n   flex-direction: column;\n    background-color: #EBECF1;\n    height: 100%;\n}\n.beat-item img[data-v-680ad5a2]{\n    height: 10%;\n    width: 10%;\n\n    -o-object-fit: contain;\n\n       object-fit: contain;\n}\n.caption[data-v-680ad5a2]{\n    height: 20%;\n    font-size: 13px;\n    text-align: center;\n}\n.price[data-v-680ad5a2]{\n    height: 20%;\n    font-size: 13px;\n    text-align: center;\n}\n.price-sec[data-v-680ad5a2]{\n}\n.beat-item[data-v-680ad5a2]{\n    width: 100%;\n    height: 50px;\n    border-radius: 5px;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);\n    transition: .1s ease-in-out;\n}\n.beat-item[data-v-680ad5a2]:hover{\n    transform: scale(1.02);\n    border: 2px #007bff33 solid;\n    box-shadow: 0 4px 10px 0 #007bff45 , 0 6px 22px 0 #007bff45;\n}\n.new-btn[data-v-680ad5a2]{\n    width: 100px;\n}\n.new-btn[data-v-680ad5a2]:hover{\n    font-weight: bold;\n}\n.search-bar input[data-v-680ad5a2]{\n    width: 96%;\n    text-align: center;\n}\n.search-bar[data-v-680ad5a2]{\n    border: #11111133 1px solid;\n    width: 40%;\n    height: 40px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-radius: 25px;\n    transition: .2s ease-in-out;\n}\n.search-bar[data-v-680ad5a2]:hover{\n    border: #11111177 2px solid;\n}\n.search-bar-focused[data-v-680ad5a2]{\n    border: #0275d8 2px solid !important;\n}\n.beat[data-v-680ad5a2]:hover{\n    background: linear-gradient(145deg, #ffffffaa, #ffffffee);\n    box-shadow:  3px 3px 5px #EBECF2,\n    -3px -3px 5px #EBECF2;\n}\n.beat-menu[data-v-680ad5a2]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 3px #11111155 solid;\n}\n.beats[data-v-680ad5a2]{\n    width: 80.5vw;\n    height: 83vh;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.beats-container[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    border-radius: 10px;\n    width: 98%;\n    height: 98%;\n    background-color: #FFFFFF;\n    box-shadow: #11111122 ;\n}\n", ""]);
+exports.push([module.i, "\n.payment[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n.payswitch[data-v-680ad5a2]{\n    position: relative;\n    height:20px;\n    width:50px;\n    -webkit-appearance: none;\n    background:#c6c6c6;\n    outline:none;\n    border-radius: 10px;\n    box-shadow:inset 0 0 5px rgba(0,0,0,.2);\n}\n.payswitch[data-v-680ad5a2]:checked{\n    background:#03a9f4;\n}\n.payswitch[data-v-680ad5a2]:before{\n    content: \"\";\n    position: absolute;\n    top:.25px;\n    left: .5px;\n    height: 19.5px;\n    width:19.5px;\n    background-color: white;\n    border-radius: 50%;\n    box-shadow: inset 0 2px 5px rgba(0,0,0,.2);\n    transition: .5s;\n}\n.payswitch[data-v-680ad5a2]:checked:before{\n    left: 29.5px;\n}\n.basic label i[data-v-680ad5a2]{\n    color: #ffd300;\n}\n.premium label i[data-v-680ad5a2]{\n    color: #007bff;\n}\n.unlimited label i[data-v-680ad5a2]{\n    color: green;\n}\n.tags-list[data-v-680ad5a2]{\n    height: 15%;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    margin-top: 10px;\n}\n.tags-list span[data-v-680ad5a2]{\n    font-weight: bold;\n    margin: 5px;\n}\n.tags-ul[data-v-680ad5a2] {\n    display: flex;\n}\n.tags-ul .tag-item[data-v-680ad5a2]{\n    height: 100%;\n    background-color: #111111;\n    color: white;\n    border-radius: 5px;\n}\n.track-tags[data-v-680ad5a2]{\n    font-size: .75rem;\n}\n.track-tags span[data-v-680ad5a2] {\n    color: white;\n    background-color: #908887;\n    padding: 3px 7px;\n    margin: 0px 3px;\n    border-radius: 5px;\n}\n.typing-progress[data-v-680ad5a2]{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.lds-dual-ring[data-v-680ad5a2] {\n\n    display: inline-block;\n    width: 80px;\n    height: 80px;\n}\n.lds-dual-ring[data-v-680ad5a2]:after {\n    position: absolute;\n    top:45%;\n    left:56%;\n    content: \" \";\n    display: block;\n    width: 64px;\n    height: 64px;\n    margin: 8px;\n    border-radius: 50%;\n    border: 6px solid orangered;\n    border-color: orangered transparent orangered transparent;\n    -webkit-animation: lds-dual-ring-data-v-680ad5a2 1.2s linear infinite;\n            animation: lds-dual-ring-data-v-680ad5a2 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring-data-v-680ad5a2 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring-data-v-680ad5a2 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n.posting-beat[data-v-680ad5a2]{\n    position: absolute;\n    top: 49%;\n    left: 43%;\n}\n.loader[data-v-680ad5a2] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-680ad5a2] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-680ad5a2]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-680ad5a2 0.6s infinite;\n            animation: lds-ellipsis1-data-v-680ad5a2 0.6s infinite;\n}\n.loader div[data-v-680ad5a2]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-680ad5a2 0.6s infinite;\n            animation: lds-ellipsis2-data-v-680ad5a2 0.6s infinite;\n}\n.loader div[data-v-680ad5a2]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-680ad5a2 0.6s infinite;\n            animation: lds-ellipsis2-data-v-680ad5a2 0.6s infinite;\n}\n.loader div[data-v-680ad5a2]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-680ad5a2 0.6s infinite;\n            animation: lds-ellipsis3-data-v-680ad5a2 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-680ad5a2 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-680ad5a2 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-680ad5a2 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-680ad5a2 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-680ad5a2 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-680ad5a2 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n.content-link input[data-v-680ad5a2], .beat-title input[data-v-680ad5a2]{\n    width: 100%;\n}\n.link-n-title[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n}\n.content-body[data-v-680ad5a2]{\n}\n.add-beat-body[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    min-height:60vh;\n}\n.beat-cover[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: flex-start;\n}\n.beat-title[data-v-680ad5a2]{\n}\n.beat-head[data-v-680ad5a2]{\n    min-height: 85%;\n    width: 100%;\n}\n.withmb[data-v-680ad5a2]{\n    margin-bottom: 30px;\n}\n.beat[data-v-680ad5a2]{\n    background-color: white;\n    margin: 2px 0px;\n    padding: 3px;\n    display: flex;\n    align-items: center;\n    border-radius: 3px;\n}\n.content-link[data-v-680ad5a2]{\n}\n.beat-controls[data-v-680ad5a2]{\n    display: flex;\n    justify-content: flex-end;\n}\n.beat-cards[data-v-680ad5a2]{\n    display: flex;\n   flex-direction: column;\n    background-color: #EBECF1;\n    height: 100%;\n}\n.beat-item img[data-v-680ad5a2]{\n    height: 10%;\n    width: 10%;\n\n    -o-object-fit: contain;\n\n       object-fit: contain;\n}\n.caption[data-v-680ad5a2]{\n    height: 20%;\n    font-size: 13px;\n    text-align: center;\n}\n.price[data-v-680ad5a2]{\n    height: 20%;\n    font-size: 13px;\n    text-align: center;\n}\n.price-sec[data-v-680ad5a2]{\n}\n.beat-item[data-v-680ad5a2]{\n    width: 100%;\n    height: 50px;\n    border-radius: 5px;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);\n    transition: .1s ease-in-out;\n}\n.beat-item[data-v-680ad5a2]:hover{\n    transform: scale(1.02);\n    border: 2px #007bff33 solid;\n    box-shadow: 0 4px 10px 0 #007bff45 , 0 6px 22px 0 #007bff45;\n}\n.new-btn[data-v-680ad5a2]{\n    width: 100px;\n}\n.new-btn[data-v-680ad5a2]:hover{\n    font-weight: bold;\n}\n.price-btn[data-v-680ad5a2]{\n    width: 40px;\n}\n.price-btn[data-v-680ad5a2]:hover{\n    font-weight: bold;\n}\n.search-bar input[data-v-680ad5a2]{\n    width: 96%;\n    text-align: center;\n}\n.search-bar[data-v-680ad5a2]{\n    border: #11111133 1px solid;\n    width: 40%;\n    height: 40px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-radius: 25px;\n    transition: .2s ease-in-out;\n}\n.search-bar[data-v-680ad5a2]:hover{\n    border: #11111177 2px solid;\n}\n.search-bar-focused[data-v-680ad5a2]{\n    border: #0275d8 2px solid !important;\n}\n.beat[data-v-680ad5a2]:hover{\n    background: linear-gradient(145deg, #ffffffaa, #ffffffee);\n    box-shadow:  3px 3px 5px #EBECF2,\n    -3px -3px 5px #EBECF2;\n}\n.beat-menu[data-v-680ad5a2]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 3px #11111155 solid;\n}\n.beats[data-v-680ad5a2]{\n    width: 80.5vw;\n    height: 83vh;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.beats-container[data-v-680ad5a2]{\n    display: flex;\n    flex-direction: column;\n    border-radius: 10px;\n    width: 98%;\n    height: 98%;\n    background-color: #FFFFFF;\n    box-shadow: #11111122 ;\n}\n", ""]);
 
 // exports
 
@@ -9813,7 +9817,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.typing-progress[data-v-1a1a04ee]{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.lds-dual-ring[data-v-1a1a04ee] {\n\n    display: inline-block;\n    width: 80px;\n    height: 80px;\n}\n.lds-dual-ring[data-v-1a1a04ee]:after {\n    position: absolute;\n    top:45%;\n    left:56%;\n    content: \" \";\n    display: block;\n    width: 64px;\n    height: 64px;\n    margin: 8px;\n    border-radius: 50%;\n    border: 6px solid orangered;\n    border-color: orangered transparent orangered transparent;\n    -webkit-animation: lds-dual-ring-data-v-1a1a04ee 1.2s linear infinite;\n            animation: lds-dual-ring-data-v-1a1a04ee 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring-data-v-1a1a04ee {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring-data-v-1a1a04ee {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n.posting-drumkit[data-v-1a1a04ee]{\n    position: absolute;\n    top: 49%;\n    left: 43%;\n}\n.loader[data-v-1a1a04ee] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-1a1a04ee] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-1a1a04ee]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-1a1a04ee 0.6s infinite;\n            animation: lds-ellipsis1-data-v-1a1a04ee 0.6s infinite;\n}\n.loader div[data-v-1a1a04ee]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-1a1a04ee 0.6s infinite;\n            animation: lds-ellipsis2-data-v-1a1a04ee 0.6s infinite;\n}\n.loader div[data-v-1a1a04ee]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-1a1a04ee 0.6s infinite;\n            animation: lds-ellipsis2-data-v-1a1a04ee 0.6s infinite;\n}\n.loader div[data-v-1a1a04ee]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-1a1a04ee 0.6s infinite;\n            animation: lds-ellipsis3-data-v-1a1a04ee 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-1a1a04ee {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-1a1a04ee {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-1a1a04ee {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-1a1a04ee {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-1a1a04ee {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-1a1a04ee {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n.content-link input[data-v-1a1a04ee], .drumkit-title input[data-v-1a1a04ee]{\n    width: 100%;\n}\n.link-n-title[data-v-1a1a04ee]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n}\n.content-body[data-v-1a1a04ee]{\n}\n.add-drumkit-body[data-v-1a1a04ee]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    min-height:60vh;\n}\n.drumkit-cover[data-v-1a1a04ee]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: flex-start;\n}\n.drumkit-title[data-v-1a1a04ee]{\n}\n.drumkit-head[data-v-1a1a04ee]{\n    height: 30%;\n    width: 100%;\n}\n.drumkit-content[data-v-1a1a04ee]{\n    height: 70%;\n    width: 100%;\n}\n.content-link[data-v-1a1a04ee]{\n}\n.drumkit-controls[data-v-1a1a04ee]{\n    display: flex;\n    justify-content: flex-end;\n}\n.drumkit-cards[data-v-1a1a04ee]{\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n}\n.drumkit-card img[data-v-1a1a04ee]{\n    height: 80%;\n    width: 100%;\n    border-top-left-radius: 15px;\n    border-top-right-radius: 15px;\n    -o-object-fit: contain;\n       object-fit: contain;\n}\n.caption[data-v-1a1a04ee]{\n    height: 20%;\n    font-size: 13px;\n    text-align: center;\n}\n.drumkit-card[data-v-1a1a04ee]{\n    width: 17%;\n    height: 31vh;\n    border-radius: 15px;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);\n    transition: .1s ease-in-out;\n}\n.drumkit-card[data-v-1a1a04ee]:hover{\n    transform: scale(1.02);\n    border: 2px #007bff33 solid;\n    box-shadow: 0 4px 10px 0 #007bff45 , 0 6px 22px 0 #007bff45;\n}\n.new-btn[data-v-1a1a04ee]{\n    width: 100px;\n}\n.new-btn[data-v-1a1a04ee]:hover{\n    font-weight: bold;\n}\n.search-bar input[data-v-1a1a04ee]{\n    width: 96%;\n    text-align: center;\n}\n.search-bar[data-v-1a1a04ee]{\n    border: #11111133 1px solid;\n    width: 40%;\n    height: 40px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-radius: 25px;\n    transition: .2s ease-in-out;\n}\n.search-bar[data-v-1a1a04ee]:hover{\n    border: #11111177 2px solid;\n}\n.search-bar-focused[data-v-1a1a04ee]{\n    border: #0275d8 2px solid !important;\n}\n.drumkit-menu[data-v-1a1a04ee]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 3px #11111155 solid;\n}\n.drumkits[data-v-1a1a04ee]{\n    width: 80.5vw;\n    height: 83vh;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.drumkits-container[data-v-1a1a04ee]{\n    display: flex;\n    flex-direction: column;\n    border-radius: 10px;\n    width: 98%;\n    height: 98%;\n    background-color: #FFFFFF;\n    box-shadow: #11111122 ;\n}\n", ""]);
+exports.push([module.i, "\n.typing-progress[data-v-1a1a04ee]{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.lds-dual-ring[data-v-1a1a04ee] {\n\n    display: inline-block;\n    width: 80px;\n    height: 80px;\n}\n.lds-dual-ring[data-v-1a1a04ee]:after {\n    position: absolute;\n    top:45%;\n    left:56%;\n    content: \" \";\n    display: block;\n    width: 64px;\n    height: 64px;\n    margin: 8px;\n    border-radius: 50%;\n    border: 6px solid orangered;\n    border-color: orangered transparent orangered transparent;\n    -webkit-animation: lds-dual-ring-data-v-1a1a04ee 1.2s linear infinite;\n            animation: lds-dual-ring-data-v-1a1a04ee 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring-data-v-1a1a04ee {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring-data-v-1a1a04ee {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n.posting-drumkit[data-v-1a1a04ee]{\n    position: absolute;\n    top: 49%;\n    left: 43%;\n}\n.loader[data-v-1a1a04ee] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-1a1a04ee] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-1a1a04ee]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-1a1a04ee 0.6s infinite;\n            animation: lds-ellipsis1-data-v-1a1a04ee 0.6s infinite;\n}\n.loader div[data-v-1a1a04ee]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-1a1a04ee 0.6s infinite;\n            animation: lds-ellipsis2-data-v-1a1a04ee 0.6s infinite;\n}\n.loader div[data-v-1a1a04ee]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-1a1a04ee 0.6s infinite;\n            animation: lds-ellipsis2-data-v-1a1a04ee 0.6s infinite;\n}\n.loader div[data-v-1a1a04ee]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-1a1a04ee 0.6s infinite;\n            animation: lds-ellipsis3-data-v-1a1a04ee 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-1a1a04ee {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-1a1a04ee {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-1a1a04ee {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-1a1a04ee {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-1a1a04ee {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-1a1a04ee {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n.content-link input[data-v-1a1a04ee], .drumkit-title input[data-v-1a1a04ee]{\n    width: 100%;\n}\n.link-n-title[data-v-1a1a04ee]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n}\n.content-body[data-v-1a1a04ee]{\n}\n.add-drumkit-body[data-v-1a1a04ee]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    min-height:60vh;\n}\n.drumkit-cover[data-v-1a1a04ee]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    /*align-items: flex-start;*/\n}\n.drumkit-title[data-v-1a1a04ee]{\n}\n.drumkit-head[data-v-1a1a04ee]{\n    height: 30%;\n    width: 100%;\n}\n.drumkit-content[data-v-1a1a04ee]{\n    height: 70%;\n    width: 100%;\n}\n.content-link[data-v-1a1a04ee]{\n}\n.drumkit-controls[data-v-1a1a04ee]{\n    display: flex;\n    justify-content: flex-end;\n}\n.drumkit-cards[data-v-1a1a04ee]{\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n}\n.drumkit-card img[data-v-1a1a04ee]{\n    height: 80%;\n    width: 100%;\n    border-top-left-radius: 15px;\n    border-top-right-radius: 15px;\n    -o-object-fit: contain;\n       object-fit: contain;\n}\n.caption[data-v-1a1a04ee]{\n    height: 20%;\n    font-size: 13px;\n    text-align: center;\n}\n.drumkit-card[data-v-1a1a04ee]{\n    width: 17%;\n    height: 31vh;\n    border-radius: 15px;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);\n    transition: .1s ease-in-out;\n}\n.drumkit-card[data-v-1a1a04ee]:hover{\n    transform: scale(1.02);\n    border: 2px #007bff33 solid;\n    box-shadow: 0 4px 10px 0 #007bff45 , 0 6px 22px 0 #007bff45;\n}\n.new-btn[data-v-1a1a04ee]{\n    width: 100px;\n}\n.new-btn[data-v-1a1a04ee]:hover{\n    font-weight: bold;\n}\n.search-bar input[data-v-1a1a04ee]{\n    width: 96%;\n    text-align: center;\n}\n.search-bar[data-v-1a1a04ee]{\n    border: #11111133 1px solid;\n    width: 40%;\n    height: 40px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-radius: 25px;\n    transition: .2s ease-in-out;\n}\n.search-bar[data-v-1a1a04ee]:hover{\n    border: #11111177 2px solid;\n}\n.search-bar-focused[data-v-1a1a04ee]{\n    border: #0275d8 2px solid !important;\n}\n.drumkit-menu[data-v-1a1a04ee]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 3px #11111155 solid;\n}\n.drumkits[data-v-1a1a04ee]{\n    width: 80.5vw;\n    height: 83vh;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.drumkits-container[data-v-1a1a04ee]{\n    display: flex;\n    flex-direction: column;\n    border-radius: 10px;\n    width: 98%;\n    height: 98%;\n    background-color: #FFFFFF;\n    box-shadow: #11111122 ;\n}\n", ""]);
 
 // exports
 
@@ -46327,8 +46331,16 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("div", { staticClass: "col-md-1 text-center " }, [
-                track.isFree
+                !track.isPaid
                   ? _c("p", { staticClass: "free-price" }, [
+                      _c("span", { staticClass: "price-amount" }, [
+                        _vm._v("FREE")
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                track.isPaid
+                  ? _c("p", { staticClass: "price" }, [
                       _c(
                         "svg",
                         {
@@ -46350,42 +46362,7 @@ var render = function() {
                             }
                           })
                         ]
-                      ),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "price-amount" }, [
-                        _vm._v(_vm._s(track.price))
-                      ])
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
-                !track.isFree
-                  ? _c("p", { staticClass: "price" }, [
-                      _c(
-                        "svg",
-                        {
-                          attrs: {
-                            id: "Layer_1",
-                            "enable-background": "new 0 0 480 480",
-                            height: "24",
-                            viewBox: "0 0 480 480",
-                            width: "26",
-                            xmlns: "http://www.w3.org/2000/svg"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              fill: "white",
-                              d:
-                                "m372.052 480h-264.104c-23.46 0-41.906-20.152-39.845-43.516l24.353-276c1.835-20.799 18.964-36.484 39.845-36.484h24.699v-41c0-45.767 37.233-83 83-83s83 37.233 83 83v41h24.699c4.418 0 8 3.582 8 8s-3.582 8-8 8h-24.699v36c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-105c-4.418 0-8-3.582-8-8s3.582-8 8-8h105v-41c0-36.944-30.056-67-67-67s-67 30.056-67 67v93c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-24.699c-12.528 0-22.806 9.411-23.907 21.891l-24.353 276c-1.241 14.062 9.807 26.109 23.907 26.109h264.104c14.117 0 25.147-12.064 23.907-26.109l-24.353-276c-.388-4.401 2.865-8.284 7.266-8.672 4.399-.385 8.284 2.865 8.672 7.266l24.353 276c2.062 23.369-16.39 43.515-39.845 43.515zm-178.052-69h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8zm0-40h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8z"
-                            }
-                          })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "price-amount text-black" }, [
-                        _vm._v(_vm._s(track.price))
-                      ])
+                      )
                     ])
                   : _vm._e()
               ])
@@ -46850,14 +46827,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-primary rounded-pill new-btn",
-        attrs: { "data-toggle": "modal", "data-target": "#addBeatModal" }
-      },
-      [_c("span", { staticClass: "ti-pencil-alt mr-2" }), _vm._v("NEW")]
-    )
+    return _c("div", { staticClass: "btns" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary rounded-pill new-btn",
+          attrs: { "data-toggle": "modal", "data-target": "#addBeatModal" }
+        },
+        [_c("span", { staticClass: "ti-pencil-alt mr-2" }), _vm._v("NEW")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success rounded-pill price-btn",
+          attrs: { "data-toggle": "modal", "data-target": "#addBeatModal" }
+        },
+        [_c("span", { staticClass: "ti-money mr-2" })]
+      )
+    ])
   },
   function() {
     var _vm = this
@@ -48365,52 +48353,49 @@ var render = function() {
                   : _vm._e(),
                 _vm._v(" "),
                 _c("div", { staticClass: "add-drumkit-body px-1 " }, [
-                  _c(
-                    "div",
-                    { staticClass: "drumkit-title row col-md-12 my-1" },
-                    [
-                      _c("label", { attrs: { for: "title" } }, [
-                        _vm._v("Drumkit Title")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.title,
-                            expression: "title"
-                          }
-                        ],
-                        staticClass: "form-control mt-2",
-                        attrs: {
-                          type: "text",
-                          id: "title",
-                          required: "",
-                          name: "title",
-                          placeholder: "Drumkit title goes here ...."
-                        },
-                        domProps: { value: _vm.title },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.title = $event.target.value
-                          }
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
                   _c("div", { staticClass: "row drumkit-head " }, [
                     _c("div", { staticClass: "drumkit-cover col-md-6" }, [
+                      _c("div", { staticClass: "drumkit-title " }, [
+                        _c("label", { attrs: { for: "title" } }, [
+                          _vm._v("Drumkit Title")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.title,
+                              expression: "title"
+                            }
+                          ],
+                          staticClass: "form-control mt-2",
+                          attrs: {
+                            type: "text",
+                            id: "title",
+                            required: "",
+                            name: "title",
+                            placeholder: "Drumkit title goes here ...."
+                          },
+                          domProps: { value: _vm.title },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.title = $event.target.value
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
                       _c("div", { staticClass: "cover" }, [
                         _c("label", { attrs: { for: "drumkit-cover" } }, [
                           _vm._v("Drumkit Cover")
                         ]),
                         _vm._v(" "),
                         _c("input", {
+                          staticClass: "form-control mt-2",
                           attrs: {
                             id: "drumkit-cover",
                             required: "",
@@ -48420,24 +48405,11 @@ var render = function() {
                         })
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "zip" }, [
-                        _c("label", { attrs: { for: "drumkit-zip" } }, [
-                          _vm._v("Drumkit Zip")
-                        ]),
-                        _vm._v(" "),
-                        _c("input", {
-                          attrs: {
-                            id: "drumkit-zip",
-                            required: "",
-                            type: "file"
-                          },
-                          on: { change: _vm.getDrumkitZip }
-                        })
-                      ])
+                      _vm._m(3)
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "link-n-title col-md-6" }, [
-                      _c("div", { staticClass: "drumkit-title " }, [
+                      _c("div", { staticClass: "drumkit-type" }, [
                         _c("label", { attrs: { for: "type" } }, [
                           _vm._v("Drumkit Type")
                         ]),
@@ -48477,8 +48449,45 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("input", {
+                          staticClass: "form-control mt-2",
                           attrs: { id: "sample", required: "", type: "file" },
                           on: { change: _vm.getDrumkitSample }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "drumkit-price " }, [
+                        _c("label", { attrs: { for: "type" } }, [
+                          _vm._v("Drumkit Price")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.dprice,
+                              expression: "dprice"
+                            }
+                          ],
+                          staticClass: "form-control mt-2",
+                          attrs: {
+                            type: "number",
+                            min: "0",
+                            step: "0.1",
+                            id: "price",
+                            required: "",
+                            name: "price",
+                            placeholder: "Enter Kit Price ..."
+                          },
+                          domProps: { value: _vm.dprice },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.dprice = $event.target.value
+                            }
+                          }
                         })
                       ])
                     ])
@@ -48574,7 +48583,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "modal-header" }, [
       _c(
-        "h5",
+        "h3",
         {
           staticClass: "modal-title",
           staticStyle: { display: "inline-block" },
@@ -48606,6 +48615,24 @@ var staticRenderFns = [
       _c("div"),
       _c("div"),
       _c("div")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "drumlink" }, [
+      _c("label", { attrs: { for: "drumkit-link" } }, [_vm._v("Drumkit Link")]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control mt-2",
+        attrs: {
+          id: "drumkit-link",
+          required: "",
+          type: "url",
+          placeholder: "Kit Link goes here ...."
+        }
+      })
     ])
   }
 ]
@@ -48930,7 +48957,10 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "blog-content" }, [
         _c("span", { staticClass: "badge badge-light badge-pill" }, [
-          _vm._v(_vm._s(_vm.post.reflink))
+          _vm._v(_vm._s(_vm.post.reflink) + " "),
+          _c("a", { attrs: { href: _vm.post.reflink, target: "_blank" } }, [
+            _c("i", { staticClass: "ti-world" })
+          ])
         ]),
         _vm._v(" "),
         _c("p", [_vm._v(_vm._s(_vm.post.content))])
@@ -49759,9 +49789,7 @@ var staticRenderFns = [
         _c("h1", [_vm._v("Tony On The Track")]),
         _vm._v(" "),
         _c("p", { staticClass: "container" }, [
-          _vm._v(
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum libero perspiciatis, praesentium ratione saepe sapiente sed sint temporibus velit vero! Ab aliquam asperiores consequatur dolore esse ipsam libero necessitatibus neque nesciunt, numquam odio quas similique voluptatibus? Eum libero nulla ullam!"
-          )
+          _vm._v("The Official Website For Bangers")
         ])
       ])
     ])

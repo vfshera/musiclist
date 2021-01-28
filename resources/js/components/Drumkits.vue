@@ -42,7 +42,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addDrumkitModalLongTitle" style="display: inline-block">Add Drumkit</h5>
+                        <h3 class="modal-title" id="addDrumkitModalLongTitle" style="display: inline-block">Add Drumkit</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -53,29 +53,33 @@
                             <h6>Posting...</h6>
                         </div>
                         <div class="add-drumkit-body px-1 ">
-                            <div class="drumkit-title row col-md-12 my-1">
-                                <label for="title">Drumkit Title</label>
-                                <input type="text" id="title" required v-model="title" name="title" class="form-control mt-2" placeholder="Drumkit title goes here ....">
-                            </div>
-                            <div class="row drumkit-head ">
+                             <div class="row drumkit-head ">
                                 <div class="drumkit-cover col-md-6">
+                                    <div class="drumkit-title ">
+                                        <label for="title">Drumkit Title</label>
+                                        <input type="text" id="title" required v-model="title" name="title" class="form-control mt-2" placeholder="Drumkit title goes here ....">
+                                    </div>
                                     <div class="cover">
                                         <label for="drumkit-cover">Drumkit Cover</label>
-                                        <input @change="getDrumkitCover" id="drumkit-cover" required type="file">
+                                        <input @change="getDrumkitCover" id="drumkit-cover" class="form-control mt-2" required type="file">
                                     </div>
-                                    <div class="zip">
-                                        <label for="drumkit-zip">Drumkit Zip</label>
-                                        <input @change="getDrumkitZip" id="drumkit-zip" required type="file">
+                                    <div class="drumlink">
+                                        <label for="drumkit-link">Drumkit Link</label>
+                                        <input  id="drumkit-link" required type="url" class="form-control mt-2" placeholder="Kit Link goes here ....">
                                     </div>
                                 </div>
                                 <div class="link-n-title col-md-6">
-                                    <div class="drumkit-title ">
+                                    <div class="drumkit-type">
                                         <label for="type">Drumkit Type</label>
                                         <input type="text" id="type" required v-model="type" name="title" class="form-control mt-2" placeholder="Kit type goes here ....">
                                     </div>
                                     <div class="content-link">
                                         <label for="sample">Sample Audio</label>
-                                        <input @change="getDrumkitSample" id="sample" required type="file">
+                                        <input @change="getDrumkitSample" id="sample" required type="file" class="form-control mt-2">
+                                    </div>
+                                    <div class="drumkit-price ">
+                                        <label for="type">Drumkit Price</label>
+                                        <input type="number" min="0" step="0.1"    id="price" required v-model="dprice" name="price" class="form-control mt-2" placeholder="Enter Kit Price ...">
                                     </div>
                                 </div>
                             </div>
@@ -114,6 +118,7 @@
                 title: '',
                 type: '',
                 about: '',
+                dprice: '',
                 cover:null,
                 sample: null,
                 pagination: {}
@@ -392,7 +397,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        align-items: flex-start;
+        /*align-items: flex-start;*/
     }
 
     .drumkit-title{

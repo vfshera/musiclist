@@ -13,7 +13,7 @@
             <h3 class="title text-white">{{ post.title }}</h3>
         </div>
         <div class="blog-content">
-            <span class="badge badge-light badge-pill">{{ post.reflink }}</span>
+            <span class="badge badge-light badge-pill">{{ post.reflink }} <a :href="post.reflink" target="_blank"> <i class="ti-world"></i></a></span>
             <p>{{ post.content }}</p>
         </div>
 
