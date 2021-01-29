@@ -14,7 +14,7 @@
         </div>
         <div class="blog-content">
             <span class="badge badge-light badge-pill">{{ post.reflink }} <a :href="post.reflink" target="_blank"> <i class="ti-world"></i></a></span>
-            <p>{{ post.content }}</p>
+            <p v-html="post.content"></p>
         </div>
 
         <Share :title="post.title" :summary="post.content"  :image="post.image" :shared="'Blog'"/>

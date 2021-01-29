@@ -13,7 +13,7 @@ class BlogController extends Controller
 
     public function index()
     {
-      $blogs = Blog::orderBy('created_at', 'DESC')->paginate(8);
+      $blogs = Blog::orderBy('created_at', 'DESC')->paginate(4);
 
       return BlogsResource::collection($blogs)->response()->setStatusCode(Response::HTTP_OK);
     }

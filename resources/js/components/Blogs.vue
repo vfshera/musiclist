@@ -64,10 +64,8 @@
                                   <div class="blog-category mt-2">
                                       <label for="category">Category</label>
                                       <select name="category" v-model="category" class="form-control mt-2" id="cat">
-                                          <option value="Entertainment">Entertainment</option>
-                                          <option value="Development">Development</option>
-                                          <option value="Politics">Politics</option>
-                                          <option value="Social">Social</option>
+                                          <option value="" selected disabled>- - Choose Category - -</option>
+                                          <option :value="cat" v-for="cat in catlist">{{ cat }}</option>
                                       </select>
                                   </div>
                               </div>
@@ -85,7 +83,8 @@
                            <div class="blog-content mt-2">
 
                                <div class="content-body ">
-                                   <textarea name="blog-content" required v-model="content" class="form-control"  id="" cols="30" rows="14" placeholder="put blog content here ...."></textarea>
+                                   <vue-editor v-model="content"></vue-editor>
+<!--                                   <textarea name="blog-content" required v-model="content" class="form-control"  id="" cols="30" rows="14" placeholder="put blog content here ...."></textarea>-->
                                </div>
                                <div class="typing-progress">
 
@@ -105,7 +104,11 @@
 </template>
 
 <script>
+    import { VueEditor } from 'vue2-editor'
     export default {
+        components:{
+            VueEditor
+        },
         data(){
             return{
                 focused : false,
@@ -116,6 +119,7 @@
                 file:null,
                 title: '',
                 category: '',
+                catlist: ["Entertainment", "Music", "Educational", "Self Help", "Psychology"],
                 content: '',
                 reflink: '',
                 pagination: {}
