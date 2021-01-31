@@ -201,7 +201,7 @@
                 })
             },
             fetchBlogs(blogsurl){
-                let blogs_url = blogsurl || '/getBlogs';
+                let blogs_url = blogsurl || '/adminBlogs';
 
                 axios.get(blogs_url)
                     .then(response =>{

@@ -19,9 +19,11 @@ class BlogController extends Controller
     }
 
 
-    public function create()
+    public function indexAdmin()
     {
-        //
+      $blogs = Blog::orderBy('created_at', 'DESC')->paginate(10);
+
+      return BlogsResource::collection($blogs)->response()->setStatusCode(Response::HTTP_OK);
     }
 
 

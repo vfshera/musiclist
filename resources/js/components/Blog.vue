@@ -15,8 +15,8 @@
             <h3 class="title text-white">{{ post.title }}</h3>
         </div>
         <div class="blog-content">
-            <span class="badge badge-light badge-pill">{{ post.reflink }}</span>
-            <p>{{ post.content }}</p>
+            <span class="badge badge-light badge-pill">{{ post.reflink }}<a :href="post.reflink" target="_blank"> <i class="ti-world"></i></a></span>
+            <p v-html="post.content"></p>
         </div>
 
 
@@ -38,9 +38,20 @@
                         </div>
                         <div class="add-blog-body px-1 ">
                             <div class="row blog-head ">
-                                <div class="blog-image col-md-5">
-                                    <input @change="fileSelected" required type="file">
-                                    <label for="">CHOOSE IMAGE</label>
+                                <div class="blog-img-cat col-md-5">
+                                    <div class="blog-image ">
+                                        <label for="">CHOOSE IMAGE</label>
+                                        <input @change="fileSelected" class="form-control mt-2"  required type="file">
+
+                                    </div>
+
+                                    <div class="blog-category mt-2">
+                                        <label for="category">Category</label>
+                                        <select name="category" v-model="editedBlog.category" class="form-control mt-2" id="cat">
+                                            <option value="" selected >- - Choose Category - -</option>
+                                            <option :value="cat" v-for="cat in catlist">{{ cat }}</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="link-n-title col-md-7">
                                     <div class="blog-title ">
@@ -56,7 +67,8 @@
                             <div class="blog-content mt-2">
 
                                 <div class="content-body ">
-                                    <textarea name="blog-content" required v-model="editedBlog.content" class="form-control"  id="" cols="30" rows="14" placeholder="put blog content here ...."></textarea>
+                                    <vue-editor v-model="editedBlog.content" placeholder="Put blog content here ...."></vue-editor>
+<!--                                    <textarea name="blog-content" required v-model="editedBlog.content" class="form-control"  id="" cols="30" rows="14" placeholder="put blog content here ...."></textarea>-->
                                 </div>
                                 <div class="typing-progress">
 
@@ -76,16 +88,22 @@
 </template>
 
 <script>
+    import { VueEditor } from 'vue2-editor'
 export default {
+    components:{
+        VueEditor
+     },
     name: 'BlogPost',
     data(){
         return{
             post:[],
             isPosting: false,
+            catlist: ["Entertainment", "Music", "Educational", "Self Help", "Psychology"],
             editedBlog: {
                 file:null,
                 title: '',
                 content: '',
+                category: '',
                 reflink: '',
                 id:'',
             },
@@ -197,8 +215,6 @@ export default {
               }).catch(err => {
                   console.log(err)
               })
-
-
 
           }else{
               Swal.fire('Fill The Form')

@@ -9,11 +9,16 @@ import FrontBlog from "./components/FrontBlog";
 import Drumkit from "./components/Drumkit";
 import FrontDrumkit from "./components/FrontDrumkit";
 import Beat from "./components/Beat";
+import Donate from "./components/Donate";
 
 export const  routes = [
     {
         path : '/',
         component : Home
+    },
+    {
+        path : '/donate',
+        component : Donate
     },
     {
         path : '/beats',

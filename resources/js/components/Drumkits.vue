@@ -86,7 +86,9 @@
                             <div class="drumkit-content mt-2">
 
                                 <div class="content-body ">
-                                    <textarea name="drumkit-content" required v-model="about" class="form-control"  id="" cols="30" rows="14" placeholder="put drumkit content here ...."></textarea>
+                                    <vue-editor required v-model="about"   placeholder="Put drumkit content here ...."></vue-editor>
+
+<!--                                    <textarea name="drumkit-content" required v-model="about" class="form-control"  id="" cols="30" rows="14" placeholder="put drumkit content here ...."></textarea>-->
                                 </div>
                                 <div class="typing-progress">
 
@@ -106,7 +108,12 @@
 </template>
 
 <script>
+    import { VueEditor } from 'vue2-editor'
+
     export default {
+        components:{
+            VueEditor
+        },
         data(){
             return{
                 focused : false,

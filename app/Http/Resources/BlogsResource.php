@@ -21,7 +21,7 @@ class BlogsResource extends JsonResource
             'image' => asset('/storage/blogs/'.$this->image),
             'reflink' => $this->reflink,
             'title' => $this->title,
-            'type' => $this->type,
+            'category' => $this->type,
         ];
     }
 }

@@ -39,7 +39,7 @@
                         <a href="/#contact" class="nav-link" :class="{ 'active-link': ('/#contact' == currPath) }">Contact</a>
                     </li>
                     <li class="nav-item " id="donate">
-                        <router-link :to="{ path: '/'}" class="nav-link">Donate <span id="donate-heart">&hearts;</span></router-link>
+                        <router-link :to="{ path: '/donate'}" class="nav-link">Donate <span id="donate-heart">&hearts;</span></router-link>
                     </li>
 
                 </ul>

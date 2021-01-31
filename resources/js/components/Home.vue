@@ -190,7 +190,7 @@
                         <div class="card__img--hover"  :style="{ backgroundImage: `url(${  blog.image } )` }" ></div>
                     </a>
                     <div class="card__info">
-                        <span class="card__category">{{ (blog.type.length > 15 ) ? sanitizeText(15 , blog.type ) : blog.type }}</span>
+                        <span class="card__category">{{ (blog.category.length > 15 ) ? sanitizeText(15 , blog.category ) : blog.category }}</span>
                         <h3 class="card__title">{{ (blog.title.length > 45 ) ? sanitizeText(45 , blog.title ) : blog.title }}</h3>
                     </div>
                 </article>
@@ -283,25 +283,25 @@
             <form class=" col-sm-11 col-xs-11 col-md-12">
                 <div class="form-group row ">
                     <div class=" col-sm-11 col-xs-11 form__group field col-md-12">
-                        <input type="input" class="form__field" placeholder="Name" name="name" id='name' required />
+                        <input type="text" pattern="[aA-zZ]{2,}" title="The name MUST Contain Letters Only!" class="form__field" placeholder="Name" name="name" id='name' required />
                         <label for="name" class="form__label">Name</label>
                     </div>
                 </div>
                 <div class="form-group row ">
                     <div class=" col-sm-11 col-xs-11 form__group field col-md-12">
-                        <input type="email" class="form__field" placeholder="Email" name="email" id='email' required />
+                        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="The email must be Valid like abc@xyz.com" class="form__field" placeholder="Email" name="email" id='email' required />
                         <label for="email" class="form__label">Email</label>
                     </div>
                 </div>
                 <div class="form-group row ">
                     <div class=" col-sm-11 col-xs-11 form__group field col-md-12">
-                        <input type="input" class="form__field" placeholder="subject" name="subject" id='subject' required />
+                        <input type="text" class="form__field" placeholder="subject" name="subject" id='subject' required />
                         <label for="subject" class="form__label">SUBJECT</label>
                     </div>
                 </div>
                 <div class="form-group row ">
                     <div class=" col-sm-11 col-xs-11 form__group field col-md-12">
-                        <textarea type="input" class="form__field" placeholder="message" name="message" id='message' required ></textarea>
+                        <textarea type="text" class="form__field" placeholder="message" name="message" id='message' required ></textarea>
                         <label for="message" class="form__label">MESSAGE</label>
                     </div>
                 </div>
@@ -412,7 +412,7 @@
     }
 </script>
 
-<style scoped>
+<style >
     #beats h2, #drumkits h2, #blog h2, #gallery h2 {
         font-family: "Poppins", 'Helvetica', sans-serif;
         font-weight: 500 !important;
