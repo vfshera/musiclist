@@ -296,13 +296,13 @@
                 <div class="form-group row ">
                     <div class=" col-sm-11 col-xs-11 form__group field col-md-12">
                         <input type="text" class="form__field" placeholder="subject" name="subject" id='subject' required />
-                        <label for="subject" class="form__label">SUBJECT</label>
+                        <label for="subject" class="form__label">Subject</label>
                     </div>
                 </div>
                 <div class="form-group row ">
                     <div class=" col-sm-11 col-xs-11 form__group field col-md-12">
                         <textarea type="text" class="form__field" placeholder="message" name="message" id='message' required ></textarea>
-                        <label for="message" class="form__label">MESSAGE</label>
+                        <label for="message" class="form__label">Message</label>
                     </div>
                 </div>
                 <button class="pure-material-button-contained">SEND</button>
@@ -412,7 +412,7 @@
     }
 </script>
 
-<style >
+<style scoped>
     #beats h2, #drumkits h2, #blog h2, #gallery h2 {
         font-family: "Poppins", 'Helvetica', sans-serif;
         font-weight: 500 !important;
@@ -1080,70 +1080,7 @@
 
 
 
-/*MATERIAL like FORM*/
 
-   .form__group {
-       position: relative;
-       padding: 15px 0 0;
-       margin-top: 10px;
-       width: 50%;
-   }
-
-   .form__field {
-       font-family: inherit;
-       width: 600px;
-       border: 0;
-       border-bottom: 2px solid #9b9b9b;
-       outline: 0;
-       font-size: 1.3rem;
-       color: #152238;
-       padding: 7px 0;
-       background: transparent;
-       transition: border-color 0.2s;
-   }
-   .form__field::placeholder {
-       color: transparent;
-   }
-   .form__field:placeholder-shown ~ .form__label {
-       font-size: 1.3rem;
-       cursor: text;
-       top: 20px;
-   }
-
-   .form__label {
-       position: absolute;
-       top: 0;
-       display: block;
-       transition: 0.2s;
-       font-size: 1rem;
-       color: #9b9b9b;
-   }
-
-   .form__field:focus {
-       padding-bottom: 6px;
-       font-weight: 700;
-       border-width: 3px;
-       border-image: linear-gradient(to right, #152238,#5d8ee3);
-       border-image-slice: 1;
-   }
-   .form__field:focus ~ .form__label {
-       position: absolute;
-       top: 0;
-       display: block;
-       transition: 0.2s;
-       font-size: 1rem;
-       color: #4569a8;
-       font-weight: 700;
-   }
-
-   /* reset input */
-   .form__field:required, .form__field:invalid {
-       box-shadow: none;
-   }
-
-
-
-   /*   end material form*/
 
 
 /*    notify newsletter */
