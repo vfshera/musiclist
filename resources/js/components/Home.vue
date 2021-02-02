@@ -156,7 +156,7 @@
             <div class="kits my-2 " :class="{ 'd-flex justify-content-between': (drumkits.length > 2) ,  'd-flex justify-content-center': (drumkits.length == 1)}">
                 <a href="#" v-for="drumkit in drumkits" @click.prevent="viewDrumkit(drumkit)" :class="{ 'm-2': (drumkits.length == 2) }">
                     <figure class="col-xs-12" :style="{ backgroundImage: `url(${ drumkit.image } )` }">
-                        <div :class="{ 'free': (drumkit.isFree) , 'date': (!drumkit.isFree)}"><span class="card-date-day">{{ drumkit.price }}</span></div>
+                        <div :class="{ 'free': (drumkit.isFree) , 'date': (!drumkit.isFree)}"><span class="card-date-day">{{ drumkit.dprice }}</span></div>
                         <figcaption>
                             <h4> <span>{{ drumkit.title }}</span></h4>
                             <p>{{ drumkit.type}}</p>

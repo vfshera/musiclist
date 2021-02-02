@@ -17,10 +17,12 @@ class DrumkitsResource extends JsonResource
         return[
          'id'  => $this->id,
          'title'  => $this->title,
+         'type'  => $this->type,
          'about'  => $this->about,
          'image'  =>  asset('/storage/drumkits/covers/'.$this->image),
          'sample' =>  asset('/storage/drumkits/samples/'.$this->sample),
-         'price' =>  ($this->price > 0 ) ? '$'.$this->price : 'FREE',
+         'price' =>  $this->price,
+         'dprice' =>  ($this->price > 0 ) ? '$'.$this->price : 'FREE',
          'isFree' =>  ($this->price == 0 ) ? true : false,
         ];
     }

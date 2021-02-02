@@ -9,11 +9,10 @@
 
                     </div>
 
-                    <audio :src="drumkit.sample" controls class="mt-5"></audio>
                 </div>
                <div class="drumkit-info col-md-6">
                    <h3 class="title">{{ drumkit.title }}</h3>
-                   <p>{{ drumkit.about }}</p>
+                   <p v-html="drumkit.about"></p>
                </div>
            </div>
            <div class="updates p-2">
@@ -113,6 +112,20 @@ export default {
 
             }
         },
+        playKit(){
+            let song = {
+                title : this.drumkit.type + " - " + this.drumkit.title,
+                cover : this.drumkit.image,
+                sample : this.drumkit.sample,
+            }
+
+            this.$store.commit('setSong',song);
+
+            if(this.$store.getters.getPlayerState != true || this.$store.getters.getPlayerVisibility != true){
+                this.$store.commit('setPlayerVisibility', true);
+                this.$store.commit('setPlayerState', true);
+            }
+        },
         setDrumkit(){
             axios.get('/getDrumkit/'+ this.$route.params.id)
                 .then(response =>{
@@ -130,6 +143,8 @@ export default {
                         this.isProcessing = false;
 
                         this.scrollToTop();
+
+                        this.playKit()
                     }else{
                         this.isProcessing = false;
                         Swal.fire('Post Unavailable')

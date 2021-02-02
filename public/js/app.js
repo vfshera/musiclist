@@ -3441,6 +3441,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.esm.js");
 //
 //
 //
@@ -3535,7 +3536,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__["VueEditor"]
+  },
   name: 'DrumkitPost',
   data: function data() {
     return {
@@ -3543,7 +3550,8 @@ __webpack_require__.r(__webpack_exports__);
       isPosting: false,
       editedDrumkit: {
         id: '',
-        drumkit: null,
+        drumlink: '',
+        price: 0,
         title: '',
         type: '',
         about: '',
@@ -3564,6 +3572,7 @@ __webpack_require__.r(__webpack_exports__);
       this.editedDrumkit.drumkit = null;
       this.editedDrumkit.title = '';
       this.editedDrumkit.type = '';
+      this.editedDrumkit.price = 0;
       this.editedDrumkit.about = '';
       this.editedDrumkit.cover = null;
       this.editedDrumkit.sample = null;
@@ -3627,6 +3636,7 @@ __webpack_require__.r(__webpack_exports__);
         fd.append('type', this.editedDrumkit.type);
         fd.append('sample', this.editedDrumkit.sample);
         fd.append('drumkit', this.editedDrumkit.drumkit);
+        fd.append('price', this.price);
         fd.append('about', this.editedDrumkit.about);
         axios.post('/updateDrumkit/' + this.editedDrumkit.id, fd, {
           headers: {
@@ -3919,6 +3929,7 @@ __webpack_require__.r(__webpack_exports__);
       fd.append('type', this.type);
       fd.append('sample', this.sample);
       fd.append('drumlink', this.drumlink);
+      fd.append('price', this.dprice);
       fd.append('about', this.about);
       axios.post('/addDrumkit', fd, {
         headers: {
@@ -4249,7 +4260,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'DrumkitPost',
@@ -4303,6 +4313,19 @@ __webpack_require__.r(__webpack_exports__);
         $('.modal-backdrop').remove();
       }
     },
+    playKit: function playKit() {
+      var song = {
+        title: this.drumkit.type + " - " + this.drumkit.title,
+        cover: this.drumkit.image,
+        sample: this.drumkit.sample
+      };
+      this.$store.commit('setSong', song);
+
+      if (this.$store.getters.getPlayerState != true || this.$store.getters.getPlayerVisibility != true) {
+        this.$store.commit('setPlayerVisibility', true);
+        this.$store.commit('setPlayerState', true);
+      }
+    },
     setDrumkit: function setDrumkit() {
       var _this2 = this;
 
@@ -4321,6 +4344,8 @@ __webpack_require__.r(__webpack_exports__);
           _this2.isProcessing = false;
 
           _this2.scrollToTop();
+
+          _this2.playKit();
         } else {
           _this2.isProcessing = false;
           Swal.fire('Post Unavailable');
@@ -4891,11 +4916,27 @@ var audio = new Audio();
       }, false); //click on timeline to skip around
 
       var seeker = document.querySelector(".song-progress-bar");
+      var forward = document.querySelector(".next");
+      var backward = document.querySelector(".prev");
       seeker.addEventListener("click", function (e) {
         var seekerWidth = window.getComputedStyle(seeker).width;
         var timeToSeek = e.offsetX / parseInt(seekerWidth) * audio.duration;
         audio.currentTime = timeToSeek;
         document.querySelector(".seeker").style.width = timeToSeek * 100 + '%';
+      }, false);
+      forward.addEventListener("click", function (e) {
+        var seekerWidth = window.getComputedStyle(seeker).width;
+        audio.duration - 5 != audio.currentTime ? audio.currentTime += 5 : audio.currentTime = audio.duration;
+        document.querySelector(".seeker").style.width = audio.currentTime / audio.duration * 100 + '%';
+
+        _this.playerToast("Forward 15s");
+      }, false);
+      backward.addEventListener("click", function (e) {
+        var seekerWidth = window.getComputedStyle(seeker).width;
+        audio.currentTime > 5 ? audio.currentTime = audio.currentTime -= 5 : audio.currentTime = 0;
+        document.querySelector(".seeker").style.width = audio.currentTime / audio.duration * 100 + '%';
+
+        _this.playerToast("Backward 15s");
       }, false); //click volume slider to change volume
 
       var volumeSlider = document.querySelector(".vol-bg");
@@ -4928,10 +4969,14 @@ var audio = new Audio();
           _this.isPlaying = true;
           audio.play();
 
+          _this.playerToast("Playing Song!");
+
           _this.$store.commit('setPlayerState', true);
         } else {
           _this.isPlaying = false;
           audio.pause();
+
+          _this.playerToast("Song Paused");
         }
       }, false);
       document.querySelector(".volume-btn").addEventListener("click", function () {
@@ -4942,6 +4987,12 @@ var audio = new Audio();
         } else {
           _this.setVolIcon(audio.volume);
         }
+      });
+    },
+    playerToast: function playerToast(message) {
+      Toast.fire({
+        title: message,
+        position: 'center'
       });
     },
     setVolIcon: function setVolIcon(vol) {
@@ -61879,7 +61930,7 @@ var render = function() {
             _vm._v(_vm._s(_vm.drumkit.title))
           ]),
           _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.drumkit.about))])
+          _c("p", { domProps: { innerHTML: _vm._s(_vm.drumkit.about) } })
         ])
       ]),
       _vm._v(" "),
@@ -61947,56 +61998,53 @@ var render = function() {
                   : _vm._e(),
                 _vm._v(" "),
                 _c("div", { staticClass: "add-drumkit-body px-1 " }, [
-                  _c(
-                    "div",
-                    { staticClass: "drumkit-title row col-md-12 my-1" },
-                    [
-                      _c("label", { attrs: { for: "title" } }, [
-                        _vm._v("Drumkit Title")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.editedDrumkit.title,
-                            expression: "editedDrumkit.title"
-                          }
-                        ],
-                        staticClass: "form-control mt-2",
-                        attrs: {
-                          type: "text",
-                          id: "title",
-                          required: "",
-                          name: "title",
-                          placeholder: "Drumkit title goes here ...."
-                        },
-                        domProps: { value: _vm.editedDrumkit.title },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.editedDrumkit,
-                              "title",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]
-                  ),
-                  _vm._v(" "),
                   _c("div", { staticClass: "row drumkit-head " }, [
                     _c("div", { staticClass: "drumkit-cover col-md-6" }, [
+                      _c("div", { staticClass: "drumkit-title " }, [
+                        _c("label", { attrs: { for: "title" } }, [
+                          _vm._v("Drumkit Title")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editedDrumkit.title,
+                              expression: "editedDrumkit.title"
+                            }
+                          ],
+                          staticClass: "form-control mt-2",
+                          attrs: {
+                            type: "text",
+                            id: "title",
+                            required: "",
+                            name: "title",
+                            placeholder: "Drumkit title goes here ...."
+                          },
+                          domProps: { value: _vm.editedDrumkit.title },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.editedDrumkit,
+                                "title",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
                       _c("div", { staticClass: "cover" }, [
                         _c("label", { attrs: { for: "drumkit-cover" } }, [
                           _vm._v("Drumkit Cover")
                         ]),
                         _vm._v(" "),
                         _c("input", {
+                          staticClass: "form-control mt-2",
                           attrs: {
                             id: "drumkit-cover",
                             required: "",
@@ -62006,24 +62054,46 @@ var render = function() {
                         })
                       ]),
                       _vm._v(" "),
-                      _c("div", { staticClass: "zip" }, [
-                        _c("label", { attrs: { for: "drumkit-zip" } }, [
-                          _vm._v("Drumkit Zip")
+                      _c("div", { staticClass: "drumlink" }, [
+                        _c("label", { attrs: { for: "drumkit-link" } }, [
+                          _vm._v("Drumkit Link")
                         ]),
                         _vm._v(" "),
                         _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editedDrumkit.drumlink,
+                              expression: "editedDrumkit.drumlink"
+                            }
+                          ],
+                          staticClass: "form-control mt-2",
                           attrs: {
-                            id: "drumkit-zip",
+                            id: "drumkit-link",
                             required: "",
-                            type: "file"
+                            type: "url",
+                            placeholder: "Kit Link goes here ...."
                           },
-                          on: { change: _vm.getDrumkitZip }
+                          domProps: { value: _vm.editedDrumkit.drumlink },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.editedDrumkit,
+                                "drumlink",
+                                $event.target.value
+                              )
+                            }
+                          }
                         })
                       ])
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "link-n-title col-md-6" }, [
-                      _c("div", { staticClass: "drumkit-title " }, [
+                      _c("div", { staticClass: "drumkit-type" }, [
                         _c("label", { attrs: { for: "type" } }, [
                           _vm._v("Drumkit Type")
                         ]),
@@ -62067,48 +62137,75 @@ var render = function() {
                         ]),
                         _vm._v(" "),
                         _c("input", {
+                          staticClass: "form-control mt-2",
                           attrs: { id: "sample", required: "", type: "file" },
                           on: { change: _vm.getDrumkitSample }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "drumkit-price " }, [
+                        _c("label", { attrs: { for: "type" } }, [
+                          _vm._v("Drumkit Price")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editedDrumkit.price,
+                              expression: "editedDrumkit.price"
+                            }
+                          ],
+                          staticClass: "form-control mt-2",
+                          attrs: {
+                            type: "number",
+                            min: "0",
+                            step: "0.1",
+                            id: "price",
+                            required: "",
+                            name: "price",
+                            placeholder: "Enter Kit Price ..."
+                          },
+                          domProps: { value: _vm.editedDrumkit.price },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.editedDrumkit,
+                                "price",
+                                $event.target.value
+                              )
+                            }
+                          }
                         })
                       ])
                     ])
                   ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "drumkit-content mt-2" }, [
-                    _c("div", { staticClass: "content-body " }, [
-                      _c("textarea", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
+                    _c(
+                      "div",
+                      { staticClass: "content-body " },
+                      [
+                        _c("vue-editor", {
+                          attrs: {
+                            required: "",
+                            placeholder: "Put drumkit content here ...."
+                          },
+                          model: {
                             value: _vm.editedDrumkit.about,
+                            callback: function($$v) {
+                              _vm.$set(_vm.editedDrumkit, "about", $$v)
+                            },
                             expression: "editedDrumkit.about"
                           }
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "drumkit-content",
-                          required: "",
-                          id: "",
-                          cols: "30",
-                          rows: "14",
-                          placeholder: "put drumkit content here ...."
-                        },
-                        domProps: { value: _vm.editedDrumkit.about },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.editedDrumkit,
-                              "about",
-                              $event.target.value
-                            )
-                          }
-                        }
-                      })
-                    ]),
+                        })
+                      ],
+                      1
+                    ),
                     _vm._v(" "),
                     _c("div", { staticClass: "typing-progress" }, [
                       _c("span", [
@@ -63074,11 +63171,6 @@ var render = function() {
             _c("div", {
               staticClass: "drumkit-header  mt-5",
               style: { backgroundImage: "url(" + _vm.drumkit.image + " )" }
-            }),
-            _vm._v(" "),
-            _c("audio", {
-              staticClass: "mt-5",
-              attrs: { src: _vm.drumkit.sample, controls: "" }
             })
           ]),
           _vm._v(" "),
@@ -63087,7 +63179,7 @@ var render = function() {
               _vm._v(_vm._s(_vm.drumkit.title))
             ]),
             _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(_vm.drumkit.about))])
+            _c("p", { domProps: { innerHTML: _vm._s(_vm.drumkit.about) } })
           ])
         ]),
         _vm._v(" "),
@@ -63650,7 +63742,7 @@ var render = function() {
                     { class: { free: drumkit.isFree, date: !drumkit.isFree } },
                     [
                       _c("span", { staticClass: "card-date-day" }, [
-                        _vm._v(_vm._s(drumkit.price))
+                        _vm._v(_vm._s(drumkit.dprice))
                       ])
                     ]
                   ),

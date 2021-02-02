@@ -169,6 +169,7 @@
                 fd.append('type',this.type)
                 fd.append('sample',this.sample)
                 fd.append('drumlink',this.drumlink)
+                fd.append('price',this.dprice)
                 fd.append('about',this.about)
 
 

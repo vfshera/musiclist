@@ -12,7 +12,7 @@
                 </div>
                <div class="drumkit-info col-md-6">
                    <h3 class="title">{{ drumkit.title }}</h3>
-                   <p>{{ drumkit.about }}</p>
+                   <p v-html="drumkit.about"></p>
                </div>
            </div>
            <div class="updates p-2">
@@ -43,39 +43,41 @@
                             <h6>Posting...</h6>
                         </div>
                         <div class="add-drumkit-body px-1 ">
-                            <div class="drumkit-title row col-md-12 my-1">
-                                <label for="title">Drumkit Title</label>
-                                <input type="text" id="title" required v-model="editedDrumkit.title" name="title" class="form-control mt-2" placeholder="Drumkit title goes here ....">
-                            </div>
                             <div class="row drumkit-head ">
                                 <div class="drumkit-cover col-md-6">
+                                    <div class="drumkit-title ">
+                                        <label for="title">Drumkit Title</label>
+                                        <input type="text" id="title" required v-model="editedDrumkit.title" name="title" class="form-control mt-2" placeholder="Drumkit title goes here ....">
+                                    </div>
                                     <div class="cover">
                                         <label for="drumkit-cover">Drumkit Cover</label>
-                                        <input @change="getDrumkitCover" id="drumkit-cover" required type="file">
+                                        <input @change="getDrumkitCover" id="drumkit-cover" class="form-control mt-2" required type="file">
                                     </div>
-                                    <div class="zip">
-                                        <label for="drumkit-zip">Drumkit Zip</label>
-                                        <input @change="getDrumkitZip" id="drumkit-zip" required type="file">
+                                    <div class="drumlink">
+                                        <label for="drumkit-link">Drumkit Link</label>
+                                        <input  id="drumkit-link" v-model="editedDrumkit.drumlink" required type="url" class="form-control mt-2" placeholder="Kit Link goes here ....">
                                     </div>
                                 </div>
                                 <div class="link-n-title col-md-6">
-                                    <div class="drumkit-title ">
+                                    <div class="drumkit-type">
                                         <label for="type">Drumkit Type</label>
                                         <input type="text" id="type" required v-model="editedDrumkit.type" name="title" class="form-control mt-2" placeholder="Kit type goes here ....">
                                     </div>
                                     <div class="content-link">
                                         <label for="sample">Sample Audio</label>
-                                        <input @change="getDrumkitSample" id="sample" required type="file">
+                                        <input @change="getDrumkitSample" id="sample" required type="file" class="form-control mt-2">
+                                    </div>
+                                    <div class="drumkit-price ">
+                                        <label for="type">Drumkit Price</label>
+                                        <input type="number" min="0" step="0.1"    id="price" required v-model="editedDrumkit.price" name="price" class="form-control mt-2" placeholder="Enter Kit Price ...">
                                     </div>
                                 </div>
                             </div>
                             <div class="drumkit-content mt-2">
-
                                 <div class="content-body ">
-                                    <textarea name="drumkit-content" required v-model="editedDrumkit.about" class="form-control"  id="" cols="30" rows="14" placeholder="put drumkit content here ...."></textarea>
-                                </div>
+                                    <vue-editor required v-model="editedDrumkit.about"   placeholder="Put drumkit content here ...."></vue-editor>
+                                 </div>
                                 <div class="typing-progress">
-
                                     <span>{{ numOfCharacters }} / 982 Characters </span>
                                 </div>
                             </div>
@@ -93,7 +95,12 @@
 </template>
 
 <script>
-export default {
+    import { VueEditor } from 'vue2-editor'
+
+    export default {
+      components:{
+            VueEditor
+    },
     name: 'DrumkitPost',
     data(){
         return{
@@ -101,7 +108,8 @@ export default {
             isPosting: false,
             editedDrumkit: {
                 id:'',
-                drumkit:null,
+                drumlink:'',
+                price: 0,
                 title: '',
                 type: '',
                 about: '',
@@ -123,6 +131,7 @@ export default {
             this.editedDrumkit.drumkit = null;
             this.editedDrumkit.title = '';
             this.editedDrumkit.type = '';
+            this.editedDrumkit.price = 0;
             this.editedDrumkit.about = '';
             this.editedDrumkit.cover = null;
             this.editedDrumkit.sample = null;
@@ -190,6 +199,7 @@ export default {
               fd.append('type',this.editedDrumkit.type)
               fd.append('sample',this.editedDrumkit.sample)
               fd.append('drumkit',this.editedDrumkit.drumkit)
+              fd.append('price',this.price)
               fd.append('about',this.editedDrumkit.about)
 
               axios.post( '/updateDrumkit/'+this.editedDrumkit.id,fd,

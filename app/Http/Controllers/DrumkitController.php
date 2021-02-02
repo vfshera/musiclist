@@ -41,6 +41,7 @@ class DrumkitController extends Controller
             'image'  => 'required|image|mimes:jpg,png,jpeg',
             'title' => 'required',
             'type' => 'required',
+            'price' => 'required',
             'drumlink'  => 'required',
             'sample'  => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav',
         ]);
@@ -79,6 +80,7 @@ class DrumkitController extends Controller
             'image'  => 'required|image|mimes:jpg,png,jpeg',
             'title' => 'required',
             'type' => 'required',
+            'price' => 'required',
             'drumlink'  => 'required',
             'sample'  => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav',
         ]);
@@ -125,6 +127,8 @@ class DrumkitController extends Controller
     }
 
     public function download(Drumkit $drumkit){
+
+//        to be changed
         $pathToFile = 'public/drumkits/zips/'.$drumkit->drumkit;
 
         $headers = array(

@@ -91,6 +91,7 @@
                         );
                         audio.volume = .65;
                         audio.pause();
+
                         audio.play();
                         this.$store.commit('setPlayerState',true);
                         this.isPlaying = true;
@@ -101,12 +102,30 @@
 
             //click on timeline to skip around
                 const seeker = document.querySelector(".song-progress-bar");
+                const forward = document.querySelector(".next");
+                const backward = document.querySelector(".prev");
                 seeker.addEventListener("click", e => {
                     const seekerWidth = window.getComputedStyle(seeker).width;
                     const timeToSeek = e.offsetX / parseInt(seekerWidth) * audio.duration;
                     audio.currentTime = timeToSeek;
                     document.querySelector(".seeker").style.width = timeToSeek * 100 + '%';
 
+                }, false);
+
+                forward.addEventListener("click", e => {
+                    const seekerWidth = window.getComputedStyle(seeker).width;
+                    ((audio.duration - 5) != audio.currentTime) ? audio.currentTime  += 5 :  audio.currentTime =  audio.duration
+                    document.querySelector(".seeker").style.width =  (audio.currentTime / audio.duration ) * 100 + '%';
+                    this.playerToast("Forward 15s")
+
+                }, false);
+
+                backward.addEventListener("click", e => {
+                    const seekerWidth = window.getComputedStyle(seeker).width;
+                    (audio.currentTime > 5) ? audio.currentTime = audio.currentTime -= 5 :  audio.currentTime = 0
+                    document.querySelector(".seeker").style.width =  (audio.currentTime / audio.duration ) * 100 + '%';
+
+                    this.playerToast("Backward 15s")
                 }, false);
 
 
@@ -150,10 +169,12 @@
                         if (audio.paused) {
                             this.isPlaying = true;
                             audio.play();
+                            this.playerToast("Playing Song!")
                             this.$store.commit('setPlayerState',true);
                         } else {
                             this.isPlaying = false;
                             audio.pause();
+                            this.playerToast("Song Paused")
                         }
                     },
                     false
@@ -172,6 +193,15 @@
 
 
             },
+            playerToast(message){
+                Toast.fire({
+                    title: message,
+                    position: 'center'
+                })
+
+
+            }
+            ,
             setVolIcon(vol){
                 const volumeEl = document.querySelector("#vol-state");
                if (vol != 0){
