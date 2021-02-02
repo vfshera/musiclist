@@ -10,20 +10,20 @@
                <form class=" col-sm-11 col-xs-11 col-md-12">
                    <div class="form-group row ">
                        <div class=" col-sm-11 col-xs-11 form__group field col-md-12">
-                           <input type="number" min="2" step="1" class="form__field" placeholder="Donation Amount..." pattern="[0-9]{8}" title="Donation is expressed in USD$.Minimum Amount 2$" name="amount" id='amount' required />
-                           <label for="amount" class="form__label">Amount</label>
+                           <input type="number"  v-model="amount" min="2" step="1" class="form__field" placeholder="Donation Amount..." pattern="[0-9]{8}" title="Donation is expressed in USD$.Minimum Amount 2$" name="amount" id='amount' required />
+                           <label for="amount" class="form__label">Amount (in USD $)</label>
                        </div>
                    </div>
                    <div class="form-group row ">
                        <div class=" col-sm-11 col-xs-11 form__group field col-md-12">
-                           <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="The email must be Valid like abc@xyz.com" class="form__field" placeholder="Your Email Address..." name="email" id='email' required />
+                           <input type="email" v-model="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="The email must be Valid like abc@xyz.com" class="form__field" placeholder="Your Email Address..." name="email" id='email' required />
                            <label for="email" class="form__label">Email</label>
                        </div>
                    </div>
 
                    <div class="form-group row ">
                        <div class=" col-sm-11 col-xs-11 form__group field col-md-12">
-                           <textarea type="input" class="form__field" placeholder="Any Special Message..." name="message" id='message' required ></textarea>
+                           <textarea type="input" v-model="message" class="form__field" placeholder="Any Special Message..." name="message" id='message' required ></textarea>
                            <label for="message" class="form__label">Message (optional)</label>
                        </div>
                    </div>
@@ -51,7 +51,10 @@
         name: "Donate",
         data(){
             return{
-              amount: 5,
+              amount: 2,
+              email: '',
+              message: '',
+              processor: null
             }
         },
         methods:{

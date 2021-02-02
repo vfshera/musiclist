@@ -24,6 +24,16 @@ class DrumkitController extends Controller
         return DrumkitsResource::collection($drumkits)->response()->setStatusCode(Response::HTTP_OK);
     }
 
+    public function getRandomName(int $num){
+
+        $nm = ($num && $num > 0) ? $num : 10;
+
+        $randomName = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890');
+        $finalname = substr($randomName, 0, $nm);
+
+        return $finalname;
+    }
+
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -31,33 +41,22 @@ class DrumkitController extends Controller
             'image'  => 'required|image|mimes:jpg,png,jpeg',
             'title' => 'required',
             'type' => 'required',
-            'drumkit'  => 'required|mimes:zip',
+            'drumlink'  => 'required',
             'sample'  => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav',
         ]);
 
         $drumkitImgFile =  $request->file('image');
-        $drumkitImgFileName = time()."_"."DRUMKIT_IMG_".strtolower(str_replace(' ', '_',$drumkitImgFile->getClientOriginalName()));
-
-        $DrumkitZipFile =  $request->file('drumkit');
-        $randomName = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890');
-        $dzipMidName = substr($randomName, 0, 10);
-        $DrumkitZipFileName = "DZIP_".$dzipMidName."_".time().".zip";
+        $drumkitImgFileName = $this->getRandomName(10)."_DI_".time().$drumkitImgFile->getClientOriginalExtension();
 
         $DrumkitSampleFile =  $request->file('sample');
-        $DrumkitSampleFileName = time()."_"."DRUMKIT_SAMPLE_".strtolower(str_replace(' ', '_',$DrumkitSampleFile->getClientOriginalName()));
+        $DrumkitSampleFileName = $this->getRandomName(10)."_DS_".time().$DrumkitSampleFile->getClientOriginalExtension();
 
-        if( $drumkitImgFile->storeAs('public/drumkits/covers/', $drumkitImgFileName )  &&  $DrumkitSampleFile->storeAs('public/drumkits/samples/', $DrumkitSampleFileName )  && $DrumkitZipFile->storeAs('public/drumkits/zips/', $DrumkitZipFileName ) ){
+        if( $drumkitImgFile->storeAs('public/drumkits/covers/', $drumkitImgFileName )  &&  $DrumkitSampleFile->storeAs('public/drumkits/samples/', $DrumkitSampleFileName ) ){
 
-//            $drumkit = new Drumkit();
-//
-//            $drumkit->about = $data['about'];
-//            $drumkit->title = $data['title'];
-            $data['drumkit'] = $DrumkitZipFileName;
+
             $data['sample'] = $DrumkitSampleFileName;
             $data['image'] =$drumkitImgFileName;
             Drumkit::create($data);
-//
-//            $drumkit->save();
 
             return response('Drumkit Created', Response::HTTP_CREATED);
 
@@ -80,32 +79,25 @@ class DrumkitController extends Controller
             'image'  => 'required|image|mimes:jpg,png,jpeg',
             'title' => 'required',
             'type' => 'required',
-            'drumkit'  => 'required|mimes:zip',
+            'drumlink'  => 'required',
             'sample'  => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav',
         ]);
 
+
         $drumkitImgFile =  $request->file('image');
-        $drumkitImgFileName = time()."_"."DRUMKIT_IMG_".strtolower(str_replace(' ', '_',$drumkitImgFile->getClientOriginalName()));
-
-        $DrumkitZipFile =  $request->file('drumkit');
-        $randomName = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890');
-        $dzipMidName = substr($randomName, 0, 10);
-        $DrumkitZipFileName = "DZIP_".$dzipMidName."_".time().".zip";
-
+        $drumkitImgFileName = $this->getRandomName(10)."_DI_".time().$drumkitImgFile->getClientOriginalExtension();
 
         $DrumkitSampleFile =  $request->file('sample');
-        $DrumkitSampleFileName = time()."_"."DRUMKIT_SAMPLE_".strtolower(str_replace(' ', '_',$DrumkitSampleFile->getClientOriginalName()));
+        $DrumkitSampleFileName = $this->getRandomName(10)."_DS_".time().$DrumkitSampleFile->getClientOriginalExtension();
 
-        if( $drumkitImgFile->storeAs('public/drumkits/covers/', $drumkitImgFileName )  &&  $DrumkitSampleFile->storeAs('public/drumkits/samples/', $DrumkitSampleFileName )  && $DrumkitZipFile->storeAs('public/drumkits/zips/', $DrumkitZipFileName ) ){
+        if( $drumkitImgFile->storeAs('public/drumkits/covers/', $drumkitImgFileName )  &&  $DrumkitSampleFile->storeAs('public/drumkits/samples/', $DrumkitSampleFileName ) ){
 
             $drumImg = 'public/drumkits/covers/'.$drumkit->image;
             $drumSample = 'public/drumkits/samples/'.$drumkit->sample;
-            $drumZip = 'public/drumkits/zips/'.$drumkit->drumkit;
 
-            if(Storage::exists($drumImg) && Storage::exists($drumZip) && Storage::exists($drumSample) && Storage::delete([$drumImg,$drumZip,$drumSample])){
+            if(Storage::exists($drumImg) && Storage::exists($drumSample) && Storage::delete([$drumImg,$drumSample])){
 
                 $data['image'] = $drumkitImgFileName;
-                $data['drumkit'] = $DrumkitZipFileName;
                 $data['sample'] = $DrumkitSampleFileName;
 
                 if($drumkit->update($data)){
@@ -121,9 +113,8 @@ class DrumkitController extends Controller
             }else{
 
                 $replacerImgName = 'public/drumkits/covers/'.$drumkitImgFileName;
-                $replacerZipName = 'public/drumkits/zips/'.$DrumkitZipFileName;
                 $replacerSampleName = 'public/drumkits/samples/'.$DrumkitSampleFileName;
-                Storage::delete([$replacerImgName,$replacerZipName,$replacerSampleName]);
+                Storage::delete([$replacerImgName,$replacerSampleName]);
 
                 return response('Failed To Update Drumkit Image', Response::HTTP_FORBIDDEN);
             }
@@ -150,10 +141,9 @@ class DrumkitController extends Controller
     public function destroy(Drumkit $drumkit)
     {
         $drumImg = 'public/drumkits/covers/'.$drumkit->image;
-        $drumZip = 'public/drumkits/zips/'.$drumkit->drumkit;
         $drumSample = 'public/drumkits/samples/'.$drumkit->drumkit;
 
-        if(Storage::exists($drumImg) && Storage::exists($drumZip) && Storage::exists($drumSample) && Storage::delete([$drumImg,$drumZip,$drumSample])){
+        if(Storage::exists($drumImg) && Storage::exists($drumSample) && Storage::delete([$drumImg,$drumSample])){
 
             if($drumkit->delete()){
                 return response('Drumkit Deleted', Response::HTTP_OK);

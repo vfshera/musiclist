@@ -23086,15 +23086,15 @@ svg:hover {
   }
 
   #social-links a svg {
-    height: 30px;
+    transform: scale(1.06);
   }
 
   #fb-icon {
     fill: #1877f2 !important;
   }
 
-  #twitter-icon {
-    fill: #1da1f2 !important;
+  #yt-icon {
+    fill: #ff0000 !important;
   }
 
   #ig-icon {

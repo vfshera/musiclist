@@ -3410,7 +3410,10 @@ __webpack_require__.r(__webpack_exports__);
   name: "Donate",
   data: function data() {
     return {
-      amount: 5
+      amount: 2,
+      email: '',
+      message: '',
+      processor: null
     };
   },
   methods: {
@@ -3866,7 +3869,7 @@ __webpack_require__.r(__webpack_exports__);
       search: '',
       isProcessing: true,
       isPosting: false,
-      drumkit: null,
+      drumlink: '',
       title: '',
       type: '',
       about: '',
@@ -3882,6 +3885,7 @@ __webpack_require__.r(__webpack_exports__);
       this.title = '';
       this.type = '';
       this.about = '';
+      this.drumlink = '';
       this.cover = null;
       this.sample = null;
     },
@@ -3914,7 +3918,7 @@ __webpack_require__.r(__webpack_exports__);
       fd.append('title', this.title);
       fd.append('type', this.type);
       fd.append('sample', this.sample);
-      fd.append('drumkit', this.drumkit);
+      fd.append('drumlink', this.drumlink);
       fd.append('about', this.about);
       axios.post('/addDrumkit', fd, {
         headers: {
@@ -4030,50 +4034,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -11932,7 +11892,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.info[data-v-61a7c374]{\n    font-size: 18px;\n    font-weight: bold;\n    color: black;\n}\n.info p[data-v-61a7c374]{\n    color: black;\n}\n.info svg[data-v-61a7c374]{\n   display: none;\n}\nsection[data-v-61a7c374] {\n    margin-top:20px;\n    height: 40px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: #111;\n    color: rgba(255,255,255,.4);\n}\n.with-player[data-v-61a7c374]{\n    margin-bottom: 60px !important;\n    background-color: #111;\n}\nsection[data-v-61a7c374]:hover{\n    color: white;\n}\nfooter[data-v-61a7c374]{\n    margin-top: 80px;\n    display: flex;\n    justify-content: space-between;\n    align-items: baseline;\n    margin-bottom: 20px;\n}\nfooter .social[data-v-61a7c374]{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    transition: 10ms ease-in-out;\n}\nfooter .social a[data-v-61a7c374] {\n    color: #111111;\n    text-decoration: none;\n}\nfooter .social svg[data-v-61a7c374]:hover{\n    transition: 10ms ease-in-out;\n    transform: scale(1.08);\n}\n#fb-icon[data-v-61a7c374]{\n       margin: 0 5px;\n}\n#twitter-icon[data-v-61a7c374]{\n    margin: 0 5px;\n}\n#ig-icon[data-v-61a7c374]{\n    margin: 0 5px;\n}\n#fb-icon[data-v-61a7c374]:hover{\n    fill: #1877f2;\n}\n#twitter-icon[data-v-61a7c374]:hover{\n    fill:  #1da1f2;\n}\n#ig-icon[data-v-61a7c374]:hover{\n   fill: #c32aa3;\n}\n", ""]);
+exports.push([module.i, "\n.info[data-v-61a7c374]{\n    font-size: 18px;\n    font-weight: bold;\n    color: black;\n}\n.info p[data-v-61a7c374]{\n    color: black;\n}\n.info svg[data-v-61a7c374]{\n   display: none;\n}\nsection[data-v-61a7c374] {\n    margin-top:20px;\n    height: 40px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: #111;\n    color: rgba(255,255,255,.4);\n}\n.with-player[data-v-61a7c374]{\n    margin-bottom: 60px !important;\n    background-color: #111;\n}\nsection[data-v-61a7c374]:hover{\n    color: white;\n}\nfooter[data-v-61a7c374]{\n    margin-top: 80px;\n    display: flex;\n    justify-content: space-between;\n    align-items: baseline;\n    margin-bottom: 20px;\n}\nfooter .social[data-v-61a7c374]{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    transition: 10ms ease-in-out;\n}\nfooter .social a[data-v-61a7c374] {\n    color: #111111;\n    text-decoration: none;\n}\nfooter .social svg[data-v-61a7c374]:hover{\n    transition: 10ms ease-in-out;\n    transform: scale(1.08);\n}\n#fb-icon[data-v-61a7c374]{\n       margin: 0 5px;\n}\n#yt-icon[data-v-61a7c374]{\n    margin: 0 5px;\n}\n#ig-icon[data-v-61a7c374]{\n    margin: 0 5px;\n}\n#fb-icon[data-v-61a7c374]:hover{\n    fill: #1877f2;\n}\n#yt-icon[data-v-61a7c374]:hover{\n    fill:  #ff0000;\n}\n#ig-icon[data-v-61a7c374]:hover{\n   fill: #c32aa3;\n}\n", ""]);
 
 // exports
 
@@ -61621,7 +61581,153 @@ var render = function() {
     _c("div", { staticClass: "donate  col-md-8 " }, [
       _vm._m(0),
       _vm._v(" "),
-      _vm._m(1),
+      _c("div", { staticClass: "donation-body" }, [
+        _c("form", { staticClass: " col-sm-11 col-xs-11 col-md-12" }, [
+          _c("div", { staticClass: "form-group row " }, [
+            _c(
+              "div",
+              {
+                staticClass: " col-sm-11 col-xs-11 form__group field col-md-12"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.amount,
+                      expression: "amount"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    type: "number",
+                    min: "2",
+                    step: "1",
+                    placeholder: "Donation Amount...",
+                    pattern: "[0-9]{8}",
+                    title: "Donation is expressed in USD$.Minimum Amount 2$",
+                    name: "amount",
+                    id: "amount",
+                    required: ""
+                  },
+                  domProps: { value: _vm.amount },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.amount = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "amount" } },
+                  [_vm._v("Amount (in USD $)")]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group row " }, [
+            _c(
+              "div",
+              {
+                staticClass: " col-sm-11 col-xs-11 form__group field col-md-12"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.email,
+                      expression: "email"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    type: "email",
+                    pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$",
+                    title: "The email must be Valid like abc@xyz.com",
+                    placeholder: "Your Email Address...",
+                    name: "email",
+                    id: "email",
+                    required: ""
+                  },
+                  domProps: { value: _vm.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.email = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "email" } },
+                  [_vm._v("Email")]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group row " }, [
+            _c(
+              "div",
+              {
+                staticClass: " col-sm-11 col-xs-11 form__group field col-md-12"
+              },
+              [
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.message,
+                      expression: "message"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    type: "input",
+                    placeholder: "Any Special Message...",
+                    name: "message",
+                    id: "message",
+                    required: ""
+                  },
+                  domProps: { value: _vm.message },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.message = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "message" } },
+                  [_vm._v("Message (optional)")]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "p",
+            { staticStyle: { color: "orangered", "font-style": "italic" } },
+            [_vm._v("*Click on The Desired Mode Of Payment*")]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "supported-methods " }, [
         _c("p", [_vm._v("Donate via :")]),
@@ -61715,101 +61821,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "donation-head" }, [
       _c("h1", [_vm._v("\n               Donation Page\n           ")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "donation-body" }, [
-      _c("form", { staticClass: " col-sm-11 col-xs-11 col-md-12" }, [
-        _c("div", { staticClass: "form-group row " }, [
-          _c(
-            "div",
-            { staticClass: " col-sm-11 col-xs-11 form__group field col-md-12" },
-            [
-              _c("input", {
-                staticClass: "form__field",
-                attrs: {
-                  type: "number",
-                  min: "2",
-                  step: "1",
-                  placeholder: "Donation Amount...",
-                  pattern: "[0-9]{8}",
-                  title: "Donation is expressed in USD$.Minimum Amount 2$",
-                  name: "amount",
-                  id: "amount",
-                  required: ""
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                { staticClass: "form__label", attrs: { for: "amount" } },
-                [_vm._v("Amount")]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group row " }, [
-          _c(
-            "div",
-            { staticClass: " col-sm-11 col-xs-11 form__group field col-md-12" },
-            [
-              _c("input", {
-                staticClass: "form__field",
-                attrs: {
-                  type: "email",
-                  pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$",
-                  title: "The email must be Valid like abc@xyz.com",
-                  placeholder: "Your Email Address...",
-                  name: "email",
-                  id: "email",
-                  required: ""
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                { staticClass: "form__label", attrs: { for: "email" } },
-                [_vm._v("Email")]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group row " }, [
-          _c(
-            "div",
-            { staticClass: " col-sm-11 col-xs-11 form__group field col-md-12" },
-            [
-              _c("textarea", {
-                staticClass: "form__field",
-                attrs: {
-                  type: "input",
-                  placeholder: "Any Special Message...",
-                  name: "message",
-                  id: "message",
-                  required: ""
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "label",
-                { staticClass: "form__label", attrs: { for: "message" } },
-                [_vm._v("Message (optional)")]
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "p",
-          { staticStyle: { color: "orangered", "font-style": "italic" } },
-          [_vm._v("*Click on The Desired Mode Of Payment*")]
-        )
-      ])
     ])
   }
 ]
@@ -62458,7 +62469,38 @@ var render = function() {
                         })
                       ]),
                       _vm._v(" "),
-                      _vm._m(3)
+                      _c("div", { staticClass: "drumlink" }, [
+                        _c("label", { attrs: { for: "drumkit-link" } }, [
+                          _vm._v("Drumkit Link")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.drumlink,
+                              expression: "drumlink"
+                            }
+                          ],
+                          staticClass: "form-control mt-2",
+                          attrs: {
+                            id: "drumkit-link",
+                            required: "",
+                            type: "url",
+                            placeholder: "Kit Link goes here ...."
+                          },
+                          domProps: { value: _vm.drumlink },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.drumlink = $event.target.value
+                            }
+                          }
+                        })
+                      ])
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "link-n-title col-md-6" }, [
@@ -62659,24 +62701,6 @@ var staticRenderFns = [
       _c("div"),
       _c("div")
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "drumlink" }, [
-      _c("label", { attrs: { for: "drumkit-link" } }, [_vm._v("Drumkit Link")]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control mt-2",
-        attrs: {
-          id: "drumkit-link",
-          required: "",
-          type: "url",
-          placeholder: "Kit Link goes here ...."
-        }
-      })
-    ])
   }
 ]
 render._withStripped = true
@@ -62791,67 +62815,38 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c("a", { attrs: { href: "#", target: "”_blank”" } }, [
-              _c(
-                "svg",
-                {
-                  staticStyle: { "enable-background": "new 0 0 512 512" },
-                  attrs: {
-                    id: "twitter-icon",
-                    version: "1.1",
-                    height: "24px",
-                    xmlns: "http://www.w3.org/2000/svg",
-                    "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                    x: "0px",
-                    y: "0px",
-                    viewBox: "0 0 512 512",
-                    "xml:space": "preserve"
-                  }
-                },
-                [
-                  _c("g", [
-                    _c("g", [
-                      _c("path", {
-                        attrs: {
-                          d:
-                            "M512,97.248c-19.04,8.352-39.328,13.888-60.48,16.576c21.76-12.992,38.368-33.408,46.176-58.016\n                                 c-20.288,12.096-42.688,20.64-66.56,25.408C411.872,60.704,384.416,48,354.464,48c-58.112,0-104.896,47.168-104.896,104.992\n                                 c0,8.32,0.704,16.32,2.432,23.936c-87.264-4.256-164.48-46.08-216.352-109.792c-9.056,15.712-14.368,33.696-14.368,53.056\n                                 c0,36.352,18.72,68.576,46.624,87.232c-16.864-0.32-33.408-5.216-47.424-12.928c0,0.32,0,0.736,0,1.152\n                                 c0,51.008,36.384,93.376,84.096,103.136c-8.544,2.336-17.856,3.456-27.52,3.456c-6.72,0-13.504-0.384-19.872-1.792\n                                 c13.6,41.568,52.192,72.128,98.08,73.12c-35.712,27.936-81.056,44.768-130.144,44.768c-8.608,0-16.864-0.384-25.12-1.44\n                                 C46.496,446.88,101.6,464,161.024,464c193.152,0,298.752-160,298.752-298.688c0-4.64-0.16-9.12-0.384-13.568\n                                 C480.224,136.96,497.728,118.496,512,97.248z"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("g"),
-                  _vm._v(" "),
-                  _c("g"),
-                  _vm._v(" "),
-                  _c("g"),
-                  _vm._v(" "),
-                  _c("g"),
-                  _vm._v(" "),
-                  _c("g"),
-                  _vm._v(" "),
-                  _c("g"),
-                  _vm._v(" "),
-                  _c("g"),
-                  _vm._v(" "),
-                  _c("g"),
-                  _vm._v(" "),
-                  _c("g"),
-                  _vm._v(" "),
-                  _c("g"),
-                  _vm._v(" "),
-                  _c("g"),
-                  _vm._v(" "),
-                  _c("g"),
-                  _vm._v(" "),
-                  _c("g"),
-                  _vm._v(" "),
-                  _c("g"),
-                  _vm._v(" "),
-                  _c("g")
-                ]
-              )
-            ]),
+            _c(
+              "a",
+              {
+                attrs: {
+                  href:
+                    "https://www.youtube.com/channel/UCFbN4OQu7j7ZIrytkB9eaYQ/videos",
+                  target: "”_blank”"
+                }
+              },
+              [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      id: "yt-icon",
+                      height: "35px",
+                      xmlns: "http://www.w3.org/2000/svg",
+                      "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                      viewBox: "0 0 24 24"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z"
+                      }
+                    })
+                  ]
+                )
+              ]
+            ),
             _vm._v(" "),
             _c(
               "a",

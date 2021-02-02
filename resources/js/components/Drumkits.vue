@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="drumlink">
                                         <label for="drumkit-link">Drumkit Link</label>
-                                        <input  id="drumkit-link" required type="url" class="form-control mt-2" placeholder="Kit Link goes here ....">
+                                        <input  id="drumkit-link" v-model="drumlink" required type="url" class="form-control mt-2" placeholder="Kit Link goes here ....">
                                     </div>
                                 </div>
                                 <div class="link-n-title col-md-6">
@@ -121,7 +121,7 @@
                 search: '',
                 isProcessing: true,
                 isPosting: false,
-                drumkit:null,
+                drumlink: '',
                 title: '',
                 type: '',
                 about: '',
@@ -139,6 +139,7 @@
                 this.title = '';
                 this.type = '';
                 this.about = '';
+                this.drumlink = '';
                 this.cover = null;
                 this.sample = null;
             },
@@ -167,7 +168,7 @@
                 fd.append('title',this.title)
                 fd.append('type',this.type)
                 fd.append('sample',this.sample)
-                fd.append('drumkit',this.drumkit)
+                fd.append('drumlink',this.drumlink)
                 fd.append('about',this.about)
 
 
