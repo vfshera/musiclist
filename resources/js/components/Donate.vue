@@ -74,16 +74,20 @@
 </script>
 
 <style scoped>
-    .paypal-pre svg{
-
+    .paypal-pre , .mpesa-pre{
+        cursor: pointer;
+        transition: 150ms ease-in-out;
+        transform: scale(.8);
     }
-    .mpesa-pre{
-
+    .paypal-pre:hover, .mpesa-pre:hover{
+        transform: scale(1);
     }
     .processor-icon img{
         height: 70% !important;
         padding: 0 10px;
+
     }
+
     form{
         display: flex;
         flex-direction: column;

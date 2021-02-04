@@ -1,6 +1,6 @@
 <template>
     <div class="beat-container p-2">
-        <div class="beat   ">
+        <div class="beat">
             <div class="beat-header ">
                 <button class="back-btn " @click.prevent="prevPage"><i class="ti-arrow-left"></i></button>
                 <div class="beat-title ">
@@ -19,22 +19,32 @@
             <div class="beat-cover-info pt-2 px-3">
                 <div class="beat-cover">
                     <img :src="beat.cover" :alt="beat.title" height="300px">
-                    <div class="beat-tags p-1 d-flex justify-content-around">
-                        <span v-for="tag in beat.tags.split(',')">
-                            #{{ tag }}
-                        </span>
-                    </div>
+
                 </div>
                 <div class="beat-info">
                     <h3>Details</h3>
-                    <div class="beat-about">{{ beat.about }}</div>
+                    <div class="d-flex pt-3">
+                        <span class="font-weight-bold">TAGS :</span>
+                        <div class="beat-tags  d-flex ">
+                            <span class="mx-1  badge badge-dark py-1 px-3 " v-for="tag in beat.tags.split(',')">
+                                #{{ tag }}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="beat-about pt-2"><span class="font-weight-bold">BPM & KEY : </span>{{ beat.bpmkey }}</div>
+                    <div class="pt-2">
+                        <span class="font-weight-bold">{{ beat.title }} </span> is {{ (beat.isFree) ? 'Not For Sale' : 'For Sale'}}.
+                        <div class=" pt-2 font-weight-bold">Pick Your Package Below : </div>
+                        <div class="beat-license">
+                            <button class="bronze">BRONZE</button>
+                            <button class="silver">SILVER</button>
+                            <button class="gold">GOLD</button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <div class="beat-license">
-                <button class="bronze">BRONZE</button>
-                <button class="silver">SILVER</button>
-                <button class="gold">GOLD</button>
-            </div>
+
         </div>
 
     </div>
@@ -284,7 +294,7 @@
     .beat-license{
         border-top: 2px #11111111 solid;
         padding: 15px;
-        margin-top: 40px;
+        margin-top: 10px;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -316,11 +326,12 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 15px;
     }
     .beat{
         display: flex;
         flex-direction: column;
-        min-height: 65vh;
+        min-height: 55vh;
         background: white;
         border-radius: 10px;
         width:99.4%;
