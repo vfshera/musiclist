@@ -5045,10 +5045,42 @@ __webpack_require__.r(__webpack_exports__);
     return {
       beats: [],
       blogs: [],
-      drumkits: []
+      drumkits: [],
+      newsletterMail: '',
+      contact: {
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      },
+      contactErr: {}
     };
   },
   methods: {
+    sendMsg: function sendMsg() {
+      if (contact.name != '' && contact.email != '' && contact.subject != '' && contact.message != '') {
+        axios.post('/contact', this.contact).then(function (response) {
+          console.log(response);
+        })["catch"](function (err) {
+          Swal.fire({
+            icon: 'error',
+            title: err.message
+          }); // this.contactErr = err.errors;
+        });
+      } else {
+        Swal.fire({
+          title: 'Check Your Fields',
+          icon: 'error'
+        });
+      }
+    },
+    subscribe: function subscribe() {
+      console.log("Subscribe");
+      Swal.fire({
+        title: 'Subscribe To News',
+        text: 'As ' + this.newsletterMail
+      });
+    },
     sanitizeText: function sanitizeText(size, text) {
       return text.slice(0, size) + '...';
     },
@@ -64736,29 +64768,259 @@ var render = function() {
       }),
       _vm._v(" "),
       _c("div", { staticClass: "c-formContainer" }, [
-        _c("form", { staticClass: "c-form", attrs: { action: "" } }, [
-          _c("input", {
-            staticClass: "c-form__input",
-            attrs: {
-              placeholder: "E-mail",
-              type: "email",
-              pattern: "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{1,63}$",
-              required: ""
-            }
-          }),
-          _vm._v(" "),
-          _vm._m(5),
-          _vm._v(" "),
-          _c("label", {
-            staticClass: "c-form__toggle",
-            attrs: { for: "checkbox", "data-title": "Notify me" },
-            on: { click: _vm.expandSignUp }
-          })
-        ])
+        _c(
+          "form",
+          {
+            staticClass: "c-form",
+            attrs: { action: "" },
+            on: { submit: _vm.subscribe }
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newsletterMail,
+                  expression: "newsletterMail"
+                }
+              ],
+              staticClass: "c-form__input",
+              attrs: {
+                placeholder: "E-mail",
+                type: "email",
+                pattern: "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{1,63}$",
+                required: ""
+              },
+              domProps: { value: _vm.newsletterMail },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newsletterMail = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm._m(5),
+            _vm._v(" "),
+            _c("label", {
+              staticClass: "c-form__toggle",
+              attrs: { for: "checkbox", "data-title": "Notify me" },
+              on: { click: _vm.expandSignUp }
+            })
+          ]
+        )
       ])
     ]),
     _vm._v(" "),
-    _vm._m(6)
+    _c(
+      "div",
+      {
+        staticClass: " col-sm-11 col-xs-11 container my-5 ",
+        attrs: { id: "contact" }
+      },
+      [
+        _c("h2", { staticClass: "text-center" }, [_vm._v("CONTACT")]),
+        _vm._v(" "),
+        _c("form", { staticClass: " col-sm-11 col-xs-11 col-md-12" }, [
+          _c("div", { staticClass: "form-group row " }, [
+            _c(
+              "div",
+              {
+                staticClass: " col-sm-11 col-xs-11 form__group field col-md-12"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.contact.name,
+                      expression: "contact.name"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    type: "text",
+                    pattern: "[aA-zZ]{2,}",
+                    title: "The name MUST Contain Letters Only!",
+                    placeholder: "Name",
+                    name: "name",
+                    id: "name",
+                    required: ""
+                  },
+                  domProps: { value: _vm.contact.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.contact, "name", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "name" } },
+                  [_vm._v("Name")]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group row " }, [
+            _c(
+              "div",
+              {
+                staticClass: " col-sm-11 col-xs-11 form__group field col-md-12"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.contact.email,
+                      expression: "contact.email"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    type: "email",
+                    pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$",
+                    title: "The email must be Valid like abc@xyz.com",
+                    placeholder: "Email",
+                    name: "email",
+                    id: "email",
+                    required: ""
+                  },
+                  domProps: { value: _vm.contact.email },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.contact, "email", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "email" } },
+                  [_vm._v("Email")]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group row " }, [
+            _c(
+              "div",
+              {
+                staticClass: " col-sm-11 col-xs-11 form__group field col-md-12"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.contact.subject,
+                      expression: "contact.subject"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    type: "text",
+                    placeholder: "subject",
+                    name: "subject",
+                    id: "subject",
+                    required: ""
+                  },
+                  domProps: { value: _vm.contact.subject },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.contact, "subject", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "subject" } },
+                  [_vm._v("Subject")]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group row " }, [
+            _c(
+              "div",
+              {
+                staticClass: " col-sm-11 col-xs-11 form__group field col-md-12"
+              },
+              [
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.contact.message,
+                      expression: "contact.message"
+                    }
+                  ],
+                  staticClass: "form__field",
+                  attrs: {
+                    type: "text",
+                    placeholder: "message",
+                    name: "message",
+                    id: "message",
+                    required: ""
+                  },
+                  domProps: { value: _vm.contact.message },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.contact, "message", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  { staticClass: "form__label", attrs: { for: "message" } },
+                  [_vm._v("Message")]
+                )
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "pure-material-button-contained",
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.sendMsg($event)
+                }
+              }
+            },
+            [_vm._v("SEND")]
+          )
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -65025,142 +65287,9 @@ var staticRenderFns = [
       [
         _c(
           "button",
-          { staticClass: "c-form__button", attrs: { type: "button" } },
+          { staticClass: "c-form__button", attrs: { type: "submit" } },
           [_vm._v("Send")]
         )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: " col-sm-11 col-xs-11 container my-5 ",
-        attrs: { id: "contact" }
-      },
-      [
-        _c("h2", { staticClass: "text-center" }, [_vm._v("CONTACT")]),
-        _vm._v(" "),
-        _c("form", { staticClass: " col-sm-11 col-xs-11 col-md-12" }, [
-          _c("div", { staticClass: "form-group row " }, [
-            _c(
-              "div",
-              {
-                staticClass: " col-sm-11 col-xs-11 form__group field col-md-12"
-              },
-              [
-                _c("input", {
-                  staticClass: "form__field",
-                  attrs: {
-                    type: "text",
-                    pattern: "[aA-zZ]{2,}",
-                    title: "The name MUST Contain Letters Only!",
-                    placeholder: "Name",
-                    name: "name",
-                    id: "name",
-                    required: ""
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  { staticClass: "form__label", attrs: { for: "name" } },
-                  [_vm._v("Name")]
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group row " }, [
-            _c(
-              "div",
-              {
-                staticClass: " col-sm-11 col-xs-11 form__group field col-md-12"
-              },
-              [
-                _c("input", {
-                  staticClass: "form__field",
-                  attrs: {
-                    type: "email",
-                    pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$",
-                    title: "The email must be Valid like abc@xyz.com",
-                    placeholder: "Email",
-                    name: "email",
-                    id: "email",
-                    required: ""
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  { staticClass: "form__label", attrs: { for: "email" } },
-                  [_vm._v("Email")]
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group row " }, [
-            _c(
-              "div",
-              {
-                staticClass: " col-sm-11 col-xs-11 form__group field col-md-12"
-              },
-              [
-                _c("input", {
-                  staticClass: "form__field",
-                  attrs: {
-                    type: "text",
-                    placeholder: "subject",
-                    name: "subject",
-                    id: "subject",
-                    required: ""
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  { staticClass: "form__label", attrs: { for: "subject" } },
-                  [_vm._v("Subject")]
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "form-group row " }, [
-            _c(
-              "div",
-              {
-                staticClass: " col-sm-11 col-xs-11 form__group field col-md-12"
-              },
-              [
-                _c("textarea", {
-                  staticClass: "form__field",
-                  attrs: {
-                    type: "text",
-                    placeholder: "message",
-                    name: "message",
-                    id: "message",
-                    required: ""
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "label",
-                  { staticClass: "form__label", attrs: { for: "message" } },
-                  [_vm._v("Message")]
-                )
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "pure-material-button-contained" }, [
-            _vm._v("SEND")
-          ])
-        ])
       ]
     )
   }

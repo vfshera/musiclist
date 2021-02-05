@@ -268,10 +268,10 @@
             <h4 class="text-center">SIGN UP FOR OUR NEWSLETTER</h4>
             <input class="c-checkbox" type="checkbox" id="checkbox">
             <div class="c-formContainer">
-                <form class="c-form" action="">
-                    <input class="c-form__input" placeholder="E-mail" type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required>
+                <form class="c-form" action="" @submit="subscribe">
+                    <input class="c-form__input" v-model="newsletterMail" placeholder="E-mail" type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required>
                     <label class="c-form__buttonLabel" for="checkbox">
-                        <button class="c-form__button" type="button">Send</button>
+                        <button class="c-form__button"  type="submit">Send</button>
                     </label>
                     <label class="c-form__toggle" for="checkbox" @click="expandSignUp" data-title="Notify me"></label>
                 </form>
@@ -283,29 +283,29 @@
             <form class=" col-sm-11 col-xs-11 col-md-12">
                 <div class="form-group row ">
                     <div class=" col-sm-11 col-xs-11 form__group field col-md-12">
-                        <input type="text" pattern="[aA-zZ]{2,}" title="The name MUST Contain Letters Only!" class="form__field" placeholder="Name" name="name" id='name' required />
+                        <input type="text" v-model="contact.name" pattern="[aA-zZ]{2,}" title="The name MUST Contain Letters Only!" class="form__field" placeholder="Name" name="name" id='name' required />
                         <label for="name" class="form__label">Name</label>
                     </div>
                 </div>
                 <div class="form-group row ">
                     <div class=" col-sm-11 col-xs-11 form__group field col-md-12">
-                        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="The email must be Valid like abc@xyz.com" class="form__field" placeholder="Email" name="email" id='email' required />
+                        <input type="email" v-model="contact.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="The email must be Valid like abc@xyz.com" class="form__field" placeholder="Email" name="email" id='email' required />
                         <label for="email" class="form__label">Email</label>
                     </div>
                 </div>
                 <div class="form-group row ">
                     <div class=" col-sm-11 col-xs-11 form__group field col-md-12">
-                        <input type="text" class="form__field" placeholder="subject" name="subject" id='subject' required />
+                        <input type="text" v-model="contact.subject" class="form__field" placeholder="subject" name="subject" id='subject' required />
                         <label for="subject" class="form__label">Subject</label>
                     </div>
                 </div>
                 <div class="form-group row ">
                     <div class=" col-sm-11 col-xs-11 form__group field col-md-12">
-                        <textarea type="text" class="form__field" placeholder="message" name="message" id='message' required ></textarea>
+                        <textarea type="text" v-model="contact.message" class="form__field" placeholder="message" name="message" id='message' required ></textarea>
                         <label for="message" class="form__label">Message</label>
                     </div>
                 </div>
-                <button class="pure-material-button-contained">SEND</button>
+                <button class="pure-material-button-contained" @click.prevent="sendMsg">SEND</button>
             </form>
         </div>
 
@@ -324,12 +324,46 @@
                 beats: [],
                 blogs: [],
                 drumkits: [],
-
+                newsletterMail:'',
+                contact:{
+                    name: '',
+                    email: '',
+                    subject: '',
+                    message: '',
+                },
+                contactErr:{},
             }
         },
 
         methods:{
+            sendMsg(){
+                if(contact.name != '' && contact.email != '' && contact.subject != '' && contact.message != ''){
 
+                    axios.post('/contact', this.contact)
+                        .then(response =>{
+                            console.log(response)
+                        })
+                        .catch(err =>{
+                            Swal.fire({
+                                icon: 'error',
+                                title : err.message
+                            })
+                           // this.contactErr = err.errors;
+                        });
+                }else{
+                    Swal.fire({
+                        title: 'Check Your Fields',
+                        icon: 'error'
+                    })
+                }
+            },
+            subscribe(){
+                console.log("Subscribe")
+              Swal.fire({
+                  title: 'Subscribe To News',
+                  text: 'As ' + this.newsletterMail,
+              })
+            },
             sanitizeText(size,text){
 
                     return text.slice(0, size)+ '...';
