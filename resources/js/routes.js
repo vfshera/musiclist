@@ -11,6 +11,7 @@ import FrontDrumkit from "./components/FrontDrumkit";
 import Beat from "./components/Beat";
 import Donate from "./components/Donate";
 import FrontDrumkits from "./components/FrontDrumkits";
+import FrontBlogs from "./components/FrontBlogs";
 
 export const  routes = [
     {
@@ -57,6 +58,11 @@ export const  routes = [
         path : '/blogs',
         component : Blogs,
         meta: { requiresAuth : true}
+    },
+    {
+        path : '/blog-posts',
+        component : FrontBlogs,
+        name : 'frontBlogs'
     },
     {
         path : '/blog/:id/:title',

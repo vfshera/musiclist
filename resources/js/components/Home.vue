@@ -196,7 +196,7 @@
                 </article>
             </section>
 
-            <a href="#" class="btn btn-primary mt-md-4 mt-sm-3 mt-xs-3 "> MORE STORIES</a>
+            <router-link :to="{ path: '/blog-posts' }" class="btn btn-primary mt-md-4 mt-sm-3 mt-xs-3 "> MORE STORIES</router-link>
         </div>
         <div id="gallery" class="my-5">
             <h2 class="text-center">GALLERY</h2>

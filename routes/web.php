@@ -20,7 +20,7 @@ Route::group(['middleware' => ['auth']], function (){
 //    blog
     Route::post('/addBlog' , 'BlogController@store');
     Route::get('/getBlogs' , 'BlogController@index')->withoutMiddleware('auth');
-    Route::get('/adminBlogs' , 'BlogController@indexAdmin');
+    Route::get('/adminBlogs' , 'BlogController@indexAdmin')->withoutMiddleware('auth');
     Route::get('/getBlog/{blog}' , 'BlogController@show')->withoutMiddleware('auth');
     Route::post('/updateBlog/{blog}' , 'BlogController@update');
     Route::delete('/deleteBlog/{blog}' , 'BlogController@destroy');
