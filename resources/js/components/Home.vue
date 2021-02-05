@@ -167,7 +167,7 @@
 
             </div>
             <div id="more-kits" class=" d-flex justify-content-center container">
-                <a href="#" class="btn btn-primary  ">ALL SOUND KITS</a>
+                <router-link :to="{ path : '/soundkits' }"class="btn btn-primary  ">ALL SOUND KITS</router-link>
             </div>
         </div>
         <div id="blog" class="my-5">

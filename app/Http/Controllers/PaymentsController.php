@@ -10,23 +10,22 @@ class PaymentsController extends Controller
     {
         $details = $request->validate([
             'phone' => 'required|string',
+            'activity' => 'required|string',
             'description' => 'required|string'
         ]);
 
-        $num = $details['phone'];
-        $desc = $details['description'];
 
         $mpesa = new \Safaricom\Mpesa\Mpesa();
-        $BusinessShortCode = '174379';
+        $BusinessShortCode = env('MPESA_TILL_NUMBER');
         $LipaNaMpesaPasskey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919';
         $TransactionType = 'CustomerPayBillOnline';
         $Amount = '1';
         $PartyA = '254769518626';
         $PartyB = $BusinessShortCode;
-        $PhoneNumber = $num;
+        $PhoneNumber = $details['phone'];
         $CallBackURL = url('/qtimeout');
-        $AccountReference = 'TRA BY ANN';
-        $TransactionDesc = $desc;
+        $AccountReference = 'TONY ON THE TRACK - ('.env('MPESA_TILL_NAME').')';
+        $TransactionDesc = $details['description'];
         $Remarks = 'Sample payment';
         $stkPushSimulation = $mpesa->STKPushSimulation($BusinessShortCode, $LipaNaMpesaPasskey, $TransactionType, $Amount, $PartyA, $PartyB, $PhoneNumber, $CallBackURL, $AccountReference, $TransactionDesc, $Remarks);
 
@@ -44,11 +43,11 @@ class PaymentsController extends Controller
         $CommandID = 'AccountBalance';
         $Initiator = 'apitest425';
         $SecurityCredential = 'F8dGX6Es+rkdNgSE//bpIg7oUSPB+y9xxONNRJePwRiwBgWJ0mlaAORo3WO6gEHV7MPQd701WZj6xp2oCNr73DGA+v2QIToCGAscQIeEpst2dwwLktfBYmT1vTEQkQ2BQvXXwHBYf2i1NOQ6BJi+a+LwvsUN6N2gMjbnkGen2CX5SWJxs8iUscoUZSut7Zfei1swyuX1cFi0bMnBwjGrW64FKZzjDlQ7EHVnloLq/pko9spSyWeyZTy8Q7nbt0DXR+LiTrKiOXsXx0FZgQdQEjwVAcrKOWgXmtHPGoxTx9ObUzH2gca/B8SyqnrqPss3c0MX58E28kBRsrSuJ3wvbg==';
-        $PartyA = '601425';
+        $PartyA =  env('MPESA_TILL_NUMBER');
         $IdentifierType = '4';
         $Remarks = "balance enquiry";
-        $ResultURL = 'https://cc4c08fc.ngrok.io/result';
-        $QueueTimeOutURL = 'https://cc4c08fc.ngrok.io/qtimeout';
+        $ResultURL = '/result';
+        $QueueTimeOutURL = '/qtimeout';
 
 
         $balanceInquiry = $mpesa->accountBalance($CommandID, $Initiator, $SecurityCredential, $PartyA, $IdentifierType, $Remarks, $QueueTimeOutURL, $ResultURL);
@@ -67,7 +66,7 @@ class PaymentsController extends Controller
         $SecurityCredential = 'F8dGX6Es+rkdNgSE//bpIg7oUSPB+y9xxONNRJePwRiwBgWJ0mlaAORo3WO6gEHV7MPQd701WZj6xp2oCNr73DGA+v2QIToCGAscQIeEpst2dwwLktfBYmT1vTEQkQ2BQvXXwHBYf2i1NOQ6BJi+a+LwvsUN6N2gMjbnkGen2CX5SWJxs8iUscoUZSut7Zfei1swyuX1cFi0bMnBwjGrW64FKZzjDlQ7EHVnloLq/pko9spSyWeyZTy8Q7nbt0DXR+LiTrKiOXsXx0FZgQdQEjwVAcrKOWgXmtHPGoxTx9ObUzH2gca/B8SyqnrqPss3c0MX58E28kBRsrSuJ3wvbg==';
         $CommandID = 'SalaryPayment';
         $Amount = "100";
-        $PartyA = "601425";
+        $PartyA =  env('MPESA_TILL_NUMBER');
         $PartyB = "254700080373";
         $Remarks = "sample transaction";
         $ResultURL = 'https://cc4c08fc.ngrok.io/result';
@@ -97,8 +96,8 @@ class PaymentsController extends Controller
         $Amount = '31083';
         $ReceiverParty = "601425";
         $RecieverIdentifierType = "11";
-        $ResultURL = 'https://cc4c08fc.ngrok.io/result';
-        $QueueTimeOutURL = 'https://cc4c08fc.ngrok.io/qtimeout';
+        $ResultURL = '/result';
+        $QueueTimeOutURL = '/qtimeout';
         $remarks = "sample reversal";
         $ocassion = "request";
         $mpesa_response = $mpesa->reversal($CommandID, $Initiator, $SecurityCredential, $TransactionID, $Amount, $ReceiverParty, $RecieverIdentifierType, $ResultURL, $QueueTimeOutURL, $remarks, $ocassion);
@@ -131,7 +130,7 @@ class PaymentsController extends Controller
     {
 
         $mpesa = new \Safaricom\Mpesa\Mpesa();
-        $ShortCode = '601425';
+        $ShortCode = env('MPESA_TILL_NUMBER');
         $CommandID = 'CustomerPayBillOnline';
         $Amount = 10000;
         $Msisdn = 254708374149;

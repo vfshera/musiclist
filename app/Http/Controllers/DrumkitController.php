@@ -19,7 +19,7 @@ class DrumkitController extends Controller
 
     public function getFrontKits()
     {
-        $drumkits = Drumkit::orderBy('created_at', 'DESC')->paginate();
+        $drumkits = Drumkit::orderBy('created_at', 'DESC')->paginate(12);
 
         return DrumkitsResource::collection($drumkits)->response()->setStatusCode(Response::HTTP_OK);
     }

@@ -10,6 +10,7 @@ import Drumkit from "./components/Drumkit";
 import FrontDrumkit from "./components/FrontDrumkit";
 import Beat from "./components/Beat";
 import Donate from "./components/Donate";
+import FrontDrumkits from "./components/FrontDrumkits";
 
 export const  routes = [
     {
@@ -35,6 +36,11 @@ export const  routes = [
         path : '/drumkits',
         component : Drumkits,
         meta: { requiresAuth : true}
+    },
+    {
+        path : '/soundkits',
+        name: 'allDrumkits',
+        component : FrontDrumkits,
     },
     {
         path : '/drumkit/:id/:title',
