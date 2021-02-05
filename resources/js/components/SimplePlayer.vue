@@ -77,7 +77,7 @@
                         document.querySelector(".end-time").textContent = this.getTimeCodeFromNum(
                             audio.duration
                         );
-                        audio.volume = .65;
+                        audio.volume = .60;
                         audio.loop = true;
                         audio.pause();
                         audio.play();
@@ -186,8 +186,8 @@
         },
 
         mounted() {
-
-                this.initPlayer(this.music.sample);
+             this.initPlayer(this.music.sample);
+             console.log(this.music)
         }
     }
 </script>

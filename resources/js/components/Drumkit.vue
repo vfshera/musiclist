@@ -18,7 +18,7 @@
            </div>
            <div class="drumkit-inner">
                 <div class="kit-sample-img col-md-5">
-                    <div class="blog-header  mt-5" :style="{ backgroundImage: `url(${ drumkit.image } )` }"></div>
+                    <div class="kit-image  mt-5" :style="{ backgroundImage: `url(${ drumkit.image } )` }"></div>
                 </div>
                <div class="drumkit-info col-md-6">
                    <h3 class="title">{{ drumkit.title }}</h3>
@@ -274,13 +274,13 @@
                     if(response.status == 200){
                         this.drumkit = response.data.data;
 
-                        if( localStorage.getItem('readDrumkit')){
-                            localStorage.removeItem('readDrumkit')
+                        if( localStorage.getItem('viewDrumkit')){
+                            localStorage.removeItem('viewDrumkit')
                         }
 
-                        localStorage.setItem('readDrumkit' , JSON.stringify(response.data.data));
+                        localStorage.setItem('viewDrumkit' , JSON.stringify(response.data.data));
 
-                        this.$store.commit('setReadDrumkit', response.data.data);
+                        this.$store.commit('setViewDrumkit', response.data.data);
 
                         this.isProcessing = false;
 
@@ -313,12 +313,12 @@
 
             axios.get( '/getDrumkit/'+this.editedDrumkit.id).then(resp => {
 
-                if( localStorage.getItem('readDrumkit')){
-                    localStorage.removeItem('readDrumkit')
+                if( localStorage.getItem('viewDrumkit')){
+                    localStorage.removeItem('viewDrumkit')
                 }
 
-                localStorage.setItem('readDrumkit' , JSON.stringify(resp.data));
-                this.$store.commit('setReadDrumkit', resp.data);
+                localStorage.setItem('viewDrumkit' , JSON.stringify(resp.data));
+                this.$store.commit('setViewDrumkit', resp.data);
 
                 this.setDrumkit()
 
@@ -348,6 +348,9 @@
 </script>
 
 <style scoped>
+    .drumkit-post{
+
+    }
 .kit-sample-img{
     display: flex;
     flex-direction: column;
@@ -357,6 +360,7 @@
     display: flex;
     /*justify-content: space-around;*/
     width: 78vw;
+    min-height: 50vh;
     flex-direction: column;
     padding: 10px;
     background-color: white;
@@ -371,7 +375,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 .drumkit-inner{
     display: flex;
@@ -459,7 +463,7 @@
         padding: 15px;
         color: black;
     }
-    .blog-header{
+    .kit-image{
         height: 50vh;
         width: 100%;
         display: flex;
