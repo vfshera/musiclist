@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class ContactController extends Controller
 {
@@ -27,7 +29,12 @@ class ContactController extends Controller
             'message' => 'required',
         ]);
 
-       dd($contact);
+       if(Contact::create($contact)){
+           return response($contact['name'].' Your Message Was Sent!', Response::HTTP_CREATED);
+       }else{
+           return response('Can not Message Admin', Response::HTTP_FORBIDDEN);
+       }
+
     }
 
 

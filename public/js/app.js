@@ -5058,9 +5058,30 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     sendMsg: function sendMsg() {
+      var _this = this;
+
       if (contact.name != '' && contact.email != '' && contact.subject != '' && contact.message != '') {
-        axios.post('/contact', this.contact).then(function (response) {
-          console.log(response);
+        axios.post('/contact', this.contact).then(function (res) {
+          if (res.status == 201) {
+            Toast.fire({
+              icon: 'success',
+              title: res.data
+            });
+            _this.contact.message = '';
+            _this.contact.name = '';
+            _this.contact.email = '';
+            _this.contact.subject = '';
+          } else if (res.status == 403) {
+            Toast.fire({
+              icon: 'error',
+              title: res.data
+            });
+          } else {
+            Toast.fire({
+              icon: 'error',
+              title: 'Please Try Sending Again!'
+            });
+          }
         })["catch"](function (err) {
           Swal.fire({
             icon: 'error',
@@ -5088,16 +5109,16 @@ __webpack_require__.r(__webpack_exports__);
       return '/storage/' + folder + '/' + imglink;
     },
     fetchData: function fetchData() {
-      var _this = this;
+      var _this2 = this;
 
       this.beats = this.$store.getters.getBeats;
       axios.get('/getBlogs').then(function (response) {
-        _this.blogs = response.data.data;
+        _this2.blogs = response.data.data;
       })["catch"](function (err) {
         console.log(err);
       });
       axios.get('/frontDrumkits').then(function (response) {
-        _this.drumkits = response.data.data;
+        _this2.drumkits = response.data.data;
       })["catch"](function (err) {
         console.log(err);
       });
@@ -64846,7 +64867,7 @@ var render = function() {
                     type: "text",
                     pattern: "[aA-zZ]{2,}",
                     title: "The name MUST Contain Letters Only!",
-                    placeholder: "Name",
+                    placeholder: "Put Only Your First Name",
                     name: "name",
                     id: "name",
                     required: ""
@@ -64865,7 +64886,7 @@ var render = function() {
                 _c(
                   "label",
                   { staticClass: "form__label", attrs: { for: "name" } },
-                  [_vm._v("Name")]
+                  [_vm._v("First Name")]
                 )
               ]
             )

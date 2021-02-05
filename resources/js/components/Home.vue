@@ -283,8 +283,8 @@
             <form class=" col-sm-11 col-xs-11 col-md-12">
                 <div class="form-group row ">
                     <div class=" col-sm-11 col-xs-11 form__group field col-md-12">
-                        <input type="text" v-model="contact.name" pattern="[aA-zZ]{2,}" title="The name MUST Contain Letters Only!" class="form__field" placeholder="Name" name="name" id='name' required />
-                        <label for="name" class="form__label">Name</label>
+                        <input type="text" v-model="contact.name" pattern="[aA-zZ]{2,}" title="The name MUST Contain Letters Only!" class="form__field" placeholder="Put Only Your First Name" name="name" id='name' required />
+                        <label for="name" class="form__label">First Name</label>
                     </div>
                 </div>
                 <div class="form-group row ">
@@ -340,8 +340,31 @@
                 if(contact.name != '' && contact.email != '' && contact.subject != '' && contact.message != ''){
 
                     axios.post('/contact', this.contact)
-                        .then(response =>{
-                            console.log(response)
+                        .then(res =>{
+
+                            if(res.status == 201){
+
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: res.data
+                                });
+
+                                this.contact.message = ''
+                                this.contact.name = ''
+                                this.contact.email = ''
+                                this.contact.subject = ''
+
+                            }else if(res.status == 403){
+                                Toast.fire({
+                                    icon: 'error',
+                                    title: res.data
+                                });
+                            }else{
+                                Toast.fire({
+                                    icon: 'error',
+                                    title: 'Please Try Sending Again!'
+                                });
+                            }
                         })
                         .catch(err =>{
                             Swal.fire({
