@@ -1,27 +1,29 @@
 <template>
-    <div class="blog-drumkit p-4">
+    <div class="drumkit-post p-4">
+
        <div class="drumkit-outer">
-           <button class="back-btn p-2" @click.prevent="prevPage"><i class="ti-arrow-left"></i></button>
+           <div class="kit-header ">
+               <button class="back-btn " @click.prevent="prevPage"><i class="ti-arrow-left"></i></button>
+               <div class="kit-player ">
+                   <SimplePlayer :music="kitSound"/>
+               </div>
+               <div class="updates p-2 ">
+                   <button class="edit-drumkit" @click.prevent="editDrumkit">
+                       <i  class="ti-pencil" ></i>
+                   </button>
+                   <button class="delete-drumkit " @click.prevent="deleteDrumkit(drumkit.id)">
+                       <i  class="ti-trash" ></i>
+                   </button>
+               </div>
+           </div>
            <div class="drumkit-inner">
                 <div class="kit-sample-img col-md-5">
-                    <div class="blog-header  mt-5" :style="{ backgroundImage: `url(${ drumkit.image } )` }">
-
-                    </div>
-
-                    <audio :src="drumkit.sample" controls class="mt-5"></audio>
+                    <div class="blog-header  mt-5" :style="{ backgroundImage: `url(${ drumkit.image } )` }"></div>
                 </div>
                <div class="drumkit-info col-md-6">
                    <h3 class="title">{{ drumkit.title }}</h3>
                    <p v-html="drumkit.about"></p>
                </div>
-           </div>
-           <div class="updates p-2">
-              <button class="edit-drumkit" @click.prevent="editDrumkit">
-                  <i  class="ti-pencil" ></i>
-              </button>
-              <button class="delete-drumkit" @click.prevent="deleteDrumkit(drumkit.id)">
-                  <i  class="ti-trash" ></i>
-              </button>
            </div>
 
        </div>
@@ -96,10 +98,12 @@
 
 <script>
     import { VueEditor } from 'vue2-editor'
+    import SimplePlayer from "./SimplePlayer";
 
     export default {
       components:{
-            VueEditor
+            VueEditor,
+            SimplePlayer
     },
     name: 'DrumkitPost',
     data(){
@@ -281,6 +285,7 @@
                         this.isProcessing = false;
 
                         this.scrollToTop();
+                        this.playKit()
                     }else{
                         this.isProcessing = false;
                         Swal.fire('Post Unavailable')
@@ -292,7 +297,15 @@
                     console.log(err);
                 });
         },
+        playKit(){
 
+            this.$store.commit('setSong',this.kitSound);
+
+            if(this.$store.getters.getPlayerState != true || this.$store.getters.getPlayerVisibility != true){
+                this.$store.commit('setPlayerVisibility', true);
+                this.$store.commit('setPlayerState', true);
+            }
+        },
         scrollToTop() {
             window.scrollTo(0,0)
         },
@@ -318,6 +331,13 @@
     computed:{
         numOfCharacters:function () {
             return this.editedDrumkit.about.length;
+        },
+        kitSound: function () {
+            return {
+                title : this.drumkit.type + " - " + this.drumkit.title,
+                cover : this.drumkit.image,
+                sample : this.drumkit.sample,
+            }
         }
     },
     mounted(){
@@ -335,13 +355,24 @@
 
 .drumkit-outer{
     display: flex;
-    justify-content: space-around;
+    /*justify-content: space-around;*/
     width: 78vw;
+    flex-direction: column;
     padding: 10px;
     background-color: white;
     border-radius: 10px;
 }
 
+.kit-player{
+    min-width: 85%;
+    height: 60%;
+}
+.kit-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
 .drumkit-inner{
     display: flex;
     justify-content: space-around;
@@ -417,7 +448,7 @@
 /*endloader*/
 
 
-    .blog-drumkit{
+    .drumkit-post{
         width: 81.4vw;
         min-height: 100vh;
         display: flex;
@@ -445,54 +476,28 @@
         width: 45px;
         height: 40px;
         margin: .5rem !important;
-        background-color: #111111cc;
-        color: white;
-        border-radius: 25px;
-        transition: .4s ease-in-out;
-    }
-
-
-    .back-btn:hover{
-        width: 50px;
-        height: 50px;
-        background-color: #cccccc99;
         color: #111111;
-        border-radius: 45px;
+        transition: transform .3s ease-in-out;
     }
+
 
     .edit-drumkit{
         width: 40px;
         height: 40px;
-        background-color: #007bff;
-        color: white;
-        border-radius: 25px;
-        transition: .4s ease-in-out;
-    }
-
-    .edit-drumkit:hover{
-        width: 50px;
-        height: 50px;
-        background-color: #ffffff99;
         color: #007bff;
-        border-radius: 45px;
+        transition: transform .3s ease-in-out;
     }
 
     .delete-drumkit{
         margin-left: 10px;
         width: 40px;
         height: 40px;
-        background-color: red;
-        color: white;
-        border-radius: 25px;
-        transition: .4s ease-in-out;
+        color: red;
+        transition: transform .3s ease-in-out;
     }
 
-    .delete-drumkit:hover{
-        width: 50px;
-        height: 50px;
-        background-color: #ffffff99;
-        color: red;
-        border-radius: 45px;
+    .delete-drumkit:hover , .edit-drumkit:hover , .back-btn:hover{
+        transform: scale(1.5);
     }
 
     .drumkit-info{

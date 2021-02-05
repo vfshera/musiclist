@@ -47,10 +47,10 @@ class DrumkitController extends Controller
         ]);
 
         $drumkitImgFile =  $request->file('image');
-        $drumkitImgFileName = $this->getRandomName(10)."_DI_".time().$drumkitImgFile->getClientOriginalExtension();
+        $drumkitImgFileName = $this->getRandomName(10)."_DI_".time().'.'.$drumkitImgFile->getClientOriginalExtension();
 
         $DrumkitSampleFile =  $request->file('sample');
-        $DrumkitSampleFileName = $this->getRandomName(10)."_DS_".time().$DrumkitSampleFile->getClientOriginalExtension();
+        $DrumkitSampleFileName = $this->getRandomName(10)."_DS_".'.'.time().$DrumkitSampleFile->getClientOriginalExtension();
 
         if( $drumkitImgFile->storeAs('public/drumkits/covers/', $drumkitImgFileName )  &&  $DrumkitSampleFile->storeAs('public/drumkits/samples/', $DrumkitSampleFileName ) ){
 
@@ -87,10 +87,10 @@ class DrumkitController extends Controller
 
 
         $drumkitImgFile =  $request->file('image');
-        $drumkitImgFileName = $this->getRandomName(10)."_DI_".time().$drumkitImgFile->getClientOriginalExtension();
+        $drumkitImgFileName = $this->getRandomName(10)."_DI_".time().'.'.$drumkitImgFile->getClientOriginalExtension();
 
         $DrumkitSampleFile =  $request->file('sample');
-        $DrumkitSampleFileName = $this->getRandomName(10)."_DS_".time().$DrumkitSampleFile->getClientOriginalExtension();
+        $DrumkitSampleFileName = $this->getRandomName(10)."_DS_".time().'.'.$DrumkitSampleFile->getClientOriginalExtension();
 
         if( $drumkitImgFile->storeAs('public/drumkits/covers/', $drumkitImgFileName )  &&  $DrumkitSampleFile->storeAs('public/drumkits/samples/', $DrumkitSampleFileName ) ){
 

@@ -3452,6 +3452,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue2-editor */ "./node_modules/vue2-editor/dist/vue2-editor.esm.js");
+/* harmony import */ var _SimplePlayer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SimplePlayer */ "./resources/js/components/SimplePlayer.vue");
+//
+//
 //
 //
 //
@@ -3549,9 +3552,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__["VueEditor"]
+    VueEditor: vue2_editor__WEBPACK_IMPORTED_MODULE_0__["VueEditor"],
+    SimplePlayer: _SimplePlayer__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   name: 'DrumkitPost',
   data: function data() {
@@ -3716,6 +3721,8 @@ __webpack_require__.r(__webpack_exports__);
           _this3.isProcessing = false;
 
           _this3.scrollToTop();
+
+          _this3.playKit();
         } else {
           _this3.isProcessing = false;
           Swal.fire('Post Unavailable');
@@ -3723,6 +3730,14 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    playKit: function playKit() {
+      this.$store.commit('setSong', this.kitSound);
+
+      if (this.$store.getters.getPlayerState != true || this.$store.getters.getPlayerVisibility != true) {
+        this.$store.commit('setPlayerVisibility', true);
+        this.$store.commit('setPlayerState', true);
+      }
     },
     scrollToTop: function scrollToTop() {
       window.scrollTo(0, 0);
@@ -3748,6 +3763,13 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     numOfCharacters: function numOfCharacters() {
       return this.editedDrumkit.about.length;
+    },
+    kitSound: function kitSound() {
+      return {
+        title: this.drumkit.type + " - " + this.drumkit.title,
+        cover: this.drumkit.image,
+        sample: this.drumkit.sample
+      };
     }
   },
   mounted: function mounted() {
@@ -11820,7 +11842,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.beat-license[data-v-1a8e80be]{\n    border-top: 2px #11111111 solid;\n    padding: 15px;\n    margin-top: 10px;\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n}\n.bronze[data-v-1a8e80be], .silver[data-v-1a8e80be], .gold[data-v-1a8e80be]{\n    color: white;\n    font-weight: bold;\n    height: 40px;\n    width: 120px;\n    border-radius: 10px;\n}\n.bronze[data-v-1a8e80be]{\n    background-color: #905923;\n}\n.silver[data-v-1a8e80be]{\n    background-color: #9a9a9a;\n}\n.gold[data-v-1a8e80be]{\n    background-color: #b39700;\n}\n.beat-header[data-v-1a8e80be]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-bottom: 15px;\n}\n.beat[data-v-1a8e80be]{\n    display: flex;\n    flex-direction: column;\n    min-height: 55vh;\n    background: white;\n    border-radius: 10px;\n    width:99.4%;\n}\n.beat-cover-info[data-v-1a8e80be]{\n    display: flex;\n    justify-content: space-between;\n}\n.beat-cover[data-v-1a8e80be]{\n}\n.beat-info[data-v-1a8e80be]{\n    min-width: 49%;\n    max-width: 50%;\n}\n.beat-container[data-v-1a8e80be]{\n    height: 100%;\n    width: 100%;\n    display: flex;\n    justify-content: center;\n}\n.loader[data-v-1a8e80be] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-1a8e80be] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-1a8e80be]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis1-data-v-1a8e80be 0.6s infinite;\n}\n.loader div[data-v-1a8e80be]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n}\n.loader div[data-v-1a8e80be]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n}\n.loader div[data-v-1a8e80be]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis3-data-v-1a8e80be 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-1a8e80be {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-1a8e80be {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-1a8e80be {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-1a8e80be {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-1a8e80be {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-1a8e80be {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n\n\n/*endloader*/\n.beat-title[data-v-1a8e80be]{\n    min-width: 85%;\n    height: 60%;\n}\n.back-btn[data-v-1a8e80be]{\n    width: 45px;\n    height: 40px;\n    margin: .5rem !important;\n    color: #111111;\n    transition: transform .3s ease-in-out;\n}\n.back-btn[data-v-1a8e80be]:hover{\n    transform: scale(1.5);\n}\n.edit-beat[data-v-1a8e80be]{\n    width: 40px;\n    height: 40px;\n    color: #007bff;\n    transition: transform .3s ease-in-out;\n}\n.edit-beat[data-v-1a8e80be]:hover{\n    transform: scale(1.5);\n}\n.delete-beat[data-v-1a8e80be]{\n    margin-left: 10px;\n    width: 40px;\n    height: 40px;\n    color: red;\n    transition: transform .3s ease-in-out;\n}\n.delete-beat[data-v-1a8e80be]:hover{\n    transform: scale(1.5);\n}\n\n\n", ""]);
+exports.push([module.i, "\n.beat-license[data-v-1a8e80be]{\n    border-top: 2px #11111111 solid;\n    padding: 15px;\n    margin-top: 10px;\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n}\n.bronze[data-v-1a8e80be], .silver[data-v-1a8e80be], .gold[data-v-1a8e80be]{\n    color: white;\n    font-weight: bold;\n    height: 40px;\n    width: 120px;\n    border-radius: 10px;\n}\n.bronze[data-v-1a8e80be]{\n    background-color: #905923;\n}\n.silver[data-v-1a8e80be]{\n    background-color: #9a9a9a;\n}\n.gold[data-v-1a8e80be]{\n    background-color: #b39700;\n}\n.beat-header[data-v-1a8e80be]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-bottom: 15px;\n}\n.beat[data-v-1a8e80be]{\n    display: flex;\n    flex-direction: column;\n    min-height: 50vh;\n    background: white;\n    border-radius: 10px;\n    width:99.4%;\n    margin-bottom: 30vh;\n}\n.beat-cover-info[data-v-1a8e80be]{\n    display: flex;\n    justify-content: space-between;\n}\n.beat-cover[data-v-1a8e80be]{\n}\n.beat-info[data-v-1a8e80be]{\n    min-width: 49%;\n    max-width: 50%;\n}\n.beat-container[data-v-1a8e80be]{\n    height: 100%;\n    width: 100%;\n    display: flex;\n    justify-content: center;\n}\n.loader[data-v-1a8e80be] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-1a8e80be] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-1a8e80be]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis1-data-v-1a8e80be 0.6s infinite;\n}\n.loader div[data-v-1a8e80be]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n}\n.loader div[data-v-1a8e80be]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n}\n.loader div[data-v-1a8e80be]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis3-data-v-1a8e80be 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-1a8e80be {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-1a8e80be {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-1a8e80be {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-1a8e80be {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-1a8e80be {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-1a8e80be {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n\n\n/*endloader*/\n.beat-title[data-v-1a8e80be]{\n    min-width: 85%;\n    height: 60%;\n}\n.back-btn[data-v-1a8e80be]{\n    width: 45px;\n    height: 40px;\n    margin: .5rem !important;\n    color: #111111;\n    transition: transform .3s ease-in-out;\n}\n.back-btn[data-v-1a8e80be]:hover{\n    transform: scale(1.5);\n}\n.edit-beat[data-v-1a8e80be]{\n    width: 40px;\n    height: 40px;\n    color: #007bff;\n    transition: transform .3s ease-in-out;\n}\n.edit-beat[data-v-1a8e80be]:hover{\n    transform: scale(1.5);\n}\n.delete-beat[data-v-1a8e80be]{\n    margin-left: 10px;\n    width: 40px;\n    height: 40px;\n    color: red;\n    transition: transform .3s ease-in-out;\n}\n.delete-beat[data-v-1a8e80be]:hover{\n    transform: scale(1.5);\n}\n\n\n", ""]);
 
 // exports
 
@@ -11915,7 +11937,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.kit-sample-img[data-v-c4bf1256]{\n    display: flex;\n    flex-direction: column;\n}\n.drumkit-outer[data-v-c4bf1256]{\n    display: flex;\n    justify-content: space-around;\n    width: 78vw;\n    padding: 10px;\n    background-color: white;\n    border-radius: 10px;\n}\n.drumkit-inner[data-v-c4bf1256]{\n    display: flex;\n    justify-content: space-around;\n    width: 78vw;\n}\n.updates[data-v-c4bf1256]{\n    display: flex;\n    justify-content: space-around;\n}\n\n/*loader*/\n.drumkiting-blog[data-v-c4bf1256]{\n    position: absolute;\n    top: 49%;\n    left: 43%;\n}\n.loader[data-v-c4bf1256] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-c4bf1256] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-c4bf1256]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-c4bf1256 0.6s infinite;\n            animation: lds-ellipsis1-data-v-c4bf1256 0.6s infinite;\n}\n.loader div[data-v-c4bf1256]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-c4bf1256 0.6s infinite;\n            animation: lds-ellipsis2-data-v-c4bf1256 0.6s infinite;\n}\n.loader div[data-v-c4bf1256]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-c4bf1256 0.6s infinite;\n            animation: lds-ellipsis2-data-v-c4bf1256 0.6s infinite;\n}\n.loader div[data-v-c4bf1256]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-c4bf1256 0.6s infinite;\n            animation: lds-ellipsis3-data-v-c4bf1256 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-c4bf1256 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-c4bf1256 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-c4bf1256 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-c4bf1256 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-c4bf1256 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-c4bf1256 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n\n\n/*endloader*/\n.blog-drumkit[data-v-c4bf1256]{\n        width: 81.4vw;\n        min-height: 100vh;\n        display: flex;\n        border-radius: 15px;\n        box-shadow: 0px 0px 10px -10px #111111;\n}\n.title[data-v-c4bf1256]{\n        padding: 15px;\n        color: black;\n}\n.blog-header[data-v-c4bf1256]{\n        height: 50vh;\n        width: 100%;\n        display: flex;\n        flex-direction: column;\n        justify-content: space-between;\n        border-radius: 7px;\n        -o-object-fit: cover;\n           object-fit: cover;\n        background-position: center;\n        background-size: cover;\n}\n.back-btn[data-v-c4bf1256]{\n        width: 45px;\n        height: 40px;\n        margin: .5rem !important;\n        background-color: #111111cc;\n        color: white;\n        border-radius: 25px;\n        transition: .4s ease-in-out;\n}\n.back-btn[data-v-c4bf1256]:hover{\n        width: 50px;\n        height: 50px;\n        background-color: #cccccc99;\n        color: #111111;\n        border-radius: 45px;\n}\n.edit-drumkit[data-v-c4bf1256]{\n        width: 40px;\n        height: 40px;\n        background-color: #007bff;\n        color: white;\n        border-radius: 25px;\n        transition: .4s ease-in-out;\n}\n.edit-drumkit[data-v-c4bf1256]:hover{\n        width: 50px;\n        height: 50px;\n        background-color: #ffffff99;\n        color: #007bff;\n        border-radius: 45px;\n}\n.delete-drumkit[data-v-c4bf1256]{\n        margin-left: 10px;\n        width: 40px;\n        height: 40px;\n        background-color: red;\n        color: white;\n        border-radius: 25px;\n        transition: .4s ease-in-out;\n}\n.delete-drumkit[data-v-c4bf1256]:hover{\n        width: 50px;\n        height: 50px;\n        background-color: #ffffff99;\n        color: red;\n        border-radius: 45px;\n}\n.drumkit-info[data-v-c4bf1256]{\n        display: flex;\n        flex-direction: column;\n        padding:15px;\n        min-height: 50vh;\n        border-bottom-left-radius: 15px;\n        border-bottom-right-radius: 15px;\n        background-image: linear-gradient(0deg,#11111111,#ffffff77);\n}\n.drumkit-info p[data-v-c4bf1256] {\n        margin-top: 15px;\n        background-color: #ffffff;\n        min-height: 42vh;\n        border-radius: 15px;\n        padding:15px;\n        color: black;\n}\n", ""]);
+exports.push([module.i, "\n.kit-sample-img[data-v-c4bf1256]{\n    display: flex;\n    flex-direction: column;\n}\n.drumkit-outer[data-v-c4bf1256]{\n    display: flex;\n    /*justify-content: space-around;*/\n    width: 78vw;\n    flex-direction: column;\n    padding: 10px;\n    background-color: white;\n    border-radius: 10px;\n}\n.kit-player[data-v-c4bf1256]{\n    min-width: 85%;\n    height: 60%;\n}\n.kit-header[data-v-c4bf1256]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-bottom: 15px;\n}\n.drumkit-inner[data-v-c4bf1256]{\n    display: flex;\n    justify-content: space-around;\n    width: 78vw;\n}\n.updates[data-v-c4bf1256]{\n    display: flex;\n    justify-content: space-around;\n}\n\n/*loader*/\n.drumkiting-blog[data-v-c4bf1256]{\n    position: absolute;\n    top: 49%;\n    left: 43%;\n}\n.loader[data-v-c4bf1256] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-c4bf1256] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-c4bf1256]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-c4bf1256 0.6s infinite;\n            animation: lds-ellipsis1-data-v-c4bf1256 0.6s infinite;\n}\n.loader div[data-v-c4bf1256]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-c4bf1256 0.6s infinite;\n            animation: lds-ellipsis2-data-v-c4bf1256 0.6s infinite;\n}\n.loader div[data-v-c4bf1256]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-c4bf1256 0.6s infinite;\n            animation: lds-ellipsis2-data-v-c4bf1256 0.6s infinite;\n}\n.loader div[data-v-c4bf1256]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-c4bf1256 0.6s infinite;\n            animation: lds-ellipsis3-data-v-c4bf1256 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-c4bf1256 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-c4bf1256 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-c4bf1256 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-c4bf1256 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-c4bf1256 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-c4bf1256 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n\n\n/*endloader*/\n.drumkit-post[data-v-c4bf1256]{\n        width: 81.4vw;\n        min-height: 100vh;\n        display: flex;\n        border-radius: 15px;\n        box-shadow: 0px 0px 10px -10px #111111;\n}\n.title[data-v-c4bf1256]{\n        padding: 15px;\n        color: black;\n}\n.blog-header[data-v-c4bf1256]{\n        height: 50vh;\n        width: 100%;\n        display: flex;\n        flex-direction: column;\n        justify-content: space-between;\n        border-radius: 7px;\n        -o-object-fit: cover;\n           object-fit: cover;\n        background-position: center;\n        background-size: cover;\n}\n.back-btn[data-v-c4bf1256]{\n        width: 45px;\n        height: 40px;\n        margin: .5rem !important;\n        color: #111111;\n        transition: transform .3s ease-in-out;\n}\n.edit-drumkit[data-v-c4bf1256]{\n        width: 40px;\n        height: 40px;\n        color: #007bff;\n        transition: transform .3s ease-in-out;\n}\n.delete-drumkit[data-v-c4bf1256]{\n        margin-left: 10px;\n        width: 40px;\n        height: 40px;\n        color: red;\n        transition: transform .3s ease-in-out;\n}\n.delete-drumkit[data-v-c4bf1256]:hover , .edit-drumkit[data-v-c4bf1256]:hover , .back-btn[data-v-c4bf1256]:hover{\n        transform: scale(1.5);\n}\n.drumkit-info[data-v-c4bf1256]{\n        display: flex;\n        flex-direction: column;\n        padding:15px;\n        min-height: 50vh;\n        border-bottom-left-radius: 15px;\n        border-bottom-right-radius: 15px;\n        background-image: linear-gradient(0deg,#11111111,#ffffff77);\n}\n.drumkit-info p[data-v-c4bf1256] {\n        margin-top: 15px;\n        background-color: #ffffff;\n        min-height: 42vh;\n        border-radius: 15px;\n        padding:15px;\n        color: black;\n}\n", ""]);
 
 // exports
 
@@ -61931,32 +61953,66 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "blog-drumkit p-4" }, [
+  return _c("div", { staticClass: "drumkit-post p-4" }, [
     _c("div", { staticClass: "drumkit-outer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "back-btn p-2",
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.prevPage($event)
+      _c("div", { staticClass: "kit-header " }, [
+        _c(
+          "button",
+          {
+            staticClass: "back-btn ",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.prevPage($event)
+              }
             }
-          }
-        },
-        [_c("i", { staticClass: "ti-arrow-left" })]
-      ),
+          },
+          [_c("i", { staticClass: "ti-arrow-left" })]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "kit-player " },
+          [_c("SimplePlayer", { attrs: { music: _vm.kitSound } })],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "updates p-2 " }, [
+          _c(
+            "button",
+            {
+              staticClass: "edit-drumkit",
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.editDrumkit($event)
+                }
+              }
+            },
+            [_c("i", { staticClass: "ti-pencil" })]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "delete-drumkit ",
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.deleteDrumkit(_vm.drumkit.id)
+                }
+              }
+            },
+            [_c("i", { staticClass: "ti-trash" })]
+          )
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "drumkit-inner" }, [
         _c("div", { staticClass: "kit-sample-img col-md-5" }, [
           _c("div", {
             staticClass: "blog-header  mt-5",
             style: { backgroundImage: "url(" + _vm.drumkit.image + " )" }
-          }),
-          _vm._v(" "),
-          _c("audio", {
-            staticClass: "mt-5",
-            attrs: { src: _vm.drumkit.sample, controls: "" }
           })
         ]),
         _vm._v(" "),
@@ -61967,36 +62023,6 @@ var render = function() {
           _vm._v(" "),
           _c("p", { domProps: { innerHTML: _vm._s(_vm.drumkit.about) } })
         ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "updates p-2" }, [
-        _c(
-          "button",
-          {
-            staticClass: "edit-drumkit",
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.editDrumkit($event)
-              }
-            }
-          },
-          [_c("i", { staticClass: "ti-pencil" })]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "delete-drumkit",
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.deleteDrumkit(_vm.drumkit.id)
-              }
-            }
-          },
-          [_c("i", { staticClass: "ti-trash" })]
-        )
       ])
     ]),
     _vm._v(" "),

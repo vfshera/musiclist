@@ -331,10 +331,11 @@
     .beat{
         display: flex;
         flex-direction: column;
-        min-height: 55vh;
+        min-height: 50vh;
         background: white;
         border-radius: 10px;
         width:99.4%;
+        margin-bottom: 30vh;
     }
 
     .beat-cover-info{
