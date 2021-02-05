@@ -21711,7 +21711,7 @@ svg:hover {
     height: 30px !important;
   }
 
-  .dev-name {
+  .footer-base section span a {
     font-size: 10px !important;
   }
 }
@@ -21759,7 +21759,7 @@ svg:hover {
     width: 94% !important;
   }
 
-  .dev-name {
+  .footer-base section span a {
     font-size: 10px !important;
   }
 }
@@ -21786,7 +21786,7 @@ svg:hover {
     width: 98% !important;
   }
 
-  .dev-name {
+  .footer-base section span a {
     font-size: 10px !important;
   }
 }
@@ -22146,7 +22146,7 @@ svg:hover {
     width: 100%;
   }
 
-  .dev-name {
+  .footer-base section span a {
     font-size: 10px !important;
   }
 }
@@ -22505,7 +22505,7 @@ svg:hover {
     margin-bottom: 5px;
   }
 
-  .dev-name {
+  .footer-base section span a {
     font-size: 10px !important;
   }
 }
@@ -22518,7 +22518,7 @@ svg:hover {
     font-size: 1rem !important;
   }
 
-  .dev-name {
+  .footer-base section span a {
     font-size: 10px !important;
   }
 
@@ -23035,7 +23035,7 @@ svg:hover {
     height: 50px;
   }
 
-  .footer-base section span {
+  .footer-base section span a {
     font-size: 9px !important;
   }
 

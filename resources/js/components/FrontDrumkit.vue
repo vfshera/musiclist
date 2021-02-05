@@ -275,13 +275,14 @@ export default {
     margin: 5px;
 }
 .download-drumkit:hover{
-    width: 45px;
-    height: 45px;
+    /*width: 45px;*/
+    /*height: 45px;*/
     background-color: gainsboro ;
     color: #007bff;
     border-radius: 25px;
     transition: .4s ease-in-out;
     margin: 5px;
+    transform: scale(1.1);
 }
     .share-drumkit{
         margin: 5px;
@@ -294,11 +295,14 @@ export default {
     }
 
     .share-drumkit:hover{
-        width: 45px;
-        height: 45px;
+        /*width: 45px;*/
+        /*height: 45px;*/
         background-color: #ffffff99;
         color: #007bff;
-        border-radius: 45px;
+        /*border-radius: 45px;*/
+
+        transform: scale(1.1);
+
     }
 /*loader*/
 
@@ -396,11 +400,14 @@ export default {
 
 
     .back-btn:hover{
-        width: 60px;
-        height: 50px;
+        /*width: 60px;*/
+        /*height: 50px;*/
         background-color: #cccccc99;
         color: #111111;
-        border-radius: 45px;
+        /*border-radius: 45px;*/
+
+        transform: scale(1.1);
+
     }
 
     .edit-drumkit{

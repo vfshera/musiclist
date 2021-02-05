@@ -196,11 +196,13 @@ export default {
 
 
     .back-btn:hover{
-        width: 50px;
-        height: 50px;
+        /*width: 50px;*/
+        /*height: 50px;*/
         background-color: #cccccc99;
         color: #111111;
-        border-radius: 45px;
+        /*border-radius: 45px;*/
+
+        transform: scale(1.1);
     }
 
     .share-blog{
@@ -213,11 +215,13 @@ export default {
     }
 
     .share-blog:hover{
-        width: 50px;
-        height: 50px;
+        /*width: 50px;*/
+        /*height: 50px;*/
         background-color: #ffffff99;
         color: #007bff;
-        border-radius: 45px;
+        /*border-radius: 45px;*/
+        transform: scale(1.1);
+
     }
 
        .blog-content{

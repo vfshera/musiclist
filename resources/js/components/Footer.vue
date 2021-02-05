@@ -27,7 +27,7 @@
            </footer>
        </div>
        <section :class="{ 'with-player': this.$store.getters.getPlayerState }">
-           <span class="dev-name">Developed by Franklin Shera</span>
+           <span class="dev-name"><a style="text-decoration: none" href="mailto:fshera96@gmail.com">Developed by Franklin Shera</a></span>
        </section>
    </div>
 </template>

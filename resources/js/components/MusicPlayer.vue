@@ -116,7 +116,7 @@
                     const seekerWidth = window.getComputedStyle(seeker).width;
                     ((audio.duration - 5) != audio.currentTime) ? audio.currentTime  += 5 :  audio.currentTime =  audio.duration
                     document.querySelector(".seeker").style.width =  (audio.currentTime / audio.duration ) * 100 + '%';
-                    this.playerToast("Forward 15s")
+
 
                 }, false);
 
@@ -125,7 +125,7 @@
                     (audio.currentTime > 5) ? audio.currentTime = audio.currentTime -= 5 :  audio.currentTime = 0
                     document.querySelector(".seeker").style.width =  (audio.currentTime / audio.duration ) * 100 + '%';
 
-                    this.playerToast("Backward 15s")
+
                 }, false);
 
 
@@ -169,12 +169,11 @@
                         if (audio.paused) {
                             this.isPlaying = true;
                             audio.play();
-                            this.playerToast("Playing Song!")
+
                             this.$store.commit('setPlayerState',true);
                         } else {
                             this.isPlaying = false;
                             audio.pause();
-                            this.playerToast("Song Paused")
                         }
                     },
                     false

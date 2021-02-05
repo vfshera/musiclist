@@ -16,69 +16,7 @@ let localBeat = localStorage.getItem('viewBeat');
          loggedUser: null,
          PlayerSeen: false,
          currentSong: null,
-         beats:[{
-             cover: 'https://images.unsplash.com/photo-1519070813808-1d7a33907487?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
-             title: 'Afropop Instrumental Joeboy Type Beat - Selfie',
-             sample: '/storage/beats/selfie.mp3',
-             time: '4:05',
-             bpm: '90.0',
-             license: 'FREE',
-             isFree: true,
-         },
-             {
-                 cover: 'https://i.pinimg.com/564x/3f/3c/d9/3f3cd93dc8ab87be3722fa1462295727.jpg',
-                 title: 'Agressive Trap Beat Tekashi Type Beat - Smoked',
-                 sample: '/storage/beats/Smoked.mp3',
-                 time: '2:34',
-                 bpm: '95.0',
-                 license: '$14.50',
-                 isFree: false,
-             },
-             {
-                 cover: 'https://images.unsplash.com/photo-1519070813808-1d7a33907487?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
-                 title: 'Damian Marley Type Beat - Tribe',
-                 sample: '/storage/beats/tribe.mp3',
-                 time: '3:00',
-                 bpm: '75.0',
-                 license: 'FREE',
-                 isFree: true,
-             },
-             {
-                 cover: 'https://i.pinimg.com/564x/3f/3c/d9/3f3cd93dc8ab87be3722fa1462295727.jpg',
-                 title: 'Dancehall Beat Ethic X Boondocks Type Beat- Comma',
-                 url: '/storage/beats/comma.mp3',
-                 time: '3:42',
-                 bpm: '95.0',
-                 license: 'FREE',
-                 isFree: true,
-             },
-             {
-                 cover: 'https://images.unsplash.com/photo-1519070813808-1d7a33907487?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
-                 title: 'Dark Trap Instrumental Hopsin X Dax Type Beat - Bleed ',
-                 sample: '/storage/beats/bleed.mp3',
-                 time: '3:55',
-                 bpm: '100.0',
-                 license: '$21.50',
-                 isFree: false,
-             },
-             {
-                 cover: 'https://images.unsplash.com/photo-1519070813808-1d7a33907487?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
-                 title: 'Future X Migos Type Beat - City',
-                 sample: '/storage/beats/city.mp3',
-                 time: '3:40',
-                 bpm: '75.0',
-                 license: 'FREE',
-                 isFree: true,
-             },
-             {
-                 cover: 'https://i.pinimg.com/564x/3f/3c/d9/3f3cd93dc8ab87be3722fa1462295727.jpg',
-                 title: 'Zouk Instrumental Afropop Beat - Penzi',
-                 sample: '/storage/beats/penzi.mp3',
-                 time: '3:47',
-                 bpm: '95.0',
-                 license: '$25.30',
-                 isFree: false,
-             }]
+         beats:[]
      },
      getters:{
          getCSRFTOKEN(state){
@@ -133,6 +71,9 @@ let localBeat = localStorage.getItem('viewBeat');
          },
          setViewBeat(state, track){
              state.currBeat = track;
+         },
+         setBeats(state, beats){
+             state.beats = beats;
          },
 
      },

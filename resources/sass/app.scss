@@ -154,7 +154,7 @@ svg:hover{
         height: 30px !important;
     }
 
-    .dev-name{
+    .footer-base section span a{
         font-size: 10px !important;
     }
 }
@@ -210,7 +210,7 @@ svg:hover{
 //end drumkit
 
 
-    .dev-name{
+    .footer-base section span a{
         font-size: 10px !important;
     }
 
@@ -241,7 +241,7 @@ svg:hover{
 
 
 
-    .dev-name{
+    .footer-base section span a{
         font-size: 10px !important;
     }
 }
@@ -627,7 +627,7 @@ svg:hover{
         width: 100%;
     }
 
-    .dev-name{
+    .footer-base section span a{
         font-size: 10px !important;
     }
 }
@@ -994,7 +994,7 @@ svg:hover{
     //    object-fit: cover !important;
     //}
 
-    .dev-name{
+    .footer-base section span a{
         font-size: 10px !important;
     }
 }
@@ -1008,7 +1008,7 @@ svg:hover{
         font-size: 1rem !important;
     }
 
-    .dev-name{
+    .footer-base section span a{
         font-size: 10px !important;
     }
 
@@ -1254,6 +1254,8 @@ svg:hover{
 
 //moble
 @media screen and (max-width: 523px) {
+
+
 
     #more-beats{
         margin-top: 15px !important;
@@ -1546,9 +1548,11 @@ svg:hover{
         height: 50px;
     }
 
-    .footer-base section span{
+    .footer-base section span a{
         font-size: 9px !important;
     }
+
+
     footer .info p{
         color: #ffffff55 !important;
         margin-top: 20px;

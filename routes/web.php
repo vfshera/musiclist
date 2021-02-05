@@ -41,7 +41,7 @@ Route::group(['middleware' => ['auth']], function (){
 
 
     Route::post('/addBeat' , 'BeatController@store');
-    Route::get('/frontBeats' , 'BeatController@getFrontKits')->withoutMiddleware('auth');
+    Route::get('/frontBeats' , 'BeatController@getFrontBeats')->withoutMiddleware('auth');
     Route::get('/downloadBeat/{beat}' , 'BeatController@download')->withoutMiddleware('auth');
     Route::get('/getBeats' , 'BeatController@index');
     Route::get('/getBeat/{beat}' , 'BeatController@show')->withoutMiddleware('auth');

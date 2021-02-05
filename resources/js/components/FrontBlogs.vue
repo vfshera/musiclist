@@ -85,6 +85,9 @@
                         this.allblogs = response.data.data;
 
                         this.makePagination(response.data.meta , response.data.links)
+
+                        window.scrollTo(0,0);
+
                     })
                     .catch(err =>{
                         console.log(err);

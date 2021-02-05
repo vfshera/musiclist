@@ -4344,6 +4344,8 @@ __webpack_require__.r(__webpack_exports__);
         _this.allblogs = response.data.data;
 
         _this.makePagination(response.data.meta, response.data.links);
+
+        window.scrollTo(0, 0);
       })["catch"](function (err) {
         console.log(err);
       });
@@ -4972,69 +4974,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Home",
@@ -5111,7 +5050,14 @@ __webpack_require__.r(__webpack_exports__);
     fetchData: function fetchData() {
       var _this2 = this;
 
-      this.beats = this.$store.getters.getBeats;
+      // this.beats = this.$store.getters.getBeats;
+      axios.get('/frontBeats').then(function (response) {
+        _this2.beats = response.data.data;
+
+        _this2.$store.commit('setBeats', _this2.beats);
+      })["catch"](function (err) {
+        console.log(err);
+      });
       axios.get('/getBlogs').then(function (response) {
         _this2.blogs = response.data.data;
       })["catch"](function (err) {
@@ -5291,15 +5237,11 @@ var audio = new Audio();
         var seekerWidth = window.getComputedStyle(seeker).width;
         audio.duration - 5 != audio.currentTime ? audio.currentTime += 5 : audio.currentTime = audio.duration;
         document.querySelector(".seeker").style.width = audio.currentTime / audio.duration * 100 + '%';
-
-        _this.playerToast("Forward 15s");
       }, false);
       backward.addEventListener("click", function (e) {
         var seekerWidth = window.getComputedStyle(seeker).width;
         audio.currentTime > 5 ? audio.currentTime = audio.currentTime -= 5 : audio.currentTime = 0;
         document.querySelector(".seeker").style.width = audio.currentTime / audio.duration * 100 + '%';
-
-        _this.playerToast("Backward 15s");
       }, false); //click volume slider to change volume
 
       var volumeSlider = document.querySelector(".vol-bg");
@@ -5332,14 +5274,10 @@ var audio = new Audio();
           _this.isPlaying = true;
           audio.play();
 
-          _this.playerToast("Playing Song!");
-
           _this.$store.commit('setPlayerState', true);
         } else {
           _this.isPlaying = false;
           audio.pause();
-
-          _this.playerToast("Song Paused");
         }
       }, false);
       document.querySelector(".volume-btn").addEventListener("click", function () {
@@ -12326,7 +12264,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*loading */\n.lds-dual-ring[data-v-35314210] {\n\n    display: inline-block;\n    width: 80px;\n    height: 80px;\n}\n.lds-dual-ring[data-v-35314210]:after {\n    position: absolute;\n    top:50%;\n    left:47%;\n    content: \" \";\n    display: block;\n    width: 64px;\n    height: 64px;\n    margin: auto;\n    border-radius: 50%;\n    border: 6px solid orangered;\n    border-color: orangered transparent orangered transparent;\n    -webkit-animation: lds-dual-ring-data-v-35314210 1.2s linear infinite;\n            animation: lds-dual-ring-data-v-35314210 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring-data-v-35314210 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring-data-v-35314210 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n/*end loading*/\n.blog-post[data-v-35314210]{\n    margin-top: 70px;\n    width: 81.4vw;\n    min-height: 100vh;\n    display: flex;\n    flex-direction: column;\n    border-radius: 15px;\n    box-shadow: 0px 0px 10px -10px #111111;\n}\n.title[data-v-35314210]{\n    padding: 15px;\n    background-image: linear-gradient(0deg,#11111156,transparent);\n}\n.blog-header[data-v-35314210]{\n    height: 35vh;\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    border-top-left-radius: 15px;\n    border-top-right-radius: 15px;\n}\n.blog-actions[data-v-35314210]{\n    margin-top: 20px;\n    margin-left: 15px;\n    margin-right: 15px;\n    display:flex;\n    justify-content: space-between;\n}\n.back-btn[data-v-35314210]{\n    width: 40px;\n    height: 40px;\n    background-color: #111111cc;\n    color: white;\n    border-radius: 25px;\n    transition: .4s ease-in-out;\n}\n.back-btn[data-v-35314210]:hover{\n    width: 50px;\n    height: 50px;\n    background-color: #cccccc99;\n    color: #111111;\n    border-radius: 45px;\n}\n.share-blog[data-v-35314210]{\n    width: 40px;\n    height: 40px;\n    background-color: #007bff;\n    color: white;\n    border-radius: 25px;\n    transition: .4s ease-in-out;\n}\n.share-blog[data-v-35314210]:hover{\n    width: 50px;\n    height: 50px;\n    background-color: #ffffff99;\n    color: #007bff;\n    border-radius: 45px;\n}\n.blog-content[data-v-35314210]{\n    display: flex;\n    flex-direction: column;\n    padding:15px;\n    min-height: 50vh;\n    border-bottom-left-radius: 15px;\n    border-bottom-right-radius: 15px;\n    background-image: linear-gradient(0deg,#11111111,#ffffff77);\n}\n.blog-content p[data-v-35314210] {\n    margin-top: 15px;\n    background-color: #ffffff;\n    min-height: 42vh;\n    border-radius: 15px;\n    padding:15px;\n    color: black;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*loading */\n.lds-dual-ring[data-v-35314210] {\n\n    display: inline-block;\n    width: 80px;\n    height: 80px;\n}\n.lds-dual-ring[data-v-35314210]:after {\n    position: absolute;\n    top:50%;\n    left:47%;\n    content: \" \";\n    display: block;\n    width: 64px;\n    height: 64px;\n    margin: auto;\n    border-radius: 50%;\n    border: 6px solid orangered;\n    border-color: orangered transparent orangered transparent;\n    -webkit-animation: lds-dual-ring-data-v-35314210 1.2s linear infinite;\n            animation: lds-dual-ring-data-v-35314210 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring-data-v-35314210 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring-data-v-35314210 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n/*end loading*/\n.blog-post[data-v-35314210]{\n    margin-top: 70px;\n    width: 81.4vw;\n    min-height: 100vh;\n    display: flex;\n    flex-direction: column;\n    border-radius: 15px;\n    box-shadow: 0px 0px 10px -10px #111111;\n}\n.title[data-v-35314210]{\n    padding: 15px;\n    background-image: linear-gradient(0deg,#11111156,transparent);\n}\n.blog-header[data-v-35314210]{\n    height: 35vh;\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    border-top-left-radius: 15px;\n    border-top-right-radius: 15px;\n}\n.blog-actions[data-v-35314210]{\n    margin-top: 20px;\n    margin-left: 15px;\n    margin-right: 15px;\n    display:flex;\n    justify-content: space-between;\n}\n.back-btn[data-v-35314210]{\n    width: 40px;\n    height: 40px;\n    background-color: #111111cc;\n    color: white;\n    border-radius: 25px;\n    transition: .4s ease-in-out;\n}\n.back-btn[data-v-35314210]:hover{\n    /*width: 50px;*/\n    /*height: 50px;*/\n    background-color: #cccccc99;\n    color: #111111;\n    /*border-radius: 45px;*/\n\n    transform: scale(1.1);\n}\n.share-blog[data-v-35314210]{\n    width: 40px;\n    height: 40px;\n    background-color: #007bff;\n    color: white;\n    border-radius: 25px;\n    transition: .4s ease-in-out;\n}\n.share-blog[data-v-35314210]:hover{\n    /*width: 50px;*/\n    /*height: 50px;*/\n    background-color: #ffffff99;\n    color: #007bff;\n    /*border-radius: 45px;*/\n    transform: scale(1.1);\n}\n.blog-content[data-v-35314210]{\n    display: flex;\n    flex-direction: column;\n    padding:15px;\n    min-height: 50vh;\n    border-bottom-left-radius: 15px;\n    border-bottom-right-radius: 15px;\n    background-image: linear-gradient(0deg,#11111111,#ffffff77);\n}\n.blog-content p[data-v-35314210] {\n    margin-top: 15px;\n    background-color: #ffffff;\n    min-height: 42vh;\n    border-radius: 15px;\n    padding:15px;\n    color: black;\n}\n", ""]);
 
 // exports
 
@@ -12364,7 +12302,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n*[data-v-60224772],html[data-v-60224772]{\n        box-sizing: border-box;\n}\n.drumkit-action[data-v-60224772]{\n        margin-top:20px;\n        display: flex;\n        justify-content: space-around;\n}\n.btn-proceed[data-v-60224772]{\n        background-color: #0f6674;\n        padding: 10px 50px;\n        color: white;\n        font-weight: bolder;\n        border-radius: 15px;\n}\n.btn-cancel[data-v-60224772]{\n        background-color: orangered;\n        padding: 10px 50px;\n        color: white;\n        font-weight: bolder;\n        border-radius: 15px;\n}\n.drumkit-question[data-v-60224772]{\n        font-size: 1.4rem;\n}\n\n\n    /*loading */\n.lds-dual-ring[data-v-60224772] {\n\n        display: inline-block;\n        width: 80px;\n        height: 80px;\n}\n.lds-dual-ring[data-v-60224772]:after {\n        position: absolute;\n        top:50%;\n        left:47%;\n        content: \" \";\n        display: block;\n        width: 64px;\n        height: 64px;\n        margin: auto;\n        border-radius: 50%;\n        border: 6px solid orangered;\n        border-color: orangered transparent orangered transparent;\n        -webkit-animation: lds-dual-ring-data-v-60224772 1.2s linear infinite;\n                animation: lds-dual-ring-data-v-60224772 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring-data-v-60224772 {\n0% {\n            transform: rotate(0deg);\n}\n100% {\n            transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring-data-v-60224772 {\n0% {\n            transform: rotate(0deg);\n}\n100% {\n            transform: rotate(360deg);\n}\n}\n    /*end loading*/\n.kit-sample-img[data-v-60224772]{\n    display: flex;\n    flex-direction: column;\n}\n.drumkit-outer[data-v-60224772]{\n    margin-top: 50px;\n    display: flex;\n    justify-content: space-around;\n    width: 78vw;\n    padding: 10px;\n    background-color: white;\n    border-radius: 10px;\n}\n.drumkit-inner[data-v-60224772]{\n    display: flex;\n    justify-content: space-around;\n    width: 78vw;\n}\n.updates[data-v-60224772]{\n    display: flex;\n    align-items: flex-start;\n}\n.download-drumkit[data-v-60224772]{\n    width: 40px;\n    height: 40px;\n    background-color: #007bff;\n    color: white;\n    border-radius: 25px;\n    transition: .4s ease-in-out;\n    margin: 5px;\n}\n.download-drumkit[data-v-60224772]:hover{\n    width: 45px;\n    height: 45px;\n    background-color: gainsboro ;\n    color: #007bff;\n    border-radius: 25px;\n    transition: .4s ease-in-out;\n    margin: 5px;\n}\n.share-drumkit[data-v-60224772]{\n        margin: 5px;\n        width: 40px;\n        height: 40px;\n        background-color: #007bff;\n        color: white;\n        border-radius: 25px;\n        transition: .4s ease-in-out;\n}\n.share-drumkit[data-v-60224772]:hover{\n        width: 45px;\n        height: 45px;\n        background-color: #ffffff99;\n        color: #007bff;\n        border-radius: 45px;\n}\n/*loader*/\n.loader[data-v-60224772] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-60224772] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-60224772]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-60224772 0.6s infinite;\n            animation: lds-ellipsis1-data-v-60224772 0.6s infinite;\n}\n.loader div[data-v-60224772]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-60224772 0.6s infinite;\n            animation: lds-ellipsis2-data-v-60224772 0.6s infinite;\n}\n.loader div[data-v-60224772]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-60224772 0.6s infinite;\n            animation: lds-ellipsis2-data-v-60224772 0.6s infinite;\n}\n.loader div[data-v-60224772]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-60224772 0.6s infinite;\n            animation: lds-ellipsis3-data-v-60224772 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-60224772 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-60224772 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-60224772 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-60224772 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-60224772 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-60224772 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n\n\n/*endloader*/\n.drumkit[data-v-60224772]{\n        width: 81.4vw;\n        min-height: 100vh;\n        display: flex;\n        border-radius: 15px;\n        box-shadow: 0px 0px 10px -10px #111111;\n}\n.title[data-v-60224772]{\n        padding: 15px;\n        color: black;\n}\n.drumkit-header[data-v-60224772]{\n        height: 50vh;\n        width: 100%;\n        display: flex;\n        flex-direction: column;\n        justify-content: space-between;\n        border-radius: 7px;\n        -o-object-fit: cover;\n           object-fit: cover;\n        background-position: center center;\n        background-size: cover;\n}\n.back-btn[data-v-60224772]{\n        width: 45px;\n        height: 40px;\n        margin: .5rem !important;\n        background-color: #111111cc;\n        color: white;\n        border-radius: 25px;\n        transition: .4s ease-in-out;\n}\n.back-btn[data-v-60224772]:hover{\n        width: 60px;\n        height: 50px;\n        background-color: #cccccc99;\n        color: #111111;\n        border-radius: 45px;\n}\n.edit-drumkit[data-v-60224772]{\n        width: 40px;\n        height: 40px;\n        background-color: #007bff;\n        color: white;\n        border-radius: 25px;\n        transition: .4s ease-in-out;\n}\n.drumkit-info[data-v-60224772]{\n        display: flex;\n        flex-direction: column;\n        padding:15px;\n        min-height: 50vh;\n        border-bottom-left-radius: 15px;\n        border-bottom-right-radius: 15px;\n        background-image: linear-gradient(0deg,#11111111,#ffffff77);\n}\n.drumkit-info p[data-v-60224772] {\n        margin-top: 15px;\n        background-color: #ffffff;\n        min-height: 42vh;\n        border-radius: 15px;\n        padding:15px;\n        color: black;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-60224772],html[data-v-60224772]{\n        box-sizing: border-box;\n}\n.drumkit-action[data-v-60224772]{\n        margin-top:20px;\n        display: flex;\n        justify-content: space-around;\n}\n.btn-proceed[data-v-60224772]{\n        background-color: #0f6674;\n        padding: 10px 50px;\n        color: white;\n        font-weight: bolder;\n        border-radius: 15px;\n}\n.btn-cancel[data-v-60224772]{\n        background-color: orangered;\n        padding: 10px 50px;\n        color: white;\n        font-weight: bolder;\n        border-radius: 15px;\n}\n.drumkit-question[data-v-60224772]{\n        font-size: 1.4rem;\n}\n\n\n    /*loading */\n.lds-dual-ring[data-v-60224772] {\n\n        display: inline-block;\n        width: 80px;\n        height: 80px;\n}\n.lds-dual-ring[data-v-60224772]:after {\n        position: absolute;\n        top:50%;\n        left:47%;\n        content: \" \";\n        display: block;\n        width: 64px;\n        height: 64px;\n        margin: auto;\n        border-radius: 50%;\n        border: 6px solid orangered;\n        border-color: orangered transparent orangered transparent;\n        -webkit-animation: lds-dual-ring-data-v-60224772 1.2s linear infinite;\n                animation: lds-dual-ring-data-v-60224772 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring-data-v-60224772 {\n0% {\n            transform: rotate(0deg);\n}\n100% {\n            transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring-data-v-60224772 {\n0% {\n            transform: rotate(0deg);\n}\n100% {\n            transform: rotate(360deg);\n}\n}\n    /*end loading*/\n.kit-sample-img[data-v-60224772]{\n    display: flex;\n    flex-direction: column;\n}\n.drumkit-outer[data-v-60224772]{\n    margin-top: 50px;\n    display: flex;\n    justify-content: space-around;\n    width: 78vw;\n    padding: 10px;\n    background-color: white;\n    border-radius: 10px;\n}\n.drumkit-inner[data-v-60224772]{\n    display: flex;\n    justify-content: space-around;\n    width: 78vw;\n}\n.updates[data-v-60224772]{\n    display: flex;\n    align-items: flex-start;\n}\n.download-drumkit[data-v-60224772]{\n    width: 40px;\n    height: 40px;\n    background-color: #007bff;\n    color: white;\n    border-radius: 25px;\n    transition: .4s ease-in-out;\n    margin: 5px;\n}\n.download-drumkit[data-v-60224772]:hover{\n    /*width: 45px;*/\n    /*height: 45px;*/\n    background-color: gainsboro ;\n    color: #007bff;\n    border-radius: 25px;\n    transition: .4s ease-in-out;\n    margin: 5px;\n    transform: scale(1.1);\n}\n.share-drumkit[data-v-60224772]{\n        margin: 5px;\n        width: 40px;\n        height: 40px;\n        background-color: #007bff;\n        color: white;\n        border-radius: 25px;\n        transition: .4s ease-in-out;\n}\n.share-drumkit[data-v-60224772]:hover{\n        /*width: 45px;*/\n        /*height: 45px;*/\n        background-color: #ffffff99;\n        color: #007bff;\n        /*border-radius: 45px;*/\n\n        transform: scale(1.1);\n}\n/*loader*/\n.loader[data-v-60224772] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-60224772] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-60224772]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-60224772 0.6s infinite;\n            animation: lds-ellipsis1-data-v-60224772 0.6s infinite;\n}\n.loader div[data-v-60224772]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-60224772 0.6s infinite;\n            animation: lds-ellipsis2-data-v-60224772 0.6s infinite;\n}\n.loader div[data-v-60224772]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-60224772 0.6s infinite;\n            animation: lds-ellipsis2-data-v-60224772 0.6s infinite;\n}\n.loader div[data-v-60224772]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-60224772 0.6s infinite;\n            animation: lds-ellipsis3-data-v-60224772 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-60224772 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-60224772 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-60224772 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-60224772 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-60224772 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-60224772 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n\n\n/*endloader*/\n.drumkit[data-v-60224772]{\n        width: 81.4vw;\n        min-height: 100vh;\n        display: flex;\n        border-radius: 15px;\n        box-shadow: 0px 0px 10px -10px #111111;\n}\n.title[data-v-60224772]{\n        padding: 15px;\n        color: black;\n}\n.drumkit-header[data-v-60224772]{\n        height: 50vh;\n        width: 100%;\n        display: flex;\n        flex-direction: column;\n        justify-content: space-between;\n        border-radius: 7px;\n        -o-object-fit: cover;\n           object-fit: cover;\n        background-position: center center;\n        background-size: cover;\n}\n.back-btn[data-v-60224772]{\n        width: 45px;\n        height: 40px;\n        margin: .5rem !important;\n        background-color: #111111cc;\n        color: white;\n        border-radius: 25px;\n        transition: .4s ease-in-out;\n}\n.back-btn[data-v-60224772]:hover{\n        /*width: 60px;*/\n        /*height: 50px;*/\n        background-color: #cccccc99;\n        color: #111111;\n        /*border-radius: 45px;*/\n\n        transform: scale(1.1);\n}\n.edit-drumkit[data-v-60224772]{\n        width: 40px;\n        height: 40px;\n        background-color: #007bff;\n        color: white;\n        border-radius: 25px;\n        transition: .4s ease-in-out;\n}\n.drumkit-info[data-v-60224772]{\n        display: flex;\n        flex-direction: column;\n        padding:15px;\n        min-height: 50vh;\n        border-bottom-left-radius: 15px;\n        border-bottom-right-radius: 15px;\n        background-image: linear-gradient(0deg,#11111111,#ffffff77);\n}\n.drumkit-info p[data-v-60224772] {\n        margin-top: 15px;\n        background-color: #ffffff;\n        min-height: 42vh;\n        border-radius: 15px;\n        padding:15px;\n        color: black;\n}\n", ""]);
 
 // exports
 
@@ -63494,15 +63432,27 @@ var render = function() {
     _c(
       "section",
       { class: { "with-player": this.$store.getters.getPlayerState } },
-      [
-        _c("span", { staticClass: "dev-name" }, [
-          _vm._v("Developed by Franklin Shera")
-        ])
-      ]
+      [_vm._m(0)]
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "dev-name" }, [
+      _c(
+        "a",
+        {
+          staticStyle: { "text-decoration": "none" },
+          attrs: { href: "mailto:fshera96@gmail.com" }
+        },
+        [_vm._v("Developed by Franklin Shera")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -64371,7 +64321,10 @@ var render = function() {
                 _c("div", { staticClass: "col-md-1 " }, [
                   _c("img", {
                     staticClass: "cover",
-                    attrs: { src: track.cover, alt: "" },
+                    attrs: {
+                      src: track.cover,
+                      alt: track.title + " Beat Cover"
+                    },
                     on: {
                       click: function($event) {
                         return _vm.selectTrack(track)
@@ -64380,11 +64333,11 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-5 title-container" }, [
+                _c("div", { staticClass: "col-md-4 title-container" }, [
                   _c(
                     "span",
                     {
-                      staticClass: "title",
+                      staticClass: "title font-weight-bold",
                       on: {
                         click: function($event) {
                           return _vm.selectTrack(track)
@@ -64395,126 +64348,36 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-1 text-center" }, [
-                  _c("span", { staticClass: "time " }, [
-                    _vm._v(" " + _vm._s(track.time))
+                _c("div", { staticClass: "col-md-2 " }, [
+                  _c("span", { staticClass: "bpm font-italic" }, [
+                    _vm._v(_vm._s(track.bpmkey))
                   ])
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-1 text-center" }, [
-                  _c("span", { staticClass: "bpm" }, [
-                    _vm._v(_vm._s(track.bpm))
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-2 text-center" }, [
-                  _c("span", { staticClass: "actions " }, [
-                    _c("span", { staticClass: "download-btn" }, [
-                      _c(
-                        "svg",
-                        {
-                          staticStyle: {
-                            "enable-background": "new 0 0 479.925 479.925"
-                          },
-                          attrs: {
-                            version: "1.1",
-                            id: "Capa_1",
-                            height: "26",
-                            width: "27",
-                            xmlns: "http://www.w3.org/2000/svg",
-                            "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                            x: "0px",
-                            y: "0px",
-                            viewBox: "0 0 479.925 479.925",
-                            "xml:space": "preserve"
-                          }
-                        },
-                        [
-                          _c("g", [
-                            _c("g", [
-                              _c("g", [
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M423.924,171.856c0-0.6,0-1.2,0-1.8c0.036-75.111-60.825-136.029-135.936-136.064\n                                                C242.303,33.97,199.659,56.888,174.468,95c-50.35-16.807-104.792,10.385-121.599,60.735c-3.263,9.777-4.933,20.014-4.945,30.321\n                                                c0,0.68,0,1.368,0,2.056c-34.211,8.887-54.74,43.825-45.853,78.035c7.32,28.179,32.738,47.867,61.853,47.909h143.472\n                                                c4.418,0,8-3.582,8-8s-3.582-8-8-8H63.924c-26.509-0.158-47.871-21.775-47.714-48.284c0.141-23.766,17.653-43.85,41.178-47.228\n                                                c4.232-0.569,7.271-4.362,6.904-8.616c-0.216-2.576-0.368-5.224-0.368-7.872c0.057-44.24,35.967-80.058,80.207-80.001\n                                                c10.491,0.013,20.877,2.088,30.569,6.105c3.673,1.526,7.91,0.122,9.944-3.296c33.745-57.04,107.34-75.924,164.38-42.18\n                                                c36.535,21.614,58.932,60.922,58.9,103.372c0,2.648-0.072,5.216-0.288,7.792c-0.371,4.304,2.742,8.125,7.032,8.632\n                                                c30.694,3.798,52.497,31.759,48.699,62.453c-3.465,28.004-27.225,49.056-55.443,49.123c-2.406,0.003-4.811-0.138-7.2-0.424\n                                                c-1.148-0.141-2.314,0.005-3.392,0.424H271.636c-4.418,0-8,3.582-8,8s3.582,8,8,8h128.288c0.611-0.002,1.219-0.085,1.808-0.248\n                                                c2.024,0.168,4.096,0.248,6.192,0.248c39.765,0.001,72.001-32.234,72.001-71.999\n                                                C479.926,208.456,456.685,179.322,423.924,171.856z"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    d:
-                                      "M302.148,364.4l-54.224,54.224V194.056c0-4.418-3.582-8-8-8s-8,3.582-8,8v224.568L177.7,364.4\n                                                c-3.178-3.07-8.242-2.982-11.312,0.196c-2.994,3.1-2.994,8.015,0,11.116l67.88,67.88c3.124,3.123,8.188,3.123,11.312,0\n                                                l67.88-67.88c3.07-3.178,2.982-8.242-0.196-11.312C310.164,361.405,305.248,361.405,302.148,364.4z"
-                                  }
-                                })
-                              ])
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("g"),
-                          _vm._v(" "),
-                          _c("g"),
-                          _vm._v(" "),
-                          _c("g"),
-                          _vm._v(" "),
-                          _c("g"),
-                          _vm._v(" "),
-                          _c("g"),
-                          _vm._v(" "),
-                          _c("g"),
-                          _vm._v(" "),
-                          _c("g"),
-                          _vm._v(" "),
-                          _c("g"),
-                          _vm._v(" "),
-                          _c("g"),
-                          _vm._v(" "),
-                          _c("g"),
-                          _vm._v(" "),
-                          _c("g"),
-                          _vm._v(" "),
-                          _c("g"),
-                          _vm._v(" "),
-                          _c("g"),
-                          _vm._v(" "),
-                          _c("g"),
-                          _vm._v(" "),
-                          _c("g")
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "share-btn" }, [
-                      _c(
-                        "svg",
-                        {
-                          attrs: {
-                            height: "24",
-                            viewBox: "0 -28 453.99791 453",
-                            width: "32",
-                            xmlns: "http://www.w3.org/2000/svg"
-                          }
-                        },
-                        [
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "m345.375 3.410156c-2.863281-2.847656-7.160156-3.695312-10.890625-2.144531s-6.164063 5.195313-6.164063 9.234375v53.359375c-54.011718 2.148437-81.058593 24.539063-85.191406 28.261719-27.25 22.363281-45.855468 53.527344-52.613281 88.121094-3.378906 16.714843-3.984375 33.871093-1.785156 50.78125l.007812.058593c.019531.148438.042969.300781.066407.449219l2.125 12.214844c.714843 4.113281 3.914062 7.351562 8.019531 8.117187 4.109375.765625 8.257812-1.105469 10.40625-4.6875l6.367187-10.613281c19.5625-32.527344 43.941406-54.089844 72.46875-64.085938 12.867188-4.550781 26.5-6.546874 40.128906-5.882812v55.265625c0 4.046875 2.441407 7.699219 6.183594 9.242187 3.746094 1.546876 8.050782.679688 10.90625-2.191406l105.675782-106.210937c3.894531-3.914063 3.878906-10.246094-.035157-14.140625zm2.949219 194.214844v-40.027344c0-4.90625-3.5625-9.089844-8.410157-9.871094-8.554687-1.378906-31.371093-3.570312-58.335937 5.878907-28.765625 10.078125-53.652344 29.910156-74.148437 59.050781-.058594-9.574219.847656-19.132812 2.707031-28.527344 6.078125-30.730468 21.515625-56.542968 45.878906-76.710937.214844-.175781.417969-.359375.617187-.554688.699219-.648437 26.097657-23.578125 81.609376-23.164062h.074218c5.523438 0 10.003906-4.480469 10.007813-10.003907v-39.136718l81.535156 81.125zm0 0"
-                            }
-                          }),
-                          _c("path", {
-                            attrs: {
-                              d:
-                                "m417.351562 294.953125c-5.519531 0-10 4.476563-10 10v42.261719c-.015624 16.5625-13.4375 29.980468-30 30h-327.351562c-16.5625-.019532-29.980469-13.4375-30-30v-238.242188c.019531-16.5625 13.4375-29.980468 30-30h69.160156c5.523438 0 10-4.476562 10-10 0-5.523437-4.476562-10-10-10h-69.160156c-27.601562.03125-49.96875 22.398438-50 50v238.242188c.03125 27.601562 22.398438 49.96875 50 50h327.351562c27.601563-.03125 49.96875-22.398438 50-50v-42.261719c0-5.523437-4.476562-10-10-10zm0 0"
-                            }
-                          })
-                        ]
-                      )
-                    ])
-                  ])
-                ]),
+                _c(
+                  "div",
+                  { staticClass: "col-md-3 " },
+                  _vm._l(track.tags.split(","), function(tag) {
+                    return _c(
+                      "span",
+                      {
+                        staticClass: "font-weight-lighter badge badge-info ",
+                        staticStyle: { padding: "5px 10px", margin: "0px 5px" }
+                      },
+                      [
+                        _vm._v(
+                          "\n                            #" +
+                            _vm._s(tag) +
+                            "\n                        "
+                        )
+                      ]
+                    )
+                  }),
+                  0
+                ),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-md-2 text-center " }, [
-                  track.isFree
+                  !track.isPaid
                     ? _c("p", { staticClass: "free-price" }, [
                         _c(
                           "svg",
@@ -64545,7 +64408,7 @@ var render = function() {
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  !track.isFree
+                  track.isPaid
                     ? _c("p", { staticClass: "price" }, [
                         _c(
                           "svg",
@@ -65063,26 +64926,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row mx-2", attrs: { id: "labels" } }, [
+    return _c("div", { staticClass: "row", attrs: { id: "labels" } }, [
       _c("div", { staticClass: "col-md-1", attrs: { id: "cover" } }, [
         _vm._v("COVER")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-5", attrs: { id: "title" } }, [
+      _c("div", { staticClass: "col-md-4", attrs: { id: "title" } }, [
         _vm._v("TITLE")
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "col-md-1 text-center", attrs: { id: "time" } },
-        [_vm._v("TIME")]
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-1 text-center", attrs: { id: "bpm" } }, [
-        _vm._v("BPM")
+      _c("div", { staticClass: "col-md-2 ", attrs: { id: "bpm" } }, [
+        _vm._v("BPM & KEY")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-2", attrs: { id: "actions" } }),
+      _c("div", { staticClass: "col-md-3", attrs: { id: "actions" } }, [
+        _vm._v("TAGS")
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -85445,63 +85304,7 @@ var localBeat = localStorage.getItem('viewBeat');
     loggedUser: null,
     PlayerSeen: false,
     currentSong: null,
-    beats: [{
-      cover: 'https://images.unsplash.com/photo-1519070813808-1d7a33907487?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
-      title: 'Afropop Instrumental Joeboy Type Beat - Selfie',
-      sample: '/storage/beats/selfie.mp3',
-      time: '4:05',
-      bpm: '90.0',
-      license: 'FREE',
-      isFree: true
-    }, {
-      cover: 'https://i.pinimg.com/564x/3f/3c/d9/3f3cd93dc8ab87be3722fa1462295727.jpg',
-      title: 'Agressive Trap Beat Tekashi Type Beat - Smoked',
-      sample: '/storage/beats/Smoked.mp3',
-      time: '2:34',
-      bpm: '95.0',
-      license: '$14.50',
-      isFree: false
-    }, {
-      cover: 'https://images.unsplash.com/photo-1519070813808-1d7a33907487?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
-      title: 'Damian Marley Type Beat - Tribe',
-      sample: '/storage/beats/tribe.mp3',
-      time: '3:00',
-      bpm: '75.0',
-      license: 'FREE',
-      isFree: true
-    }, {
-      cover: 'https://i.pinimg.com/564x/3f/3c/d9/3f3cd93dc8ab87be3722fa1462295727.jpg',
-      title: 'Dancehall Beat Ethic X Boondocks Type Beat- Comma',
-      url: '/storage/beats/comma.mp3',
-      time: '3:42',
-      bpm: '95.0',
-      license: 'FREE',
-      isFree: true
-    }, {
-      cover: 'https://images.unsplash.com/photo-1519070813808-1d7a33907487?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
-      title: 'Dark Trap Instrumental Hopsin X Dax Type Beat - Bleed ',
-      sample: '/storage/beats/bleed.mp3',
-      time: '3:55',
-      bpm: '100.0',
-      license: '$21.50',
-      isFree: false
-    }, {
-      cover: 'https://images.unsplash.com/photo-1519070813808-1d7a33907487?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60',
-      title: 'Future X Migos Type Beat - City',
-      sample: '/storage/beats/city.mp3',
-      time: '3:40',
-      bpm: '75.0',
-      license: 'FREE',
-      isFree: true
-    }, {
-      cover: 'https://i.pinimg.com/564x/3f/3c/d9/3f3cd93dc8ab87be3722fa1462295727.jpg',
-      title: 'Zouk Instrumental Afropop Beat - Penzi',
-      sample: '/storage/beats/penzi.mp3',
-      time: '3:47',
-      bpm: '95.0',
-      license: '$25.30',
-      isFree: false
-    }]
+    beats: []
   },
   getters: {
     getCSRFTOKEN: function getCSRFTOKEN(state) {
@@ -85556,6 +85359,9 @@ var localBeat = localStorage.getItem('viewBeat');
     },
     setViewBeat: function setViewBeat(state, track) {
       state.currBeat = track;
+    },
+    setBeats: function setBeats(state, beats) {
+      state.beats = beats;
     }
   },
   actions: {
