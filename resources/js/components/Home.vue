@@ -18,13 +18,10 @@
                     <span class="m-title" > {{ track.title }}</span>
                 </div>
                 <div  class=" text-center ">
-                    <p class="m-free-price" v-if="track.isFree">
-                        <svg id="Layer_1" enable-background="new 0 0 480 480" height="22" viewBox="0 0 480 480" width="26" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="black" d="m372.052 480h-264.104c-23.46 0-41.906-20.152-39.845-43.516l24.353-276c1.835-20.799 18.964-36.484 39.845-36.484h24.699v-41c0-45.767 37.233-83 83-83s83 37.233 83 83v41h24.699c4.418 0 8 3.582 8 8s-3.582 8-8 8h-24.699v36c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-105c-4.418 0-8-3.582-8-8s3.582-8 8-8h105v-41c0-36.944-30.056-67-67-67s-67 30.056-67 67v93c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-24.699c-12.528 0-22.806 9.411-23.907 21.891l-24.353 276c-1.241 14.062 9.807 26.109 23.907 26.109h264.104c14.117 0 25.147-12.064 23.907-26.109l-24.353-276c-.388-4.401 2.865-8.284 7.266-8.672 4.399-.385 8.284 2.865 8.672 7.266l24.353 276c2.062 23.369-16.39 43.515-39.845 43.515zm-178.052-69h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8zm0-40h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8z"/>
-                        </svg>
-                        <span class="m-price-amount">{{ track.license }}</span>
+                    <p class="m-free-price" v-if="!track.isPaid">
+                        <span class="m-price-amount">FREE</span>
                     </p>
-                    <p class="m-price" v-if="!track.isFree">
+                    <p class="m-price" v-if="track.isPaid">
                         <svg id="Layer_1" enable-background="new 0 0 480 480" height="22" viewBox="0 0 480 480" width="26" xmlns="http://www.w3.org/2000/svg">
                             <path fill="white" d="m372.052 480h-264.104c-23.46 0-41.906-20.152-39.845-43.516l24.353-276c1.835-20.799 18.964-36.484 39.845-36.484h24.699v-41c0-45.767 37.233-83 83-83s83 37.233 83 83v41h24.699c4.418 0 8 3.582 8 8s-3.582 8-8 8h-24.699v36c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-105c-4.418 0-8-3.582-8-8s3.582-8 8-8h105v-41c0-36.944-30.056-67-67-67s-67 30.056-67 67v93c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-24.699c-12.528 0-22.806 9.411-23.907 21.891l-24.353 276c-1.241 14.062 9.807 26.109 23.907 26.109h264.104c14.117 0 25.147-12.064 23.907-26.109l-24.353-276c-.388-4.401 2.865-8.284 7.266-8.672 4.399-.385 8.284 2.865 8.672 7.266l24.353 276c2.062 23.369-16.39 43.515-39.845 43.515zm-178.052-69h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8zm0-40h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8z"/>
                         </svg>
@@ -37,7 +34,7 @@
             <!--                mobile-->
 
 
-            <div id="beatList " class="container mt-5">
+            <div id="beatList " class="container my-4">
                 <div id="labels"class="row">
                     <div id="cover" class="col-md-1">COVER</div>
                     <div id="title" class="col-md-4">TITLE</div>
@@ -81,14 +78,14 @@
             </div>
 
             <div id="more-beats" class="mt-md-4 mt-sm-2 mt-xs-2  d-flex justify-content-center container">
-                <a href="#" class="btn btn-primary  ">BROWSE MORE BEATS</a>
+                <a href="#" class="btn btn-primary  ">BROWSE BEATS</a>
             </div>
         </div>
 
         <div id="drumkits" class="my-5">
-            <h2 class="text-center">DRUMKITS</h2>
-            <div class="kits my-2 " :class="{ 'd-flex justify-content-between': (drumkits.length > 2) ,  'd-flex justify-content-center': (drumkits.length == 1)}">
-                <a href="#" v-for="drumkit in drumkits" @click.prevent="viewDrumkit(drumkit)" :class="{ 'm-2': (drumkits.length == 2) }">
+            <h2 class="text-center ">DRUMKITS</h2>
+            <div class="kits my-4 " :class="{ 'd-flex justify-content-between': (drumkits.length > 2) ,  'd-flex justify-content-center': (drumkits.length == 1)}">
+                <a href="#" class="mobile-kit" v-for="drumkit in drumkits" @click.prevent="viewDrumkit(drumkit)" :class="{ 'm-2': (drumkits.length == 2) }">
                     <figure class="col-xs-12" :style="{ backgroundImage: `url(${ drumkit.image } )` }">
                         <div :class="{ 'free': (drumkit.isFree) , 'date': (!drumkit.isFree)}"><span class="card-date-day">{{ drumkit.dprice }}</span></div>
                         <figcaption>
@@ -107,7 +104,7 @@
         <div id="blog" class="my-5">
             <h2 class="text-center">BLOG</h2>
 
-            <section class="cards my-2">
+            <section class="cards my-4">
                 <article class="blog-card" v-for="blog in blogs" :key="blog.id" @click.prevent="viewBlog(blog)">
                     <div class="card__info-hover">
                         <svg class="card__like"  viewBox="0 0 24 24">
@@ -330,8 +327,6 @@
                 return '/storage/'+folder+ '/'+imglink;
             },
             fetchData(){
-
-                // this.beats = this.$store.getters.getBeats;
 
                 axios.get('/frontBeats')
                     .then(response =>{
@@ -979,8 +974,8 @@
         border: none;
         border-radius: 4px;
         padding: 0 16px;
-        min-width: 64px;
-        height: 36px;
+        min-width: 84px;
+        height: 40px;
         vertical-align: middle;
         text-align: center;
         text-overflow: ellipsis;
@@ -989,8 +984,8 @@
         background-color: orangered;
         box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
         0 1px 5px 0 rgba(0, 0, 0, 0.12);
-        font-size: 14px;
-        font-weight: 500;
+        font-size: 18px;
+        font-weight: 700;
         line-height: 36px;
         overflow: hidden;
         outline: none;

@@ -21,7 +21,7 @@
              <!--   right navbar-->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item " >
-                        <router-link :to="{ path: '/'}" href="/#home" class="nav-link"  :class="{ 'active-link': ('/#home' == currPath) || ('/' == currPath)}">Home</router-link>
+                        <router-link :to="{ path: '/'}" class="nav-link"  :class="{ 'active-link':  ('/' == currPath)}">Home</router-link>
                     </li>
                     <li class="nav-item ">
                         <a href="/#beats" class="nav-link" :class="{ 'active-link': ('/#beats' == currPath) }">Beats</a>

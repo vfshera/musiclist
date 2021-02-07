@@ -83,6 +83,8 @@
                         this.makePagination(response.data.meta , response.data.links)
 
                         this.isProcessing = false;
+
+                        window.scrollTo(0,0);
                     })
                     .catch(err =>{
                         console.log(err);
@@ -108,12 +110,6 @@
         },
         mounted() {
             this.fetchDrumkits();
-
-            Fire.$on('DrumkitChanged',()=>{
-                this.fetchDrumkits();
-
-                console.log("Drumkit Changed");
-            });
 
             console.log('Drumkits Component mounted.')
         }

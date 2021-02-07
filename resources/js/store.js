@@ -32,7 +32,7 @@ let localBeat = localStorage.getItem('viewBeat');
              return state.loggedUser;
          },
          getSong(state){
-             return state.currentSong ? state.currentSong : state.beats[0];
+             return state.currentSong;
          },
          getBeats(state){
              return state.beats

@@ -23157,21 +23157,15 @@ svg:hover {
   }
 
   figure {
-    position: relative;
+    width: 90% !important;
+    height: 320px !important;
+  }
+
+  .mobile-kit {
     display: flex;
-    align-items: center;
     justify-content: center;
-    width: 100% !important;
-    height: 400px;
-    padding: 20px 20px;
-    background-image: url("https://images.pexels.com/photos/1368382/pexels-photo-1368382.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    border-radius: 10px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-    overflow: hidden;
+    align-items: center;
+    margin-bottom: 15px;
   }
 
   /*BLOG CARDS*/
@@ -23220,7 +23214,7 @@ svg:hover {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
     background-color: #fff;
     width: 90% !important;
-    height: 40vh !important;
+    height: 50vh !important;
     position: relative;
     border-radius: 12px;
     overflow: hidden;
@@ -23318,5 +23312,13 @@ svg:hover {
   }
 
   /*    END GALLERY*/
+
+  .pure-material-button-contained {
+    padding: 0 30px;
+    min-width: 200px;
+    height: 50px;
+    font-size: 19px;
+    font-weight: 700;
+  }
 }
 
