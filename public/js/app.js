@@ -4716,6 +4716,18 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Share__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Share */ "./resources/js/components/Share.vue");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 //
 //
 //
@@ -4986,6 +4998,55 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    addToCart: function addToCart(type, item) {
+      // 0 for beat && 1 for kit
+      if (type == 0) {
+        if (this.$store.getters.getBeatCart.find(function (beat) {
+          return beat.id == item.id;
+        })) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Beat Already In Cart'
+          });
+        } else {
+          this.$store.commit('setBeatCart', item);
+          this.addToLocal('beatCart', JSON.stringify(this.$store.getters.getBeatCart));
+          Swal.fire({
+            icon: 'success',
+            title: 'Beat Added To Cart!'
+          });
+        }
+      } else if (type == 1) {
+        if (this.$store.getters.getKitCart.find(function (kit) {
+          return kit.id == item.id;
+        })) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Kit Already In Cart'
+          });
+        } else {
+          this.$store.commit('setKitCart', item);
+          this.addToLocal('kitCart', JSON.stringify.apply(JSON, _toConsumableArray(this.$store.getters.getKitCart)));
+          Swal.fire({
+            icon: 'success',
+            title: 'Kit Added To Cart!'
+          });
+        }
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Can not Add Item To Cart!'
+        });
+      }
+    },
+    addToLocal: function addToLocal(keyName, newCart) {
+      if (localStorage.getItem(keyName)) {
+        localStorage.removeItem(keyName);
+        localStorage.setItem(keyName, newCart);
+      } else {
+        localStorage.setItem(keyName, newCart);
+      }
+    },
     sendMsg: function sendMsg() {
       var _this = this;
 
@@ -5425,6 +5486,11 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         logo.src = '/storage/site-img/logo.svg';
       }
+    }
+  },
+  computed: {
+    cartCount: function cartCount() {
+      return this.$store.getters.getKitCart.length + this.$store.getters.getBeatCart.length;
     }
   },
   watch: {
@@ -12378,7 +12444,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#cart[data-v-6dde423b]{\n        position: fixed;\n        top: 100px;\n        right: 0px;\n}\n.cart-items[data-v-6dde423b]{\n        font-size: .4rem;\n        position: absolute;\n        top:5px;\n        right: 5px;\n        background-color: #2a62bc;\n        padding: 3px 6px;\n        border-radius: 50%;\n}\n.inner-cart svg[data-v-6dde423b] {\n        transition: .3ms ease-in-out;\n}\n.inner-cart svg[data-v-6dde423b] :hover{\n        transform: scale(1.1);\n}\n.inner-cart[data-v-6dde423b]:hover{\n        background-color: #ff4500cc;\n        color: white;\n}\n.inner-cart[data-v-6dde423b]{\n        display: flex;\n        justify-content: center;\n        align-items: center;\n\n        height: 40px;\n        width: 40px;\n        padding:5px 8px;\n        background-color: orangered;\n        color: white;\n        border-bottom-left-radius: 10%;\n        border-top-left-radius: 10%;\n        transition: .3s ease-in-out;\n}\n.logo-link img[data-v-6dde423b]{\n        display: inherit !important;\n        height: inherit;\n}\n.active-link[data-v-6dde423b]{\n    border-bottom:2px solid #152238;\n    font-weight: bold;\n    color: black !important;\n}\n.nav-item[data-v-6dde423b]:hover{\n    border-bottom:2px solid #15223822;\n}\n#donate[data-v-6dde423b]:hover{\n    border-bottom:none;\n}\n#donate-heart[data-v-6dde423b] {\n    -webkit-animation: pulse-data-v-6dde423b 1000ms linear infinite;\n            animation: pulse-data-v-6dde423b 1000ms linear infinite;\n}\n@-webkit-keyframes pulse-data-v-6dde423b {\n0%{\n        opacity: .99;\n}\n70%{\n        opacity: .5;\n}\n100%{\n        opacity: .2;\n}\n}\n@keyframes pulse-data-v-6dde423b {\n0%{\n        opacity: .99;\n}\n70%{\n        opacity: .5;\n}\n100%{\n        opacity: .2;\n}\n}\n#donate[data-v-6dde423b]{\n    background-color: orangered;\n    border-radius: 20px;\n    width: 100px;\n    display: flex;\n    justify-content: center;\n}\n#donate .nav-link[data-v-6dde423b]{\n    color: white;\n}\n.nav-item[data-v-6dde423b]{\n    list-style: none;\n}\n.nav-link[data-v-6dde423b]{\n        text-decoration: none;\n        cursor: pointer;\n}\n", ""]);
+exports.push([module.i, "\n#cart[data-v-6dde423b]{\n        position: fixed;\n        top: 100px;\n        right: 0px;\n}\n.cart-items[data-v-6dde423b]{\n        font-size: .4rem;\n        position: absolute;\n        top:5px;\n        right: 5px;\n        background-color: #2a62bc;\n        padding: 3px 6px;\n        border-radius: 50%;\n}\n.inner-cart svg[data-v-6dde423b] {\n        transition: .5ms ease-in-out;\n}\n.inner-cart svg[data-v-6dde423b] :hover{\n        transform: scale(1.1);\n}\n.inner-cart[data-v-6dde423b]:hover{\n        background-color: #ff4500cc;\n        color: white;\n}\n.inner-cart[data-v-6dde423b]{\n        display: flex;\n        justify-content: center;\n        align-items: center;\n\n        height: 40px;\n        width: 40px;\n        padding:5px 8px;\n        background-color: orangered;\n        color: white;\n        border-bottom-left-radius: 10%;\n        border-top-left-radius: 10%;\n        transition: .3s ease-in-out;\n}\n.logo-link img[data-v-6dde423b]{\n        display: inherit !important;\n        height: inherit;\n}\n.active-link[data-v-6dde423b]{\n    border-bottom:2px solid #152238;\n    font-weight: bold;\n    color: black !important;\n}\n.nav-item[data-v-6dde423b]:hover{\n    border-bottom:2px solid #15223822;\n}\n#donate[data-v-6dde423b]:hover{\n    border-bottom:none;\n}\n#donate-heart[data-v-6dde423b] {\n    -webkit-animation: pulse-data-v-6dde423b 1000ms linear infinite;\n            animation: pulse-data-v-6dde423b 1000ms linear infinite;\n}\n@-webkit-keyframes pulse-data-v-6dde423b {\n0%{\n        opacity: .99;\n}\n70%{\n        opacity: .5;\n}\n100%{\n        opacity: .2;\n}\n}\n@keyframes pulse-data-v-6dde423b {\n0%{\n        opacity: .99;\n}\n70%{\n        opacity: .5;\n}\n100%{\n        opacity: .2;\n}\n}\n#donate[data-v-6dde423b]{\n    background-color: orangered;\n    border-radius: 20px;\n    width: 100px;\n    display: flex;\n    justify-content: center;\n}\n#donate .nav-link[data-v-6dde423b]{\n    color: white;\n}\n.nav-item[data-v-6dde423b]{\n    list-style: none;\n}\n.nav-link[data-v-6dde423b]{\n        text-decoration: none;\n        cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -64375,34 +64441,45 @@ var render = function() {
                     : _vm._e(),
                   _vm._v(" "),
                   track.isPaid
-                    ? _c("p", { staticClass: "price" }, [
-                        _c(
-                          "svg",
-                          {
-                            attrs: {
-                              id: "Layer_1",
-                              "enable-background": "new 0 0 480 480",
-                              height: "24",
-                              viewBox: "0 0 480 480",
-                              width: "26",
-                              xmlns: "http://www.w3.org/2000/svg"
+                    ? _c(
+                        "p",
+                        {
+                          staticClass: "price",
+                          on: {
+                            click: function($event) {
+                              return _vm.addToCart(0, track)
                             }
-                          },
-                          [
-                            _c("path", {
+                          }
+                        },
+                        [
+                          _c(
+                            "svg",
+                            {
                               attrs: {
-                                fill: "white",
-                                d:
-                                  "m372.052 480h-264.104c-23.46 0-41.906-20.152-39.845-43.516l24.353-276c1.835-20.799 18.964-36.484 39.845-36.484h24.699v-41c0-45.767 37.233-83 83-83s83 37.233 83 83v41h24.699c4.418 0 8 3.582 8 8s-3.582 8-8 8h-24.699v36c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-105c-4.418 0-8-3.582-8-8s3.582-8 8-8h105v-41c0-36.944-30.056-67-67-67s-67 30.056-67 67v93c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-24.699c-12.528 0-22.806 9.411-23.907 21.891l-24.353 276c-1.241 14.062 9.807 26.109 23.907 26.109h264.104c14.117 0 25.147-12.064 23.907-26.109l-24.353-276c-.388-4.401 2.865-8.284 7.266-8.672 4.399-.385 8.284 2.865 8.672 7.266l24.353 276c2.062 23.369-16.39 43.515-39.845 43.515zm-178.052-69h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8zm0-40h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8z"
+                                id: "Layer_1",
+                                "enable-background": "new 0 0 480 480",
+                                height: "24",
+                                viewBox: "0 0 480 480",
+                                width: "26",
+                                xmlns: "http://www.w3.org/2000/svg"
                               }
-                            })
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "price-amount" }, [
-                          _vm._v(_vm._s(track.license))
-                        ])
-                      ])
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  fill: "white",
+                                  d:
+                                    "m372.052 480h-264.104c-23.46 0-41.906-20.152-39.845-43.516l24.353-276c1.835-20.799 18.964-36.484 39.845-36.484h24.699v-41c0-45.767 37.233-83 83-83s83 37.233 83 83v41h24.699c4.418 0 8 3.582 8 8s-3.582 8-8 8h-24.699v36c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-105c-4.418 0-8-3.582-8-8s3.582-8 8-8h105v-41c0-36.944-30.056-67-67-67s-67 30.056-67 67v93c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-24.699c-12.528 0-22.806 9.411-23.907 21.891l-24.353 276c-1.241 14.062 9.807 26.109 23.907 26.109h264.104c14.117 0 25.147-12.064 23.907-26.109l-24.353-276c-.388-4.401 2.865-8.284 7.266-8.672 4.399-.385 8.284 2.865 8.672 7.266l24.353 276c2.062 23.369-16.39 43.515-39.845 43.515zm-178.052-69h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8zm0-40h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8z"
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "price-amount" }, [
+                            _vm._v(_vm._s(track.license))
+                          ])
+                        ]
+                      )
                     : _vm._e()
                 ])
               ])
@@ -65485,11 +65562,27 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _c("span", { staticClass: "cart-items" }, [
-                      _vm._v(
-                        "\n                            7\n                        "
-                      )
-                    ])
+                    _c(
+                      "span",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.cartCount > 0,
+                            expression: "cartCount > 0"
+                          }
+                        ],
+                        staticClass: "cart-items"
+                      },
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.cartCount) +
+                            "\n                        "
+                        )
+                      ]
+                    )
                   ])
                 ])
               ])
@@ -85289,6 +85382,8 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_0__
 var localReadBlog = localStorage.getItem('readBlog');
 var localDrum = localStorage.getItem('viewDrumkit');
 var localBeat = localStorage.getItem('viewBeat');
+var localDrumCart = localStorage.getItem('kitCart');
+var localBeatCart = localStorage.getItem('beatCart');
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
   state: {
     readBlog: localReadBlog ? JSON.parse(localReadBlog) : {},
@@ -85299,9 +85394,17 @@ var localBeat = localStorage.getItem('viewBeat');
     loggedUser: null,
     PlayerSeen: false,
     currentSong: null,
-    beats: []
+    beats: [],
+    beatcart: localBeatCart ? JSON.parse(localBeatCart) : [],
+    kitcart: localDrumCart ? JSON.parse(localDrumCart) : []
   },
   getters: {
+    getBeatCart: function getBeatCart(state) {
+      return state.beatcart;
+    },
+    getKitCart: function getKitCart(state) {
+      return state.kitcart;
+    },
     getCSRFTOKEN: function getCSRFTOKEN(state) {
       return state.csrftoken;
     },
@@ -85331,6 +85434,12 @@ var localBeat = localStorage.getItem('viewBeat');
     }
   },
   mutations: {
+    setBeatCart: function setBeatCart(state, beatItems) {
+      state.beatcart.push(beatItems);
+    },
+    setKitCart: function setKitCart(state, kitItems) {
+      state.kitcart.push(kitItems);
+    },
     setCSRF: function setCSRF(state, token) {
       state.csrftoken = token;
     },

@@ -2,9 +2,15 @@
 import Vue from 'vue'
 
  Vue.use(Vuex)
+
+
 let localReadBlog = localStorage.getItem('readBlog');
 let localDrum = localStorage.getItem('viewDrumkit');
 let localBeat = localStorage.getItem('viewBeat');
+
+let localDrumCart = localStorage.getItem('kitCart');
+let localBeatCart = localStorage.getItem('beatCart');
+
 
  export default  new Vuex.Store({
      state:{
@@ -16,9 +22,17 @@ let localBeat = localStorage.getItem('viewBeat');
          loggedUser: null,
          PlayerSeen: false,
          currentSong: null,
-         beats:[]
+         beats:[],
+         beatcart: (localBeatCart) ? JSON.parse(localBeatCart) : [],
+         kitcart: (localDrumCart) ? JSON.parse(localDrumCart) : [],
      },
      getters:{
+         getBeatCart(state){
+             return state.beatcart;
+         },
+         getKitCart(state){
+             return state.kitcart;
+         },
          getCSRFTOKEN(state){
              return state.csrftoken;
          },
@@ -48,6 +62,12 @@ let localBeat = localStorage.getItem('viewBeat');
          }
      },
      mutations: {
+         setBeatCart(state, beatItems) {
+             state.beatcart.push(beatItems);
+         },
+         setKitCart(state, kitItems) {
+             state.kitcart.push(kitItems);
+         },
          setCSRF(state,token) {
              state.csrftoken = token;
          },
