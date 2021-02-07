@@ -41,12 +41,12 @@
                     <li class="nav-item " id="donate">
                         <router-link :to="{ path: '/donate'}" class="nav-link">Donate <span id="donate-heart">&hearts;</span></router-link>
                     </li>
-                    <li class="nav-item" id="cart"  data-toggle="modal"  data-target="#miniCartModal">
+                    <li class="nav-item" id="cart"  data-toggle="modal"  data-target="#miniCartModal" :class="{ 'hideCart' : cartCount < 1 , 'cart' : cartCount > 0}" >
                         <div class="inner-cart">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" fill="#FFFFFF">
                                 <path d="M4.4160156 1.9960938L1.0039062 2.0136719L1.0136719 4.0136719L3.0839844 4.0039062L6.3789062 11.908203L5.1816406 13.822266C4.3432852 15.161017 5.3626785 17 6.9414062 17L19 17L19 15L6.9414062 15C6.8301342 15 6.8173041 14.978071 6.8769531 14.882812L8.0527344 13L15.521484 13C16.247484 13 16.917531 12.605703 17.269531 11.970703L20.871094 5.484375C21.242094 4.818375 20.760047 4 19.998047 4L5.25 4L4.4160156 1.9960938 z M 7 18 A 2 2 0 0 0 5 20 A 2 2 0 0 0 7 22 A 2 2 0 0 0 9 20 A 2 2 0 0 0 7 18 z M 17 18 A 2 2 0 0 0 15 20 A 2 2 0 0 0 17 22 A 2 2 0 0 0 19 20 A 2 2 0 0 0 17 18 z" fill="#FFFFFF" />
                             </svg>
-                            <span class="cart-items" v-show="cartCount > 0" >
+                            <span class="cart-items" >
                                 {{ cartCount }}
                             </span>
                         </div>
@@ -84,7 +84,7 @@
                                         $15
                                     </div>
                                     <div class="remove-cart-item col-md-1">
-                                        <span>&times;</span>
+                                        <span @click="removeFromCart(0,beatItem)">&times;</span>
                                     </div>
                                 </div>
                             </div>
@@ -100,10 +100,10 @@
                                        {{ kitItem.title }}
                                    </div>
                                    <div class="cart-item-price col-md-2">
-                                       {{ kitItem.price }}
+                                       $ {{ kitItem.price }}
                                    </div>
                                    <div class="remove-cart-item col-md-1">
-                                       <span>&times;</span>
+                                       <span @click="removeFromCart(1,kitItem)">&times;</span>
                                    </div>
                                </div>
                            </div>
@@ -129,7 +129,36 @@
             }
         },
         methods:{
+            removeFromCart(type,item){
+                if(type == 0){
 
+                    let index = this.$store.getters.getBeatCart.indexOf(item)
+                    this.$store.getters.getBeatCart.splice(index,1)
+
+                    if(localStorage.getItem('beatCart')){
+                        localStorage.removeItem('beatCart')
+                    }
+
+                    if(this.$store.getters.getBeatCart.length > 0) {
+                        localStorage.setItem('beatCart' ,  JSON.stringify(...this.$store.getters.getBeatCart));
+                    }
+
+
+                }else if(type == 1){
+
+                    let index = this.$store.getters.getKitCart.indexOf(item)
+                    this.$store.getters.getKitCart.splice(index,1)
+
+                    if(localStorage.getItem('kitCart')){
+                        localStorage.removeItem('kitCart')
+                    }
+
+                    if(this.$store.getters.getKitCart.length > 0){
+                        localStorage.setItem('kitCart' ,  JSON.stringify(...this.$store.getters.getKitCart));
+                    }
+
+                }
+            },
             hoverImg(value){
                 const logo = document.querySelector('.logo-link img')
                 if(value){
@@ -159,7 +188,29 @@
     }
 </script>
 <style scoped>
-    #cart{
+    .hideCart{
+        display: none;
+    }
+    .remove-cart-item{
+        transform: scale(1.5);
+        color: orangered;
+        transition: .9ms ease-in-out;
+    }
+    .remove-cart-item:hover{
+       transform: scale(2);
+    }
+
+    .remove-cart-item span{
+        cursor: pointer;
+        padding: 2px 8px;
+        border-radius: 50%;
+        transition: 1ms ease-in-out;
+    }
+    .remove-cart-item span:hover{
+        background-color: #8c8c8c11;
+
+    }
+    .cart{
         position: fixed;
         top: 100px;
         right: 0px;

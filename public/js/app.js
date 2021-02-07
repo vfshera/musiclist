@@ -4456,6 +4456,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     checkDrumkit: function checkDrumkit(isFree) {
+      var _this = this;
+
       this.modalOpenClose('#DownloadModal', 'close');
 
       if (isFree) {
@@ -4463,20 +4465,42 @@ __webpack_require__.r(__webpack_exports__);
         this.downloadKit(this.drumkit.id);
       } else if (!isFree) {
         this.isProcessing = true;
-        this.downloadKit(this.drumkit.id);
+
+        if (this.$store.getters.getKitCart.find(function (kit) {
+          return kit.id == _this.drumkit.id;
+        })) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Kit Already In Cart'
+          });
+          this.isProcessing = false;
+        } else {
+          this.$store.commit('setKitCart', this.drumkit);
+
+          if (localStorage.getItem('kitCart')) {
+            localStorage.removeItem('kitCart');
+          }
+
+          localStorage.setItem('kitCart', JSON.stringify(this.$store.getters.getKitCart));
+          Swal.fire({
+            icon: 'success',
+            title: 'Kit Added To Cart!'
+          });
+          this.isProcessing = false;
+        }
       }
     },
     downloadKit: function downloadKit(id) {
-      var _this = this;
+      var _this2 = this;
 
       axios.get('/downloadDrumkit/' + id, {
         responseType: 'arraybuffer'
       }).then(function (response) {
         if (response.status == 200) {
-          _this.isProcessing = false;
+          _this2.isProcessing = false;
           Toast.fire('Downloading!');
         } else {
-          _this.isProcessing = false;
+          _this2.isProcessing = false;
           Toast.fire(response.message);
         }
       })["catch"](function (err) {
@@ -4509,11 +4533,11 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     setDrumkit: function setDrumkit() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.get('/getDrumkit/' + this.$route.params.id).then(function (response) {
         if (response.status == 200) {
-          _this2.drumkit = response.data.data;
+          _this3.drumkit = response.data.data;
 
           if (localStorage.getItem('viewDrumkit')) {
             localStorage.removeItem('viewDrumkit');
@@ -4521,15 +4545,15 @@ __webpack_require__.r(__webpack_exports__);
 
           localStorage.setItem('viewDrumkit', JSON.stringify(response.data.data));
 
-          _this2.$store.commit('setViewDrumkit', response.data.data);
+          _this3.$store.commit('setViewDrumkit', response.data.data);
 
-          _this2.isProcessing = false;
+          _this3.isProcessing = false;
 
-          _this2.scrollToTop();
+          _this3.scrollToTop();
 
-          _this2.playKit();
+          _this3.playKit();
         } else {
-          _this2.isProcessing = false;
+          _this3.isProcessing = false;
           Swal.fire('Post Unavailable');
         }
       })["catch"](function (err) {
@@ -4716,18 +4740,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Share__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Share */ "./resources/js/components/Share.vue");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 //
 //
 //
@@ -4998,45 +5010,25 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     };
   },
   methods: {
-    addToCart: function addToCart(type, item) {
-      // 0 for beat && 1 for kit
-      if (type == 0) {
-        if (this.$store.getters.getBeatCart.find(function (beat) {
-          return beat.id == item.id;
-        })) {
-          Swal.fire({
-            icon: 'error',
-            title: 'Beat Already In Cart'
-          });
-        } else {
-          this.$store.commit('setBeatCart', item);
-          this.addToLocal('beatCart', JSON.stringify(this.$store.getters.getBeatCart));
-          Swal.fire({
-            icon: 'success',
-            title: 'Beat Added To Cart!'
-          });
-        }
-      } else if (type == 1) {
-        if (this.$store.getters.getKitCart.find(function (kit) {
-          return kit.id == item.id;
-        })) {
-          Swal.fire({
-            icon: 'error',
-            title: 'Kit Already In Cart'
-          });
-        } else {
-          this.$store.commit('setKitCart', item);
-          this.addToLocal('kitCart', JSON.stringify.apply(JSON, _toConsumableArray(this.$store.getters.getKitCart)));
-          Swal.fire({
-            icon: 'success',
-            title: 'Kit Added To Cart!'
-          });
-        }
-      } else {
+    addToCart: function addToCart(item) {
+      this.isProcessing = true;
+
+      if (this.$store.getters.getBeatCart.find(function (beat) {
+        return beat.id == item.id;
+      })) {
         Swal.fire({
           icon: 'error',
-          title: 'Can not Add Item To Cart!'
+          title: 'Beat Already In Cart'
         });
+        this.isProcessing = false;
+      } else {
+        this.$store.commit('setBeatCart', item);
+        this.addToLocal('beatCart', JSON.stringify(this.$store.getters.getBeatCart));
+        Swal.fire({
+          icon: 'success',
+          title: 'Beat Added To Cart!'
+        });
+        this.isProcessing = false;
       }
     },
     addToLocal: function addToLocal(keyName, newCart) {
@@ -5413,6 +5405,18 @@ var audio = new Audio();
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 //
 //
 //
@@ -5543,6 +5547,32 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    removeFromCart: function removeFromCart(type, item) {
+      if (type == 0) {
+        var index = this.$store.getters.getBeatCart.indexOf(item);
+        this.$store.getters.getBeatCart.splice(index, 1);
+
+        if (localStorage.getItem('beatCart')) {
+          localStorage.removeItem('beatCart');
+        }
+
+        if (this.$store.getters.getBeatCart.length > 0) {
+          localStorage.setItem('beatCart', JSON.stringify.apply(JSON, _toConsumableArray(this.$store.getters.getBeatCart)));
+        }
+      } else if (type == 1) {
+        var _index = this.$store.getters.getKitCart.indexOf(item);
+
+        this.$store.getters.getKitCart.splice(_index, 1);
+
+        if (localStorage.getItem('kitCart')) {
+          localStorage.removeItem('kitCart');
+        }
+
+        if (this.$store.getters.getKitCart.length > 0) {
+          localStorage.setItem('kitCart', JSON.stringify.apply(JSON, _toConsumableArray(this.$store.getters.getKitCart)));
+        }
+      }
+    },
     hoverImg: function hoverImg(value) {
       var logo = document.querySelector('.logo-link img');
 
@@ -12509,7 +12539,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#cart[data-v-6dde423b]{\n        position: fixed;\n        top: 100px;\n        right: 0px;\n}\n.cart-items[data-v-6dde423b]{\n        font-size: .4rem;\n        position: absolute;\n        top:5px;\n        right: 5px;\n        background-color: #2a62bc;\n        padding: 3px 6px;\n        border-radius: 50%;\n}\n.inner-cart svg[data-v-6dde423b] {\n        transition: .5ms ease-in-out;\n}\n.inner-cart svg[data-v-6dde423b] :hover{\n        transform: scale(1.1);\n}\n.inner-cart[data-v-6dde423b]:hover{\n        background-color: #ff4500cc;\n        color: white;\n}\n.inner-cart[data-v-6dde423b]{\n        display: flex;\n        justify-content: center;\n        align-items: center;\n\n        height: 40px;\n        width: 40px;\n        padding:5px 8px;\n        background-color: orangered;\n        color: white;\n        border-bottom-left-radius: 10%;\n        border-top-left-radius: 10%;\n        transition: .3s ease-in-out;\n}\n.logo-link img[data-v-6dde423b]{\n        display: inherit !important;\n        height: inherit;\n}\n.active-link[data-v-6dde423b]{\n    border-bottom:2px solid #152238;\n    font-weight: bold;\n    color: black !important;\n}\n.nav-item[data-v-6dde423b]:hover{\n    border-bottom:2px solid #15223822;\n}\n#donate[data-v-6dde423b]:hover{\n    border-bottom:none;\n}\n#donate-heart[data-v-6dde423b] {\n    -webkit-animation: pulse-data-v-6dde423b 1000ms linear infinite;\n            animation: pulse-data-v-6dde423b 1000ms linear infinite;\n}\n@-webkit-keyframes pulse-data-v-6dde423b {\n0%{\n        opacity: .99;\n}\n70%{\n        opacity: .5;\n}\n100%{\n        opacity: .2;\n}\n}\n@keyframes pulse-data-v-6dde423b {\n0%{\n        opacity: .99;\n}\n70%{\n        opacity: .5;\n}\n100%{\n        opacity: .2;\n}\n}\n#donate[data-v-6dde423b]{\n    background-color: orangered;\n    border-radius: 20px;\n    width: 100px;\n    display: flex;\n    justify-content: center;\n}\n#donate .nav-link[data-v-6dde423b]{\n    color: white;\n}\n.nav-item[data-v-6dde423b]{\n    list-style: none;\n}\n.nav-link[data-v-6dde423b]{\n        text-decoration: none;\n        cursor: pointer;\n}\n", ""]);
+exports.push([module.i, "\n.hideCart[data-v-6dde423b]{\n        display: none;\n}\n.remove-cart-item[data-v-6dde423b]{\n        transform: scale(1.5);\n        color: orangered;\n        transition: .9ms ease-in-out;\n}\n.remove-cart-item[data-v-6dde423b]:hover{\n       transform: scale(2);\n}\n.remove-cart-item span[data-v-6dde423b]{\n        cursor: pointer;\n        padding: 2px 8px;\n        border-radius: 50%;\n        transition: 1ms ease-in-out;\n}\n.remove-cart-item span[data-v-6dde423b]:hover{\n        background-color: #8c8c8c11;\n}\n.cart[data-v-6dde423b]{\n        position: fixed;\n        top: 100px;\n        right: 0px;\n}\n.cart-items[data-v-6dde423b]{\n        font-size: .4rem;\n        position: absolute;\n        top:5px;\n        right: 5px;\n        background-color: #2a62bc;\n        padding: 3px 6px;\n        border-radius: 50%;\n}\n.inner-cart svg[data-v-6dde423b] {\n        transition: .5ms ease-in-out;\n}\n.inner-cart svg[data-v-6dde423b] :hover{\n        transform: scale(1.1);\n}\n.inner-cart[data-v-6dde423b]:hover{\n        background-color: #ff4500cc;\n        color: white;\n}\n.inner-cart[data-v-6dde423b]{\n        display: flex;\n        justify-content: center;\n        align-items: center;\n\n        height: 40px;\n        width: 40px;\n        padding:5px 8px;\n        background-color: orangered;\n        color: white;\n        border-bottom-left-radius: 10%;\n        border-top-left-radius: 10%;\n        transition: .3s ease-in-out;\n}\n.logo-link img[data-v-6dde423b]{\n        display: inherit !important;\n        height: inherit;\n}\n.active-link[data-v-6dde423b]{\n    border-bottom:2px solid #152238;\n    font-weight: bold;\n    color: black !important;\n}\n.nav-item[data-v-6dde423b]:hover{\n    border-bottom:2px solid #15223822;\n}\n#donate[data-v-6dde423b]:hover{\n    border-bottom:none;\n}\n#donate-heart[data-v-6dde423b] {\n    -webkit-animation: pulse-data-v-6dde423b 1000ms linear infinite;\n            animation: pulse-data-v-6dde423b 1000ms linear infinite;\n}\n@-webkit-keyframes pulse-data-v-6dde423b {\n0%{\n        opacity: .99;\n}\n70%{\n        opacity: .5;\n}\n100%{\n        opacity: .2;\n}\n}\n@keyframes pulse-data-v-6dde423b {\n0%{\n        opacity: .99;\n}\n70%{\n        opacity: .5;\n}\n100%{\n        opacity: .2;\n}\n}\n#donate[data-v-6dde423b]{\n    background-color: orangered;\n    border-radius: 20px;\n    width: 100px;\n    display: flex;\n    justify-content: center;\n}\n#donate .nav-link[data-v-6dde423b]{\n    color: white;\n}\n.nav-item[data-v-6dde423b]{\n    list-style: none;\n}\n.nav-link[data-v-6dde423b]{\n        text-decoration: none;\n        cursor: pointer;\n}\n", ""]);
 
 // exports
 
@@ -64024,7 +64054,7 @@ var render = function() {
                           _vm._s(
                             _vm.drumkit.isFree
                               ? "Download This Drumkit?"
-                              : "Purchase This Drumkit at " +
+                              : "Purchase This Drumkit at $" +
                                   _vm.drumkit.price +
                                   "?"
                           )
@@ -64046,7 +64076,7 @@ var render = function() {
                       [
                         _vm._v(
                           "Yes" +
-                            _vm._s(_vm.drumkit.isFree ? "" : ", Check Me Out!")
+                            _vm._s(_vm.drumkit.isFree ? "" : ", Add To Cart!")
                         )
                       ]
                     ),
@@ -64512,7 +64542,7 @@ var render = function() {
                           staticClass: "price",
                           on: {
                             click: function($event) {
-                              return _vm.addToCart(0, track)
+                              return _vm.addToCart(track)
                             }
                           }
                         },
@@ -65608,6 +65638,10 @@ var render = function() {
                   "li",
                   {
                     staticClass: "nav-item",
+                    class: {
+                      hideCart: _vm.cartCount < 1,
+                      cart: _vm.cartCount > 0
+                    },
                     attrs: {
                       id: "cart",
                       "data-toggle": "modal",
@@ -65637,27 +65671,13 @@ var render = function() {
                         ]
                       ),
                       _vm._v(" "),
-                      _c(
-                        "span",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.cartCount > 0,
-                              expression: "cartCount > 0"
-                            }
-                          ],
-                          staticClass: "cart-items"
-                        },
-                        [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(_vm.cartCount) +
-                              "\n                        "
-                          )
-                        ]
-                      )
+                      _c("span", { staticClass: "cart-items" }, [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.cartCount) +
+                            "\n                        "
+                        )
+                      ])
                     ])
                   ]
                 )
@@ -65768,7 +65788,23 @@ var render = function() {
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(2, true)
+                              _c(
+                                "div",
+                                { staticClass: "remove-cart-item col-md-1" },
+                                [
+                                  _c(
+                                    "span",
+                                    {
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.removeFromCart(0, beatItem)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("×")]
+                                  )
+                                ]
+                              )
                             ]
                           )
                         })
@@ -65845,14 +65881,30 @@ var render = function() {
                                 { staticClass: "cart-item-price col-md-2" },
                                 [
                                   _vm._v(
-                                    "\n                                   " +
+                                    "\n                                   $ " +
                                       _vm._s(kitItem.price) +
                                       "\n                               "
                                   )
                                 ]
                               ),
                               _vm._v(" "),
-                              _vm._m(3, true)
+                              _c(
+                                "div",
+                                { staticClass: "remove-cart-item col-md-1" },
+                                [
+                                  _c(
+                                    "span",
+                                    {
+                                      on: {
+                                        click: function($event) {
+                                          return _vm.removeFromCart(1, kitItem)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("×")]
+                                  )
+                                ]
+                              )
                             ]
                           )
                         })
@@ -65862,7 +65914,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(4)
+                _vm._m(2)
               ])
             ]
           )
@@ -65919,22 +65971,6 @@ var staticRenderFns = [
         },
         [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "remove-cart-item col-md-1" }, [
-      _c("span", [_vm._v("×")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "remove-cart-item col-md-1" }, [
-      _c("span", [_vm._v("×")])
     ])
   },
   function() {

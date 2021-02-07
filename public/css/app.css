@@ -22799,7 +22799,11 @@ svg:hover {
 }
 
 @media screen and (max-width: 523px) {
-  #cart {
+  .cart .hideCart {
+    display: none !important;
+  }
+
+  .cart {
     position: initial !important;
     display: flex !important;
     justify-content: center !important;
@@ -22809,6 +22813,11 @@ svg:hover {
     font-size: 1.2rem !important;
     position: initial !important;
     background-color: transparent !important;
+  }
+
+  .cart-items::after {
+    content: " Item(s)";
+    font-size: 0.8rem;
   }
 
   .inner-cart {

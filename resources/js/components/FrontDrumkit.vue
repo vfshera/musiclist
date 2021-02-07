@@ -35,9 +35,9 @@
             <div class="modal-dialog modal-dialog-centered " role="document">
                 <div class="modal-content">
                     <div class="modal-body d-flex flex-column ">
-                        <p class="drumkit-question text-center text-black "> {{ (drumkit.isFree) ? 'Download This Drumkit?' : 'Purchase This Drumkit at '+ drumkit.price +'?'}}</p>
+                        <p class="drumkit-question text-center text-black "> {{ (drumkit.isFree) ? 'Download This Drumkit?' : 'Purchase This Drumkit at $'+ drumkit.price +'?'}}</p>
                         <div class="drumkit-action">
-                            <button class="btn-proceed" @click="checkDrumkit(drumkit.isFree)">Yes{{ (drumkit.isFree) ? '' : ', Check Me Out!'}}</button>
+                            <button class="btn-proceed" @click="checkDrumkit(drumkit.isFree)">Yes{{ (drumkit.isFree) ? '' : ', Add To Cart!'}}</button>
                             <button class="btn-cancel" data-dismiss="modal">No</button>
                         </div>
                     </div>
@@ -69,7 +69,33 @@ export default {
                 this.downloadKit(this.drumkit.id);
             }else if(!isFree){
                 this.isProcessing = true;
-                this.downloadKit(this.drumkit.id);
+                if(this.$store.getters.getKitCart.find( kit => kit.id == this.drumkit.id)){
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Kit Already In Cart'
+                    })
+                    this.isProcessing = false;
+
+                }else {
+                    this.$store.commit('setKitCart' , this.drumkit)
+
+                    if(localStorage.getItem('kitCart')){
+
+                        localStorage.removeItem('kitCart')
+
+                    }
+
+                     localStorage.setItem('kitCart' , JSON.stringify(this.$store.getters.getKitCart));
+
+
+                    Swal.fire({
+                        icon : 'success',
+                        title : 'Kit Added To Cart!'
+                    })
+
+                    this.isProcessing = false;
+                }
+
             }
         },
         downloadKit(id){
