@@ -5115,6 +5115,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       });
       axios.get('/frontDrumkits').then(function (response) {
         _this2.drumkits = response.data.data;
+
+        _this2.$store.commit('setKits', _this2.drumkits);
       })["catch"](function (err) {
         console.log(err);
       });
@@ -5411,6 +5413,69 @@ var audio = new Audio();
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -65539,57 +65604,269 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _c("li", { staticClass: "nav-item", attrs: { id: "cart" } }, [
-                  _c("div", { staticClass: "inner-cart" }, [
-                    _c(
-                      "svg",
-                      {
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                          viewBox: "0 0 24 24",
-                          fill: "#FFFFFF"
-                        }
-                      },
-                      [
-                        _c("path", {
+                _c(
+                  "li",
+                  {
+                    staticClass: "nav-item",
+                    attrs: {
+                      id: "cart",
+                      "data-toggle": "modal",
+                      "data-target": "#miniCartModal"
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "inner-cart" }, [
+                      _c(
+                        "svg",
+                        {
                           attrs: {
-                            d:
-                              "M4.4160156 1.9960938L1.0039062 2.0136719L1.0136719 4.0136719L3.0839844 4.0039062L6.3789062 11.908203L5.1816406 13.822266C4.3432852 15.161017 5.3626785 17 6.9414062 17L19 17L19 15L6.9414062 15C6.8301342 15 6.8173041 14.978071 6.8769531 14.882812L8.0527344 13L15.521484 13C16.247484 13 16.917531 12.605703 17.269531 11.970703L20.871094 5.484375C21.242094 4.818375 20.760047 4 19.998047 4L5.25 4L4.4160156 1.9960938 z M 7 18 A 2 2 0 0 0 5 20 A 2 2 0 0 0 7 22 A 2 2 0 0 0 9 20 A 2 2 0 0 0 7 18 z M 17 18 A 2 2 0 0 0 15 20 A 2 2 0 0 0 17 22 A 2 2 0 0 0 19 20 A 2 2 0 0 0 17 18 z",
+                            xmlns: "http://www.w3.org/2000/svg",
+                            "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                            viewBox: "0 0 24 24",
                             fill: "#FFFFFF"
                           }
-                        })
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: _vm.cartCount > 0,
-                            expression: "cartCount > 0"
-                          }
-                        ],
-                        staticClass: "cart-items"
-                      },
-                      [
-                        _vm._v(
-                          "\n                            " +
-                            _vm._s(_vm.cartCount) +
-                            "\n                        "
-                        )
-                      ]
-                    )
-                  ])
-                ])
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              d:
+                                "M4.4160156 1.9960938L1.0039062 2.0136719L1.0136719 4.0136719L3.0839844 4.0039062L6.3789062 11.908203L5.1816406 13.822266C4.3432852 15.161017 5.3626785 17 6.9414062 17L19 17L19 15L6.9414062 15C6.8301342 15 6.8173041 14.978071 6.8769531 14.882812L8.0527344 13L15.521484 13C16.247484 13 16.917531 12.605703 17.269531 11.970703L20.871094 5.484375C21.242094 4.818375 20.760047 4 19.998047 4L5.25 4L4.4160156 1.9960938 z M 7 18 A 2 2 0 0 0 5 20 A 2 2 0 0 0 7 22 A 2 2 0 0 0 9 20 A 2 2 0 0 0 7 18 z M 17 18 A 2 2 0 0 0 15 20 A 2 2 0 0 0 17 22 A 2 2 0 0 0 19 20 A 2 2 0 0 0 17 18 z",
+                              fill: "#FFFFFF"
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.cartCount > 0,
+                              expression: "cartCount > 0"
+                            }
+                          ],
+                          staticClass: "cart-items"
+                        },
+                        [
+                          _vm._v(
+                            "\n                            " +
+                              _vm._s(_vm.cartCount) +
+                              "\n                        "
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
               ])
             ]
           )
         ],
         1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "miniCartModal",
+            tabindex: "-1",
+            "data-backdrop": "false",
+            role: "dialog",
+            "aria-labelledby": "miniCartModalTitle",
+            "aria-hidden": "true"
+          }
+        },
+        [
+          _c(
+            "div",
+            {
+              staticClass: "modal-dialog modal-dialog-centered  modal-lg",
+              attrs: { role: "document" }
+            },
+            [
+              _c("div", { staticClass: "modal-content" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c("div", { staticClass: "mini-cart" }, [
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: this.$store.getters.getBeatCart.length > 0,
+                            expression:
+                              "this.$store.getters.getBeatCart.length > 0"
+                          }
+                        ],
+                        staticClass: "beat-cart px-2 pb-3"
+                      },
+                      [
+                        _c("h5", { staticClass: "row ml-1 font-weight-bold" }, [
+                          _vm._v(
+                            "Beats ( " +
+                              _vm._s(this.$store.getters.getBeatCart.length) +
+                              " )"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("hr"),
+                        _vm._v(" "),
+                        _vm._l(this.$store.getters.getBeatCart, function(
+                          beatItem
+                        ) {
+                          return _c(
+                            "div",
+                            {
+                              staticClass:
+                                "cart-item  d-flex justify-content-center align-items-center mb-2"
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "cart-item-image col-md-3" },
+                                [
+                                  _c("img", {
+                                    staticStyle: {
+                                      height: "60px",
+                                      width: "60px"
+                                    },
+                                    attrs: {
+                                      src: beatItem.cover,
+                                      alt: beatItem.title + " Beat Cover"
+                                    }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "cart-item-title col-md-6" },
+                                [
+                                  _vm._v(
+                                    "\n                                    " +
+                                      _vm._s(beatItem.title) +
+                                      "\n                                "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "cart-item-price col-md-2" },
+                                [
+                                  _vm._v(
+                                    "\n                                    $15\n                                "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(2, true)
+                            ]
+                          )
+                        })
+                      ],
+                      2
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: this.$store.getters.getKitCart.length > 0,
+                            expression:
+                              "this.$store.getters.getKitCart.length > 0"
+                          }
+                        ],
+                        staticClass: "kit-cart px-2"
+                      },
+                      [
+                        _c("h5", { staticClass: "row ml-1 font-weight-bold" }, [
+                          _vm._v(
+                            "Drumkits ( " +
+                              _vm._s(this.$store.getters.getKitCart.length) +
+                              " )"
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("hr"),
+                        _vm._v(" "),
+                        _vm._l(this.$store.getters.getKitCart, function(
+                          kitItem
+                        ) {
+                          return _c(
+                            "div",
+                            {
+                              staticClass:
+                                "cart-item  d-flex justify-content-center align-items-center mb-2"
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "cart-item-image col-md-3" },
+                                [
+                                  _c("img", {
+                                    staticStyle: {
+                                      height: "60px",
+                                      width: "60px"
+                                    },
+                                    attrs: {
+                                      src: kitItem.image,
+                                      alt: kitItem.title + " Beat Cover"
+                                    }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "cart-item-title col-md-6" },
+                                [
+                                  _vm._v(
+                                    "\n                                   " +
+                                      _vm._s(kitItem.title) +
+                                      "\n                               "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "cart-item-price col-md-2" },
+                                [
+                                  _vm._v(
+                                    "\n                                   " +
+                                      _vm._s(kitItem.price) +
+                                      "\n                               "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _vm._m(3, true)
+                            ]
+                          )
+                        })
+                      ],
+                      2
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(4)
+              ])
+            ]
+          )
+        ]
       )
     ]
   )
@@ -65614,6 +65891,72 @@ var staticRenderFns = [
       },
       [_c("span", { staticClass: "navbar-toggler-icon" })]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h4",
+        {
+          staticClass: "modal-title",
+          staticStyle: { display: "inline-block" },
+          attrs: { id: "miniCartModalTitle" }
+        },
+        [_vm._v("Cart")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "remove-cart-item col-md-1" }, [
+      _c("span", [_vm._v("×")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "remove-cart-item col-md-1" }, [
+      _c("span", [_vm._v("×")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Continue Shopping")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        [_vm._v("Checkout")]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -85395,6 +85738,7 @@ var localBeatCart = localStorage.getItem('beatCart');
     PlayerSeen: false,
     currentSong: null,
     beats: [],
+    drumkits: [],
     beatcart: localBeatCart ? JSON.parse(localBeatCart) : [],
     kitcart: localDrumCart ? JSON.parse(localDrumCart) : []
   },
@@ -85422,6 +85766,9 @@ var localBeatCart = localStorage.getItem('beatCart');
     },
     getBeats: function getBeats(state) {
       return state.beats;
+    },
+    getKits: function getKits(state) {
+      return state.drumkits;
     },
     getReadBlog: function getReadBlog(state) {
       return state.readBlog;
@@ -85466,6 +85813,9 @@ var localBeatCart = localStorage.getItem('beatCart');
     },
     setBeats: function setBeats(state, beats) {
       state.beats = beats;
+    },
+    setKits: function setKits(state, kits) {
+      state.beats = kits;
     }
   },
   actions: {

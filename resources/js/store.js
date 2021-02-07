@@ -23,6 +23,7 @@ let localBeatCart = localStorage.getItem('beatCart');
          PlayerSeen: false,
          currentSong: null,
          beats:[],
+         drumkits:[],
          beatcart: (localBeatCart) ? JSON.parse(localBeatCart) : [],
          kitcart: (localDrumCart) ? JSON.parse(localDrumCart) : [],
      },
@@ -50,6 +51,9 @@ let localBeatCart = localStorage.getItem('beatCart');
          },
          getBeats(state){
              return state.beats
+         },
+         getKits(state){
+             return state.drumkits
          },
          getReadBlog(state){
             return state.readBlog;
@@ -94,6 +98,9 @@ let localBeatCart = localStorage.getItem('beatCart');
          },
          setBeats(state, beats){
              state.beats = beats;
+         },
+         setKits(state, kits){
+             state.beats = kits;
          },
 
      },

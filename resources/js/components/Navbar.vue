@@ -41,17 +41,80 @@
                     <li class="nav-item " id="donate">
                         <router-link :to="{ path: '/donate'}" class="nav-link">Donate <span id="donate-heart">&hearts;</span></router-link>
                     </li>
-                    <li class="nav-item" id="cart">
+                    <li class="nav-item" id="cart"  data-toggle="modal"  data-target="#miniCartModal">
                         <div class="inner-cart">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" fill="#FFFFFF">
                                 <path d="M4.4160156 1.9960938L1.0039062 2.0136719L1.0136719 4.0136719L3.0839844 4.0039062L6.3789062 11.908203L5.1816406 13.822266C4.3432852 15.161017 5.3626785 17 6.9414062 17L19 17L19 15L6.9414062 15C6.8301342 15 6.8173041 14.978071 6.8769531 14.882812L8.0527344 13L15.521484 13C16.247484 13 16.917531 12.605703 17.269531 11.970703L20.871094 5.484375C21.242094 4.818375 20.760047 4 19.998047 4L5.25 4L4.4160156 1.9960938 z M 7 18 A 2 2 0 0 0 5 20 A 2 2 0 0 0 7 22 A 2 2 0 0 0 9 20 A 2 2 0 0 0 7 18 z M 17 18 A 2 2 0 0 0 15 20 A 2 2 0 0 0 17 22 A 2 2 0 0 0 19 20 A 2 2 0 0 0 17 18 z" fill="#FFFFFF" />
                             </svg>
-                            <span class="cart-items" v-show="cartCount > 0">
+                            <span class="cart-items" v-show="cartCount > 0" >
                                 {{ cartCount }}
                             </span>
                         </div>
                     </li>
                 </ul>
+            </div>
+        </div>
+
+
+
+        <!--        minicart modal-->
+        <div class="modal fade" id="miniCartModal" tabindex="-1" data-backdrop="false"  role="dialog" aria-labelledby="miniCartModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="miniCartModalTitle" style="display: inline-block">Cart</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mini-cart">
+
+                            <div class="beat-cart px-2 pb-3" v-show="this.$store.getters.getBeatCart.length > 0">
+                                <h5 class="row ml-1 font-weight-bold">Beats ( {{ this.$store.getters.getBeatCart.length }} )</h5>
+                                <hr>
+                                <div class="cart-item  d-flex justify-content-center align-items-center mb-2" v-for="beatItem in this.$store.getters.getBeatCart">
+                                    <div class="cart-item-image col-md-3" >
+                                        <img style="height: 60px;width: 60px" :src="beatItem.cover" :alt="beatItem.title+' Beat Cover' ">
+                                    </div>
+                                    <div class="cart-item-title col-md-6">
+                                        {{ beatItem.title}}
+                                    </div>
+                                    <div class="cart-item-price col-md-2">
+                                        $15
+                                    </div>
+                                    <div class="remove-cart-item col-md-1">
+                                        <span>&times;</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                           <div class="kit-cart px-2" v-show="this.$store.getters.getKitCart.length > 0">
+                               <h5 class="row ml-1 font-weight-bold">Drumkits ( {{ this.$store.getters.getKitCart.length }} )</h5>
+                               <hr>
+                               <div class="cart-item  d-flex justify-content-center align-items-center mb-2" v-for="kitItem in this.$store.getters.getKitCart">
+                                   <div class="cart-item-image col-md-3" >
+                                       <img style="height: 60px;width: 60px" :src="kitItem.image" :alt="kitItem.title+' Beat Cover' ">
+                                   </div>
+                                   <div class="cart-item-title col-md-6">
+                                       {{ kitItem.title }}
+                                   </div>
+                                   <div class="cart-item-price col-md-2">
+                                       {{ kitItem.price }}
+                                   </div>
+                                   <div class="remove-cart-item col-md-1">
+                                       <span>&times;</span>
+                                   </div>
+                               </div>
+                           </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
+                        <button type="button" class="btn btn-primary">Checkout</button>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -66,6 +129,7 @@
             }
         },
         methods:{
+
             hoverImg(value){
                 const logo = document.querySelector('.logo-link img')
                 if(value){

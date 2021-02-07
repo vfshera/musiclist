@@ -407,7 +407,7 @@
                 axios.get('/frontDrumkits')
                     .then(response =>{
                         this.drumkits = response.data.data;
-
+                        this.$store.commit('setKits', this.drumkits);
                     })
                     .catch(err =>{
                         console.log(err);
