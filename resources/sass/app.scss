@@ -1720,12 +1720,11 @@ svg:hover{
 
 
     .blog-card {
-        margin-right: 2px !important;
-        margin-top: 25px;
+        margin: 0px 0px 30px 0px !important;
         transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
         background-color: #fff;
-        width: 90% !important;
-        height: 50vh !important;
+        width: 80% !important;
+        height: 44vh !important;
         position: relative;
         border-radius: 12px;
         overflow: hidden;
@@ -1733,6 +1732,9 @@ svg:hover{
 
     }
 
+    .blog-post{
+        width: 100vw !important;
+    }
     .blog-card:hover {
         box-shadow: 0px 30px 18px -8px rgba(0, 0, 0,0.1);
         transform: scale(1.08, 1.08);
