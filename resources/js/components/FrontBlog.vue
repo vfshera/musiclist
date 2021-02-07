@@ -10,7 +10,7 @@
                    </button>
                </div>
             </div>
-            <h3 class="title text-white">{{ post.title }}</h3>
+            <h3 class="blog-title text-white">{{ post.title }}</h3>
         </div>
         <div class="blog-content">
             <span class="badge badge-light badge-pill">{{ post.reflink }} <a :href="post.reflink" target="_blank"> <i class="ti-world"></i></a></span>
@@ -121,38 +121,6 @@ export default {
 
 
 
-    /*loading */
-    .lds-dual-ring {
-
-        display: inline-block;
-        width: 80px;
-        height: 80px;
-    }
-    .lds-dual-ring:after {
-        position: absolute;
-        top:50%;
-        left:47%;
-        content: " ";
-        display: block;
-        width: 64px;
-        height: 64px;
-        margin: auto;
-        border-radius: 50%;
-        border: 6px solid orangered;
-        border-color: orangered transparent orangered transparent;
-        animation: lds-dual-ring 1.2s linear infinite;
-    }
-    @keyframes lds-dual-ring {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-    /*end loading*/
-
-
 
     .blog-post{
         margin-top: 70px;
@@ -163,7 +131,7 @@ export default {
         border-radius: 15px;
         box-shadow: 0px 0px 10px -10px #111111;
     }
-    .title{
+    .blog-title{
         padding: 15px;
         background-image: linear-gradient(0deg,#11111156,transparent);
     }

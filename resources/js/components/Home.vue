@@ -6,6 +6,7 @@
               <p class="container">The Official Website For Bangers</p>
           </div>
         </div>
+        <div class="lds-dual-ring" v-show="isProcessing"></div>
         <div id="beats"  class=" my-5" >
             <h2 class="text-center">BEATS</h2>
 
@@ -263,6 +264,7 @@
                     message: '',
                 },
                 contactErr:{},
+                isProcessing: true
             }
         },
 
@@ -356,6 +358,9 @@
                     .catch(err =>{
                         console.log(err);
                     });
+
+
+                this.isProcessing = false;
             },
             viewBlog(blog){
 
@@ -403,6 +408,7 @@
             }
         },
         mounted() {
+            this.isProcessing = true;
             this.fetchData();
         },
 
@@ -794,7 +800,7 @@
     }
 
     .free-price{
-        background-color: #F4F3F155;
+        background-color: #F4F3F177;
         height: 40px;
         width: 100px;
         border-radius: 10px;
@@ -807,7 +813,7 @@
     }
 
     .m-free-price{
-        background-color: #F4F3F155;
+        background-color: #F4F3F177;
         height: 20px;
         width: 50px;
         border-radius: 10px;

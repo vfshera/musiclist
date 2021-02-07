@@ -24,7 +24,7 @@
 
 
 
-
+//GLOBALS
 *{
     padding: 0;
     margin: 0;
@@ -70,6 +70,39 @@ svg:hover{
 
 
 
+//LDS DUAL RING loader
+.lds-dual-ring {
+
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.lds-dual-ring:after {
+    position: absolute;
+    top:45%;
+    left: calc(50% - 32px);
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid orangered;
+    border-color: orangered transparent orangered transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+//LDS DUAL RING END
+
+
+//END GLOBALS
 
 //MATERIAL FORM STYLES START
 /*MATERIAL like FORM*/
@@ -1255,13 +1288,41 @@ svg:hover{
 //moble
 @media screen and (max-width: 523px) {
 
+    #cart{
+        position: initial !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
 
+    .cart-items{
+        font-size: 1.2rem !important;
+        position: initial !important;
+        background-color: transparent !important;
+    }
+    .inner-cart{
+        display: flex;
+        justify-content: center !important;
+        width: 90vw !important;
+        padding:0px !important;
+        background-color: orangered;
+        border-radius: 0px !important;
+    }
 
-    #more-beats{
-        margin-top: 15px !important;
+    .inner-cart svg {
+        height: 30px !important;
     }
 
 
+
+
+
+    #more-beats{
+        margin-top: 0px !important;
+    }
+
+    .blog-title{
+        font-size: 1.5rem !important;
+    }
 
 
     //music player
@@ -1750,7 +1811,6 @@ svg:hover{
 
 
     /*END BLOG CARDS*/
-
 
 
 
