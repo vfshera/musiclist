@@ -23262,6 +23262,29 @@ svg:hover {
 
   /*BLOG CARDS*/
 
+  .blog-menu[data-v-74a2a113] {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .frontblogs-container {
+    width: 100% !important;
+    height: initial !important;
+  }
+
+  .frontblogs {
+    margin-top: 40px !important;
+    height: initial !important;
+  }
+
+  .blog-cards {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
   .cards {
     width: 94% !important;
     display: flex;
@@ -23428,6 +23451,18 @@ svg:hover {
   .cart-item-image img {
     height: 30px !important;
     width: 30px !important;
+  }
+
+  .search-bar {
+    margin-top: 5px !important;
+    width: 80% !important;
+    height: 30px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none !important;
+    border-radius: 0px !important;
+    border-bottom: 1px #11111155 solid !important;
   }
 
   .hideCart,

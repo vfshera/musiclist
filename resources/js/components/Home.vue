@@ -102,7 +102,7 @@
                 <router-link :to="{ path : '/soundkits' }"class="btn btn-primary  ">ALL SOUND KITS</router-link>
             </div>
         </div>
-        <div id="blog" class="my-5">
+        <div id="front-blogs" class="my-5">
             <h2 class="text-center">BLOG</h2>
 
             <section class="cards my-4">
@@ -455,7 +455,7 @@
 </script>
 
 <style scoped>
-    #beats h2, #drumkits h2, #blog h2, #gallery h2 {
+    #beats h2, #drumkits h2, #front-blogs h2, #gallery h2 {
         font-family: "Poppins", 'Helvetica', sans-serif;
         font-weight: 500 !important;
     }
@@ -928,7 +928,7 @@
         align-items: center;
 
     }
-    #blog {
+    #front-blogs {
         margin-top: 100px !important;
         display: flex;
         flex-direction: column;

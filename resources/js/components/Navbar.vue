@@ -30,7 +30,7 @@
                         <a href="/#drumkits" class="nav-link" :class="{ 'active-link': ('/#drumkits' == currPath) }">Drumkits</a>
                     </li>
                     <li class="nav-item ">
-                        <a href="#blog" class="nav-link" :class="{ 'active-link': ('/#blog' == currPath) }">Blog</a>
+                        <a href="#front-blogs" class="nav-link" :class="{ 'active-link': ('/#front-blogs' == currPath) }">Blog</a>
                     </li>
                     <li class="nav-item ">
                         <a href="/#gallery" class="nav-link" :class="{ 'active-link': ('/#gallery' == currPath) }">Gallery</a>
