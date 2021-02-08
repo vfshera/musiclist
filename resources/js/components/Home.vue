@@ -55,8 +55,8 @@
                     <div class="col-md-2 ">
                         <span class="bpm font-italic">{{ track.bpmkey }}</span>
                     </div>
-                    <div class="col-md-3 ">
-                            <span style="padding: 5px 10px; margin: 0px 5px" class="font-weight-lighter badge badge-info " v-for="tag in track.tags.split(',')">
+                    <div class="col-md-3 track-tags">
+                            <span  v-for="tag in track.tags.split(',')">
                                 #{{ tag }}
                             </span>
                     </div>
@@ -79,7 +79,7 @@
             </div>
 
             <div id="more-beats" class="mt-md-4 mt-sm-2 mt-xs-2  d-flex justify-content-center container">
-                <a href="#" class="btn btn-primary  ">BROWSE BEATS</a>
+                <router-link :to="{ path : '/tracks' }" class="btn btn-primary  ">BROWSE BEATS</router-link>
             </div>
         </div>
 

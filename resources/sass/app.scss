@@ -68,7 +68,19 @@ svg:hover{
     cursor: pointer;
 }
 
+//BEAT TAGS
+.track-tags{
+    font-size: .75rem;
+}
 
+.track-tags span {
+    color: white;
+    background-color: #908887;
+    padding: 3px 7px;
+    margin: 0px 3px;
+    border-radius: 5px;
+}
+//BEAT TAGS END
 
 //LDS DUAL RING loader
 .lds-dual-ring {

@@ -21612,6 +21612,18 @@ svg:hover {
   cursor: pointer;
 }
 
+.track-tags {
+  font-size: 0.75rem;
+}
+
+.track-tags span {
+  color: white;
+  background-color: #908887;
+  padding: 3px 7px;
+  margin: 0px 3px;
+  border-radius: 5px;
+}
+
 .lds-dual-ring {
   display: inline-block;
   width: 80px;

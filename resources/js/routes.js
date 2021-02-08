@@ -12,6 +12,7 @@ import Beat from "./components/Beat";
 import Donate from "./components/Donate";
 import FrontDrumkits from "./components/FrontDrumkits";
 import FrontBlogs from "./components/FrontBlogs";
+import FrontBeats from "./components/FrontBeats";
 
 export const  routes = [
     {
@@ -26,6 +27,11 @@ export const  routes = [
         path : '/beats',
         component : Beats,
         meta: { requiresAuth : true}
+    },
+    {
+        path : '/tracks',
+        component : FrontBeats,
+        name: 'allTracks',
     },
     {
         path : '/beat/:id/:title',
