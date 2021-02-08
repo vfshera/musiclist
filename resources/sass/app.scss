@@ -1610,9 +1610,10 @@ svg:hover{
     #donate{
         background-color: #ffffff !important;
 
-        width: 100px !important;
+        width: 100% !important;
         display: flex !important;
-        justify-content: flex-start !important;
+        justify-content: center !important;
+
     }
 
     #donate .nav-link{
@@ -1922,7 +1923,10 @@ svg:hover{
     /*    END GALLERY*/
 
 
-
+    .nav-item {
+        display: flex !important;
+        justify-content: center !important;
+    }
 
     //material button
 
@@ -1934,4 +1938,23 @@ svg:hover{
         font-weight: 700;
     }
     //material button end
+
+
+
+    .modal-header{
+        padding: .4rem 1rem !important;
+    }
+
+    .cart-item-image img{
+        height: 30px !important;
+        width: 30px !important;
+    }
+
+
+
+    //hide cart
+    .hideCart , .nav-item .hideCart{
+        display: none !important;
+    }
+    //hide cart
 }

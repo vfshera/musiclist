@@ -4226,20 +4226,17 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    selectTrack: function selectTrack(song) {
+      this.$store.commit('setSong', song);
+
+      if (this.$store.getters.getPlayerState != true || this.$store.getters.getPlayerVisibility != true) {
+        this.$store.commit('setPlayerVisibility', true);
+        this.$store.commit('setPlayerState', true);
+      }
+    },
     formatTags: function formatTags(tags) {
       var tags = tags.split(",");
       return tags;
-    },
-    showBeat: function showBeat(track) {
-      var title = track.title.toLowerCase().replace(/ /g, "-");
-      var id = track.id;
-      this.$router.push({
-        name: 'viewBeat',
-        params: {
-          id: id,
-          title: title
-        }
-      });
     },
     viewBeat: function viewBeat(beat) {
       this.isProcessing = true;
@@ -12613,7 +12610,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.tags-list[data-v-61dbad02]{\n    height: 15%;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    margin-top: 10px;\n}\n.tags-list span[data-v-61dbad02]{\n    font-weight: bold;\n    margin: 5px;\n}\n.tags-ul[data-v-61dbad02] {\n    display: flex;\n}\n.tags-ul .tag-item[data-v-61dbad02]{\n    height: 100%;\n    background-color: #111111;\n    color: white;\n    border-radius: 5px;\n}\n.typing-progress[data-v-61dbad02]{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.lds-dual-ring[data-v-61dbad02] {\n\n    display: inline-block;\n    width: 80px;\n    height: 80px;\n}\n.lds-dual-ring[data-v-61dbad02]:after {\n    position: absolute;\n    top:45%;\n    left:56%;\n    content: \" \";\n    display: block;\n    width: 64px;\n    height: 64px;\n    margin: 8px;\n    border-radius: 50%;\n    border: 6px solid orangered;\n    border-color: orangered transparent orangered transparent;\n    -webkit-animation: lds-dual-ring-data-v-61dbad02 1.2s linear infinite;\n            animation: lds-dual-ring-data-v-61dbad02 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring-data-v-61dbad02 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring-data-v-61dbad02 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n.posting-beat[data-v-61dbad02]{\n    position: absolute;\n    top: 49%;\n    left: 43%;\n}\n.loader[data-v-61dbad02] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-61dbad02] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-61dbad02]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-61dbad02 0.6s infinite;\n            animation: lds-ellipsis1-data-v-61dbad02 0.6s infinite;\n}\n.loader div[data-v-61dbad02]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-61dbad02 0.6s infinite;\n            animation: lds-ellipsis2-data-v-61dbad02 0.6s infinite;\n}\n.loader div[data-v-61dbad02]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-61dbad02 0.6s infinite;\n            animation: lds-ellipsis2-data-v-61dbad02 0.6s infinite;\n}\n.loader div[data-v-61dbad02]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-61dbad02 0.6s infinite;\n            animation: lds-ellipsis3-data-v-61dbad02 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-61dbad02 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-61dbad02 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-61dbad02 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-61dbad02 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-61dbad02 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-61dbad02 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n.content-link input[data-v-61dbad02], .beat-title input[data-v-61dbad02]{\n    width: 100%;\n}\n.link-n-title[data-v-61dbad02]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n}\n.content-body[data-v-61dbad02]{\n}\n.add-beat-body[data-v-61dbad02]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    min-height:60vh;\n}\n.beat-cover[data-v-61dbad02]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: flex-start;\n}\n.beat-title[data-v-61dbad02]{\n}\n.beat-head[data-v-61dbad02]{\n    min-height: 85%;\n    width: 100%;\n}\n.withmb[data-v-61dbad02]{\n    margin-bottom: 30px;\n}\n.beat[data-v-61dbad02]{\n    background-color: white;\n    margin: 2px 0px;\n    padding: 3px;\n    display: flex;\n    align-items: center;\n    border-radius: 3px;\n}\n.track-labels[data-v-61dbad02]{\n    background-color: #c6c8ca22;\n    margin: 2px 0px;\n    padding: 3px;\n    display: flex;\n    align-items: center;\n    border-radius: 3px;\n    font-weight: bold;\n}\n.content-link[data-v-61dbad02]{\n}\n.beat-controls[data-v-61dbad02]{\n    display: flex;\n    justify-content: flex-end;\n}\n.front-beat-cards[data-v-61dbad02]{\n    display: flex;\n   flex-direction: column;\n    background-color: #EBECF111;\n    height: 100%;\n}\n.beat-item img[data-v-61dbad02]{\n    height: 10%;\n    width: 10%;\n\n    -o-object-fit: contain;\n\n       object-fit: contain;\n}\n.caption[data-v-61dbad02]{\n    height: 20%;\n    font-size: 13px;\n    text-align: center;\n}\n.price[data-v-61dbad02]{\n    height: 20%;\n    font-size: 13px;\n    text-align: center;\n    background-color: orangered;\n    color: white;\n}\n.price-sec[data-v-61dbad02]{\n}\n.beat-item[data-v-61dbad02]{\n    width: 100%;\n    height: 50px;\n    border-radius: 5px;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);\n    transition: .1s ease-in-out;\n}\n.beat-item[data-v-61dbad02]:hover{\n    transform: scale(1.02);\n    border: 2px #007bff33 solid;\n    box-shadow: 0 4px 10px 0 #007bff45 , 0 6px 22px 0 #007bff45;\n}\n.new-btn[data-v-61dbad02]{\n    width: 100px;\n}\n.new-btn[data-v-61dbad02]:hover{\n    font-weight: bold;\n}\n.price-btn[data-v-61dbad02]{\n    width: 40px;\n}\n.price-btn[data-v-61dbad02]:hover{\n    font-weight: bold;\n}\n.search-bar input[data-v-61dbad02]{\n    width: 96%;\n    text-align: center;\n}\n.search-bar[data-v-61dbad02]{\n    border: #11111133 1px solid;\n    width: 40%;\n    height: 40px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-radius: 25px;\n    transition: .2s ease-in-out;\n}\n.search-bar[data-v-61dbad02]:hover{\n    border: #11111177 2px solid;\n}\n.search-bar-focused[data-v-61dbad02]{\n    border: #0275d8 2px solid !important;\n}\n.beat[data-v-61dbad02]:hover{\n    background: linear-gradient(145deg, #ffffffaa, #ffffffee);\n    box-shadow:  3px 3px 5px #EBECF2,\n    -3px -3px 5px #EBECF2;\n}\n.beat-menu[data-v-61dbad02]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 3px #11111155 solid;\n}\n.front-beats[data-v-61dbad02]{\n    margin-top: 60px;\n    height: 83vh;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.front-beats-container[data-v-61dbad02]{\n    display: flex;\n    flex-direction: column;\n    border-radius: 10px;\n    width: 75%;\n    height: 98%;\n    /*background-color: #FFFFFF;*/\n    box-shadow: #11111122 ;\n}\n", ""]);
+exports.push([module.i, "\n.tags-list[data-v-61dbad02]{\n    height: 15%;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    margin-top: 10px;\n}\n.tags-list span[data-v-61dbad02]{\n    font-weight: bold;\n    margin: 5px;\n}\n.tags-ul[data-v-61dbad02] {\n    display: flex;\n}\n.tags-ul .tag-item[data-v-61dbad02]{\n    height: 100%;\n    background-color: #111111;\n    color: white;\n    border-radius: 5px;\n}\n.typing-progress[data-v-61dbad02]{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.lds-dual-ring[data-v-61dbad02] {\n\n    display: inline-block;\n    width: 80px;\n    height: 80px;\n}\n.lds-dual-ring[data-v-61dbad02]:after {\n    position: absolute;\n    top:45%;\n    left:56%;\n    content: \" \";\n    display: block;\n    width: 64px;\n    height: 64px;\n    margin: 8px;\n    border-radius: 50%;\n    border: 6px solid orangered;\n    border-color: orangered transparent orangered transparent;\n    -webkit-animation: lds-dual-ring-data-v-61dbad02 1.2s linear infinite;\n            animation: lds-dual-ring-data-v-61dbad02 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring-data-v-61dbad02 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring-data-v-61dbad02 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n.posting-beat[data-v-61dbad02]{\n    position: absolute;\n    top: 49%;\n    left: 43%;\n}\n.loader[data-v-61dbad02] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-61dbad02] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-61dbad02]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-61dbad02 0.6s infinite;\n            animation: lds-ellipsis1-data-v-61dbad02 0.6s infinite;\n}\n.loader div[data-v-61dbad02]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-61dbad02 0.6s infinite;\n            animation: lds-ellipsis2-data-v-61dbad02 0.6s infinite;\n}\n.loader div[data-v-61dbad02]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-61dbad02 0.6s infinite;\n            animation: lds-ellipsis2-data-v-61dbad02 0.6s infinite;\n}\n.loader div[data-v-61dbad02]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-61dbad02 0.6s infinite;\n            animation: lds-ellipsis3-data-v-61dbad02 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-61dbad02 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-61dbad02 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-61dbad02 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-61dbad02 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-61dbad02 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-61dbad02 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n.content-link input[data-v-61dbad02], .beat-title input[data-v-61dbad02]{\n    width: 100%;\n}\n.link-n-title[data-v-61dbad02]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n}\n.content-body[data-v-61dbad02]{\n}\n.add-beat-body[data-v-61dbad02]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    min-height:60vh;\n}\n.beat-cover[data-v-61dbad02]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: flex-start;\n}\n.beat-title[data-v-61dbad02]{\n}\n.beat-head[data-v-61dbad02]{\n    min-height: 85%;\n    width: 100%;\n}\n.withmb[data-v-61dbad02]{\n    margin-bottom: 30px;\n}\n.beat[data-v-61dbad02]{\n    background-color: white;\n    margin: 2px 0px;\n    padding: 3px;\n    display: flex;\n    align-items: center;\n    border-radius: 3px;\n}\n.track-labels[data-v-61dbad02]{\n    background-color: #c6c8ca22;\n    margin: 2px 0px;\n    padding: 3px;\n    display: flex;\n    align-items: center;\n    border-radius: 3px;\n    font-weight: bold;\n}\n.content-link[data-v-61dbad02]{\n}\n.beat-controls[data-v-61dbad02]{\n    display: flex;\n    justify-content: flex-end;\n}\n.front-beat-cards[data-v-61dbad02]{\n    display: flex;\n   flex-direction: column;\n    background-color: #EBECF111;\n    height: 100%;\n}\n.beat-item img[data-v-61dbad02]{\n    height: 10%;\n    width: 10%;\n\n    -o-object-fit: contain;\n\n       object-fit: contain;\n}\n.caption[data-v-61dbad02]{\n    height: 20%;\n    font-size: 13px;\n    text-align: center;\n}\n.price[data-v-61dbad02]{\n    height: 20%;\n    font-size: 13px;\n    text-align: center;\n    color: orangered;\n}\n.price-sec[data-v-61dbad02]{\n}\n.beat-item[data-v-61dbad02]{\n    width: 100%;\n    height: 50px;\n    border-radius: 5px;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);\n    transition: .1s ease-in-out;\n}\n.beat-item[data-v-61dbad02]:hover{\n    transform: scale(1.02);\n    border: 2px #007bff33 solid;\n    box-shadow: 0 4px 10px 0 #007bff45 , 0 6px 22px 0 #007bff45;\n}\n.new-btn[data-v-61dbad02]{\n    width: 100px;\n}\n.new-btn[data-v-61dbad02]:hover{\n    font-weight: bold;\n}\n.price-btn[data-v-61dbad02]{\n    width: 40px;\n}\n.price-btn[data-v-61dbad02]:hover{\n    font-weight: bold;\n}\n.search-bar input[data-v-61dbad02]{\n    width: 96%;\n    text-align: center;\n}\n.search-bar[data-v-61dbad02]{\n    border: #11111133 1px solid;\n    width: 40%;\n    height: 40px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-radius: 25px;\n    transition: .2s ease-in-out;\n}\n.search-bar[data-v-61dbad02]:hover{\n    border: #11111177 2px solid;\n}\n.search-bar-focused[data-v-61dbad02]{\n    border: #0275d8 2px solid !important;\n}\n.beat[data-v-61dbad02]:hover{\n    background: linear-gradient(145deg, #ffffffaa, #ffffffee);\n    box-shadow:  3px 3px 5px #EBECF2,\n    -3px -3px 5px #EBECF2;\n}\n.beat-menu[data-v-61dbad02]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 3px #11111155 solid;\n}\n.front-beats[data-v-61dbad02]{\n    margin-top: 60px;\n    height: 83vh;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.front-beats-container[data-v-61dbad02]{\n    display: flex;\n    flex-direction: column;\n    border-radius: 10px;\n    width: 75%;\n    height: 98%;\n    /*background-color: #FFFFFF;*/\n    box-shadow: #11111122 ;\n}\n", ""]);
 
 // exports
 
@@ -60951,7 +60948,9 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-md-1 text-center" }, [
-                _c("span", { staticClass: "bpm" }, [_vm._v(_vm._s(track.bpm))])
+                _c("span", { staticClass: "bpm" }, [
+                  _vm._v(_vm._s(track.bpmkey))
+                ])
               ]),
               _vm._v(" "),
               _c(
@@ -63933,19 +63932,18 @@ var render = function() {
           _vm._m(0),
           _vm._v(" "),
           _vm._l(_vm.searchableBeats, function(track) {
-            return _c(
-              "div",
-              {
-                staticClass: "track beat row ",
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.showBeat(track)
+            return _c("div", { staticClass: "track beat row " }, [
+              _c(
+                "div",
+                {
+                  staticClass: "col-md-1 ",
+                  on: {
+                    click: function($event) {
+                      return _vm.selectTrack(track)
+                    }
                   }
-                }
-              },
-              [
-                _c("div", { staticClass: "col-md-1 " }, [
+                },
+                [
                   _c("img", {
                     staticClass: "cover",
                     staticStyle: { "object-fit": "cover" },
@@ -63956,73 +63954,95 @@ var render = function() {
                       width: "50px"
                     }
                   })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-4 title-container" }, [
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "col-md-4 title-container",
+                  on: {
+                    click: function($event) {
+                      return _vm.selectTrack(track)
+                    }
+                  }
+                },
+                [
                   _c("span", { staticClass: "title" }, [
                     _vm._v(" " + _vm._s(track.title))
                   ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-2 " }, [
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "col-md-2 ",
+                  on: {
+                    click: function($event) {
+                      return _vm.selectTrack(track)
+                    }
+                  }
+                },
+                [
                   _c("span", { staticClass: "bpm" }, [
                     _vm._v(_vm._s(track.bpmkey))
                   ])
-                ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-md-4  track-tags" },
+                _vm._l(track.tags.split(","), function(tag) {
+                  return _c("span", [
+                    _vm._v(
+                      "\n                        #" +
+                        _vm._s(tag) +
+                        "\n                    "
+                    )
+                  ])
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-md-1 text-center " }, [
+                !track.isPaid
+                  ? _c("p", { staticClass: "free-price" }, [
+                      _c("span", { staticClass: "price-amount" }, [
+                        _vm._v("FREE")
+                      ])
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "col-md-4  track-tags" },
-                  _vm._l(track.tags.split(","), function(tag) {
-                    return _c("span", [
-                      _vm._v(
-                        "\n                        #" +
-                          _vm._s(tag) +
-                          "\n                    "
+                track.isPaid
+                  ? _c("p", { staticClass: "price" }, [
+                      _c(
+                        "svg",
+                        {
+                          attrs: {
+                            id: "Layer_1",
+                            "enable-background": "new 0 0 480 480",
+                            height: "22",
+                            viewBox: "0 0 480 480",
+                            width: "26",
+                            xmlns: "http://www.w3.org/2000/svg"
+                          }
+                        },
+                        [
+                          _c("path", {
+                            attrs: {
+                              fill: "orangered",
+                              d:
+                                "m372.052 480h-264.104c-23.46 0-41.906-20.152-39.845-43.516l24.353-276c1.835-20.799 18.964-36.484 39.845-36.484h24.699v-41c0-45.767 37.233-83 83-83s83 37.233 83 83v41h24.699c4.418 0 8 3.582 8 8s-3.582 8-8 8h-24.699v36c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-105c-4.418 0-8-3.582-8-8s3.582-8 8-8h105v-41c0-36.944-30.056-67-67-67s-67 30.056-67 67v93c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-24.699c-12.528 0-22.806 9.411-23.907 21.891l-24.353 276c-1.241 14.062 9.807 26.109 23.907 26.109h264.104c14.117 0 25.147-12.064 23.907-26.109l-24.353-276c-.388-4.401 2.865-8.284 7.266-8.672 4.399-.385 8.284 2.865 8.672 7.266l24.353 276c2.062 23.369-16.39 43.515-39.845 43.515zm-178.052-69h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8zm0-40h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8z"
+                            }
+                          })
+                        ]
                       )
                     ])
-                  }),
-                  0
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-1 text-center " }, [
-                  !track.isPaid
-                    ? _c("p", { staticClass: "free-price" }, [
-                        _c("span", { staticClass: "price-amount" }, [
-                          _vm._v("FREE")
-                        ])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  track.isPaid
-                    ? _c("p", { staticClass: "price" }, [
-                        _c(
-                          "svg",
-                          {
-                            attrs: {
-                              id: "Layer_1",
-                              "enable-background": "new 0 0 480 480",
-                              height: "22",
-                              viewBox: "0 0 480 480",
-                              width: "26",
-                              xmlns: "http://www.w3.org/2000/svg"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                fill: "black",
-                                d:
-                                  "m372.052 480h-264.104c-23.46 0-41.906-20.152-39.845-43.516l24.353-276c1.835-20.799 18.964-36.484 39.845-36.484h24.699v-41c0-45.767 37.233-83 83-83s83 37.233 83 83v41h24.699c4.418 0 8 3.582 8 8s-3.582 8-8 8h-24.699v36c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-105c-4.418 0-8-3.582-8-8s3.582-8 8-8h105v-41c0-36.944-30.056-67-67-67s-67 30.056-67 67v93c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-24.699c-12.528 0-22.806 9.411-23.907 21.891l-24.353 276c-1.241 14.062 9.807 26.109 23.907 26.109h264.104c14.117 0 25.147-12.064 23.907-26.109l-24.353-276c-.388-4.401 2.865-8.284 7.266-8.672 4.399-.385 8.284 2.865 8.672 7.266l24.353 276c2.062 23.369-16.39 43.515-39.845 43.515zm-178.052-69h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8zm0-40h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8z"
-                              }
-                            })
-                          ]
-                        )
-                      ])
-                    : _vm._e()
-                ])
-              ]
-            )
+                  : _vm._e()
+              ])
+            ])
           })
         ],
         2

@@ -23107,9 +23107,9 @@ svg:hover {
 
   #donate {
     background-color: #ffffff !important;
-    width: 100px !important;
+    width: 100% !important;
     display: flex !important;
-    justify-content: flex-start !important;
+    justify-content: center !important;
   }
 
   #donate .nav-link {
@@ -23408,12 +23408,31 @@ svg:hover {
 
   /*    END GALLERY*/
 
+  .nav-item {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
   .pure-material-button-contained {
     padding: 0 30px;
     min-width: 200px;
     height: 50px;
     font-size: 19px;
     font-weight: 700;
+  }
+
+  .modal-header {
+    padding: 0.4rem 1rem !important;
+  }
+
+  .cart-item-image img {
+    height: 30px !important;
+    width: 30px !important;
+  }
+
+  .hideCart,
+  .nav-item .hideCart {
+    display: none !important;
   }
 }
 

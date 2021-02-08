@@ -25,7 +25,7 @@
                         <span class="time "> {{ track.time }}</span>
                     </div>
                     <div class="col-md-1 text-center">
-                        <span class="bpm">{{ track.bpm }}</span>
+                        <span class="bpm">{{ track.bpmkey }}</span>
                     </div>
                     <div  class="col-md-4 text-center track-tags">
 
