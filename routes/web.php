@@ -10,6 +10,7 @@ Route::get('/', function (){
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/contact', 'ContactController@store');
+Route::post('/subscribe', 'NewsletterController@store');
 
 
 Route::group(['middleware' => ['auth']], function (){

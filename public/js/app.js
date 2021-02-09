@@ -5263,10 +5263,25 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     subscribe: function subscribe() {
-      console.log("Subscribe");
-      Swal.fire({
-        title: 'Subscribe To News',
-        text: 'As ' + this.newsletterMail
+      axios.post('/subscribe').then(function (response) {
+        if (response.status == 201) {
+          Toast.fire({
+            icon: 'success',
+            title: response.data
+          });
+        } else if (response.status == 403) {
+          Toast.fire({
+            icon: 'error',
+            title: response.data
+          });
+        } else {
+          Toast.fire({
+            icon: 'error',
+            title: 'Please Try Subscribing Again!'
+          });
+        }
+      })["catch"](function (err) {
+        console.log(err);
       });
     },
     sanitizeText: function sanitizeText(size, text) {
@@ -65385,7 +65400,21 @@ var render = function() {
               }
             }),
             _vm._v(" "),
-            _vm._m(4),
+            _c(
+              "label",
+              {
+                staticClass: "c-form__buttonLabel",
+                attrs: { for: "checkbox" },
+                on: { click: _vm.subscribe }
+              },
+              [
+                _c(
+                  "button",
+                  { staticClass: "c-form__button", attrs: { type: "submit" } },
+                  [_vm._v("Send")]
+                )
+              ]
+            ),
             _vm._v(" "),
             _c("label", {
               staticClass: "c-form__toggle",
@@ -65836,22 +65865,6 @@ var staticRenderFns = [
         ]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "label",
-      { staticClass: "c-form__buttonLabel", attrs: { for: "checkbox" } },
-      [
-        _c(
-          "button",
-          { staticClass: "c-form__button", attrs: { type: "submit" } },
-          [_vm._v("Send")]
-        )
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -66124,7 +66137,7 @@ var render = function() {
                     {
                       staticClass: "nav-link",
                       class: { "active-link": "/#front-blogs" == _vm.currPath },
-                      attrs: { href: "#front-blogs" }
+                      attrs: { href: "/#front-blogs" }
                     },
                     [_vm._v("Blog")]
                   )
@@ -86404,9 +86417,9 @@ var localBeatCart = localStorage.getItem('beatCart');
     currBeat: localBeat ? JSON.parse(localBeat) : {},
     csrftoken: "",
     isPlayerMax: false,
-    loggedUser: null,
+    loggedUser: {},
     PlayerSeen: false,
-    currentSong: null,
+    currentSong: {},
     beats: [],
     drumkits: [],
     beatcart: localBeatCart ? JSON.parse(localBeatCart) : [],

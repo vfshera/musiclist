@@ -202,7 +202,7 @@
             <div class="c-formContainer">
                 <form class="c-form" action="" @submit="subscribe">
                     <input class="c-form__input" v-model="newsletterMail" placeholder="E-mail" type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required>
-                    <label class="c-form__buttonLabel" for="checkbox">
+                    <label class="c-form__buttonLabel" for="checkbox" @click="subscribe">
                         <button class="c-form__button"  type="submit">Send</button>
                     </label>
                     <label class="c-form__toggle" for="checkbox" @click="expandSignUp" data-title="Notify me"></label>
@@ -353,11 +353,31 @@
                 }
             },
             subscribe(){
-                console.log("Subscribe")
-              Swal.fire({
-                  title: 'Subscribe To News',
-                  text: 'As ' + this.newsletterMail,
-              })
+
+                axios.post('/subscribe')
+                    .then(response =>{
+                        if(response.status == 201){
+
+                            Toast.fire({
+                                icon: 'success',
+                                title: response.data
+                            });
+
+                        }else if(response.status == 403){
+                            Toast.fire({
+                                icon: 'error',
+                                title: response.data
+                            });
+                        }else{
+                            Toast.fire({
+                                icon: 'error',
+                                title: 'Please Try Subscribing Again!'
+                            });
+                        }
+                    })
+                    .catch(err =>{
+                        console.log(err);
+                    });
             },
             sanitizeText(size,text){
 
