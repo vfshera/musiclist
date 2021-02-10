@@ -1771,6 +1771,7 @@ svg:hover{
 
     .frontblogs{
         margin-top: 40px !important;
+        margin-bottom: 60px !important;
         height: initial !important;
     }
 
@@ -1808,19 +1809,31 @@ svg:hover{
     }
 
 
-
     .card__img {
-        visibility: hidden;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 85px;
-        border-top-left-radius: 12px;
-        border-top-right-radius: 12px;
-        display: none !important;
-        z-index: 1 !important;
+        visibility: hidden !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        width: 100% !important;
+        height: 125px !important;
+        border-top-left-radius: 12px !important;
+        border-top-right-radius: 12px !important;
+
     }
+
+    //
+    //.card__img {
+    //    visibility: hidden;
+    //    background-size: cover;
+    //    background-position: center;
+    //    background-repeat: no-repeat;
+    //    width: 100%;
+    //    height: 85px;
+    //    border-top-left-radius: 12px;
+    //    border-top-right-radius: 12px;
+    //    display: none !important;
+    //    z-index: 1 !important;
+    //}
 
 
     .blog-card {
@@ -1828,7 +1841,7 @@ svg:hover{
         transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
         background-color: #fff;
         width: 80% !important;
-        height: 44vh !important;
+        height: 40vh !important;
         position: relative;
         border-radius: 12px;
         overflow: hidden;
@@ -1844,15 +1857,26 @@ svg:hover{
         transform: scale(1.08, 1.08);
     }
 
-    .card__info {
-        z-index: 20;
-        background-color: #fff;
-        border-bottom-left-radius: 12px;
-        border-bottom-right-radius: 12px;
-        padding: 16px 24px 24px 24px;
+    //.card__info {
+    //    z-index: 20;
+    //    background-color: #fff;
+    //    border-bottom-left-radius: 12px;
+    //    border-bottom-right-radius: 12px;
+    //    padding: 16px 24px 24px 24px;
+    //}
+    //
+
+
+
+    .card__info{
+        z-index: 100 !important;
+        position: absolute !important;
+        bottom: 0px !important;
+        background-color: #ffffffdd !important;
+        width: 100% !important;
+        padding: 10px 16px !important;
+        font-size: 1rem !important;
     }
-
-
     /*END BLOG CARDS*/
 
 
