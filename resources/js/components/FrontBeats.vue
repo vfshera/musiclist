@@ -19,6 +19,29 @@
                     <div id="price" class="col-md-1 text-center">LICENSE</div>
                 </div>
 
+                <!--                mobile-->
+                <div class="mobile-track d-none" v-for=" track in beats">
+                    <div  class="m-cover-container" @click="selectTrack(track)">
+                        <img class="m-cover" :src="track.cover" alt="" >
+                    </div>
+                    <div class="m-title-container " @click="selectTrack(track)">
+                        <span class="m-title" > {{ track.title }}</span>
+                    </div>
+                    <div  class=" text-center ">
+                        <p class="m-free-price" v-if="!track.isPaid">
+                            <span class="m-price-amount">FREE</span>
+                        </p>
+                        <p class="m-price" v-if="track.isPaid">
+                            <svg id="Layer_1" enable-background="new 0 0 480 480" height="22" viewBox="0 0 480 480" width="26" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="white" d="m372.052 480h-264.104c-23.46 0-41.906-20.152-39.845-43.516l24.353-276c1.835-20.799 18.964-36.484 39.845-36.484h24.699v-41c0-45.767 37.233-83 83-83s83 37.233 83 83v41h24.699c4.418 0 8 3.582 8 8s-3.582 8-8 8h-24.699v36c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-105c-4.418 0-8-3.582-8-8s3.582-8 8-8h105v-41c0-36.944-30.056-67-67-67s-67 30.056-67 67v93c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-24.699c-12.528 0-22.806 9.411-23.907 21.891l-24.353 276c-1.241 14.062 9.807 26.109 23.907 26.109h264.104c14.117 0 25.147-12.064 23.907-26.109l-24.353-276c-.388-4.401 2.865-8.284 7.266-8.672 4.399-.385 8.284 2.865 8.672 7.266l24.353 276c2.062 23.369-16.39 43.515-39.845 43.515zm-178.052-69h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8zm0-40h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8z"/>
+                            </svg>
+                            <span class="m-price-amount">{{ track.license }}</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!--              end  mobile-->
+
                 <div class="track beat row " v-for="track in searchableBeats"  >
                     <div  class="col-md-1 " @click="selectTrack(track)">
                         <img class="cover" :src="track.cover" :alt="track.title" height="50px" width="50px" style="object-fit: cover">
@@ -187,6 +210,76 @@
 </script>
 
 <style scoped>
+
+    /*mobile*/
+
+
+    .m-cover{
+        height: 50px;
+        width: 50px;
+    }
+    .m-title{
+
+        font-size: .8rem;
+
+    }
+    .title-container{
+        cursor: pointer;
+    }
+    .m-title-container{
+        padding: 0 5px;
+    }
+    .m-price{
+        background-color: orangered;
+        height: 40px;
+        width: 70px;
+        border-radius: 10px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-weight: 300;
+        font-size: 14px !important;
+    }
+
+    .free-price{
+        background-color: #F4F3F177;
+        height: 40px;
+        width: 100px;
+        border-radius: 10px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        font-weight: 500;
+    }
+
+    .m-free-price{
+        background-color: #F4F3F177;
+        height: 20px;
+        width: 50px;
+        border-radius: 10px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        font-weight: 500;
+    }
+
+    .mobile-track{
+        margin-top: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid rgba(0,0,0,.1);
+        height: 60px;
+        width: 99%;
+    }
+    /*end mobile*/
 
     .tags-list{
         height: 15%;

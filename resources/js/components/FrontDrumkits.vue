@@ -9,14 +9,17 @@
                     <input type="text" v-model="search" @focus="searchFocused(true)" @blur="searchFocused(false)" placeholder="Search Drumkit ...">
                 </div>
             </div>
-            <div class="drumkit-cards px-3 pt-3">
-                <div class="drumkit-card mx-1 mb-3" v-for="drumkit in searchableDrumkits" @click.prevent="viewDrumkit(drumkit)">
-                    <img :src="drumkit.image" @load="isProcessing = false" :alt="drumkit.title" >
-                    <div class="caption px-1">
-                        {{ drumkit.title }}
+            <div class="px-3 pt-3 frontkits " :class="{ 'd-flex justify-content-between': (drumkits.length > 2) ,  'd-flex justify-content-center': (drumkits.length == 1)}">
+                        <a href="#" class="mobile-kit" v-for="drumkit in searchableDrumkits" @click.prevent="viewDrumkit(drumkit)" :class="{ 'm-2': (drumkits.length == 2) }">
+                            <figure class="col-xs-12" :style="{ backgroundImage: `url(${ drumkit.image } )` }">
+                                <div :class="{ 'free': (drumkit.isFree) , 'date': (!drumkit.isFree)}"><span class="card-date-day">{{ drumkit.dprice }}</span></div>
+                                <figcaption>
+                                    <h4> <span>{{ drumkit.title }}</span></h4>
+                                    <p>{{ drumkit.type}}</p>
+                                </figcaption>
+                            </figure>
+                        </a>
                     </div>
-                </div>
-
             </div>
 
             <div class="drumkit-controls px-4" >
@@ -46,7 +49,7 @@
         data(){
             return{
                 focused : false,
-                alldrumkits: [],
+                drumkits: [],
                 search: '',
                 isProcessing: true,
                 pagination: {}
@@ -55,6 +58,10 @@
         },
         methods:{
 
+            searchFocused(value){
+
+                this.focused = value;
+            },
             viewDrumkit(drumkit){
                 this.isProcessing = true;
 
@@ -78,7 +85,7 @@
 
                 axios.get(drumkits_url)
                     .then(response =>{
-                        this.alldrumkits = response.data.data;
+                        this.drumkits = response.data.data;
 
                         this.makePagination(response.data.meta , response.data.links)
 
@@ -103,7 +110,7 @@
         },
         computed:{
             searchableDrumkits:function (){
-                return this.alldrumkits.filter(drumkit => {
+                return this.drumkits.filter(drumkit => {
                     return drumkit.title.toLowerCase().match(this.search.toLowerCase());
                 });
             }
@@ -117,122 +124,21 @@
 </script>
 
 <style scoped>
-    .typing-progress{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 
-
-    .posting-drumkit{
-        position: absolute;
-        top: 49%;
-        left: 43%;
-    }
-    .loader {
-        width: 80px;
-        height: 20px;
-    }
-    .loader div {
-        position: absolute;
-        width: 13px;
-        height: 13px;
-        border-radius: 50%;
-        background: orangered;
-        animation-timing-function: cubic-bezier(0, 1, 1, 0);
-    }
-    .loader div:nth-child(1) {
-        left: 8px;
-        animation: lds-ellipsis1 0.6s infinite;
-    }
-    .loader div:nth-child(2) {
-        left: 8px;
-        animation: lds-ellipsis2 0.6s infinite;
-    }
-    .loader div:nth-child(3) {
-        left: 32px;
-        animation: lds-ellipsis2 0.6s infinite;
-    }
-    .loader div:nth-child(4) {
-        left: 56px;
-        animation: lds-ellipsis3 0.6s infinite;
-    }
-    @keyframes lds-ellipsis1 {
-        0% {
-            transform: scale(0);
-        }
-        100% {
-            transform: scale(1);
-        }
-    }
-    @keyframes lds-ellipsis3 {
-        0% {
-            transform: scale(1);
-        }
-        100% {
-            transform: scale(0);
-        }
-    }
-    @keyframes lds-ellipsis2 {
-        0% {
-            transform: translate(0, 0);
-        }
-        100% {
-            transform: translate(24px, 0);
-        }
-    }
 
 
 
     .content-link input , .drumkit-title input{
         width: 100%;
     }
-    .link-n-title{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    .content-body{
 
-    }
-    .add-drumkit-body{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        min-height:60vh;
 
-    }
 
-    .drumkit-cover{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        /*align-items: flex-start;*/
-    }
-
-    .drumkit-title{
-
-    }
-
-    .drumkit-head{
-        height: 30%;
-        width: 100%;
-    }
-
-    .drumkit-content{
-        height: 70%;
-        width: 100%;
-    }
-
-    .content-link{
-
-    }
     .drumkit-controls{
         display: flex;
         justify-content: flex-end;
     }
-    .drumkit-cards{
+    .frontkits{
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -263,13 +169,7 @@
         box-shadow: 0 4px 10px 0 #007bff45 , 0 6px 22px 0 #007bff45;
     }
 
-    .new-btn{
-        width: 100px;
-    }
 
-    .new-btn:hover{
-        font-weight: bold;
-    }
 
     .search-bar input{
         width: 96%;
@@ -306,7 +206,7 @@
 
     .front-drumkits{
         margin-top: 60px;
-        width: 98.5vw;
+        width: 99.5vw;
         height: 83vh;
         display: flex;
         justify-content: center;

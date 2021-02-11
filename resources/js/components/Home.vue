@@ -31,7 +31,6 @@
                 </div>
             </div>
 
-
             <!--                mobile-->
 
 
@@ -85,7 +84,7 @@
 
         <div id="drumkits" class="my-5">
             <h2 class="text-center ">DRUMKITS</h2>
-            <div class="kits my-4 " :class="{ 'd-flex justify-content-between': (drumkits.length > 2) ,  'd-flex justify-content-center': (drumkits.length == 1)}">
+            <div class="kits my-4" :class="{ 'd-flex justify-content-between': (drumkits.length > 2) ,  'd-flex justify-content-center': (drumkits.length == 1)}">
                 <a href="#" class="mobile-kit" v-for="drumkit in drumkits" @click.prevent="viewDrumkit(drumkit)" :class="{ 'm-2': (drumkits.length == 2) }">
                     <figure class="col-xs-12" :style="{ backgroundImage: `url(${ drumkit.image } )` }">
                         <div :class="{ 'free': (drumkit.isFree) , 'date': (!drumkit.isFree)}"><span class="card-date-day">{{ drumkit.dprice }}</span></div>
@@ -95,8 +94,6 @@
                         </figcaption>
                     </figure>
                 </a>
-
-
             </div>
             <div id="more-kits" class=" d-flex justify-content-center container">
                 <router-link :to="{ path : '/soundkits' }"class="btn btn-primary  ">ALL SOUND KITS</router-link>
@@ -675,127 +672,6 @@
 
     /*END BLOG CARDS*/
 
- /*DRUMKIT*/
-.kits{
-    display: flex;
-    justify-content: center;
-    width: 76%;
-}
- figure {
-     position: relative;
-     display: flex;
-     align-items: flex-start;
-     justify-content: center;
-     width: 220px;
-     height: 300px;
-     padding: 20px 20px;
-     background-position: center center;
-     background-repeat: no-repeat;
-     background-size: 100%;
-     border-radius: 10px;
-     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-     transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-     overflow: hidden;
- }
- figure:before, figure:after {
-     position: absolute;
-     top: 0;
-     left: 0;
-     width: 100%;
-     height: 100%;
- }
- figure:before {
-     content: '';
-     background-color: rgba(0, 0, 0, 0.1);
-     z-index: 0;
- }
- figure:after {
-     content: '';
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-     overflow: hidden;
- }
- figure:hover {
-     background-size: 175%;
- }
- figure:hover:after {
-     content: '\2665';
-     background-color: rgba(255, 69, 0, 0.7);
-     color: white;
-     font-size: 72px;
-     z-index: 2;
- }
- figure:hover .date {
-     bottom: -59px;
- }
- figure:hover figcaption {
-     transform: translateY(-110%);
- }
- figure .date {
-     position: absolute;
-     bottom: 0;
-     right: 30px;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     flex-direction: column;
-     padding: 10px;
-     background-color: rgba(255, 69, 0, 0.85);
-     text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
-     transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
- }
-
-    figure .free{
-        position: absolute;
-        bottom: 0;
-        right: 30px;
-        display: flex;
-        align-items: center;
-        /*justify-content: center;*/
-        flex-direction: column;
-        padding: 10px;
-        background-color: rgba(255, 255, 255, 0.85);
-        text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
-        transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-
- figure .date span {
-     color: white;
-     line-height: 1;
- }
- figure .date span:first-child {
-     font-family: "Source Code Pro", sans-serif;
-     font-size: 20px;
-     font-weight: 900;
- }
- figure .date span:last-child {
-     font-size: 14px;
-     font-weight: 400;
- }
- figure figcaption {
-     color: white;
-     transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-     z-index: 1;
- }
- figure figcaption h4 {
-     margin: 0 0 5px;
-     font-family: "Source Code Pro", sans-serif;
-     font-size: 24px;
-     line-height: 1.35;
-     text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
- }
- figure figcaption h4 > span {
-     background-color: transparent;
-     /*background-color: rgba(255, 69, 0, 0.8);*/
- }
- figure figcaption p {
-     margin: 0;
-     line-height: 1.5;
- }
-
- /*END DRUMKIT*/
     #contact form{
         display: flex;
         flex-direction: column;
