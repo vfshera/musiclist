@@ -1457,10 +1457,16 @@ figure figcaption p {
         justify-content: center !important;
         align-items: center !important;
         border-radius: 10px !important;
-        width: 75% !important;
-        height: 98% !important;
+        width: 100% !important;
+        height: initial !important;
     }
 
+    .frontkits ,  .front-drumkits{
+        display: flex !important;
+        flex-direction: column!important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
     .front-drumkits{
         display: initial;
         margin-top: 40px !important;
@@ -1945,7 +1951,7 @@ figure figcaption p {
 
     /*BLOG CARDS*/
 
-    .blog-menu[data-v-74a2a113] {
+    .blog-menu{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
