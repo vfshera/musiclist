@@ -4671,6 +4671,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'DrumkitPost',
@@ -12756,7 +12775,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n*[data-v-60224772],html[data-v-60224772]{\n        box-sizing: border-box;\n}\n.drumkit-action[data-v-60224772]{\n        margin-top:20px;\n        display: flex;\n        justify-content: space-around;\n}\n.btn-proceed[data-v-60224772]{\n        background-color: #0f6674;\n        padding: 10px 50px;\n        color: white;\n        font-weight: bolder;\n        border-radius: 15px;\n}\n.btn-cancel[data-v-60224772]{\n        background-color: orangered;\n        padding: 10px 50px;\n        color: white;\n        font-weight: bolder;\n        border-radius: 15px;\n}\n.drumkit-question[data-v-60224772]{\n        font-size: 1.4rem;\n}\n\n\n    /*loading */\n.lds-dual-ring[data-v-60224772] {\n\n        display: inline-block;\n        width: 80px;\n        height: 80px;\n}\n.lds-dual-ring[data-v-60224772]:after {\n        position: absolute;\n        top:50%;\n        left:47%;\n        content: \" \";\n        display: block;\n        width: 64px;\n        height: 64px;\n        margin: auto;\n        border-radius: 50%;\n        border: 6px solid orangered;\n        border-color: orangered transparent orangered transparent;\n        -webkit-animation: lds-dual-ring-data-v-60224772 1.2s linear infinite;\n                animation: lds-dual-ring-data-v-60224772 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring-data-v-60224772 {\n0% {\n            transform: rotate(0deg);\n}\n100% {\n            transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring-data-v-60224772 {\n0% {\n            transform: rotate(0deg);\n}\n100% {\n            transform: rotate(360deg);\n}\n}\n    /*end loading*/\n.kit-sample-img[data-v-60224772]{\n    display: flex;\n    flex-direction: column;\n}\n.drumkit-outer[data-v-60224772]{\n    margin-top: 50px;\n    display: flex;\n    justify-content: space-around;\n    width: 78vw;\n    padding: 10px;\n    background-color: white;\n    border-radius: 10px;\n}\n.drumkit-inner[data-v-60224772]{\n    display: flex;\n    justify-content: space-around;\n    width: 78vw;\n}\n.updates[data-v-60224772]{\n    display: flex;\n    align-items: flex-start;\n}\n.download-drumkit[data-v-60224772]{\n    width: 40px;\n    height: 40px;\n    background-color: #007bff;\n    color: white;\n    border-radius: 25px;\n    transition: .4s ease-in-out;\n    margin: 5px;\n}\n.download-drumkit[data-v-60224772]:hover{\n    /*width: 45px;*/\n    /*height: 45px;*/\n    background-color: gainsboro ;\n    color: #007bff;\n    border-radius: 25px;\n    transition: .4s ease-in-out;\n    margin: 5px;\n    transform: scale(1.1);\n}\n.share-drumkit[data-v-60224772]{\n        margin: 5px;\n        width: 40px;\n        height: 40px;\n        background-color: #007bff;\n        color: white;\n        border-radius: 25px;\n        transition: .4s ease-in-out;\n}\n.share-drumkit[data-v-60224772]:hover{\n        /*width: 45px;*/\n        /*height: 45px;*/\n        background-color: #ffffff99;\n        color: #007bff;\n        /*border-radius: 45px;*/\n\n        transform: scale(1.1);\n}\n/*loader*/\n.loader[data-v-60224772] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-60224772] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-60224772]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-60224772 0.6s infinite;\n            animation: lds-ellipsis1-data-v-60224772 0.6s infinite;\n}\n.loader div[data-v-60224772]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-60224772 0.6s infinite;\n            animation: lds-ellipsis2-data-v-60224772 0.6s infinite;\n}\n.loader div[data-v-60224772]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-60224772 0.6s infinite;\n            animation: lds-ellipsis2-data-v-60224772 0.6s infinite;\n}\n.loader div[data-v-60224772]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-60224772 0.6s infinite;\n            animation: lds-ellipsis3-data-v-60224772 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-60224772 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-60224772 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-60224772 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-60224772 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-60224772 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-60224772 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n\n\n/*endloader*/\n.drumkit[data-v-60224772]{\n        width: 81.4vw;\n        min-height: 100vh;\n        display: flex;\n        border-radius: 15px;\n        box-shadow: 0px 0px 10px -10px #111111;\n}\n.title[data-v-60224772]{\n        padding: 15px;\n        color: black;\n}\n.drumkit-header[data-v-60224772]{\n        height: 50vh;\n        width: 100%;\n        display: flex;\n        flex-direction: column;\n        justify-content: space-between;\n        border-radius: 7px;\n        -o-object-fit: cover;\n           object-fit: cover;\n        background-position: center center;\n        background-size: cover;\n}\n.back-btn[data-v-60224772]{\n        width: 45px;\n        height: 40px;\n        margin: .5rem !important;\n        background-color: #111111cc;\n        color: white;\n        border-radius: 25px;\n        transition: .4s ease-in-out;\n}\n.back-btn[data-v-60224772]:hover{\n        /*width: 60px;*/\n        /*height: 50px;*/\n        background-color: #cccccc99;\n        color: #111111;\n        /*border-radius: 45px;*/\n\n        transform: scale(1.1);\n}\n.edit-drumkit[data-v-60224772]{\n        width: 40px;\n        height: 40px;\n        background-color: #007bff;\n        color: white;\n        border-radius: 25px;\n        transition: .4s ease-in-out;\n}\n.drumkit-info[data-v-60224772]{\n        display: flex;\n        flex-direction: column;\n        padding:15px;\n        min-height: 50vh;\n        border-bottom-left-radius: 15px;\n        border-bottom-right-radius: 15px;\n        background-image: linear-gradient(0deg,#11111111,#ffffff77);\n}\n.drumkit-info p[data-v-60224772] {\n        margin-top: 15px;\n        background-color: #ffffff;\n        min-height: 42vh;\n        border-radius: 15px;\n        padding:15px;\n        color: black;\n}\n", ""]);
+exports.push([module.i, "\n*[data-v-60224772],html[data-v-60224772]{\n        box-sizing: border-box;\n}\n.m-kit[data-v-60224772]{\n        display: none;\n}\n.drumkit-action[data-v-60224772]{\n        margin-top:20px;\n        display: flex;\n        justify-content: space-around;\n}\n.btn-proceed[data-v-60224772]{\n        background-color: #0f6674;\n        padding: 10px 50px;\n        color: white;\n        font-weight: bolder;\n        border-radius: 15px;\n}\n.btn-cancel[data-v-60224772]{\n        background-color: orangered;\n        padding: 10px 50px;\n        color: white;\n        font-weight: bolder;\n        border-radius: 15px;\n}\n.drumkit-question[data-v-60224772]{\n        font-size: 1.4rem;\n}\n\n\n    /*loading */\n.lds-dual-ring[data-v-60224772] {\n\n        display: inline-block;\n        width: 80px;\n        height: 80px;\n}\n.lds-dual-ring[data-v-60224772]:after {\n        position: absolute;\n        top:50%;\n        left:47%;\n        content: \" \";\n        display: block;\n        width: 64px;\n        height: 64px;\n        margin: auto;\n        border-radius: 50%;\n        border: 6px solid orangered;\n        border-color: orangered transparent orangered transparent;\n        -webkit-animation: lds-dual-ring-data-v-60224772 1.2s linear infinite;\n                animation: lds-dual-ring-data-v-60224772 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring-data-v-60224772 {\n0% {\n            transform: rotate(0deg);\n}\n100% {\n            transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring-data-v-60224772 {\n0% {\n            transform: rotate(0deg);\n}\n100% {\n            transform: rotate(360deg);\n}\n}\n    /*end loading*/\n.kit-sample-img[data-v-60224772]{\n    display: flex;\n    flex-direction: column;\n}\n.drumkit-outer[data-v-60224772]{\n    margin-top: 50px;\n    display: flex;\n    justify-content: space-around;\n    width: 78vw;\n    padding: 10px;\n    background-color: white;\n    border-radius: 10px;\n}\n.drumkit-inner[data-v-60224772]{\n    display: flex;\n    justify-content: space-around;\n    width: 78vw;\n}\n.updates[data-v-60224772]{\n    display: flex;\n    align-items: flex-start;\n}\n.download-drumkit[data-v-60224772]{\n    width: 40px;\n    height: 40px;\n    background-color: #007bff;\n    color: white;\n    border-radius: 25px;\n    transition: .4s ease-in-out;\n    margin: 5px;\n}\n.download-drumkit[data-v-60224772]:hover{\n    /*width: 45px;*/\n    /*height: 45px;*/\n    background-color: gainsboro ;\n    color: #007bff;\n    border-radius: 25px;\n    transition: .4s ease-in-out;\n    margin: 5px;\n    transform: scale(1.1);\n}\n.share-drumkit[data-v-60224772]{\n        margin: 5px;\n        width: 40px;\n        height: 40px;\n        background-color: #007bff;\n        color: white;\n        border-radius: 25px;\n        transition: .4s ease-in-out;\n}\n.share-drumkit[data-v-60224772]:hover{\n        /*width: 45px;*/\n        /*height: 45px;*/\n        background-color: #ffffff99;\n        color: #007bff;\n        /*border-radius: 45px;*/\n\n        transform: scale(1.1);\n}\n/*loader*/\n.loader[data-v-60224772] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-60224772] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-60224772]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-60224772 0.6s infinite;\n            animation: lds-ellipsis1-data-v-60224772 0.6s infinite;\n}\n.loader div[data-v-60224772]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-60224772 0.6s infinite;\n            animation: lds-ellipsis2-data-v-60224772 0.6s infinite;\n}\n.loader div[data-v-60224772]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-60224772 0.6s infinite;\n            animation: lds-ellipsis2-data-v-60224772 0.6s infinite;\n}\n.loader div[data-v-60224772]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-60224772 0.6s infinite;\n            animation: lds-ellipsis3-data-v-60224772 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-60224772 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-60224772 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-60224772 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-60224772 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-60224772 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-60224772 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n\n\n/*endloader*/\n.drumkit[data-v-60224772]{\n        width: 81.4vw;\n        min-height: 100vh;\n        display: flex;\n        border-radius: 15px;\n        box-shadow: 0px 0px 10px -10px #111111;\n}\n.title[data-v-60224772]{\n        padding: 15px;\n        color: black;\n}\n.drumkit-header[data-v-60224772]{\n        height: 50vh;\n        width: 100%;\n        display: flex;\n        flex-direction: column;\n        justify-content: space-between;\n        border-radius: 7px;\n        -o-object-fit: cover;\n           object-fit: cover;\n        background-position: center center;\n        background-size: cover;\n}\n.back-btn[data-v-60224772]{\n        width: 45px;\n        height: 40px;\n        margin: .5rem !important;\n        background-color: #111111cc;\n        color: white;\n        border-radius: 25px;\n        transition: .4s ease-in-out;\n}\n.back-btn[data-v-60224772]:hover{\n        /*width: 60px;*/\n        /*height: 50px;*/\n        background-color: #cccccc99;\n        color: #111111;\n        /*border-radius: 45px;*/\n\n        transform: scale(1.1);\n}\n.edit-drumkit[data-v-60224772]{\n        width: 40px;\n        height: 40px;\n        background-color: #007bff;\n        color: white;\n        border-radius: 25px;\n        transition: .4s ease-in-out;\n}\n.drumkit-info[data-v-60224772]{\n        display: flex;\n        flex-direction: column;\n        padding:15px;\n        min-height: 50vh;\n        border-bottom-left-radius: 15px;\n        border-bottom-right-radius: 15px;\n        background-image: linear-gradient(0deg,#11111111,#ffffff77);\n}\n.drumkit-info p[data-v-60224772] {\n        margin-top: 15px;\n        background-color: #ffffff;\n        min-height: 42vh;\n        border-radius: 15px;\n        padding:15px;\n        color: black;\n}\n", ""]);
 
 // exports
 
@@ -64832,6 +64851,57 @@ var render = function() {
             },
             [_c("i", { staticClass: "ti-sharethis" })]
           )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-kit" }, [
+        _c("div", { staticClass: "m-kit-sample-img" }, [
+          _c(
+            "div",
+            {
+              staticClass: "m-kit-header ",
+              style: { backgroundImage: "url(" + _vm.drumkit.image + " )" }
+            },
+            [
+              _c("div", { staticClass: "updates p-2" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "download-drumkit",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.modalOpenClose("#DownloadModal", "open")
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "ti-download" })]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "share-drumkit",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.modalOpenClose("#shareModal", "open")
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "ti-sharethis" })]
+                )
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "m-kit-info" }, [
+          _c("h3", { staticClass: "title" }, [
+            _vm._v(_vm._s(_vm.drumkit.title))
+          ]),
+          _vm._v(" "),
+          _c("p", { domProps: { innerHTML: _vm._s(_vm.drumkit.about) } })
         ])
       ]),
       _vm._v(" "),

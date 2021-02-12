@@ -27,6 +27,25 @@
 
        </div>
 
+        <div class="m-kit">
+            <div class="m-kit-sample-img">
+                <div class="m-kit-header " :style="{ backgroundImage: `url(${ drumkit.image } )` }">
+                    <div class="updates p-2">
+                        <button class="download-drumkit" @click.prevent="modalOpenClose('#DownloadModal','open')">
+                            <i  class="ti-download" ></i>
+                        </button>
+
+                        <button class="share-drumkit" @click.prevent="modalOpenClose('#shareModal','open')">
+                            <i  class="ti-sharethis" ></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="m-kit-info">
+                <h3 class="title">{{ drumkit.title }}</h3>
+                <p v-html="drumkit.about"></p>
+            </div>
+        </div>
         <Share :title="drumkit.title" :summary="drumkit.about"  :image="drumkit.image" :shared="'Drumkit'"/>
 
         <!--        share modal-->
@@ -203,7 +222,9 @@ export default {
     *,html{
         box-sizing: border-box;
     }
-
+    .m-kit{
+        display: none;
+    }
     .drumkit-action{
         margin-top:20px;
         display: flex;

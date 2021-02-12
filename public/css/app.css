@@ -22952,6 +22952,61 @@ figure figcaption p {
 }
 
 @media screen and (max-width: 523px) {
+  .drumkit {
+    width: 99vw !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .drumkit-outer {
+    display: none !important;
+  }
+
+  .m-kit {
+    display: initial !important;
+    margin-top: 60px !important;
+  }
+
+  .m-kit-header .updates {
+    position: relative !important;
+    bottom: -208px !important;
+    right: -230px !important;
+  }
+
+  .download-drumkit,
+  .share-drumkit {
+    width: 30px !important;
+    height: 30px !important;
+    padding: 5px !important;
+  }
+
+  .m-kit-header {
+    height: 100% !important;
+  }
+
+  .m-kit-sample-img {
+    height: 35vh;
+    background-color: #cccccc33;
+    margin-bottom: 10px !important;
+  }
+
+  .m-kit-info .title {
+    display: initial !important;
+    padding: 0px !important;
+    font-size: 1.3rem !important;
+  }
+
+  .m-kit-info p {
+    margin-top: 10px !important;
+  }
+
+  .m-kit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .drumkit-menu {
     display: flex !important;
     flex-direction: column !important;
