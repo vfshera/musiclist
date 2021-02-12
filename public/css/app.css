@@ -23671,5 +23671,17 @@ figure figcaption p {
   .nav-item .hideCart {
     display: none !important;
   }
+
+  .four-o-four h1 {
+    font-size: 12rem !important;
+  }
+
+  .four-o-four h3 {
+    font-size: 1.5rem !important;
+  }
+
+  .four-o-four a {
+    margin-top: 0.5rem !important;
+  }
 }
 

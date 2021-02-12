@@ -5,7 +5,7 @@
                 <img src="/storage/site-img/logo.svg" height="30px" alt="tony-on-the-trak-logo" @mouseover="hoverImg(true)" @mouseout="hoverImg(false)">
             </router-link>
             <ul class="mx-auto tott-name">
-                TONY ON THE TRACK
+                TONY GREGORY
             </ul>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tottlinks" aria-controls="tottlinks" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

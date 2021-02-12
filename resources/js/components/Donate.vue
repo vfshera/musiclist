@@ -24,7 +24,7 @@
                    <div class="form-group row ">
                        <div class=" col-sm-11 col-xs-11 form__group field col-md-12">
                            <input type="number"  v-model="phone"  class="form__field" placeholder="Phone ie 254******* ignore + (plus)" pattern="[0-9]{9,15}" title="Phone is expressed in International Format" name="phone" id='phone'  />
-                           <label for="phone" class="form__label">Phone Number ( if paying via M-PESA)</label>
+                           <label for="phone" class="form__label">M-PESA No.</label>
                        </div>
                    </div>
                    <p class="mt-4" style="color: orangered;font-style: italic">*Click on The Desired Mode Of Payment*</p>
@@ -52,8 +52,8 @@
         data(){
             return{
               amount: 2,
-              phone: '254712378964',
-              email: 'info@tonyonthetrack.com',
+              phone: '',
+              email: '',
               processor: null,
                 gateways:[
                     {

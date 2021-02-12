@@ -1,7 +1,8 @@
 <template>
     <div class="front-drumkits">
         <div class="frontkits-container">
-            <div class="lds-dual-ring" v-show="isProcessing"></div>
+            <div class="lds-dual-ring" v-show="isProcessing">
+            </div>
 
             <div class="drumkit-menu px-3 py-3">
                 <h3>Drumkits</h3>

@@ -13,6 +13,7 @@ import Donate from "./components/Donate";
 import FrontDrumkits from "./components/FrontDrumkits";
 import FrontBlogs from "./components/FrontBlogs";
 import FrontBeats from "./components/FrontBeats";
+import NotFound from "./components/NotFound";
 
 export const  routes = [
     {
@@ -85,6 +86,10 @@ export const  routes = [
         path : '/gallery',
         component : Gallery,
         meta: { requiresAuth : true}
+    },
+    {
+        path : '*',
+        component : NotFound,
     }
 ]
 
