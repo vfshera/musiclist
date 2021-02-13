@@ -11,7 +11,7 @@
 
                 </div>
                <div class="drumkit-info col-md-6">
-                   <h3 class="title">{{ drumkit.title }}</h3>
+                   <h3 class="title">{{ drumkit.title }} <span :class="{ 'price-tag-free': drumkit.isFree , 'price-tag-paid': !drumkit.isFree}">{{ drumkit.dprice }}</span></h3>
                    <p v-html="drumkit.about"></p>
                </div>
            </div>
@@ -31,6 +31,7 @@
             <div class="m-kit-sample-img">
                 <div class="m-kit-header " :style="{ backgroundImage: `url(${ drumkit.image } )` }">
                     <div class="updates p-2">
+                        <div :class="{ 'price-tag-free': drumkit.isFree , 'price-tag-paid': !drumkit.isFree}">{{ drumkit.dprice }}</div>
                         <button class="download-drumkit" @click.prevent="modalOpenClose('#DownloadModal','open')">
                             <i  class="ti-download" ></i>
                         </button>
@@ -224,6 +225,28 @@ export default {
     }
     .m-kit{
         display: none;
+    }
+
+    h3 .price-tag-paid , h3 .price-tag-free{
+        font-size: 1.1rem;
+    }
+    .price-tag-paid , .price-tag-free{
+        border-radius: 5px !important;
+        padding: 3px 10px !important;
+        font-weight: bold !important;
+    }
+
+    h3 .price-tag-free{
+        background: #11111177 !important;
+        color: white !important;
+    }
+    .price-tag-free{
+        background: white !important;
+        color: black !important;
+    }
+    .price-tag-paid{
+        background: orangered !important;
+        color: white !important;
     }
     .drumkit-action{
         margin-top:20px;

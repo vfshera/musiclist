@@ -22968,9 +22968,17 @@ figure figcaption p {
   }
 
   .m-kit-header .updates {
+    display: flex !important;
+    align-items: center !important;
     position: relative !important;
     bottom: -208px !important;
-    right: -230px !important;
+    right: -140px !important;
+  }
+
+  .btn-proceed,
+  .btn-cancel {
+    padding: 10px 30px !important;
+    border-radius: 15px !important;
   }
 
   .download-drumkit,
@@ -22982,6 +22990,8 @@ figure figcaption p {
 
   .m-kit-header {
     height: 100% !important;
+    background-position: center !important;
+    background-size: cover !important;
   }
 
   .m-kit-sample-img {
