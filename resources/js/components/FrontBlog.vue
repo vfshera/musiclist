@@ -1,7 +1,7 @@
 <template>
     <div class="blog-post container">
         <div class="lds-dual-ring" v-show="isProcessing"></div>
-        <div class="blog-header" :style="{ backgroundImage: `url(${ post.image } )` }">
+        <div class="blog-header" :style="{ backgroundImage: `url(${ post.image } )` }" style="background-position: center;background-size: cover">
             <div class="blog-actions">
                 <button class="back-btn" @click.prevent="prevPage"><i class="ti-arrow-left"></i></button>
                <div class="updates">
@@ -13,7 +13,11 @@
             <h3 class="blog-title text-white">{{ post.title }}</h3>
         </div>
         <div class="blog-content">
-            <span class="badge badge-light badge-pill">{{ post.reflink }} <a :href="post.reflink" target="_blank"> <i class="ti-world"></i></a></span>
+            <span class="badge badge-light badge-pill">
+                <a :href="post.reflink" target="_blank">
+                    {{ post.reflink }}
+                </a>
+            </span>
             <p v-html="post.content"></p>
         </div>
 

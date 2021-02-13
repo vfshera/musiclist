@@ -19,6 +19,11 @@ Route::group(['middleware' => ['auth']], function (){
         return auth()->user();
     });
 
+    //licenses
+    Route::get('/prices' , 'PriceController@index')->withoutMiddleware('auth');
+    Route::get('/basic' , 'PriceController@primary')->withoutMiddleware('auth');
+    Route::post('/uprice/{price}' , 'PriceController@update');
+
 //    blog
     Route::post('/addBlog' , 'BlogController@store');
     Route::get('/getBlogs' , 'BlogController@index')->withoutMiddleware('auth');

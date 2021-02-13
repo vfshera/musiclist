@@ -46,6 +46,27 @@
         },
         props: ['user'],
         methods:{
+            setData(){
+                this.setUser();
+
+                axios.get('/prices')
+                    .then(response =>{
+                        this.$store.commit('setLicenses', response.data)
+                    })
+                    .catch(err =>{
+                        console.log(err);
+                    });
+
+                axios.get('/basic')
+                    .then(response =>{
+
+                        this.$store.commit('setBasicLicense', response.data)
+
+                    })
+                    .catch(err =>{
+                        console.log(err);
+                    });
+            },
             setUser(){
                 let token = document.querySelector('meta[name="csrf-token"]').attributes[1].value
                 this.$store.commit('setLoggedUser',this.user)
@@ -57,7 +78,8 @@
 
         },
         mounted() {
-            this.setUser();
+
+            this.setData();
         }
     }
 </script>

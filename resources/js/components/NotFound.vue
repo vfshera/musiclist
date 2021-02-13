@@ -8,7 +8,7 @@
 
 <script>
     export default {
-        name: '404 PAGE',
+        name: 'ErrorPAGE',
         mounted() {
             console.log('Component mounted.')
         }

@@ -26,8 +26,16 @@ let localBeatCart = localStorage.getItem('beatCart');
          drumkits:[],
          beatcart: (localBeatCart) ? JSON.parse(localBeatCart) : [],
          kitcart: (localDrumCart) ? JSON.parse(localDrumCart) : [],
+         basicPrice: '',
+         beatLicenses: []
      },
      getters:{
+         getBeatLicenses(state){
+             return state.beatLicenses;
+         },
+         getBasicPrice(state){
+             return state.basicPrice[0];
+         },
          getBeatCart(state){
              return state.beatcart;
          },
@@ -66,6 +74,12 @@ let localBeatCart = localStorage.getItem('beatCart');
          }
      },
      mutations: {
+         setBasicLicense(state, basic) {
+             state.basicPrice = basic;
+         },
+         setLicenses(state, licenses) {
+             state.beatLicenses = licenses;
+         },
          setBeatCart(state, beatItems) {
              state.beatcart.push(beatItems);
          },

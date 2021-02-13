@@ -10,10 +10,17 @@
                 </div>
                 <div class="btns">
                    <button class="btn btn-primary rounded-pill new-btn" data-toggle="modal" data-target="#addBeatModal"> <span class="ti-pencil-alt mr-2"></span>NEW</button>
-                    <button class="btn btn-success rounded-pill price-btn" data-toggle="modal" data-target="#addBeatModal"> <span class="ti-money mr-2"></span></button>
+                    <button class="btn btn-success rounded-pill price-btn" data-toggle="modal" data-target="#addLicenseModal"> <span class="ti-money mr-2"></span></button>
                 </div>
             </div>
             <div class="beat-cards px-3 pt-3">
+                <div id="labels" class="track-labels row">
+                    <div id="cover" class="col-md-1">COVER</div>
+                    <div id="title" class="col-md-4 ">TITLE</div>
+                    <div id="bpm" class="col-md-2 ">BPM & KEY</div>
+                    <div id="actions" class="col-md-4 text-center">TAGS</div>
+                    <div id="price" class="col-md-1 text-center">LICENSE</div>
+                </div>
                 <div class="track beat row " v-for="track in searchableBeats"  @click.prevent="showBeat(track)" >
                     <div  class="col-md-1 ">
                         <img class="cover" :src="track.cover" :alt="track.title" height="50px" width="50px" style="object-fit: cover">
@@ -21,10 +28,8 @@
                     <div class="col-md-4 title-container">
                         <span class="title" > {{ track.title }}</span>
                     </div>
-                    <div  class="col-md-1 text-center">
-                        <span class="time "> {{ track.time }}</span>
-                    </div>
-                    <div class="col-md-1 text-center">
+
+                    <div class="col-md-2 ">
                         <span class="bpm">{{ track.bpmkey }}</span>
                     </div>
                     <div  class="col-md-4 text-center track-tags">
@@ -40,8 +45,9 @@
 
                         <p class="price" v-if="track.isPaid">
                             <svg id="Layer_1" enable-background="new 0 0 480 480" height="22" viewBox="0 0 480 480" width="26" xmlns="http://www.w3.org/2000/svg">
-                                <path fill="black" d="m372.052 480h-264.104c-23.46 0-41.906-20.152-39.845-43.516l24.353-276c1.835-20.799 18.964-36.484 39.845-36.484h24.699v-41c0-45.767 37.233-83 83-83s83 37.233 83 83v41h24.699c4.418 0 8 3.582 8 8s-3.582 8-8 8h-24.699v36c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-105c-4.418 0-8-3.582-8-8s3.582-8 8-8h105v-41c0-36.944-30.056-67-67-67s-67 30.056-67 67v93c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-24.699c-12.528 0-22.806 9.411-23.907 21.891l-24.353 276c-1.241 14.062 9.807 26.109 23.907 26.109h264.104c14.117 0 25.147-12.064 23.907-26.109l-24.353-276c-.388-4.401 2.865-8.284 7.266-8.672 4.399-.385 8.284 2.865 8.672 7.266l24.353 276c2.062 23.369-16.39 43.515-39.845 43.515zm-178.052-69h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8zm0-40h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8z"/>
+                                <path fill="orangered" d="m372.052 480h-264.104c-23.46 0-41.906-20.152-39.845-43.516l24.353-276c1.835-20.799 18.964-36.484 39.845-36.484h24.699v-41c0-45.767 37.233-83 83-83s83 37.233 83 83v41h24.699c4.418 0 8 3.582 8 8s-3.582 8-8 8h-24.699v36c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-105c-4.418 0-8-3.582-8-8s3.582-8 8-8h105v-41c0-36.944-30.056-67-67-67s-67 30.056-67 67v93c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-24.699c-12.528 0-22.806 9.411-23.907 21.891l-24.353 276c-1.241 14.062 9.807 26.109 23.907 26.109h264.104c14.117 0 25.147-12.064 23.907-26.109l-24.353-276c-.388-4.401 2.865-8.284 7.266-8.672 4.399-.385 8.284 2.865 8.672 7.266l24.353 276c2.062 23.369-16.39 43.515-39.845 43.515zm-178.052-69h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8zm0-40h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8z"/>
                             </svg>
+                            <span class="price-amount">${{ $store.getters.getBasicPrice.amount }}</span>
                         </p>
                     </div>
                 </div>
@@ -64,6 +70,33 @@
                 </ul>
             </div>
         </div>
+
+<!--        license amount modal-->
+        <div class="modal fade" id="addLicenseModal" tabindex="-1" role="dialog" aria-labelledby="addLicenseModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="addLicenseModalTitle" style="display: inline-block">License</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row mb-2" v-for="price in licensePrice">
+                            <span class="name col-md-4">{{ price.name }}</span>
+                            <span class="amount col-md-2">${{ price.amount }}</span>
+                            <input type="text" class="form-control col-md-4" v-model="newPriceAmount" placeholder="Enter Price">
+                            <i class="col-md-2 text-center" style="cursor: pointer;" @click="updatePrice(price.id)">&check;</i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--        license amount-->
+
+
 
         <!--        add beat modal-->
         <div class="modal fade" id="addBeatModal" tabindex="-1" role="dialog" aria-labelledby="addBeatModalTitle" aria-hidden="true">
@@ -156,6 +189,7 @@
                 </div>
             </div>
         </div>
+<!--        end add beat modal-->
     </div>
 </template>
 
@@ -178,8 +212,9 @@
                 isPaid: true,
                 cover:null,
                 sample: null,
-                pagination: {}
-
+                pagination: {},
+                licensePrice:[],
+                newPriceAmount: ''
             }
         },
         methods:{
@@ -320,6 +355,15 @@
                     .catch(err =>{
                         console.log(err);
                     });
+
+                axios.get('/prices')
+                    .then(response =>{
+                        this.licensePrice = response.data;
+
+                    })
+                    .catch(err =>{
+                        console.log(err);
+                    });
             },
             makePagination(meta , links){
                 this.pagination  = {
@@ -344,6 +388,31 @@
                     $('.modal-backdrop').remove();
 
                 }
+            },
+            updatePrice(id){
+                axios.post( '/uprice/'+id,{
+                    amount: this.newPriceAmount
+                }).then( res =>{
+                    if(res.status == 201){
+                        Fire.$emit('BeatChanged');
+
+                        Toast.fire({
+                            icon: 'success',
+                            title: res.data
+                        });
+
+                    }else if(res.status == 403){
+                        Toast.fire({
+                            icon: 'error',
+                            title: res.data
+                        });
+                    }
+
+                    this.newPriceAmount = ''
+                }).catch(err => {
+                    console.log(err)
+                })
+
             },
             getBeatZip(e){
                 this.beat = e.target.files[0];
@@ -370,7 +439,6 @@
             setTags:function () {
                 return this.tags;
             },
-
 
 
         },
@@ -475,34 +543,7 @@
         justify-content: center;
         align-items: center;
     }
-    .lds-dual-ring {
 
-        display: inline-block;
-        width: 80px;
-        height: 80px;
-    }
-    .lds-dual-ring:after {
-        position: absolute;
-        top:45%;
-        left:56%;
-        content: " ";
-        display: block;
-        width: 64px;
-        height: 64px;
-        margin: 8px;
-        border-radius: 50%;
-        border: 6px solid orangered;
-        border-color: orangered transparent orangered transparent;
-        animation: lds-dual-ring 1.2s linear infinite;
-    }
-    @keyframes lds-dual-ring {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    }
 
     .posting-beat{
         position: absolute;

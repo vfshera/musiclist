@@ -16,8 +16,8 @@
                </div>
            </div>
            <div class="updates p-2">
-               <button class="download-drumkit" @click.prevent="modalOpenClose('#DownloadModal','open')">
-                   <i  class="ti-download" ></i>
+               <button class="download-drumkit" :class="{ 'bg-primary': drumkit.isFree , 'bg-success': !drumkit.isFree}" @click.prevent="modalOpenClose('#DownloadModal','open')">
+                   <i   :class="{ 'ti-download': drumkit.isFree , 'fa fa-usd': !drumkit.isFree}"></i>
                </button>
 
                <button class="share-drumkit" @click.prevent="modalOpenClose('#shareModal','open')">
@@ -32,8 +32,8 @@
                 <div class="m-kit-header " :style="{ backgroundImage: `url(${ drumkit.image } )` }">
                     <div class="updates p-2">
                         <div :class="{ 'price-tag-free': drumkit.isFree , 'price-tag-paid': !drumkit.isFree}">{{ drumkit.dprice }}</div>
-                        <button class="download-drumkit" @click.prevent="modalOpenClose('#DownloadModal','open')">
-                            <i  class="ti-download" ></i>
+                        <button class="download-drumkit" :class="{ 'bg-primary': drumkit.isFree , 'bg-success': !drumkit.isFree}" @click.prevent="modalOpenClose('#DownloadModal','open')">
+                            <i  :class="{ 'ti-download': drumkit.isFree , 'fa fa-usd': !drumkit.isFree}" ></i>
                         </button>
 
                         <button class="share-drumkit" @click.prevent="modalOpenClose('#shareModal','open')">
@@ -335,10 +335,11 @@ export default {
     align-items: flex-start;
 
 }
+
 .download-drumkit{
     width: 40px;
     height: 40px;
-    background-color: #007bff;
+
     color: white;
     border-radius: 25px;
     transition: .4s ease-in-out;
