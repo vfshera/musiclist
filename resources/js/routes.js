@@ -14,11 +14,17 @@ import FrontDrumkits from "./components/FrontDrumkits";
 import FrontBlogs from "./components/FrontBlogs";
 import FrontBeats from "./components/FrontBeats";
 import NotFound from "./components/NotFound";
+import Dashboard from "./components/Dashboard";
 
 export const  routes = [
     {
         path : '/',
         component : Home
+    },
+    {
+        path : '/home',
+        component : Dashboard,
+        meta: { requiresAuth : true}
     },
     {
         path : '/donate',

@@ -1,5 +1,6 @@
 <template>
     <div id="home">
+        <div class="lds-dual-ring" v-show="isProcessing"></div>
         <div id="hero" >
                <span class="whatsnew">Whats New?</span>
 
@@ -18,7 +19,7 @@
                       </div>
                       <div class="promo-cta">
                           <div class="play-promo">
-                              <button @click="selectTrack(beats[0])">PLAY <i class="ti-control-play"></i></button>
+                              <button @click="selectTrack(beats[0])">PLAY <i class="fas fa-play"></i></button>
                           </div>
                           <div class="buy-promo" >
                               <button class="btn-buy" v-show="beats[0].isPaid" @click="addToCart(track)">BUY @ ${{ beats[0].license }}</button>
@@ -48,7 +49,7 @@
                 </div>
             </div>
         </div>
-        <div class="lds-dual-ring" v-show="isProcessing"></div>
+
         <div id="beats"  class=" my-5" >
             <h2 class="text-center">BEATS</h2>
 
@@ -513,8 +514,8 @@
                         console.log(err);
                     });
 
-
                 this.loadPrices();
+
                 this.isProcessing = false;
             },
             viewBlog(blog){
