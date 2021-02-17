@@ -35,6 +35,12 @@
 </script>
 
 <style scoped>
-
-
+    .top-right , .header-menu {
+        height: 100%;
+    }
+    .username-area {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 </style>

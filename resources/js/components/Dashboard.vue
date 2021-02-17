@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">64</span></div>
+                                            <div class="stat-text"><span class="count">{{ stats.beats }}</span></div>
                                             <div class="stat-heading">Beats</div>
                                         </div>
                                     </div>
@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">28</span></div>
+                                            <div class="stat-text"><span class="count">{{ stats.kits }}</span></div>
                                             <div class="stat-heading">Drumkits</div>
                                         </div>
                                     </div>
@@ -197,7 +197,28 @@
 <script>
     export default {
         name: "Dashboard",
+        data(){
+            return{
+                stats:{}
+            }
+        },
+        methods:{
+            getStats(){
+                axios.get('/adminstats')
+                    .then(response =>{
+                        this.stats = response.data;
+                    })
+                    .catch(err =>{
+                        console.log(err);
+                    });
+            },
+            getOrders(){
+
+            }
+        },
         mounted() {
+            this.getOrders();
+            this.getStats();
             console.log('Component mounted.')
         }
     }

@@ -19,6 +19,10 @@ Route::group(['middleware' => ['auth']], function (){
         return auth()->user();
     });
 
+    //adminstats
+    Route::get('/adminstats' , 'HomeController@stats');
+
+
     //licenses
     Route::get('/prices' , 'PriceController@index')->withoutMiddleware('auth');
     Route::get('/basic' , 'PriceController@primary')->withoutMiddleware('auth');
