@@ -1,10 +1,52 @@
 <template>
     <div id="home">
         <div id="hero" >
-          <div class="info">
-              <h1>Tony On The Track</h1>
-              <p class="container">The Official Website For Bangers</p>
-          </div>
+               <span class="whatsnew">Whats New?</span>
+
+              <div class="promo" v-show="promo == 0">
+                  <div class="promo-img">
+                      <img class="promo-cover" height="350" :src="beats[0].cover" :alt="beats[0].title+' Beat Cover' " >
+                  </div>
+                  <div class="promo-about">
+                      <div class="promo-title">{{ beats[0].title }}</div>
+                      <div class="promo-bpm"><strong>BPM & KEY :  </strong>{{ beats[0].bpmkey }}</div>
+                      <div class="promo-tags ">
+                          <strong>TAGS :  </strong>
+                           <span  v-for="tag in beats[0].tags.split(',')">
+                                #{{ tag }}
+                            </span>
+                      </div>
+                      <div class="promo-cta">
+                          <div class="play-promo">
+                              <button @click="selectTrack(beats[0])">PLAY <i class="ti-control-play"></i></button>
+                          </div>
+                          <div class="buy-promo" >
+                              <button class="btn-buy" v-show="beats[0].isPaid" @click="addToCart(track)">BUY @ ${{ beats[0].license }}</button>
+                              <button class="btn-dwnl" v-show="!beats[0].isPaid" >DOWNLOAD</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+            <div class="promo" v-show="promo == 1">
+                <div class="promo-img">
+                    <img class="promo-cover" height="350" :src="drumkits[0].image" :alt="drumkits[0].title+' Beat Cover' " >
+                </div>
+                <div class="promo-about">
+                    <div class="promo-title">{{ drumkits[0].title }}</div>
+                    <div class="promo-type"><strong>TYPE :  </strong>{{ drumkits[0].type }}</div>
+                    <p class="promo-desc" v-html="drumkits[0].about"></p>
+                    <div class="promo-cta" >
+                        <div class="play-promo">
+                            <button @click.prevent="viewDrumkit(drumkits[0])" >PREVIEW</button>
+                        </div>
+                        <div class="buy-promo " >
+                            <button class="btn-buy" v-show="!drumkits[0].isFree" @click="checkDrumkit(drumkits[0])">BUY @ ${{ drumkits[0].price }}</button>
+                            <button class="btn-dwnl" v-show="drumkits[0].isFree" @click="checkDrumkit(drumkits[0])" >DOWNLOAD</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="lds-dual-ring" v-show="isProcessing"></div>
         <div id="beats"  class=" my-5" >
@@ -34,8 +76,8 @@
             <!--                mobile-->
 
 
-            <div id="beatList " class="container my-4">
-                <div id="labels"class="row">
+            <div id="beatList " class="blist container my-4">
+                <div id="labels" class="row">
                     <div id="cover" class="col-md-1">COVER</div>
                     <div id="title" class="col-md-4">TITLE</div>
                     <div id="bpm" class="col-md-2 ">BPM & KEY</div>
@@ -312,6 +354,41 @@
                 }
 
              },
+            checkDrumkit(kit){
+                if(kit.isFree){
+                    this.isProcessing = true;
+                    this.downloadKit(this.drumkit.id);
+                }else if(!kit.isFree){
+                    this.isProcessing = true;
+                    if(this.$store.getters.getKitCart.find( dkit => dkit.id == kit.id)){
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Kit Already In Cart'
+                        })
+                        this.isProcessing = false;
+
+                    }else {
+                        this.$store.commit('setKitCart' , kit)
+
+                        if(localStorage.getItem('kitCart')){
+
+                            localStorage.removeItem('kitCart')
+
+                        }
+
+                        localStorage.setItem('kitCart' , JSON.stringify(this.$store.getters.getKitCart));
+
+
+                        Swal.fire({
+                            icon : 'success',
+                            title : 'Kit Added To Cart!'
+                        })
+
+                        this.isProcessing = false;
+                    }
+
+                }
+            },
             addToLocal(keyName,newCart){
 
                 if(localStorage.getItem(keyName)){
@@ -485,6 +562,13 @@
                 }
             }
         },
+        computed:{
+            promo: function(){
+                let num = Math.floor(Math.random() * 10)
+
+                return (num < 6) ? 0 : 1;
+            }
+        },
         mounted() {
             this.isProcessing = true;
             this.fetchData();
@@ -494,6 +578,119 @@
 </script>
 
 <style scoped>
+
+
+/*PROMO-AREA*/
+
+    .whatsnew{
+        color: white;
+        display: flex;
+        align-content: center;
+        margin-top: 15px;
+        font-weight: lighter;
+        font-style: italic;
+        font-size: 1.5rem;
+    }
+    /*promo*/
+    .promo{
+        display: flex;
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 40px 200px;
+    }
+
+    .promo-img{
+        height: 100%;
+        width: 50%;
+    }
+    .promo-img img{
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        border-radius: 15px;
+    }
+    .promo-type{
+        margin-top: 20px;
+        color: white;
+        font-size: .8rem;
+    }
+    .promo-desc{
+        color: white;
+        font-size: .8rem;
+        margin-top: 20px;
+        max-height: 150px;
+        overflow: hidden;
+    }
+    .promo-desc ~ *{
+        color: white;
+        font-size: .8rem;
+    }
+    .promo-about{
+        height: 100%;
+        width: 50%;
+
+        display: flex;
+        flex-direction: column;
+        padding: 5px 30px;
+    }
+
+    .promo-title{
+        color: white;
+        font-size: 2.8rem;
+        line-height: 1;
+    }
+    .promo-bpm{
+        margin-top: 50px;
+        color: white;
+        font-size: .8rem;
+    }
+    .promo-tags{
+        color: white;
+        font-size: .8rem;
+        margin-top: 35px;
+    }
+    .promo-tags span{
+        color: white;
+        font-size: .8rem;
+        padding: 5px 10px;
+        margin: 0px 10px;
+        background: #cccccc55;
+        border-radius: 5px;
+    }
+    .promo-cta{
+        margin-top: 35px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    .buy-promo button{
+        padding: 10px 25px;
+        font-weight: bolder;
+    }
+
+    .buy-promo .btn-buy{
+        background: orangered;
+        color: white;
+    }
+    .buy-promo .btn-dwnl{
+        background: white;
+        color: #111111;
+    }
+    .play-promo button{
+        padding: 10px 25px;
+        background: white;
+        color: #111111;
+        font-weight: bolder;
+    }
+    /*promo-END*/
+
+/*PROMO-AREA-END*/
+
     #beats h2, #drumkits h2, #front-blogs h2, #gallery h2 {
         font-family: "Poppins", 'Helvetica', sans-serif;
         font-weight: 500 !important;
@@ -813,17 +1010,22 @@
 
     }
 
-    #hero > .info {
-        text-align: center;
-        color: white;
-        padding-top: 300px;
-    }
+
     #hero {
-        background: url("/storage/site-img/mixer.jpg");
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        margin-top: 60px;
+        background: linear-gradient(
+            rgba(17, 17, 17, 0.75),
+            rgba(17, 17, 17, 0.75)
+        ), url("/storage/site-img/mixer.jpg");
         object-fit: contain;
         background-size: cover;
         background-position: center center;
-        height: 550px;
+        height: 500px;
         box-sizing: border-box;
     }
 

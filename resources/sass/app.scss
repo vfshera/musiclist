@@ -356,6 +356,13 @@ figure figcaption p {
 //RESPONSIVE
 @media screen and (max-width: 1476px) {
 
+    //promo
+    .promo{
+
+        padding: 40px 0px !important;
+    }
+
+    //promo end
     .tott-name{
         display: none;
     }
@@ -387,6 +394,9 @@ figure figcaption p {
 
 @media screen and (max-width: 1210px) {
 
+    .promo{
+        padding: 40px 0px !important;
+    }
     .tott-name{
         display: none;
     }
@@ -418,13 +428,18 @@ figure figcaption p {
 
 @media screen and (max-width: 1149px) {
 
+    .promo{
+
+        padding: 40px 40px !important;
+    }
+
     .navbar-light .navbar-toggler-icon {
         background-image: url("/storage/site-img/pull_down_menu.svg") !important;
 
     }
-.tott-name{
-    display: none;
-}
+    .tott-name{
+        display: none;
+    }
     .navbar-light .navbar-toggler {
         color:transparent !important;
         border-color: transparent !important;
@@ -803,6 +818,10 @@ figure figcaption p {
 
 
 @media screen and (max-width: 800px) {
+    .promo{
+
+        padding: 10px !important;
+    }
 
     .tott-name{
         display: none;
@@ -1424,6 +1443,112 @@ figure figcaption p {
 //moble
 @media screen and (max-width: 523px) {
 
+    /*promo*/
+    #hero{
+        margin-top: 45px !important;
+        min-height: 480px !important;
+        height: auto !important;
+    }
+
+    .whatsnew{
+        font-size: 1rem !important;
+    }
+    .promo{
+        display: flex;
+        height: 100%;
+       flex-direction: column;
+
+        padding: 10px;
+    }
+
+    .promo-img{
+        height: 90% !important;
+        width: 90% !important;
+    }
+    .promo-img img{
+        height: 100% !important;
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px !important;
+    }
+    .promo-type{
+        margin-top: 10px !important;
+        color: white;
+        font-size: .8rem;
+    }
+    .promo-desc{
+        color: white;
+        font-size: .8rem;
+        margin-top: 10px !important;
+        max-height: 120px !important;
+        overflow: hidden;
+    }
+    .promo-desc ~ *{
+        color: white;
+        font-size: .8rem;
+    }
+    .promo-about{
+        height: 100%;
+        width: 90% !important;
+
+        display: flex;
+        flex-direction: column;
+        padding: 5px 10px !important;
+    }
+
+    .promo-title{
+        color: white;
+        font-size: 1.5rem !important;
+        line-height: 1;
+    }
+    .promo-bpm{
+        margin-top: 10px !important;
+        color: white;
+        font-size: .8rem;
+    }
+    .promo-tags{
+        color: white;
+        font-size: .7rem;
+        margin-top: 10px !important;
+    }
+    .promo-tags span{
+        color: white;
+        font-size: .5rem !important;
+        padding: 3px 7px !important;
+        margin: 0px 5px !important;
+        background: #cccccc55;
+        border-radius: 3px !important;
+    }
+    .promo-cta{
+        margin-top: 20px !important;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    .buy-promo button{
+        padding: 10px 20px;
+        font-weight: bolder;
+    }
+
+    .buy-promo .btn-buy{
+        background: orangered;
+        color: white;
+    }
+    .buy-promo .btn-dwnl{
+        background: white;
+        color: #111111;
+    }
+    .play-promo button{
+        padding: 10px 20px;
+        background: white;
+        color: #111111;
+        font-weight: bolder;
+    }
+    /*promo-END*/
+
     //drumkit
 
     //frontdrumkit
@@ -1858,7 +1983,7 @@ figure figcaption p {
         font-weight: 700 !important;
     }
 
-    #beatList{
+    .blist , #beatList , #beatList .container , #beatList .container .my-4{
         display: none !important;
     }
     .info svg{
@@ -1874,7 +1999,12 @@ figure figcaption p {
 
     footer .info p{
         color: #ffffff55 !important;
-        margin-top: 20px;
+
+    }
+    footer .info .tottbrand{
+        margin-top: 20px !important;
+        font-size: 18px !important;
+
     }
 
     .p-l-85 , .p-r-85 , .p-t-55 , .p-b-55{
