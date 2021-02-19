@@ -4,7 +4,9 @@
         <div id="hero" >
                <span class="whatsnew">Whats New?</span>
 
-              <div class="promo" v-show="promo == 0">
+
+
+            <div class="promo" v-show="promo == 0 && beats.length > 0">
                   <div class="promo-img">
                       <img class="promo-cover" height="350" :src="beats[0].cover" :alt="beats[0].title+' Beat Cover' " >
                   </div>
@@ -22,14 +24,14 @@
                               <button @click="selectTrack(beats[0])">PLAY <i class="fas fa-play"></i></button>
                           </div>
                           <div class="buy-promo" >
-                              <button class="btn-buy" v-show="beats[0].isPaid" @click="addToCart(track)">BUY @ ${{ beats[0].license }}</button>
+                              <button class="btn-buy" v-show="beats[0].isPaid" @click="addToCart(beats[0])">BUY @ ${{ $store.getters.getBasicPrice.amount }}</button>
                               <button class="btn-dwnl" v-show="!beats[0].isPaid" >DOWNLOAD</button>
                           </div>
                       </div>
                   </div>
               </div>
 
-            <div class="promo" v-show="promo == 1">
+            <div class="promo" v-show="promo == 1 && drumkits.length > 0">
                 <div class="promo-img">
                     <img class="promo-cover" height="350" :src="drumkits[0].image" :alt="drumkits[0].title+' Beat Cover' " >
                 </div>

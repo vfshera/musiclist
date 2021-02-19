@@ -21,7 +21,7 @@
              <!--   right navbar-->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item " >
-                        <router-link :to="{ path: '/'}" class="nav-link"  :class="{ 'active-link':  ('/' == currPath)}">Home</router-link>
+                        <a href="/#hero" class="nav-link"  :class="{ 'active-link':  ('/' == currPath)}">Home</a>
                     </li>
                     <li class="nav-item ">
                         <a href="/#beats" class="nav-link" :class="{ 'active-link': ('/#beats' == currPath) }">Beats</a>
@@ -70,10 +70,10 @@
                     <div class="modal-body">
                         <div class="mini-cart">
 
-                            <div class="beat-cart px-2 pb-3" v-show="this.$store.getters.getBeatCart.length > 0">
-                                <h5 class="row ml-1 font-weight-bold">Beats ( {{ this.$store.getters.getBeatCart.length }} )</h5>
+                            <div class="beat-cart px-2 pb-3" v-show="$store.getters.getBeatCart.length > 0">
+                                <h5 class="row ml-1 font-weight-bold">Beats ( {{ $store.getters.getBeatCart.length }} )</h5>
                                 <hr>
-                                <div class="cart-item  d-flex justify-content-center align-items-center mb-2" v-for="beatItem in this.$store.getters.getBeatCart">
+                                <div class="cart-item  d-flex justify-content-center align-items-center mb-2" v-for="beatItem in $store.getters.getBeatCart">
                                     <div class="cart-item-image col-md-3" >
                                         <img style="height: 60px;width: 60px" :src="beatItem.cover" :alt="beatItem.title+' Beat Cover' ">
                                     </div>
@@ -89,10 +89,10 @@
                                 </div>
                             </div>
 
-                           <div class="kit-cart px-2" v-show="this.$store.getters.getKitCart.length > 0">
-                               <h5 class="row ml-1 font-weight-bold">Drumkits ( {{ this.$store.getters.getKitCart.length }} )</h5>
+                           <div class="kit-cart px-2" v-show="$store.getters.getKitCart.length > 0">
+                               <h5 class="row ml-1 font-weight-bold">Drumkits ( {{ $store.getters.getKitCart.length }} )</h5>
                                <hr>
-                               <div class="cart-item  d-flex justify-content-center align-items-center mb-2" v-for="kitItem in this.$store.getters.getKitCart">
+                               <div class="cart-item  d-flex justify-content-center align-items-center mb-2" v-for="kitItem in $store.getters.getKitCart">
                                    <div class="cart-item-image col-md-3" >
                                        <img style="height: 60px;width: 60px" :src="kitItem.image" :alt="kitItem.title+' Beat Cover' ">
                                    </div>

@@ -15,6 +15,7 @@ import FrontBlogs from "./components/FrontBlogs";
 import FrontBeats from "./components/FrontBeats";
 import NotFound from "./components/NotFound";
 import Dashboard from "./components/Dashboard";
+import TermsConditions from "./components/TermsConditions";
 
 export const  routes = [
     {
@@ -29,6 +30,10 @@ export const  routes = [
     {
         path : '/donate',
         component : Donate
+    },
+    {
+        path : '/terms-and-conditions',
+        component : TermsConditions
     },
     {
         path : '/beats',

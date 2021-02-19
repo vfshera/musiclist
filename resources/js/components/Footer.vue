@@ -7,7 +7,7 @@
                    <p class="tottbrand">Tony On The Track</p>
                    <p>All Right Reserved &copy; {{ new Date().getFullYear() }}</p>
                </div>
-               <a href="" class="tnc">Terms & Conditions</a>
+               <router-link :to="{ path: '/terms-and-conditions'}" class="tnc">Terms & Conditions</router-link>
                <div class="social">
                    <p>FOLLOW ME</p>
                    <div id="social-links">

@@ -21616,6 +21616,7 @@ svg:hover {
 
 .track-tags {
   font-size: 0.75rem;
+  overflow: hidden;
 }
 
 .track-tags span {
