@@ -359,6 +359,16 @@
                 axios.get('/prices')
                     .then(response =>{
                         this.licensePrice = response.data;
+                        this.$store.commit('setLicenses', response.data)
+                    })
+                    .catch(err =>{
+                        console.log(err);
+                    });
+
+                axios.get('/basic')
+                    .then(response =>{
+
+                        this.$store.commit('setBasicLicense', response.data)
 
                     })
                     .catch(err =>{
@@ -393,7 +403,7 @@
                 axios.post( '/uprice/'+id,{
                     amount: this.newPriceAmount
                 }).then( res =>{
-                    if(res.status == 201){
+                    if(res.status == 200){
                         Fire.$emit('BeatChanged');
 
                         Toast.fire({

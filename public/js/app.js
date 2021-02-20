@@ -2814,6 +2814,13 @@ __webpack_require__.r(__webpack_exports__);
       });
       axios.get('/prices').then(function (response) {
         _this2.licensePrice = response.data;
+
+        _this2.$store.commit('setLicenses', response.data);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+      axios.get('/basic').then(function (response) {
+        _this2.$store.commit('setBasicLicense', response.data);
       })["catch"](function (err) {
         console.log(err);
       });
@@ -2843,7 +2850,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/uprice/' + id, {
         amount: this.newPriceAmount
       }).then(function (res) {
-        if (res.status == 201) {
+        if (res.status == 200) {
           Fire.$emit('BeatChanged');
           Toast.fire({
             icon: 'success',
