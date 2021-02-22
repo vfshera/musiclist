@@ -18,8 +18,9 @@ class CreateDrumkitsTable extends Migration
             $table->string('title');
             $table->string('about');
             $table->string('image');
-            $table->string('drumkit');
+            $table->string('drumlink');
             $table->string('sample');
+            $table->string('type');
             $table->double('price', 5,2);
             $table->timestamps();
         });

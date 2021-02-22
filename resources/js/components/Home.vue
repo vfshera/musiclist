@@ -8,7 +8,7 @@
 
             <div class="promo" v-show="promo == 0 && beats.length > 0">
                   <div class="promo-img">
-                      <img class="promo-cover" height="350" :src="beats[0].cover" :alt="beats[0].title+' Beat Cover' " >
+                      <img class="promo-cover" height="350" :src="beats[0].cover" :alt="beats[0].title.slice(0,10)+' Beat Cover' " >
                   </div>
                   <div class="promo-about">
                       <div class="promo-title">{{ beats[0].title }}</div>
@@ -33,7 +33,7 @@
 
             <div class="promo" v-show="promo == 1 && drumkits.length > 0">
                 <div class="promo-img">
-                    <img class="promo-cover" height="350" :src="drumkits[0].image" :alt="drumkits[0].title+' Beat Cover' " >
+                    <img class="promo-cover" height="350" :src="drumkits[0].image" :alt="drumkits[0].title.slice(0 ,10)+' Kit Cover' " >
                 </div>
                 <div class="promo-about">
                     <div class="promo-title">{{ drumkits[0].title }}</div>
@@ -58,7 +58,7 @@
             <!--                mobile-->
             <div class="mobile-track d-none" v-for=" track in beats">
                 <div  class="m-cover-container" @click="selectTrack(track)">
-                    <img class="m-cover" :src="track.cover" alt="" >
+                    <img class="m-cover" :src="track.cover" :alt="track.title.slice(0 ,10)+' Beat Cover'" >
                 </div>
                 <div class="m-title-container " @click="selectTrack(track)">
                     <span class="m-title" > {{ track.title }}</span>
@@ -90,7 +90,7 @@
 
                 <div class="track row " v-for=" track in beats" >
                     <div  class="col-md-1 ">
-                        <img class="cover" :src="track.cover" :alt="track.title+' Beat Cover' " @click="selectTrack(track)">
+                        <img class="cover" :src="track.cover" :alt="track.title.slice(0 ,10)+' Beat Cover' " @click="selectTrack(track)">
                     </div>
                     <div class="col-md-4 title-container">
                        <span class="title font-weight-bold" @click="selectTrack(track)"> {{ track.title }}</span>

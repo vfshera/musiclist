@@ -3322,6 +3322,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -63116,6 +63146,73 @@ var render = function() {
       {
         staticClass: "modal fade",
         attrs: {
+          id: "addCategoryModal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "addCategoryModalTitle",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered ",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h4",
+                  {
+                    staticClass: "modal-title",
+                    staticStyle: { display: "inline-block" },
+                    attrs: { id: "addCategoryModalTitle" }
+                  },
+                  [
+                    _c("span", { staticClass: "ti-tag " }),
+                    _vm._v(
+                      _vm._s(_vm.catlist.length > 1 ? "Categories" : "Category")
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(1)
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "modal-body" },
+                [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _vm._l(_vm.catlist, function(cat) {
+                    return _c("div", { staticClass: "row mb-2" }, [
+                      _c("span", { staticClass: "name col-md-10" }, [
+                        _vm._v(_vm._s(cat))
+                      ]),
+                      _vm._v(" "),
+                      _c("i", {
+                        staticClass: "col-md-2 text-center fa fa-trash",
+                        staticStyle: { cursor: "pointer", color: "red" }
+                      })
+                    ])
+                  })
+                ],
+                2
+              )
+            ])
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
           id: "addBlogModal",
           tabindex: "-1",
           role: "dialog",
@@ -63132,12 +63229,12 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(1),
+              _vm._m(3),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _vm.isPosting
                   ? _c("div", { staticClass: "posting-blog" }, [
-                      _vm._m(2),
+                      _vm._m(4),
                       _vm._v(" "),
                       _c("h6", [_vm._v("Posting...")])
                     ])
@@ -63249,7 +63346,7 @@ var render = function() {
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "content-link" }, [
-                        _vm._m(3),
+                        _vm._m(5),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -63342,14 +63439,62 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "btns" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary rounded-pill new-btn",
+          attrs: { "data-toggle": "modal", "data-target": "#addBlogModal" }
+        },
+        [_c("span", { staticClass: "ti-pencil-alt mr-2" }), _vm._v("NEW")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success rounded-pill price-btn",
+          attrs: { "data-toggle": "modal", "data-target": "#addCategoryModal" }
+        },
+        [_c("span", { staticClass: "ti-tag " })]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c(
       "button",
       {
-        staticClass: "btn btn-primary rounded-pill new-btn",
-        attrs: { "data-toggle": "modal", "data-target": "#addBlogModal" }
+        staticClass: "close",
+        attrs: {
+          type: "button",
+          "data-dismiss": "modal",
+          "aria-label": "Close"
+        }
       },
-      [_c("span", { staticClass: "ti-pencil-alt mr-2" }), _vm._v("NEW")]
+      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row px-2 mb-3" }, [
+      _c("input", {
+        staticClass: "form-control col-md-10 ",
+        attrs: { type: "text", placeholder: "Enter Category Name..." }
+      }),
+      _vm._v(" "),
+      _c(
+        "i",
+        {
+          staticClass: "col-md-2 text-center",
+          staticStyle: { cursor: "pointer", color: "green" }
+        },
+        [_vm._v("✓")]
+      )
+    ])
   },
   function() {
     var _vm = this
@@ -66577,7 +66722,7 @@ var render = function() {
               attrs: {
                 height: "350",
                 src: _vm.beats[0].cover,
-                alt: _vm.beats[0].title + " Beat Cover"
+                alt: _vm.beats[0].title.slice(0, 10) + " Beat Cover"
               }
             })
           ]),
@@ -66694,7 +66839,7 @@ var render = function() {
               attrs: {
                 height: "350",
                 src: _vm.drumkits[0].image,
-                alt: _vm.drumkits[0].title + " Beat Cover"
+                alt: _vm.drumkits[0].title.slice(0, 10) + " Kit Cover"
               }
             })
           ]),
@@ -66800,7 +66945,10 @@ var render = function() {
               [
                 _c("img", {
                   staticClass: "m-cover",
-                  attrs: { src: track.cover, alt: "" }
+                  attrs: {
+                    src: track.cover,
+                    alt: track.title.slice(0, 10) + " Beat Cover"
+                  }
                 })
               ]
             ),
@@ -66878,7 +67026,7 @@ var render = function() {
                     staticClass: "cover",
                     attrs: {
                       src: track.cover,
-                      alt: track.title + " Beat Cover"
+                      alt: track.title.slice(0, 10) + " Beat Cover"
                     },
                     on: {
                       click: function($event) {

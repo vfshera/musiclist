@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Drumkit;
 use App\Http\Resources\DrumkitsResource;
+use App\Rules\AudioValidator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,7 +44,7 @@ class DrumkitController extends Controller
             'type' => 'required',
             'price' => 'required',
             'drumlink'  => 'required',
-            'sample'  => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav',
+            'sample'  => ['required' , new AudioValidator()]
         ]);
 
         $drumkitImgFile =  $request->file('image');
@@ -82,7 +83,7 @@ class DrumkitController extends Controller
             'type' => 'required',
             'price' => 'required',
             'drumlink'  => 'required',
-            'sample'  => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav',
+            'sample'  => ['required' , new AudioValidator()]
         ]);
 
 

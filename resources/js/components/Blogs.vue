@@ -8,7 +8,10 @@
                 <div class="search-bar px-2" :class="{ 'search-bar-focused': this.focused }" >
                     <input type="text" v-model="search" @focus="searchFocused(true)" @blur="searchFocused(false)" placeholder="Search Blog ...">
                 </div>
-                <button class="btn btn-primary rounded-pill new-btn" data-toggle="modal" data-target="#addBlogModal"> <span class="ti-pencil-alt mr-2"></span>NEW</button>
+                <div class="btns">
+                    <button class="btn btn-primary rounded-pill new-btn" data-toggle="modal" data-target="#addBlogModal"> <span class="ti-pencil-alt mr-2"></span>NEW</button>
+                    <button class="btn btn-success rounded-pill price-btn" data-toggle="modal" data-target="#addCategoryModal"> <span class="ti-tag "></span></button>
+                </div>
             </div>
             <div class="blog-cards px-3 pt-3">
                 <div class="blog-card mx-1 mb-3" v-for="blog in searchableBlogs" @click.prevent="viewBlog(blog)">
@@ -37,6 +40,33 @@
             </div>
         </div>
 
+        <!--        add category modal-->
+        <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="addCategoryModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered " role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="addCategoryModalTitle" style="display: inline-block"><span class="ti-tag "></span>{{ (catlist.length > 1) ? 'Categories' : 'Category'}}</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row px-2 mb-3">
+                            <input type="text" class="form-control col-md-10 "  placeholder="Enter Category Name...">
+                            <i class="col-md-2 text-center" style="cursor: pointer;color: green" >&check;</i>
+                        </div>
+                        <div class="row mb-2" v-for="cat in catlist">
+                            <span class="name col-md-10">{{ cat }}</span>
+
+                            <i class="col-md-2 text-center fa fa-trash" style="cursor: pointer; color: red" ></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--        add category modal /-->
 <!--        add blog modal-->
         <div class="modal fade" id="addBlogModal" tabindex="-1" role="dialog" aria-labelledby="addBlogModalTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
