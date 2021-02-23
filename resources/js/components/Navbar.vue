@@ -158,6 +158,13 @@
                     }
 
                 }
+
+
+                if(this.$store.getters.getBeatCart.length == 0 && this.$store.getters.getKitCart.length > 0) {
+                    $('miniCartModal').modal('hide');
+                    $('body').removeClass('modal-open');
+                    $('.modal-backdrop').remove();
+                }
             },
             hoverImg(value){
                 const logo = document.querySelector('.logo-link img')

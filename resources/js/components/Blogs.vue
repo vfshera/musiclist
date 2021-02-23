@@ -51,14 +51,18 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="row px-2 mb-3">
-                            <input type="text" class="form-control col-md-10 "  placeholder="Enter Category Name...">
-                            <i class="col-md-2 text-center" style="cursor: pointer;color: green" >&check;</i>
+                        <div class="row  mb-3" :class="{ 'px-3': newCat == '' , 'pl-3' : newCat != ''}">
+                            <input type="text" class="form-control " :class="{ 'col-md-12': newCat == '' , 'col-md-10' : newCat != ''}" v-model="newCat"  placeholder="Enter Category Name...">
+                            <i class=" text-center " :class="{ 'cat-norm': newCat == '' , 'cat-checked col-md-2' : newCat != ''}" @click.prevent="addCategory">&check;</i>
                         </div>
                         <div class="row mb-2" v-for="cat in catlist">
-                            <span class="name col-md-10">{{ cat }}</span>
+                            <span class="name col-md-10">{{ cat.name }}</span>
 
-                            <i class="col-md-2 text-center fa fa-trash" style="cursor: pointer; color: red" ></i>
+                            <i class="col-md-2 text-center fa fa-trash" @click.prevent="deleteCat(cat.id)" style="cursor: pointer; color: red" ></i>
+                        </div>
+
+                        <div v-if="catlist.length == 0">
+                            <button class="btn-restore-cat" @click.prevent="resetCatlist()">RESTORE CATEGORIES</button>
                         </div>
                     </div>
 
@@ -95,7 +99,7 @@
                                       <label for="category">Category</label>
                                       <select name="category" v-model="category" class="form-control mt-2" id="cat">
                                           <option value="" selected disabled>- - Choose Category - -</option>
-                                          <option :value="cat" v-for="cat in catlist">{{ cat }}</option>
+                                          <option :value="cat" v-for="cat in catlist">{{ cat.name.toUpperCase() }}</option>
                                       </select>
                                   </div>
                               </div>
@@ -149,7 +153,8 @@
                 file:null,
                 title: '',
                 category: '',
-                catlist: ["Entertainment", "Music", "Educational", "Self Help", "Psychology"],
+                newCat: '',
+                catlist: [],
                 content: '',
                 reflink: '',
                 pagination: {}
@@ -157,7 +162,71 @@
             }
         },
         methods:{
+            addCategory(){
+                axios.post('/category',{ name: this.newCat.toUpperCase() })
+                    .then(res =>{
 
+                        Toast.fire({
+                            icon: (res.status == 201) ? 'success' : 'error',
+                            title: res.data
+                        })
+                            this.getCategories();
+
+                    }).catch(err =>{
+                        Toast.fire({
+                            icon: 'error',
+                            title: err.data
+                        })
+                    })
+
+            },
+            deleteCat(id){
+                axios.delete('/category/'+id)
+                    .then(res =>{
+                        Toast.fire({
+                            icon: (res.status == 200) ? 'success' : 'error',
+                            title: res.data
+                        })
+                        this.getCategories();
+                    }).catch(err =>{
+                        Toast.fire({
+                            icon: 'error',
+                            title: err.data
+                        })
+                    })
+
+            },
+            resetCatlist(){
+                var cats = new Array("Entertainment", "Music", "Educational", "Self Help", "Psychology")
+
+                let works = false
+
+                cats.forEach(cat =>{
+
+                    axios.post('/category',{ name: cat.toUpperCase() })
+                        .then(res =>{
+
+                           works = true;
+
+                        }).catch(err =>{
+                            console.log(err)
+                    })
+                })
+
+                (works) ?  Toast.fire({ icon: 'success', title: 'Category Have Been Reset!'}) : Toast.fire({ icon: 'error', title: 'Category Failed To Reset!'})
+
+                this.getCategories();
+
+            },
+            getCategories(){
+                axios.get('/categories')
+                    .then(response =>{
+                        this.catlist = response.data;
+                    })
+                    .catch(err =>{
+                        console.log(err);
+                    });
+            },
 
             resetBlog(){
                 this.file = null
@@ -236,12 +305,13 @@
                 axios.get(blogs_url)
                     .then(response =>{
                         this.allblogs = response.data.data;
-
                         this.makePagination(response.data.meta , response.data.links)
                     })
                     .catch(err =>{
                         console.log(err);
                     });
+
+                this.getCategories();
             },
             makePagination(meta , links){
                 this.pagination  = {
@@ -301,6 +371,23 @@
 </script>
 
 <style scoped>
+
+    .cat-norm{
+        display: none;
+    }
+    .cat-checked{
+        cursor: pointer;
+        color: green;
+        transform : scale(1.2);
+    }
+    .btn-restore-cat{
+        background: orangered;
+        color: white;
+        font-weight: bold;
+        padding: 10px 20px;
+        width:100%
+    }
+
     .typing-progress{
         display: flex;
         justify-content: center;

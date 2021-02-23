@@ -26,6 +26,12 @@ Route::group(['middleware' => ['auth']], function (){
     //adminstats
     Route::get('/adminstats' , 'HomeController@stats');
 
+    //category
+    Route::get('/categories' , 'CategoryController@index');
+    Route::post('/category' , 'CategoryController@store');
+    Route::delete('/category/{category}' , 'CategoryController@destroy');
+
+
 
     //licenses
     Route::get('/prices' , 'PriceController@index')->withoutMiddleware('auth');
