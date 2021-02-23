@@ -17,7 +17,7 @@
                 <div class="blog-card mx-1 mb-3" v-for="blog in searchableBlogs" @click.prevent="viewBlog(blog)">
                     <img :src="blog.image" @load="isProcessing = false" :alt="blog.title" >
                     <div class="caption px-1">
-                        {{ blog.title }}
+                        {{ (blog.title.length > 45) ? blog.title.slice(0,45)+'...' : blog.title }}
                     </div>
                 </div>
 
@@ -197,10 +197,10 @@
 
             },
             resetCatlist(){
-                var cats = new Array("Entertainment", "Music", "Educational", "Self Help", "Psychology")
+                var cats = ["Entertainment", "Music", "Educational", "Self Help", "Psychology"]
 
                 let works = false
-
+                // FIX THE FOREACH
                 cats.forEach(cat =>{
 
                     axios.post('/category',{ name: cat.toUpperCase() })

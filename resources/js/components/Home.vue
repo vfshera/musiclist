@@ -227,8 +227,8 @@
         </div>
 
         <div id="bio" class="my-5 pt-2">
-<!--            <h2 class="text-center mt-2">BIO</h2>-->
-            <div class="bio-info" style="background-image: url('/storage/site-img/wood2.jpg'); ">
+            <h2 class="text-center mt-2">BIO</h2>
+            <div class="bio-info" >
                <div class="bio-img">
                    <img loading="lazy" class="circle-img" src="https://source.unsplash.com/300x300">
                </div>
@@ -694,7 +694,7 @@
 
 /*PROMO-AREA-END*/
 
-    #beats h2, #drumkits h2, #front-blogs h2, #gallery h2 {
+    #beats h2,#bio h2, #drumkits h2, #front-blogs h2, #gallery h2 {
         font-family: "Poppins", 'Helvetica', sans-serif;
         font-weight: 500 !important;
     }
@@ -702,9 +702,9 @@
 
 /*<!--    bio-->*/
 #bio{
-    display: none;
-   /*flex-direction: column;*/
-   /* align-items: center;*/
+    display: flex;
+   flex-direction: column;
+    align-items: center;
 }
 .bio-info{
     display: flex;

@@ -36,9 +36,9 @@
                         <span class="font-weight-bold">{{ beat.title }} </span> is {{ (beat.isFree) ? 'Not For Sale' : 'For Sale'}}.
                         <div class=" pt-2 font-weight-bold">Pick Your Package Below : </div>
                         <div class="beat-license">
-                            <button class="bronze">BRONZE</button>
-                            <button class="silver">SILVER</button>
-                            <button class="gold">GOLD</button>
+                            <button class="bronze">{{ basicLicense[0].name }} ${{ basicLicense[0].amount }}</button>
+                            <button class="silver">{{ premiumLicense[0].name }} ${{ premiumLicense[0].amount }}</button>
+                            <button class="gold">{{ unlimitedLicense[0].name }} ${{ unlimitedLicense[0].amount }}</button>
                         </div>
                     </div>
 
@@ -281,6 +281,15 @@
         computed:{
             numOfCharacters:function () {
                 return this.editedBeat.about.length;
+            },
+            basicLicense: function () {
+                    return this.$store.getters.getBeatLicenses.filter( lice => (lice.code.match('BSC')))
+            },
+            premiumLicense: function () {
+                    return this.$store.getters.getBeatLicenses.filter( lice => (lice.code.match('PRE')))
+            },
+            unlimitedLicense: function () {
+                    return this.$store.getters.getBeatLicenses.filter( lice => (lice.code.match('UNL')))
             }
         },
         mounted(){
@@ -293,18 +302,22 @@
 <style scoped>
     .beat-license{
         border-top: 2px #11111111 solid;
-        padding: 15px;
+        padding: 15px 0px;
         margin-top: 10px;
         display: flex;
         justify-content: space-around;
         align-items: center;
     }
     .bronze , .silver , .gold{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: white;
         font-weight: bold;
-        height: 40px;
-        width: 120px;
+        height: 50px;
+        min-width: 100px;
         border-radius: 10px;
+        padding: 20px 30px;
     }
 
 
