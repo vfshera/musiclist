@@ -189,6 +189,7 @@ export default {
                         this.isProcessing = false;
 
                         this.scrollToTop();
+                        this.$seohelpers.setSEO(this.drumkit.title+" "+this.drumkit.type);
 
                         this.playKit()
                     }else{
@@ -214,6 +215,7 @@ export default {
     },
     mounted(){
         this.setDrumkit();
+
         console.log('Drumkit Post Mounted')
     }
 }

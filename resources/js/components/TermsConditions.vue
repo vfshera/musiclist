@@ -1,15 +1,21 @@
 <template>
     <div class="terms-conditions">
        <h3>Terms & Conditions</h3>
-        
+
     </div>
 </template>
 
 <script>
     export default {
         name: "TermsNConditions",
+        methods:{
+            scrollToTop() {
+                window.scrollTo(0,0)
+            }
+        },
         mounted() {
-            window.scrollTo(0,0)
+            this.scrollToTop();
+            this.$seohelpers.setSEO("Terms & Conditions");
             console.log('TnC   Component mounted.')
         }
     }

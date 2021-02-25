@@ -202,9 +202,7 @@
         },
         mounted() {
             this.fetchBeats();
-
-
-
+            this.$seohelpers.setSEO('Beats');
             console.log('Beats Component mounted.')
         }
     }

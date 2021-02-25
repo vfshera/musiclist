@@ -575,6 +575,7 @@
         mounted() {
             this.isProcessing = true;
             this.fetchData();
+            this.$seohelpers.setSEO('Home');
         },
 
     }

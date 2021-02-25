@@ -91,6 +91,7 @@ export default {
                             this.isProcessing = false;
 
                             this.scrollToTop();
+                            this.$seohelpers.setSEO(this.post.title);
                         }else{
                             this.isProcessing = false;
                             Swal.fire('Post Unavailable')
@@ -115,7 +116,8 @@ export default {
 
     },
     mounted(){
-                this.setBlog();
+        this.setBlog();
+
         console.log('BlogPost Mounted')
     }
 }

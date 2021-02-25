@@ -118,7 +118,7 @@
         },
         mounted() {
             this.fetchDrumkits();
-
+            this.$seohelpers.setSEO('Drumkits');
             console.log('Drumkits Component mounted.')
         }
     }

@@ -142,7 +142,7 @@
         },
         mounted() {
             this.fetchBlogs();
-
+            this.$seohelpers.setSEO('Blogs');
             console.log('Blogs Component mounted.')
         }
     }
