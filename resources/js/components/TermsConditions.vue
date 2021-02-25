@@ -1,6 +1,7 @@
 <template>
     <div class="terms-conditions">
        <h3>Terms & Conditions</h3>
+        
     </div>
 </template>
 

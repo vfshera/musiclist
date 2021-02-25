@@ -3897,7 +3897,7 @@ __webpack_require__.r(__webpack_exports__);
         code: 0,
         name: 'Paypal',
         multiplier: 1,
-        currency: 'USD $'
+        currency: 'USD'
       }, {
         code: 1,
         name: 'M-PESA',
@@ -3912,7 +3912,38 @@ __webpack_require__.r(__webpack_exports__);
       var info = index == 0 ? ' Email ' + this.email + '?' : index == 1 ? ' Number +' + this.phone + '?' : '';
       Swal.fire({
         title: 'Donation',
-        text: "Donate ".concat(finalAmount, " ").concat(this.gateways[index].currency, "  via ").concat(this.gateways[index].name, " ").concat(info)
+        text: "Donate <strong>".concat(finalAmount, "</strong>").concat(this.gateways[index].currency, "  via ").concat(this.gateways[index].name, " ").concat(info),
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, Proceed!'
+      }).then(function (result) {
+        if (result.value) {// axios.delete('/deleteBlog/'+ id)
+          //     .then(response => {
+          //         if(response.status == 200) {
+          //
+          //             Toast.fire({
+          //                 icon: 'success',
+          //                 title: response.data
+          //             });
+          //
+          //         }else if(response.status == 403){
+          //             Toast.fire({
+          //                 icon: 'error',
+          //                 title: response.data
+          //             });
+          //         }else{
+          //             Toast.fire({
+          //                 icon: 'error',
+          //                 title: 'Something wiered Happened!'
+          //             });
+          //         }
+          //
+          //     })
+          //     .catch(err => {
+          //     })
+        }
       });
     },
     scrollToTop: function scrollToTop() {
@@ -3921,6 +3952,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.scrollToTop();
+    this.$seohelpers.setSEO('Donation');
     console.log('Donation Component mounted.');
   }
 });
@@ -5019,6 +5051,9 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    sanitizeText: function sanitizeText(size, text) {
+      return text.slice(0, size) + '...';
+    },
     viewBlog: function viewBlog(blog) {
       this.isProcessing = true;
 
@@ -6718,6 +6753,7 @@ var audio = new Audio();
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -63490,7 +63526,7 @@ var render = function() {
                             _vm._l(_vm.catlist, function(cat) {
                               return _c(
                                 "option",
-                                { domProps: { value: cat } },
+                                { domProps: { value: cat.name.toUpperCase() } },
                                 [_vm._v(_vm._s(cat.name.toUpperCase()))]
                               )
                             })
@@ -86665,14 +86701,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
+/* harmony import */ var _helpers_titleHelper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers/titleHelper */ "./resources/js/helpers/titleHelper.js");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
 
 
 
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+
+var plugin = {
+  install: function install() {
+    vue__WEBPACK_IMPORTED_MODULE_0___default.a.seohelpers = _helpers_titleHelper__WEBPACK_IMPORTED_MODULE_3__["default"];
+    vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$seohelpers = _helpers_titleHelper__WEBPACK_IMPORTED_MODULE_3__["default"];
+  }
+};
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(plugin);
 
 
 window.Swal = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a;
@@ -86691,7 +86736,7 @@ window.Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.mixin({
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  routes: _routes__WEBPACK_IMPORTED_MODULE_3__["routes"],
+  routes: _routes__WEBPACK_IMPORTED_MODULE_4__["routes"],
   mode: 'history'
 });
 
@@ -86722,7 +86767,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('master', __webpack_require
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   router: router,
-  store: _store__WEBPACK_IMPORTED_MODULE_4__["default"]
+  store: _store__WEBPACK_IMPORTED_MODULE_5__["default"]
 });
 
 /***/ }),
@@ -88828,6 +88873,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TermsConditions_vue_vue_type_template_id_70908484_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/helpers/titleHelper.js":
+/*!*********************************************!*\
+  !*** ./resources/js/helpers/titleHelper.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  setSEO: function setSEO(liveSubject) {
+    var PageTitle = document.querySelector('title');
+    var OriginalTitle = PageTitle.innerText;
+    PageTitle.innerText = liveSubject + " - " + OriginalTitle;
+  }
+});
 
 /***/ }),
 

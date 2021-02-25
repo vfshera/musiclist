@@ -8,6 +8,18 @@ require('./bootstrap');
 
 
 
+
+import titleHelpers from './helpers/titleHelper'
+
+const plugin = {
+    install () {
+        Vue.seohelpers = titleHelpers
+        Vue.prototype.$seohelpers = titleHelpers
+    }
+}
+
+Vue.use(plugin)
+
 import { routes } from './routes'
 
 import store from "./store";

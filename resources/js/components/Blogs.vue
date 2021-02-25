@@ -99,7 +99,7 @@
                                       <label for="category">Category</label>
                                       <select name="category" v-model="category" class="form-control mt-2" id="cat">
                                           <option value="" selected disabled>- - Choose Category - -</option>
-                                          <option :value="cat" v-for="cat in catlist">{{ cat.name.toUpperCase() }}</option>
+                                          <option :value="cat.name.toUpperCase()" v-for="cat in catlist">{{ cat.name.toUpperCase() }}</option>
                                       </select>
                                   </div>
                               </div>

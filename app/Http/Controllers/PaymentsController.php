@@ -15,13 +15,13 @@ class PaymentsController extends Controller
         ]);
 
 
-        $mpesa = new \Safaricom\Mpesa\Mpesa();
+        $mpesa = new Mpesa();
         $BusinessShortCode = env('MPESA_TILL_NUMBER');
         $LipaNaMpesaPasskey = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919';
         $TransactionType = 'CustomerPayBillOnline';
         $Amount = '1';
-        $PartyA = '254769518626';
-        $PartyB = $BusinessShortCode;
+        $PartyA = $details['phone'];
+        $PartyB = env('MPESA_TILL_NUMBER');
         $PhoneNumber = $details['phone'];
         $CallBackURL = url('/qtimeout');
         $AccountReference = 'TONY ON THE TRACK - ('.env('MPESA_TILL_NAME').')';
@@ -39,7 +39,7 @@ class PaymentsController extends Controller
     public function balance()
     {
 
-        $mpesa = new \Safaricom\Mpesa\Mpesa();
+        $mpesa = new Mpesa();
         $CommandID = 'AccountBalance';
         $Initiator = 'apitest425';
         $SecurityCredential = 'F8dGX6Es+rkdNgSE//bpIg7oUSPB+y9xxONNRJePwRiwBgWJ0mlaAORo3WO6gEHV7MPQd701WZj6xp2oCNr73DGA+v2QIToCGAscQIeEpst2dwwLktfBYmT1vTEQkQ2BQvXXwHBYf2i1NOQ6BJi+a+LwvsUN6N2gMjbnkGen2CX5SWJxs8iUscoUZSut7Zfei1swyuX1cFi0bMnBwjGrW64FKZzjDlQ7EHVnloLq/pko9spSyWeyZTy8Q7nbt0DXR+LiTrKiOXsXx0FZgQdQEjwVAcrKOWgXmtHPGoxTx9ObUzH2gca/B8SyqnrqPss3c0MX58E28kBRsrSuJ3wvbg==';
@@ -61,7 +61,7 @@ class PaymentsController extends Controller
 
     public function b2c()
     {
-        $mpesa = new \Safaricom\Mpesa\Mpesa();
+        $mpesa = new Mpesa();
         $InitiatorName = 'apitest425';
         $SecurityCredential = 'F8dGX6Es+rkdNgSE//bpIg7oUSPB+y9xxONNRJePwRiwBgWJ0mlaAORo3WO6gEHV7MPQd701WZj6xp2oCNr73DGA+v2QIToCGAscQIeEpst2dwwLktfBYmT1vTEQkQ2BQvXXwHBYf2i1NOQ6BJi+a+LwvsUN6N2gMjbnkGen2CX5SWJxs8iUscoUZSut7Zfei1swyuX1cFi0bMnBwjGrW64FKZzjDlQ7EHVnloLq/pko9spSyWeyZTy8Q7nbt0DXR+LiTrKiOXsXx0FZgQdQEjwVAcrKOWgXmtHPGoxTx9ObUzH2gca/B8SyqnrqPss3c0MX58E28kBRsrSuJ3wvbg==';
         $CommandID = 'SalaryPayment';
@@ -86,7 +86,7 @@ class PaymentsController extends Controller
      */
     public function reverse()
     {
-        $mpesa = new \Safaricom\Mpesa\Mpesa();
+        $mpesa = new Mpesa();
 
         $CommandID = 'TransactionReversal';
         $Initiator = 'apitest425';
@@ -114,7 +114,7 @@ class PaymentsController extends Controller
     public function qtimeout()
     {
 
-        $mpesa = new \Safaricom\Mpesa\Mpesa();
+        $mpesa = new Mpesa();
 
         $callbackData = $mpesa->getDataFromCallback();
         Storage::put('qtimeout.txt', $callbackData);
@@ -129,7 +129,7 @@ class PaymentsController extends Controller
     public function c2b()
     {
 
-        $mpesa = new \Safaricom\Mpesa\Mpesa();
+        $mpesa = new Mpesa();
         $ShortCode = env('MPESA_TILL_NUMBER');
         $CommandID = 'CustomerPayBillOnline';
         $Amount = 10000;
@@ -175,7 +175,7 @@ class PaymentsController extends Controller
      */
     public function validatempesa()
     {
-        $mpesa = new \Safaricom\Mpesa\Mpesa();
+        $mpesa = new Mpesa();
 
         $callbackData = $mpesa->getDataFromCallback();
         header("Content-Type:application/json");
@@ -196,7 +196,7 @@ class PaymentsController extends Controller
     public function result()
     {
 
-        $mpesa = new \Safaricom\Mpesa\Mpesa();
+        $mpesa = new Mpesa();
 
         $callbackData = $mpesa->getDataFromCallback();
         Storage::put('result.txt', $callbackData);

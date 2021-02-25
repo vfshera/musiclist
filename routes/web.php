@@ -88,13 +88,13 @@ Route::group(['middleware' => ['guest']], function (){
 
 
 //MPESA ROUTES
-Route::get('c2b',[PaymentsController::class, 'c2b']);
-Route::get('b2c',[PaymentsController::class, 'b2c']);
-Route::post('confirm',[PaymentsController::class, 'confirmmpesa']);
-Route::post('validate',[PaymentsController::class, 'validatempesa']);
-Route::post('result',[PaymentsController::class, 'result']);
-Route::post('qtimeout',[PaymentsController::class, 'qtimeout']);
-Route::get('registerurl', 'PaymentsController@register_urls');
-Route::get('reverse',[PaymentsController::class, 'reverse']);
-Route::get('balance',[PaymentsController::class, 'balance']);
-Route::get('stkpush',[PaymentsController::class, 'stkpush']);
+//Route::get('c2b',[PaymentsController::class, 'c2b']);
+//Route::get('b2c',[PaymentsController::class, 'b2c']);
+//Route::post('confirm',[PaymentsController::class, 'confirmmpesa']);
+//Route::post('validate',[PaymentsController::class, 'validatempesa']);
+//Route::post('result',[PaymentsController::class, 'result']);
+//Route::post('qtimeout',[PaymentsController::class, 'qtimeout']);
+//Route::get('registerurl', 'PaymentsController@register_urls');
+//Route::get('reverse',[PaymentsController::class, 'reverse']);
+//Route::get('balance',[PaymentsController::class, 'balance']);
+//Route::get('stkpush',[PaymentsController::class, 'stkpush']);

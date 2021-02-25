@@ -80,7 +80,9 @@
             }
         },
         methods:{
-
+            sanitizeText(size,text){
+                return text.slice(0, size)+ '...';
+            },
             viewBlog(blog){
                 this.isProcessing = true;
 
