@@ -6422,6 +6422,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Navbar',
   data: function data() {
@@ -68465,7 +68467,7 @@ var render = function() {
                             expression: "$store.getters.getBeatCart.length > 0"
                           }
                         ],
-                        staticClass: "beat-cart px-2 pb-3"
+                        staticClass: "beat-cart pb-2"
                       },
                       [
                         _c("h5", { staticClass: "row ml-1 font-weight-bold" }, [
@@ -68479,7 +68481,8 @@ var render = function() {
                         _c("hr"),
                         _vm._v(" "),
                         _vm._l(_vm.$store.getters.getBeatCart, function(
-                          beatItem
+                          beatItem,
+                          index
                         ) {
                           return _c(
                             "div",
@@ -68490,7 +68493,7 @@ var render = function() {
                             [
                               _c(
                                 "div",
-                                { staticClass: "cart-item-image col-md-3" },
+                                { staticClass: "cart-item-image col-md-2" },
                                 [
                                   _c("img", {
                                     staticStyle: {
@@ -68519,10 +68522,35 @@ var render = function() {
                               _vm._v(" "),
                               _c(
                                 "div",
-                                { staticClass: "cart-item-price col-md-2" },
+                                { staticClass: "cart-item-price col-md-3" },
                                 [
-                                  _vm._v(
-                                    "\n                                    $15\n                                "
+                                  _c(
+                                    "select",
+                                    {
+                                      staticClass: "form-control",
+                                      attrs: {
+                                        name: "beat-pack",
+                                        id: "beat-pack"
+                                      }
+                                    },
+                                    _vm._l(
+                                      _vm.$store.getters.getBeatLicenses,
+                                      function(lic) {
+                                        return _c(
+                                          "option",
+                                          { domProps: { value: lic.code } },
+                                          [
+                                            _vm._v(
+                                              "$" +
+                                                _vm._s(lic.amount) +
+                                                " " +
+                                                _vm._s(lic.code)
+                                            )
+                                          ]
+                                        )
+                                      }
+                                    ),
+                                    0
                                   )
                                 ]
                               ),
@@ -68587,7 +68615,7 @@ var render = function() {
                             [
                               _c(
                                 "div",
-                                { staticClass: "cart-item-image col-md-3" },
+                                { staticClass: "cart-item-image col-md-2" },
                                 [
                                   _c("img", {
                                     staticStyle: {
@@ -68616,7 +68644,7 @@ var render = function() {
                               _vm._v(" "),
                               _c(
                                 "div",
-                                { staticClass: "cart-item-price col-md-2" },
+                                { staticClass: "cart-item-price col-md-3" },
                                 [
                                   _vm._v(
                                     "\n                                   $ " +

@@ -70,18 +70,20 @@
                     <div class="modal-body">
                         <div class="mini-cart">
 
-                            <div class="beat-cart px-2 pb-3" v-show="$store.getters.getBeatCart.length > 0">
+                            <div class="beat-cart pb-2" v-show="$store.getters.getBeatCart.length > 0">
                                 <h5 class="row ml-1 font-weight-bold">Beats ( {{ $store.getters.getBeatCart.length }} )</h5>
                                 <hr>
-                                <div class="cart-item  d-flex justify-content-center align-items-center mb-2" v-for="beatItem in $store.getters.getBeatCart">
-                                    <div class="cart-item-image col-md-3" >
+                                <div class="cart-item  d-flex justify-content-center align-items-center mb-2" v-for="(beatItem,index) in $store.getters.getBeatCart">
+                                    <div class="cart-item-image col-md-2" >
                                         <img style="height: 60px;width: 60px" :src="beatItem.cover" :alt="beatItem.title+' Beat Cover' ">
                                     </div>
                                     <div class="cart-item-title col-md-6">
                                         {{ beatItem.title}}
                                     </div>
-                                    <div class="cart-item-price col-md-2">
-                                        $15
+                                    <div class="cart-item-price col-md-3">
+                                        <select name="beat-pack" id="beat-pack" class="form-control" >
+                                            <option :value="lic.code" v-for="lic in $store.getters.getBeatLicenses">${{ lic.amount }} {{ lic.code }}</option>
+                                        </select>
                                     </div>
                                     <div class="remove-cart-item col-md-1">
                                         <span @click="removeFromCart(0,beatItem)">&times;</span>
@@ -93,13 +95,13 @@
                                <h5 class="row ml-1 font-weight-bold">Drumkits ( {{ $store.getters.getKitCart.length }} )</h5>
                                <hr>
                                <div class="cart-item  d-flex justify-content-center align-items-center mb-2" v-for="kitItem in $store.getters.getKitCart">
-                                   <div class="cart-item-image col-md-3" >
+                                   <div class="cart-item-image col-md-2" >
                                        <img style="height: 60px;width: 60px" :src="kitItem.image" :alt="kitItem.title+' Beat Cover' ">
                                    </div>
                                    <div class="cart-item-title col-md-6">
                                        {{ kitItem.title }}
                                    </div>
-                                   <div class="cart-item-price col-md-2">
+                                   <div class="cart-item-price col-md-3">
                                        $ {{ kitItem.price }}
                                    </div>
                                    <div class="remove-cart-item col-md-1">
