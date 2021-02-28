@@ -47,6 +47,7 @@
 </template>
 
 <script>
+
     export default {
         name: "Donate",
         data(){
@@ -78,7 +79,7 @@
 
                 Swal.fire({
                     title: 'Donation',
-                    text: `Donate <strong>${finalAmount}</strong>${this.gateways[index].currency}  via ${this.gateways[index].name} ${info}`,
+                    text: `Donate ${finalAmount} ${this.gateways[index].currency}  via ${this.gateways[index].name} ${info}`,
                     icon: 'question',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -86,30 +87,37 @@
                     confirmButtonText: 'Yes, Proceed!'
                 }).then((result) => {
                     if (result.value) {
-                        // axios.delete('/deleteBlog/'+ id)
-                        //     .then(response => {
-                        //         if(response.status == 200) {
-                        //
-                        //             Toast.fire({
-                        //                 icon: 'success',
-                        //                 title: response.data
-                        //             });
-                        //
-                        //         }else if(response.status == 403){
-                        //             Toast.fire({
-                        //                 icon: 'error',
-                        //                 title: response.data
-                        //             });
-                        //         }else{
-                        //             Toast.fire({
-                        //                 icon: 'error',
-                        //                 title: 'Something wiered Happened!'
-                        //             });
-                        //         }
-                        //
-                        //     })
-                        //     .catch(err => {
-                        //     })
+
+                        axios.get('/stkpush', {
+                            params: {
+                                    phone: this.phone,
+                                    amount: this.amount ,
+                                    description : "Donation"}
+                            } )
+                            .then(response => {
+                                console.log(response)
+                                // if(response.status == 200) {
+                                //
+                                //     Toast.fire({
+                                //         icon: 'success',
+                                //         title: response.data
+                                //     });
+                                //
+                                // }else if(response.status == 403){
+                                //     Toast.fire({
+                                //         icon: 'error',
+                                //         title: response.data
+                                //     });
+                                // }else{
+                                //     Toast.fire({
+                                //         icon: 'error',
+                                //         title: 'Something wiered Happened!'
+                                //     });
+                                // }
+
+                            })
+                            .catch(err => {
+                            })
                     }
                 })
             },

@@ -3908,41 +3908,46 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     donate: function donate(index) {
+      var _this = this;
+
       var finalAmount = this.gateways[index].multiplier * this.amount;
       var info = index == 0 ? ' Email ' + this.email + '?' : index == 1 ? ' Number +' + this.phone + '?' : '';
       Swal.fire({
         title: 'Donation',
-        text: "Donate <strong>".concat(finalAmount, "</strong>").concat(this.gateways[index].currency, "  via ").concat(this.gateways[index].name, " ").concat(info),
+        text: "Donate ".concat(finalAmount, " ").concat(this.gateways[index].currency, "  via ").concat(this.gateways[index].name, " ").concat(info),
         icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, Proceed!'
       }).then(function (result) {
-        if (result.value) {// axios.delete('/deleteBlog/'+ id)
-          //     .then(response => {
-          //         if(response.status == 200) {
-          //
-          //             Toast.fire({
-          //                 icon: 'success',
-          //                 title: response.data
-          //             });
-          //
-          //         }else if(response.status == 403){
-          //             Toast.fire({
-          //                 icon: 'error',
-          //                 title: response.data
-          //             });
-          //         }else{
-          //             Toast.fire({
-          //                 icon: 'error',
-          //                 title: 'Something wiered Happened!'
-          //             });
-          //         }
-          //
-          //     })
-          //     .catch(err => {
-          //     })
+        if (result.value) {
+          axios.get('/stkpush', {
+            params: {
+              phone: _this.phone,
+              amount: _this.amount,
+              description: "Donation"
+            }
+          }).then(function (response) {
+            console.log(response); // if(response.status == 200) {
+            //
+            //     Toast.fire({
+            //         icon: 'success',
+            //         title: response.data
+            //     });
+            //
+            // }else if(response.status == 403){
+            //     Toast.fire({
+            //         icon: 'error',
+            //         title: response.data
+            //     });
+            // }else{
+            //     Toast.fire({
+            //         icon: 'error',
+            //         title: 'Something wiered Happened!'
+            //     });
+            // }
+          })["catch"](function (err) {});
         }
       });
     },

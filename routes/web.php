@@ -17,6 +17,20 @@ Route::post('/contact', 'ContactController@store');
 Route::post('/subscribe', 'NewsletterController@store');
 
 
+//MPESA ROUTES
+Route::get('c2b', 'PaymentsController@c2b');
+Route::get('b2c','PaymentsController@b2c');
+Route::post('confirm','PaymentsController@confirmmpesa');
+Route::post('validate','PaymentsController@validatempesa');
+Route::post('result','PaymentsController@result');
+Route::post('qtimeout','PaymentsController@qtimeout');
+Route::get('registerurl', 'PaymentsController@register_urls');
+Route::get('reverse','PaymentsController@reverse');
+Route::get('balance','PaymentsController@balance');
+Route::get('stkpush','PaymentsController@stkpush');
+
+
+
 Route::group(['middleware' => ['auth']], function (){
 
     Route::get('/user', function (){
@@ -87,14 +101,4 @@ Route::group(['middleware' => ['guest']], function (){
 
 
 
-//MPESA ROUTES
-//Route::get('c2b',[PaymentsController::class, 'c2b']);
-//Route::get('b2c',[PaymentsController::class, 'b2c']);
-//Route::post('confirm',[PaymentsController::class, 'confirmmpesa']);
-//Route::post('validate',[PaymentsController::class, 'validatempesa']);
-//Route::post('result',[PaymentsController::class, 'result']);
-//Route::post('qtimeout',[PaymentsController::class, 'qtimeout']);
-//Route::get('registerurl', 'PaymentsController@register_urls');
-//Route::get('reverse',[PaymentsController::class, 'reverse']);
-//Route::get('balance',[PaymentsController::class, 'balance']);
-//Route::get('stkpush',[PaymentsController::class, 'stkpush']);
+
