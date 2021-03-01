@@ -74,6 +74,10 @@ let localBeatCart = localStorage.getItem('beatCart');
          }
      },
      mutations: {
+         setPurchaseLicense(state, beat ,index) {
+             state.beatcart.splice(index,1)
+             state.beatcart.push(beat);
+         },
          setBasicLicense(state, basic) {
              state.basicPrice = basic;
          },

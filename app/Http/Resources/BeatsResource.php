@@ -22,6 +22,7 @@ class BeatsResource extends JsonResource
             'cover'  =>  asset('/storage/beats/covers/'.$this->cover),
             'sample' =>  asset('/storage/beats/samples/'.$this->sample),
             'isPaid' =>  ($this->ispaid == 1 ) ? true : false,
+            'Purchase' =>  'BSC',
         ];
     }
 }

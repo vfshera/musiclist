@@ -11,7 +11,7 @@ class PaymentsController extends Controller
 
     public function stkpush(Request $request)
     {
-       $link = 'https://6ba4e8ad3f4b.ngrok.io';
+       $link = '';
 
         $details = $request->validate([
             'phone' => 'required|string',
@@ -160,7 +160,7 @@ class PaymentsController extends Controller
 
         $curl_post_data = array(
             //Fill in the request parameters with valid values
-            'ShortCode' => '601425',
+            'ShortCode' => env('MPESA_SANDBOX_TILL_NUMBER'),
             'ResponseType' => 'Confirmed',
             'ConfirmationURL' => $link.'/confirm',
             'ValidationURL' => $link.'/validate'

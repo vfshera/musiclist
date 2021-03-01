@@ -81,7 +81,7 @@
                                         {{ beatItem.title}}
                                     </div>
                                     <div class="cart-item-price col-md-3">
-                                        <select name="beat-pack" id="beat-pack" class="form-control" >
+                                        <select name="beat-pack" id="beat-pack" :class=" 'purchase-'+beatItem.id" @change.prevent="changeLic(index,beatItem)" class="form-control" >
                                             <option :value="lic.code" v-for="lic in $store.getters.getBeatLicenses">${{ lic.amount }} {{ lic.code }}</option>
                                         </select>
                                     </div>
@@ -114,7 +114,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
-                        <button type="button" class="btn btn-primary">Checkout</button>
+                        <button type="button" class="btn btn-primary" @click.prevent="checkOut" data-dismiss="modal" v-show="('/checkout' != currPath)">Checkout</button>
                     </div>
                 </div>
             </div>
@@ -131,6 +131,27 @@
             }
         },
         methods:{
+            changeLic(index,beatItem){
+                beatItem.Purchase= document.querySelector('.purchase-'+beatItem.id).value
+
+                this.$store.commit('setPurchaseLicense',beatItem,index)
+
+                if(localStorage.getItem('beatCart')){
+                    localStorage.removeItem('beatCart')
+                }
+
+                if(this.$store.getters.getBeatCart.length > 0) {
+                    localStorage.setItem('beatCart' ,  JSON.stringify(...this.$store.getters.getBeatCart));
+                }
+            },
+            checkOut(){
+
+                $('miniCartModal').modal('hide');
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+
+                this.$router.push('/checkout')
+            },
             removeFromCart(type,item){
                 if(type == 0){
 
