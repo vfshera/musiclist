@@ -72,8 +72,6 @@ Route::group(['middleware' => ['auth']], function (){
     Route::delete('/deleteDrumkit/{drumkit}' , 'DrumkitController@destroy');
 
 //beats
-
-
     Route::post('/addBeat' , 'BeatController@store');
     Route::get('/frontBeats' , 'BeatController@getFrontBeats')->withoutMiddleware('auth');
     Route::get('/downloadBeat/{beat}' , 'BeatController@download')->withoutMiddleware('auth');
@@ -81,6 +79,12 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('/getBeat/{beat}' , 'BeatController@show')->withoutMiddleware('auth');
     Route::post('/updateBeat/{beat}' , 'BeatController@update');
     Route::delete('/deleteBeat/{beat}' , 'BeatController@destroy');
+
+
+//gallery
+    Route::post('/addGallery' , 'GalleryController@store');
+    Route::get('/getGallery' , 'GalleryController@index')->withoutMiddleware('auth');
+    Route::delete('/deleteGallery/{gallery}' , 'GalleryController@destroy');
 
 
 

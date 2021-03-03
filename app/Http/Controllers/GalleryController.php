@@ -3,83 +3,69 @@
 namespace App\Http\Controllers;
 
 use App\Gallery;
+use App\Http\Resources\GalleryResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\Response;
 
 class GalleryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function getRandomName(int $num){
+
+        $nm = ($num && $num > 0) ? $num : 10;
+
+        $randomName = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890');
+        $finalname = substr($randomName, 0, $nm);
+
+        return $finalname;
+    }
+
     public function index()
     {
-        //
+        $imgs = Gallery::orderBy('created_at', 'DESC')->paginate(8);
+
+        return GalleryResource::collection($imgs)->response()->setStatusCode(Response::HTTP_OK);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+       $request->validate(['image' => 'required|image']);
+
+        $galImg =  $request->file('image');
+        $galImgFileName  = $this->getRandomName(10).time().'.'.$galImg->getClientOriginalExtension();
+
+        if($galImg->storeAs('public/gallery', $galImgFileName ) ){
+            $gmig = new Gallery();
+            $gmig->image = $galImgFileName;
+
+            if($gmig->save()){
+                return response('Image Added To Gallery!', Response::HTTP_CREATED);
+
+            }else{
+                return response('Failed To Upload Image!', Response::HTTP_FORBIDDEN);
+            }
+        }else{
+            return response('Failed To Save Image!', Response::HTTP_FORBIDDEN);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Gallery  $gallery
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Gallery $gallery)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Gallery  $gallery
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Gallery $gallery)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Gallery  $gallery
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Gallery $gallery)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Gallery  $gallery
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Gallery $gallery)
     {
-        //
+        $gimgUrl = 'public/gallery/'.$gallery->image;
+
+        if(Storage::exists($gimgUrl)  && Storage::delete($gimgUrl)){
+
+            if($gallery->delete()){
+                return response('Image Deleted From Gallery!', Response::HTTP_OK);
+            }else{
+                return response('Unable To Delete Image!', Response::HTTP_FORBIDDEN);
+            }
+
+        }else{
+            return response('Image Not Found!', Response::HTTP_FORBIDDEN);
+        }
     }
 }

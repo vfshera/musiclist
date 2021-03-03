@@ -153,7 +153,7 @@ class DrumkitController extends Controller
             if($drumkit->delete()){
                 return response('Drumkit Deleted', Response::HTTP_OK);
             }else{
-                return response('Deleted Unable To Delete Drumkit', Response::HTTP_FORBIDDEN);
+                return response('Unable To Delete Drumkit', Response::HTTP_FORBIDDEN);
             }
 
         }else{
