@@ -6303,11 +6303,178 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       currTab: 1,
-      tabName: 'Beat'
+      tabName: 'Beat',
+      sizes: ['', '100px by 200px', '1000px by 1500px', '100px by 200px', '1000px by 800px']
     };
   },
   methods: {
@@ -13836,7 +14003,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.info[data-v-a38a56ce]{\n    display: flex;\n    flex-direction: column;\n    padding: 20px;\n}\n.info-header[data-v-a38a56ce]{\n    background-color: white;\n    padding: 10px 20px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-top-left-radius: 10px;\n    border-top-right-radius: 10px;\n    border-bottom: 1px #11111122 solid;\n}\n.info-tabs[data-v-a38a56ce]{\n    display: flex;\n    justify-content: space-between;\n    width:30%;\n}\n.tab-item[data-v-a38a56ce]{\n    width: 20%;\n    display: flex;\n    justify-content: center;\n}\n.dot[data-v-a38a56ce]{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.active-tab[data-v-a38a56ce]{\n    border-bottom: 2px #11111177 solid;\n}\n.active-tab .tab-link[data-v-a38a56ce] {\n    color: #111111;\n    font-weight: bold;\n}\n.tab-content[data-v-a38a56ce]{\n    padding: 10px 20px;\n    width: 100%;\n    min-height: 70vh;\n    background-color: white;\n    border-bottom-left-radius: 10px;\n    border-bottom-right-radius: 10px;\n}\n.beat-info[data-v-a38a56ce]{\n    min-height: 65vh;\n}\n.info-notes[data-v-a38a56ce]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-around;\n}\n.info-item[data-v-a38a56ce]{\n    display: flex;\n    justify-content: space-between;\n}\n.info-param-value[data-v-a38a56ce]{\n    text-align: right;\n}\n.info-visual[data-v-a38a56ce]{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.visual-img[data-v-a38a56ce]{\n    background: #8c8c8c33;\n    height: 90%;\n    width: 90%;\n    border-radius:10px\n}\n", ""]);
+exports.push([module.i, "\n.info[data-v-a38a56ce]{\n    display: flex;\n    flex-direction: column;\n    padding: 20px;\n}\n.info-header[data-v-a38a56ce]{\n    background-color: white;\n    padding: 10px 20px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-top-left-radius: 10px;\n    border-top-right-radius: 10px;\n    border-bottom: 1px #11111122 solid;\n}\n.info-tabs[data-v-a38a56ce]{\n    display: flex;\n    justify-content: space-between;\n    width:30%;\n}\n.tab-item[data-v-a38a56ce]{\n    width: 20%;\n    display: flex;\n    justify-content: center;\n}\n.dot[data-v-a38a56ce]{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.active-tab[data-v-a38a56ce]{\n    border-bottom: 2px #11111177 solid;\n}\n.active-tab .tab-link[data-v-a38a56ce] {\n    color: #111111;\n    font-weight: bold;\n}\n.tab-content[data-v-a38a56ce]{\n    padding: 10px 30px 10px 20px;\n    width: 100%;\n    min-height: 70vh;\n    background-color: white;\n    border-bottom-left-radius: 10px;\n    border-bottom-right-radius: 10px;\n}\n.beat-info[data-v-a38a56ce], .gallery-info[data-v-a38a56ce], .blog-info[data-v-a38a56ce], .kit-info[data-v-a38a56ce]{\n    min-height: 65vh;\n}\n.info-notes[data-v-a38a56ce]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-around;\n}\n.info-item[data-v-a38a56ce]{\n    display: flex;\n    justify-content: space-between;\n    border-bottom: 1px #8c8c8c33 dotted;\n    padding-bottom: 10px;\n}\n.info-param-value[data-v-a38a56ce]{\n    text-align: right;\n}\n.info-visual[data-v-a38a56ce]{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.visual-img[data-v-a38a56ce]{\n    height: 90%;\n    width: 90%;\n    border-radius:10px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    font-size: 5rem;\n    font-weight: bolder;\n    text-align: center;\n    color: #11111177;\n\n    background: linear-gradient(45deg, #8c8c8c33,#8c8c8c77,#8c8c8ccc,#8c8c8c77,#8c8c8c99,#8c8c8c33);\n    background-size: 1000%;\n    -webkit-animation: imggradient-data-v-a38a56ce 20s linear infinite;\n            animation: imggradient-data-v-a38a56ce 20s linear infinite;\n}\n@-webkit-keyframes imggradient-data-v-a38a56ce {\n0% {\n        background-position: 0%;\n}\n100%{\n        background-position: 1000%;\n}\n}\n@keyframes imggradient-data-v-a38a56ce {\n0% {\n        background-position: 0%;\n}\n100%{\n        background-position: 1000%;\n}\n}\n.visual-img span[data-v-a38a56ce]{\n    color: #11111177;\n    font-weight: bolder;\n    text-align: center;\n    font-size: 3rem;\n}\n.ti-info-alt[data-v-a38a56ce]{\n    font-size: 1.5rem;\n    color: #03a9f3;\n}\n.info-icon[data-v-a38a56ce]{\n    margin-right: 10px;\n}\n\n\n", ""]);
 
 // exports
 
@@ -68651,7 +68818,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "info" }, [
     _c("div", { staticClass: "info-header" }, [
-      _c("h3", [_vm._v(_vm._s(_vm.tabName) + " Info")]),
+      _c("h3", [
+        _c("i", { staticClass: "info-icon ti-info-alt" }),
+        _vm._v(" " + _vm._s(_vm.tabName) + " Info")
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "info-tabs" }, [
         _c(
@@ -68752,7 +68922,183 @@ var render = function() {
           ],
           staticClass: "beat-info row"
         },
-        [_vm._m(0), _vm._v(" "), _vm._m(1)]
+        [
+          _c("div", { staticClass: "info-visual col-md-5" }, [
+            _c("div", { staticClass: "visual-img" }, [
+              _vm._v("\n                        COVER "),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(_vm.sizes[_vm.currTab]))])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-notes col-md-7" }, [
+            _c("div", { staticClass: "info-item" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("span", { staticClass: "info-param-value" }, [
+                _vm._v(
+                  "\n                        Size " +
+                    _vm._s(_vm.sizes[_vm.currTab]) +
+                    "\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._m(3),
+            _vm._v(" "),
+            _vm._m(4),
+            _vm._v(" "),
+            _vm._m(5),
+            _vm._v(" "),
+            _vm._m(6),
+            _vm._v(" "),
+            _vm._m(7)
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.currTab == 2,
+              expression: "currTab == 2"
+            }
+          ],
+          staticClass: "kit-info row"
+        },
+        [
+          _c("div", { staticClass: "info-visual col-md-5" }, [
+            _c("div", { staticClass: "visual-img" }, [
+              _vm._v("\n                        COVER"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(_vm.sizes[_vm.currTab]))])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-notes col-md-7" }, [
+            _c("div", { staticClass: "info-item" }, [
+              _vm._m(8),
+              _vm._v(" "),
+              _c("span", { staticClass: "info-param-value" }, [
+                _vm._v(
+                  "\n                        Size " +
+                    _vm._s(_vm.sizes[_vm.currTab]) +
+                    "\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(9),
+            _vm._v(" "),
+            _vm._m(10),
+            _vm._v(" "),
+            _vm._m(11),
+            _vm._v(" "),
+            _vm._m(12),
+            _vm._v(" "),
+            _vm._m(13),
+            _vm._v(" "),
+            _vm._m(14)
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.currTab == 3,
+              expression: "currTab == 3"
+            }
+          ],
+          staticClass: "blog-info row"
+        },
+        [
+          _c("div", { staticClass: "info-visual col-md-5" }, [
+            _c("div", { staticClass: "visual-img" }, [
+              _vm._v("\n                        IMAGE"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(_vm.sizes[_vm.currTab]))])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-notes col-md-7" }, [
+            _c("div", { staticClass: "info-item" }, [
+              _vm._m(15),
+              _vm._v(" "),
+              _c("span", { staticClass: "info-param-value" }, [
+                _vm._v(
+                  "\n                        Size " +
+                    _vm._s(_vm.sizes[_vm.currTab]) +
+                    "\n                    "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(16),
+            _vm._v(" "),
+            _vm._m(17),
+            _vm._v(" "),
+            _vm._m(18),
+            _vm._v(" "),
+            _vm._m(19),
+            _vm._v(" "),
+            _vm._m(20)
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.currTab == 4,
+              expression: "currTab == 4"
+            }
+          ],
+          staticClass: "gallery-info row"
+        },
+        [
+          _c("div", { staticClass: "info-visual col-md-8" }, [
+            _c("div", { staticClass: "visual-img" }, [
+              _vm._v("\n                        IMAGE"),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(_vm.sizes[_vm.currTab]))])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "info-notes col-md-4" }, [
+            _c("div", { staticClass: "info-item" }, [
+              _vm._m(21),
+              _vm._v(" "),
+              _c("span", { staticClass: "info-param-value" }, [
+                _vm._v(
+                  "\n                        Size " +
+                    _vm._s(_vm.sizes[_vm.currTab]) +
+                    "\n                    "
+                )
+              ])
+            ])
+          ])
+        ]
       )
     ])
   ])
@@ -68762,114 +69108,342 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "info-visual col-md-5" }, [
-      _c("div", { staticClass: "visual-img" })
+    return _c("span", { staticClass: "info-param" }, [
+      _c("i", { staticClass: "info-icon ti-image" }),
+      _vm._v("  Beat Cover\n                    ")
     ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "info-notes col-md-7" }, [
-      _c("div", { staticClass: "info-item" }, [
-        _c("span", { staticClass: "info-param" }, [
-          _vm._v("\n                        Beat Cover\n                    ")
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "info-param-value" }, [
-          _vm._v(
-            "\n                        Size 100px by 200px\n                    "
-          )
-        ])
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-music" }),
+        _vm._v(" Sample Audio\n                    ")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "info-item" }, [
-        _c("span", { staticClass: "info-param" }, [
-          _vm._v("\n                        Sample Audio\n                    ")
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "info-param-value" }, [
-          _vm._v(
-            "\n                        MUST be of type .mp3\n                    "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "info-item" }, [
-        _c("span", { staticClass: "info-param" }, [
-          _vm._v("\n                        Title\n                    ")
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "info-param-value" }, [
-          _vm._v(
-            "\n                        Write In Sentence Case (without hyphen or underscore)\n                    "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "info-item" }, [
-        _c("span", { staticClass: "info-param" }, [
-          _vm._v("\n                         BPM & Key\n                    ")
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "info-param-value" }, [
-          _vm._v(
-            "\n                        Accepted Format 96.0 , C# Major\n                    "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "info-item" }, [
-        _c("span", { staticClass: "info-param" }, [
-          _vm._v("\n                        Tags\n                    ")
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "info-param-value" }, [
-          _vm._v(
-            "\n                        Write In Lowercase\n                    "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "info-item" }, [
-        _c("span", { staticClass: "info-param" }, [
-          _vm._v("\n                        MP3 LINK\n                    ")
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "info-param-value" }, [
-          _vm._v(
-            "\n                        Link To Basic License (BSC)\n                    "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "info-item" }, [
-        _c("span", { staticClass: "info-param" }, [
-          _vm._v(
-            "\n                        MP3 + WAV LINK\n                    "
-          )
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "info-param-value" }, [
-          _vm._v(
-            "\n                        Link To Premium License (PRE)\n                    "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "info-item" }, [
-        _c("span", { staticClass: "info-param" }, [
-          _vm._v(
-            "\n                        MP3 + WAV + STEMS LINK\n                    "
-          )
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "info-param-value" }, [
-          _vm._v(
-            "\n                        Link To Unlimited License (UNL)\n                    "
-          )
-        ])
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        MUST be of type .mp3\n                    "
+        )
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-text" }),
+        _vm._v("Title\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        Write In Sentence Case (without hyphen or underscore)\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-key" }),
+        _vm._v("BPM & Key\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        Accepted Format 96.0 , C# Major\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-tag" }),
+        _vm._v("Tags\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        Write In Lowercase\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-link" }),
+        _vm._v("  MP3 LINK\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        Link To Basic License (BSC)\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-link" }),
+        _vm._v("  MP3 + WAV LINK\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        Link To Premium License (PRE)\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-link" }),
+        _vm._v(" MP3 + WAV + STEMS LINK\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        Link To Unlimited License (UNL)\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "info-param" }, [
+      _c("i", { staticClass: "info-icon ti-image" }),
+      _vm._v("  Drumkit Cover\n                    ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-music" }),
+        _vm._v(" Sample Audio\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        MUST be of type .mp3\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-text" }),
+        _vm._v("Title\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        Write In Sentence Case (without hyphen or underscore)\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-money" }),
+        _vm._v("Price\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        Accepted ONLY numbers to 2 Decimal Points\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-layers" }),
+        _vm._v("Type\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        Write In Sentence Case\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-link" }),
+        _vm._v("  Drumkit Link\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        Link To Drumkit Zip File\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-help" }),
+        _vm._v("  About Kit Area\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        Use Accepted Formats with Sentence Case\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "info-param" }, [
+      _c("i", { staticClass: "info-icon ti-image" }),
+      _vm._v(" Blog Image\n                    ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-text" }),
+        _vm._v("Title\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        Write In Sentence Case (without hyphen or underscore)\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-layers" }),
+        _vm._v("Category\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        Just Choose From Dropdown\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-tag" }),
+        _vm._v("Add Category Button\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        Use Sentence Case\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-link" }),
+        _vm._v("Link\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        Link To Related Files Accounts etc\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "info-item" }, [
+      _c("span", { staticClass: "info-param" }, [
+        _c("i", { staticClass: "info-icon ti-thought" }),
+        _vm._v(" Content\n                    ")
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "info-param-value" }, [
+        _vm._v(
+          "\n                        Use Accepted Formats with The Text Editor\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "info-param" }, [
+      _c("i", { staticClass: "info-icon ti-image" }),
+      _vm._v(" Gallery Image\n                    ")
     ])
   }
 ]
