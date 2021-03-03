@@ -81,9 +81,10 @@
                                         {{ beatItem.title}}
                                     </div>
                                     <div class="cart-item-price col-md-3">
-                                        <select name="beat-pack" id="beat-pack" :class=" 'purchase-'+beatItem.id" @change.prevent="changeLic(index,beatItem)" class="form-control" >
-                                            <option :value="lic.code" v-for="lic in $store.getters.getBeatLicenses">${{ lic.amount }} {{ lic.code }}</option>
-                                        </select>
+<!--                                        <select name="beat-pack" id="beat-pack" :class=" 'purchase-'+beatItem.id" @change.prevent="changeLic(index,beatItem)" class="form-control" >-->
+<!--                                            <option :value="lic.code" v-for="lic in $store.getters.getBeatLicenses">${{ lic.amount }} {{ lic.code }}</option>-->
+<!--                                        </select>-->
+                                        {{ beatItem.Purchase }}
                                     </div>
                                     <div class="remove-cart-item col-md-1">
                                         <span @click="removeFromCart(0,beatItem)">&times;</span>

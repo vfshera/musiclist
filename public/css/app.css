@@ -22969,6 +22969,52 @@ figure figcaption p {
 }
 
 @media screen and (max-width: 523px) {
+  /*<!--    bio-->*/
+
+  #bio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bio-info {
+    display: flex;
+    flex-direction: column !important;
+    width: 90% !important;
+    padding: 2% !important;
+  }
+
+  .circle-img {
+    border-radius: 50% !important;
+    border: rgba(189, 195, 199, 0.1) 2px solid !important;
+    box-shadow: 0 10px 30px 0px #11111122 !important;
+    height: 250px !important;
+    width: 250px !important;
+  }
+
+  .bio-img {
+    max-width: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bio-text {
+    display: flex;
+    align-items: center;
+    max-width: 98% !important;
+    margin-top: 20px !important;
+    text-align: left !important;
+  }
+
+  .bio-text p {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #111111;
+  }
+
+  /*end bio*/
+
   /*promo*/
 
   #hero {

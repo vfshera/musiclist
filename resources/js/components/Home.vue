@@ -230,7 +230,7 @@
             <h2 class="text-center mt-2">BIO</h2>
             <div class="bio-info" >
                <div class="bio-img">
-                   <img loading="lazy" class="circle-img" src="https://source.unsplash.com/300x300">
+                   <img loading="lazy" class="circle-img" src="/storage/site-img/greg.jpg">
                </div>
                 <div class="bio-text">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores assumenda beatae eos explicabo hic minima modi provident quos sapiente sunt. Blanditiis delectus maiores maxime minus necessitatibus, nostrum obcaecati possimus rem soluta, sunt tempora tempore voluptates! Alias animi architecto consequatur doloremque eligendi exercitationem, explicabo minima nam nemo nesciunt nisi non, officia perspiciatis porro quam quod quos recusandae ut veniam, vitae! Architecto cumque odit quod? Assumenda aut eaque fugiat nulla quia, veniam.</p>
@@ -711,9 +711,7 @@
     display: flex;
     justify-content: space-between;
     width: 80%;
-
     padding: 2%;
-    border-radius: 35%;
 }
 .circle-img{
     border-radius: 1000px;

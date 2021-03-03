@@ -280,9 +280,9 @@
                 tabName: 'Beat',
                 sizes: [
                     '',
-                    '100px by 200px',
+                    '1000px by 1000px',
                     '1000px by 1500px',
-                    '100px by 200px',
+                    '6000px by 4000px',
                     '1000px by 800px',
                 ]
             }
