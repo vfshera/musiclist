@@ -40,6 +40,7 @@
                   <span class="mpesa-pre">
                       <img @click="donate(1)"  src="/storage/site-img/Mpesa.png" height="40" alt="">
                   </span>
+
               </div>
            </div>
        </div>
@@ -54,9 +55,7 @@
                       <span class="paypal-action">
                           Click On Desired Method
                       </span>
-                        <div class="paypal-buttons">
-
-                        </div>
+                        <div ref="paypal"></div>
                     </div>
 
                 </div>
@@ -160,26 +159,33 @@
             },
             scrollToTop() {
                 window.scrollTo(0,0)
+            },
+            getPayPalLogic(){
+                paypal.Buttons({
+                    createOrder: function(data, actions) {
+                        return actions.order.create({
+                            purchase_units: [{
+                                amount: {
+                                    value: '0.01'
+                                }
+                            }]
+                        });
+                    },
+                    onApprove: function(data, actions) {
+                        return actions.order.capture().then(function() {
+                            alert('Transaction completed by SC');
+                        });
+                    }
+                }).render(this.$refs.paypal);
             }
         },
         mounted() {
-            const plugin = document.createElement("script");
-            plugin.setAttribute(
-                "src",
-                "//www.paypal.com/sdk/js?client-id=AdslMm1nSG90zJizxM2I0cymTRqsZojkybAWXhJHb5NYz5Tw19F9PA2P6JTYnz-2IPzVQ5TFdxHn4irQ"
-            );
-            plugin.async = true;
-            document.head.appendChild(plugin);
+            const paypalScript = document.createElement("script");
+            paypalScript.src = "https//www.paypal.com/sdk/js?client-id=AdslMm1nSG90zJizxM2I0cymTRqsZojkybAWXhJHb5NYz5Tw19F9PA2P6JTYnz-2IPzVQ5TFdxHn4irQ"
 
-
-
-            const paypalFunc = document.createElement("script");
-            paypalFunc.setAttribute(
-                "src",
-                "../helpers/PayPal.js"
-            );
-            paypalFunc.async = true;
-            document.body.appendChild(paypalFunc);
+            paypalScript.addEventListener('load' , () => this.getPayPalLogic())
+            paypalScript.async = true;
+            document.body.appendChild(paypalScript);
 
 
             this.scrollToTop();

@@ -25,8 +25,8 @@
                     <router-link :to="{ path: '/beats'}" class="" ><i class="menu-icon ti-headphone"></i>Beats</router-link>
                  </li>
 
-                <li  :class="{ 'selected-menu': ('/' == currPath) }">
-                    <router-link :to="{ path: '/home'}" class="" ><i class="menu-icon ti-info-alt"></i>Info</router-link>
+                <li  :class="{ 'selected-menu': ('/info' == currPath) }">
+                    <router-link :to="{ path: '/info'}" class="" ><i class="menu-icon ti-info-alt"></i>Info</router-link>
                 </li>
 
                 <li @click="logoutUser" class="logout-btn">

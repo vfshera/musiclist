@@ -17,6 +17,7 @@ import NotFound from "./components/NotFound";
 import Dashboard from "./components/Dashboard";
 import TermsConditions from "./components/TermsConditions";
 import CheckOut from "./components/Checkout";
+import Info from "./components/Info";
 
 export const  routes = [
     {
@@ -31,6 +32,10 @@ export const  routes = [
     {
         path : '/donate',
         component : Donate
+    },
+    {
+        path : '/info',
+        component : Info
     },
     {
         path : '/checkout',
