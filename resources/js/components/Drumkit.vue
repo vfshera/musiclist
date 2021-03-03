@@ -124,7 +124,7 @@
     },
     methods:{
         validate(){
-            if(this.editedDrumkit.drumkit != null && this.editedDrumkit.title  != null &&  this.editedDrumkit.about != null &&    this.editedDrumkit.cover != null &&   this.editedDrumkit.sample != null){
+            if(this.editedDrumkit.drumlink != null && this.editedDrumkit.title  != null &&  this.editedDrumkit.about != null &&    this.editedDrumkit.cover != null &&   this.editedDrumkit.sample != null){
                 return true;
             }else{
                 return false;
@@ -132,7 +132,7 @@
         },
         resetDrumkit(){
 
-            this.editedDrumkit.drumkit = null;
+            this.editedDrumkit.drumlink = '';
             this.editedDrumkit.title = '';
             this.editedDrumkit.type = '';
             this.editedDrumkit.price = 0;
@@ -202,8 +202,8 @@
               fd.append('title',this.editedDrumkit.title)
               fd.append('type',this.editedDrumkit.type)
               fd.append('sample',this.editedDrumkit.sample)
-              fd.append('drumkit',this.editedDrumkit.drumkit)
-              fd.append('price',this.price)
+              fd.append('drumlink',this.editedDrumkit.drumlink)
+              fd.append('price',this.price.toFixed(2))
               fd.append('about',this.editedDrumkit.about)
 
               axios.post( '/updateDrumkit/'+this.editedDrumkit.id,fd,

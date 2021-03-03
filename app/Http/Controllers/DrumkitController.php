@@ -148,6 +148,7 @@ class DrumkitController extends Controller
         $drumImg = 'public/drumkits/covers/'.$drumkit->image;
         $drumSample = 'public/drumkits/samples/'.$drumkit->drumkit;
 
+
         if(Storage::exists($drumImg) && Storage::exists($drumSample) && Storage::delete([$drumImg,$drumSample])){
 
             if($drumkit->delete()){

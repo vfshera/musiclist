@@ -186,8 +186,8 @@
         },
 
         mounted() {
-             this.initPlayer(this.music.sample);
-             console.log(this.music)
+             this.initPlayer(this.$store.getters.getSong.sample);
+             // console.log(this.$store.getters.getSong)
         }
     }
 </script>

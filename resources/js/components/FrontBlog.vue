@@ -15,7 +15,7 @@
         <div class="blog-content">
             <span class="badge badge-light badge-pill">
                 <a :href="post.reflink" target="_blank">
-                    {{ post.reflink }}
+                    {{ (post.reflink.length > 30) ? post.reflink.slice(0,30)+'........' : post.reflink}}
                 </a>
             </span>
             <p v-html="post.content"></p>

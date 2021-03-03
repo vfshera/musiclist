@@ -15,7 +15,7 @@
             <h3 class="title text-white">{{ post.title }}</h3>
         </div>
         <div class="blog-content">
-            <span class="badge badge-light badge-pill">{{ post.reflink }}<a :href="post.reflink" target="_blank"> <i class="ti-world"></i></a></span>
+            <span class="badge badge-light badge-pill"><a :href="post.reflink" target="_blank"> {{ (post.reflink.length > 30) ? post.reflink.slice(0,30)+'........' : post.reflink}}<i class="ti-world"></i></a></span>
             <p v-html="post.content"></p>
         </div>
 

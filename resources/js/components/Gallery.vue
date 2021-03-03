@@ -11,9 +11,11 @@
                 <button class="btn btn-primary rounded-pill new-btn" data-toggle="modal" data-target="#addGalleryModal"> <span class="ti-pencil-alt mr-2"></span>NEW</button>
             </div>
             <div class="gallery-cards px-3 pt-3">
-                <div class="gallery-card mx-1 mb-3" v-for="gallery in gallery" @click.prevent="viewGallery(gallery)">
+                <div class="gallery-card mx-1 mb-3" v-for="gallery in searchableGallery" @click.prevent="viewGallery(gallery)">
                     <img :src="gallery.img_url" @load="isProcessing = false" alt="" >
-
+                    <span class="gimg-name">
+                        {{ gallery.name.slice(0,3) }}
+                    </span>
                 </div>
 
             </div>
@@ -59,7 +61,7 @@
 
                         </div>
                     </div>
-                    <div class="modal-footer">
+                 o   <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         <button type="button" @click="postGallery" class="btn btn-primary">Post</button>
                     </div>
@@ -69,7 +71,7 @@
     <!--        view delete gallery modal-->
         <div class="modal fade" id="viewGalleryModal" tabindex="-1" role="dialog" aria-labelledby="viewGalleryModalTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                <div class="modal-content">
+                <div class="modal-content" >
 
                     <div class="modal-body">
                         <img :src="currGal.img_url" alt="">
@@ -243,7 +245,11 @@
             }
         },
         computed:{
-
+            searchableGallery:function (){
+                return this.gallery.filter(gal => {
+                    return gal.name.toLowerCase().match(this.search.toLowerCase());
+                });
+            },
         },
         mounted() {
             this.fetchGallery();
@@ -260,10 +266,14 @@
 </script>
 
 <style scoped>
-    .typing-progress{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .gimg-name{
+        position: relative;
+        right: 0px;
+        bottom: 40px;
+        z-index: 99;
+        background: white;
+        color: #111111;
+        padding: 10px 30px;
     }
     .lds-dual-ring {
 
@@ -357,14 +367,7 @@
     .content-link input , .gallery-title input{
         width: 100%;
     }
-    .link-n-title{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    .content-body{
 
-    }
     .add-gallery-body{
         display: flex;
         flex-direction: column;
@@ -374,30 +377,8 @@
 
     }
 
-    .gallery-cover{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        /*align-items: flex-start;*/
-    }
 
-    .gallery-title{
 
-    }
-
-    .gallery-head{
-        height: 30%;
-        width: 100%;
-    }
-
-    .gallery-content{
-        height: 70%;
-        width: 100%;
-    }
-
-    .content-link{
-
-    }
     .gallery-controls{
         display: flex;
         justify-content: flex-end;
@@ -408,24 +389,23 @@
         flex-wrap: wrap;
     }
     .gallery-card img{
-        height: 80%;
+        /*height: 80%;*/
         width: 100%;
-        border-top-left-radius: 15px;
-        border-top-right-radius: 15px;
+        border-radius: 15px;
         object-fit: contain;
+        z-index: 1;
     }
-    .caption{
-        height: 20%;
-        font-size: 13px;
-        text-align: center;
-    }
+
     .gallery-card{
-        width: 17%;
-        height: 31vh;
+        width: 24%;
+        height: 25vh;
         border-radius: 15px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
         transition: .1s ease-in-out;
+        overflow: hidden;
     }
+
+
 
     .gallery-card:hover{
         transform: scale(1.02);

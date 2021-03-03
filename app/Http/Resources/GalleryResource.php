@@ -17,6 +17,7 @@ class GalleryResource extends JsonResource
         return [
             'id'  => $this->id,
             'img_url'  => asset('/storage/gallery/'.$this->image),
+            'name'  => strtoupper($this->image),
         ];
     }
 }

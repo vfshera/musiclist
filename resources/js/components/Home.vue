@@ -717,6 +717,8 @@
     border-radius: 1000px;
     border: rgba(189, 195, 199, .2) 10px solid;
     box-shadow: 0 10px 30px 0px #11111144;
+    height: 300px;
+    width: 300px;
 }
 .bio-img{
    max-width: 35%;
@@ -733,7 +735,7 @@
 
 .bio-text p  {
     font-size: 17px;
-    font-weight: 700;
+    font-weight: 500;
     color: #111111;
     /*mix-blend-mode: darken;*/
     text-shadow: 1px 1px ghostwhite;
