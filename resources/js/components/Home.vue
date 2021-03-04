@@ -12,11 +12,11 @@
                   </div>
                   <div class="promo-about">
                       <div class="promo-title">{{ promo.title }}</div>
-                      <div class="promo-bpm" v-html="(promo.content.length > 200) ? promo.content.slice(0,200)+ '...' : promo.content"></div>
+                      <div class="promo-bpm" v-html="(promo.content.length > 290) ? promo.content.slice(0,290)+ '.......' : promo.content"></div>
                       <div class="promo-cta">
 
-                          <div class="buy-promo" >
-                              <button class="btn-dwnl" >READ</button>
+                          <div class="read-promo" >
+                              <button class="btn-read" >READ</button>
                           </div>
                       </div>
                   </div>
@@ -601,18 +601,7 @@
         background-position: center;
         border-radius: 15px;
     }
-    .promo-type{
-        margin-top: 20px;
-        color: white;
-        font-size: .8rem;
-    }
-    .promo-desc{
-        color: white;
-        font-size: .8rem;
-        margin-top: 20px;
-        max-height: 150px;
-        overflow: hidden;
-    }
+
     .promo-desc ~ *{
         color: white;
         font-size: .8rem;
@@ -650,33 +639,31 @@
         border-radius: 5px;
     }
     .promo-cta{
-        margin-top: 35px;
+        margin-top: 25px;
         color: white;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
     }
 
 
-    .buy-promo button{
-        padding: 10px 25px;
-        font-weight: bolder;
+    .read-promo{
+        width: 100%;
     }
 
-    .buy-promo .btn-buy{
-        background: orangered;
-        color: white;
-    }
-    .buy-promo .btn-dwnl{
-        background: white;
-        color: #111111;
-    }
-    .play-promo button{
+    .read-promo button{
         padding: 10px 25px;
+        font-weight: bolder;
+
+    }
+
+    .read-promo .btn-read{
         background: white;
         color: #111111;
-        font-weight: bolder;
+        width: 40%;
+        margin-left: auto;
     }
+
     /*promo-END*/
 
 /*PROMO-AREA-END*/
