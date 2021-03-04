@@ -9,7 +9,7 @@ Route::get('/', function (){
 });
 
 //Route::get('/mailtest', function (){
-//    return view('mails.contact.forward');
+//    return view('mails.newsletter.subscribed');
 //});
 
 Route::get('/home', 'HomeController@index')->name('home');

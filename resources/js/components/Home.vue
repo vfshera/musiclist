@@ -567,8 +567,15 @@
         },
         computed:{
             promo: function(){
-                let num = Math.floor(Math.random() * 10)
+                if(this.drumkits.length == 0){
+                    return 0;
+                }
 
+                if(this.beats.length == 0){
+                    return 1
+                }
+
+                let num = Math.floor(Math.random() * 10)
                 return (num < 6) ? 0 : 1;
             }
         },

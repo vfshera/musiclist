@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewsLetterMail;
 use App\Newsletter;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,6 +15,8 @@ class NewsletterController extends Controller
         $sub = $request->validate(['email' =>'require|email|unique:newsletters']);
 
         if(Newsletter::create($sub)){
+
+            Mail::to($sub['email'])->send(new NewsLetterMail());
             return response('You Are Now Subscribed!', Response::HTTP_CREATED);
 
         }else{

@@ -18,6 +18,7 @@ import Dashboard from "./components/Dashboard";
 import TermsConditions from "./components/TermsConditions";
 import CheckOut from "./components/Checkout";
 import Info from "./components/Info";
+import CancelNews from "./components/CancelNews";
 
 export const  routes = [
     {
@@ -32,6 +33,10 @@ export const  routes = [
     {
         path : '/donate',
         component : Donate
+    },
+    {
+        path : '/newsletter/cancel',
+        component : CancelNews
     },
     {
         path : '/info',

@@ -16,7 +16,7 @@ class CreateDrumkitsTable extends Migration
         Schema::create('drumkits', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('about');
+            $table->longText('about');
             $table->string('image');
             $table->string('drumlink');
             $table->string('sample');
