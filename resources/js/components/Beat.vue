@@ -46,7 +46,98 @@
             </div>
 
         </div>
+        <!--        edit beat modal-->
+        <div class="modal fade" id="EditBeatModal" tabindex="-1" role="dialog" aria-labelledby="EditBeatModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="addBeatModalLongTitle" style="display: inline-block">Edit Beat</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="posting-beat" v-if="isPosting">
+                            <div class="loader"><div></div><div></div><div></div><div></div></div>
+                            <h6>Posting...</h6>
+                        </div>
+                        <div class="add-beat-body px-1 ">
+                            <div class="row beat-head ">
+                                <div class="cover-key-tags col-md-6">
+                                    <div class="cover withmb">
+                                        <label for="beat-cover">Beat Cover</label>
+                                        <input @change="getBeatCover" id="beat-cover" required type="file" class="form-control mt-2">
+                                    </div>
 
+                                    <div class="content-link withmb">
+                                        <label for="sample">Sample Audio</label>
+                                        <input @change="getBeatSample" id="sample" required type="file" class="form-control mt-2">
+                                    </div>
+
+                                    <div class="zip withmb">
+                                        <label for="beat-key">BPM , Key</label>
+                                        <input v-model="editedBeat.bpmkey" id="beat-key" required type="text" class="form-control mt-2" placeholder="As 96.0 , C# Major ....">
+                                    </div>
+
+                                    <div class="tags ">
+                                        <label for="beat-tags">Beat Tags</label>
+                                        <input id="beat-tags" v-model.trim="tag" required type="text" @keypress.prevent.stop.enter="addTag" class="form-control mt-2"  placeholder="Afrobeat , Gengetone , Hip Hop ....">
+                                    </div>
+                                </div>
+                                <div class="link-n-title col-md-6 ">
+                                    <div class="beat-title withmb">
+                                        <label for="title">Beat Title</label>
+                                        <input type="text" id="title" required v-model="editedBeat.title" name="title" class="form-control mt-2" placeholder="Beat title goes here ....">
+                                    </div>
+
+                                    <div class="basic withmb">
+                                        <label for="basic-link ">MP3 LINK
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                        </label>
+                                        <input id="basic-link" required type="text"  v-model="editedBeat.basic" class="form-control mt-2" placeholder="Link to Basic Beat">
+                                    </div>
+                                    <div class="premium withmb">
+                                        <label for="premium-link ">MP3 + WAV LINK
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                        </label>
+                                        <input id="premium-link" required type="text"  v-model="editedBeat.premium" class="form-control mt-2" placeholder="Link to Premium Beat">
+                                    </div>
+                                    <div class="unlimited ">
+                                        <label for="unlimited-link ">MP3 + WAV + STEMS LINK
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                            <i class="fa fa-usd" aria-hidden="true"></i>
+                                        </label>
+                                        <input id="unlimited-link" required type="text"  v-model="editedBeat.unlimited" class="form-control mt-2 " placeholder="Link to Unlimited Beat">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tags-list col-md-12 mt-3" v-show="tags.length > 0">
+                                <span>TAGS </span>
+                                <ul class="tags-ul">
+                                    <li class="tag-item px-2 mx-1" v-for="(tag, index) in setTags" :key="index">
+                                        <span>{{ tag }}</span>
+                                        <span @click="tags.splice(index, 1)" style="cursor: pointer">&times;</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="payment mt-2">
+                                <input type="checkbox" class="payswitch" :checked="isPaid" @change="setBeatValue">
+                                <label for="">{{ (isPaid) ? "PAID BEAT" : "FREE BEAT"}} </label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" @click="updateBeat" class="btn btn-primary">Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--        end edit beat modal-->
     </div>
 </template>
 
@@ -60,19 +151,43 @@
                 beat:null,
                 isPosting: false,
                 isProcessing: true,
+                tag: '',
+                tags: [],
                 editedBeat: {
-                    beat:null,
                     title: '',
-                    about: '',
                     tags: [],
-                    tag: '',
-                    price: '',
+                    bpmkey: '',
+                    basic: '',
+                    premium: '',
+                    unlimited: '',
+                    isPaid: true,
                     cover:null,
-                    sample: null
+                    sample: null,
                 },
             }
         },
         methods:{
+            setBeatValue(e){
+                this.editedBeat.isPaid = e.target.checked
+            },
+            addTag() {
+                if (this.tag && !this.tags.includes(this.tag)) {
+                    if(this.tags.length < 5){
+                        this.tags.push(this.tag);
+                        this.tag = '';
+                    }else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Max Tags Limit Reached!',
+                        })
+                    }
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Tag Already Exists!',
+                    })
+                }
+            },
             validate(){
                 if(this.editedBeat.beat != null && this.editedBeat.title  != null &&  this.editedBeat.about != null &&    this.editedBeat.cover != null &&   this.editedBeat.sample != null){
                     return true;
@@ -82,17 +197,18 @@
             },
             resetBeat(){
 
-                this.editedBeat.beat = null;
                 this.editedBeat.title = '';
-                this.editedBeat.type = '';
-                this.editedBeat.about = '';
                 this.editedBeat.cover = null;
                 this.editedBeat.sample = null;
+                this.tags = [];
+                this.editedBeat.bpmkey = '';
+                this.editedBeat.basic = '';
+                this.editedBeat.premium = '';
+                this.editedBeat.unlimited = '';
+                this.editedBeat.isPaid = true;
 
             },
-            getBeatZip(e){
-                this.editedBeat.beat = e.target.files[0];
-            },
+
             getBeatCover(e){
                 this.editedBeat.cover = e.target.files[0];
             },
@@ -149,10 +265,13 @@
 
                     fd.append('image',this.editedBeat.cover)
                     fd.append('title',this.editedBeat.title)
-                    fd.append('type',this.editedBeat.type)
                     fd.append('sample',this.editedBeat.sample)
-                    fd.append('beat',this.editedBeat.beat)
-                    fd.append('about',this.editedBeat.about)
+                    fd.append('basic',this.editedBeat.basic)
+                    fd.append('bpmkey',this.editedBeat.bpmkey)
+                    fd.append('premium',this.editedBeat.premium)
+                    fd.append('unlimited',this.editedBeat.unlimited)
+                    fd.append('ispaid',this.editedBeat.isPaid)
+                    fd.append('tags',this.tags)
 
                     axios.post( '/updateBeat/'+this.editedBeat.id,fd,
                         {
@@ -290,7 +409,10 @@
             },
             unlimitedLicense: function () {
                     return this.$store.getters.getBeatLicenses.filter( lice => (lice.code.match('UNL')))
-            }
+            },
+            setTags:function () {
+                return this.tags;
+            },
         },
         mounted(){
             this.setBeat();
@@ -465,6 +587,200 @@
     .delete-beat:hover{
         transform: scale(1.5);
     }
+
+
+
+    /*//extraaa*/
+
+
+    .payment{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .payswitch{
+        position: relative;
+        height:20px;
+        width:50px;
+        -webkit-appearance: none;
+        background:#c6c6c6;
+        outline:none;
+        border-radius: 10px;
+        box-shadow:inset 0 0 5px rgba(0,0,0,.2);
+    }
+
+
+    .payswitch:checked{
+        background:#03a9f4;
+    }
+
+
+    .payswitch:before{
+        content: "";
+        position: absolute;
+        top:.25px;
+        left: .5px;
+        height: 19.5px;
+        width:19.5px;
+        background-color: white;
+        border-radius: 50%;
+        box-shadow: inset 0 2px 5px rgba(0,0,0,.2);
+        transition: .5s;
+    }
+
+    .payswitch:checked:before{
+        left: 29.5px;
+    }
+    .basic label i{
+        color: #ffd300;
+    }
+    .premium label i{
+        color: #007bff;
+    }
+    .unlimited label i{
+        color: green;
+    }
+    .tags-list{
+        height: 15%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 10px;
+    }
+    .tags-list span{
+        font-weight: bold;
+        margin: 5px;
+    }
+    .tags-ul {
+        display: flex;
+    }
+    .tags-ul .tag-item{
+        height: 100%;
+        background-color: #111111;
+        color: white;
+        border-radius: 5px;
+    }
+
+    .track-tags{
+        font-size: .75rem;
+    }
+
+    .track-tags span {
+        color: white;
+        background-color: #908887;
+        padding: 3px 7px;
+        margin: 0px 3px;
+        border-radius: 5px;
+    }
+
+
+
+    .posting-beat{
+        position: absolute;
+        top: 49%;
+        left: 43%;
+    }
+    .loader {
+        width: 80px;
+        height: 20px;
+    }
+    .loader div {
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: orangered;
+        animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+    .loader div:nth-child(1) {
+        left: 8px;
+        animation: lds-ellipsis1 0.6s infinite;
+    }
+    .loader div:nth-child(2) {
+        left: 8px;
+        animation: lds-ellipsis2 0.6s infinite;
+    }
+    .loader div:nth-child(3) {
+        left: 32px;
+        animation: lds-ellipsis2 0.6s infinite;
+    }
+    .loader div:nth-child(4) {
+        left: 56px;
+        animation: lds-ellipsis3 0.6s infinite;
+    }
+    @keyframes lds-ellipsis1 {
+        0% {
+            transform: scale(0);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    @keyframes lds-ellipsis3 {
+        0% {
+            transform: scale(1);
+        }
+        100% {
+            transform: scale(0);
+        }
+    }
+    @keyframes lds-ellipsis2 {
+        0% {
+            transform: translate(0, 0);
+        }
+        100% {
+            transform: translate(24px, 0);
+        }
+    }
+
+
+
+    .content-link input , .beat-title input{
+        width: 100%;
+    }
+    .link-n-title{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .add-beat-body{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        min-height:60vh;
+
+    }
+
+    .beat-cover{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .beat-title{
+
+    }
+
+    .beat-head{
+        min-height: 85%;
+        width: 100%;
+    }
+    .withmb{
+        margin-bottom: 30px;
+    }
+
+
+    .beat-item img{
+        height: 10%;
+        width: 10%;
+
+        object-fit: contain;
+    }
+
 
 
 </style>

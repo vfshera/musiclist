@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\MpesaDonation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Safaricom\Mpesa\Mpesa;
 
 class PaymentsController extends Controller
@@ -11,11 +13,11 @@ class PaymentsController extends Controller
 
     public function stkpush(Request $request)
     {
-       $link = '';
+       $link = 'https://56dcc7b4eee9.ngrok.io';
 
         $details = $request->validate([
             'phone' => 'required|string',
-            'amount' => 'required|string',
+//            'amount' => 'required|string',
             'description' => 'required|string'
         ]);
 
@@ -24,7 +26,8 @@ class PaymentsController extends Controller
         $BusinessShortCode = env('MPESA_TILL_NUMBER');
         $LipaNaMpesaPasskey = env('MPESA_PASSKEY');
         $TransactionType = 'CustomerPayBillOnline';
-        $Amount = $details['amount'];
+        $Amount = 1;
+//        $Amount = $details['amount'];
         $PartyA = $details['phone'];
         $PartyB = env('MPESA_TILL_NUMBER');
         $PhoneNumber = $details['phone'];
@@ -61,8 +64,8 @@ class PaymentsController extends Controller
         $mpesa = new Mpesa();
         $ShortCode = env('MPESA_TILL_NUMBER');
         $CommandID = 'CustomerPayBillOnline';
-        $Amount = 10000;
-        $Msisdn = 254708374149;
+        $Amount = 1;
+        $Msisdn = 254700080373;
         $BillRefNumber = 'account';
 
         $b2bTransaction = $mpesa->c2b($ShortCode, $CommandID, $Amount, $Msisdn, $BillRefNumber);
@@ -87,9 +90,9 @@ class PaymentsController extends Controller
         // $mpesa_response="sample";
 
 
-        Storage::put('confirm.txt', $callbackData);
+        Storage::put('mpesa/confirm.txt', $callbackData);
         $callbackData = $mpesa->finishTransaction();
-        Storage::put('finish.txt', $callbackData);
+        Storage::put('mpesa/finish.txt', $callbackData);
 
         echo $resp;
     }
@@ -109,7 +112,7 @@ class PaymentsController extends Controller
         $mpesa_response = file_get_contents("php://input");
         // $mpesa_response="sample";
 
-        Storage::put('validate.txt', $callbackData);
+        Storage::put('mpesa/validate.txt', $callbackData);
 
 
         echo $resp;
@@ -125,7 +128,23 @@ class PaymentsController extends Controller
         $mpesa = new Mpesa();
 
         $callbackData = $mpesa->getDataFromCallback();
-        dd($callbackData);
+
+        $donation = new MpesaDonation();
+
+         $donation->transaction_type =  $callbackData->TransactionType;
+         $donation->trans_id =  $callbackData->TransID;
+         $donation->trans_time =  $callbackData->TransTime;
+         $donation->trans_amount =  $callbackData->TransAmount;
+         $donation->business_short_code =  $callbackData->BusinessShortCode;
+         $donation->bill_ref_number =  $callbackData->BillRefNumber;
+         $donation->org_account_balance =  $callbackData->OrgAccountBalance;
+         $donation->msisdn =  $callbackData->MSISDN;
+         $donation->first_name =  $callbackData->FirstName;
+         $donation->middle_name =  $callbackData->MiddleName;
+         $donation->last_name =  $callbackData->LastName;
+
+         $donation->save();
+
     }
     /**
      * The register url is here
@@ -160,7 +179,7 @@ class PaymentsController extends Controller
 
         $curl_post_data = array(
             //Fill in the request parameters with valid values
-            'ShortCode' => env('MPESA_SANDBOX_TILL_NUMBER'),
+            'ShortCode' => env('MPESA_TILL_NUMBER'),
             'ResponseType' => 'Confirmed',
             'ConfirmationURL' => $link.'/confirm',
             'ValidationURL' => $link.'/validate'

@@ -424,9 +424,6 @@
                 })
 
             },
-            getBeatZip(e){
-                this.beat = e.target.files[0];
-            },
             getBeatCover(e){
                 this.cover = e.target.files[0];
             },

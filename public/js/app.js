@@ -2232,6 +2232,97 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Beat',
@@ -2243,19 +2334,43 @@ __webpack_require__.r(__webpack_exports__);
       beat: null,
       isPosting: false,
       isProcessing: true,
+      tag: '',
+      tags: [],
       editedBeat: {
-        beat: null,
         title: '',
-        about: '',
         tags: [],
-        tag: '',
-        price: '',
+        bpmkey: '',
+        basic: '',
+        premium: '',
+        unlimited: '',
+        isPaid: true,
         cover: null,
         sample: null
       }
     };
   },
   methods: {
+    setBeatValue: function setBeatValue(e) {
+      this.editedBeat.isPaid = e.target.checked;
+    },
+    addTag: function addTag() {
+      if (this.tag && !this.tags.includes(this.tag)) {
+        if (this.tags.length < 5) {
+          this.tags.push(this.tag);
+          this.tag = '';
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Max Tags Limit Reached!'
+          });
+        }
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Tag Already Exists!'
+        });
+      }
+    },
     validate: function validate() {
       if (this.editedBeat.beat != null && this.editedBeat.title != null && this.editedBeat.about != null && this.editedBeat.cover != null && this.editedBeat.sample != null) {
         return true;
@@ -2264,15 +2379,15 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     resetBeat: function resetBeat() {
-      this.editedBeat.beat = null;
       this.editedBeat.title = '';
-      this.editedBeat.type = '';
-      this.editedBeat.about = '';
       this.editedBeat.cover = null;
       this.editedBeat.sample = null;
-    },
-    getBeatZip: function getBeatZip(e) {
-      this.editedBeat.beat = e.target.files[0];
+      this.tags = [];
+      this.editedBeat.bpmkey = '';
+      this.editedBeat.basic = '';
+      this.editedBeat.premium = '';
+      this.editedBeat.unlimited = '';
+      this.editedBeat.isPaid = true;
     },
     getBeatCover: function getBeatCover(e) {
       this.editedBeat.cover = e.target.files[0];
@@ -2327,10 +2442,13 @@ __webpack_require__.r(__webpack_exports__);
         var fd = new FormData();
         fd.append('image', this.editedBeat.cover);
         fd.append('title', this.editedBeat.title);
-        fd.append('type', this.editedBeat.type);
         fd.append('sample', this.editedBeat.sample);
-        fd.append('beat', this.editedBeat.beat);
-        fd.append('about', this.editedBeat.about);
+        fd.append('basic', this.editedBeat.basic);
+        fd.append('bpmkey', this.editedBeat.bpmkey);
+        fd.append('premium', this.editedBeat.premium);
+        fd.append('unlimited', this.editedBeat.unlimited);
+        fd.append('ispaid', this.editedBeat.isPaid);
+        fd.append('tags', this.tags);
         axios.post('/updateBeat/' + this.editedBeat.id, fd, {
           headers: {
             'Content-Type': 'multipart/form-data'
@@ -2456,6 +2574,9 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.getters.getBeatLicenses.filter(function (lice) {
         return lice.code.match('UNL');
       });
+    },
+    setTags: function setTags() {
+      return this.tags;
     }
   },
   mounted: function mounted() {
@@ -2882,9 +3003,6 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log(err);
       });
-    },
-    getBeatZip: function getBeatZip(e) {
-      this.beat = e.target.files[0];
     },
     getBeatCover: function getBeatCover(e) {
       this.cover = e.target.files[0];
@@ -13944,7 +14062,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.beat-license[data-v-1a8e80be]{\n    border-top: 2px #11111111 solid;\n    padding: 15px 0px;\n    margin-top: 10px;\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n}\n.bronze[data-v-1a8e80be], .silver[data-v-1a8e80be], .gold[data-v-1a8e80be]{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    color: white;\n    font-weight: bold;\n    height: 50px;\n    min-width: 100px;\n    border-radius: 10px;\n    padding: 20px 30px;\n}\n.bronze[data-v-1a8e80be]{\n    background-color: #905923;\n}\n.silver[data-v-1a8e80be]{\n    background-color: #9a9a9a;\n}\n.gold[data-v-1a8e80be]{\n    background-color: #b39700;\n}\n.beat-header[data-v-1a8e80be]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-bottom: 15px;\n}\n.beat[data-v-1a8e80be]{\n    display: flex;\n    flex-direction: column;\n    min-height: 50vh;\n    background: white;\n    border-radius: 10px;\n    width:99.4%;\n    margin-bottom: 30vh;\n}\n.beat-cover-info[data-v-1a8e80be]{\n    display: flex;\n    justify-content: space-between;\n}\n.beat-cover[data-v-1a8e80be]{\n}\n.beat-info[data-v-1a8e80be]{\n    min-width: 49%;\n    max-width: 50%;\n}\n.beat-container[data-v-1a8e80be]{\n    height: 100%;\n    width: 100%;\n    display: flex;\n    justify-content: center;\n}\n.loader[data-v-1a8e80be] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-1a8e80be] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-1a8e80be]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis1-data-v-1a8e80be 0.6s infinite;\n}\n.loader div[data-v-1a8e80be]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n}\n.loader div[data-v-1a8e80be]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n}\n.loader div[data-v-1a8e80be]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis3-data-v-1a8e80be 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-1a8e80be {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-1a8e80be {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-1a8e80be {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-1a8e80be {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-1a8e80be {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-1a8e80be {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n\n\n/*endloader*/\n.beat-title[data-v-1a8e80be]{\n    min-width: 85%;\n    height: 60%;\n}\n.back-btn[data-v-1a8e80be]{\n    width: 45px;\n    height: 40px;\n    margin: .5rem !important;\n    color: #111111;\n    transition: transform .3s ease-in-out;\n}\n.back-btn[data-v-1a8e80be]:hover{\n    transform: scale(1.5);\n}\n.edit-beat[data-v-1a8e80be]{\n    width: 40px;\n    height: 40px;\n    color: #007bff;\n    transition: transform .3s ease-in-out;\n}\n.edit-beat[data-v-1a8e80be]:hover{\n    transform: scale(1.5);\n}\n.delete-beat[data-v-1a8e80be]{\n    margin-left: 10px;\n    width: 40px;\n    height: 40px;\n    color: red;\n    transition: transform .3s ease-in-out;\n}\n.delete-beat[data-v-1a8e80be]:hover{\n    transform: scale(1.5);\n}\n\n\n", ""]);
+exports.push([module.i, "\n.beat-license[data-v-1a8e80be]{\n    border-top: 2px #11111111 solid;\n    padding: 15px 0px;\n    margin-top: 10px;\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n}\n.bronze[data-v-1a8e80be], .silver[data-v-1a8e80be], .gold[data-v-1a8e80be]{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    color: white;\n    font-weight: bold;\n    height: 50px;\n    min-width: 100px;\n    border-radius: 10px;\n    padding: 20px 30px;\n}\n.bronze[data-v-1a8e80be]{\n    background-color: #905923;\n}\n.silver[data-v-1a8e80be]{\n    background-color: #9a9a9a;\n}\n.gold[data-v-1a8e80be]{\n    background-color: #b39700;\n}\n.beat-header[data-v-1a8e80be]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-bottom: 15px;\n}\n.beat[data-v-1a8e80be]{\n    display: flex;\n    flex-direction: column;\n    min-height: 50vh;\n    background: white;\n    border-radius: 10px;\n    width:99.4%;\n    margin-bottom: 30vh;\n}\n.beat-cover-info[data-v-1a8e80be]{\n    display: flex;\n    justify-content: space-between;\n}\n.beat-cover[data-v-1a8e80be]{\n}\n.beat-info[data-v-1a8e80be]{\n    min-width: 49%;\n    max-width: 50%;\n}\n.beat-container[data-v-1a8e80be]{\n    height: 100%;\n    width: 100%;\n    display: flex;\n    justify-content: center;\n}\n.loader[data-v-1a8e80be] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-1a8e80be] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-1a8e80be]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis1-data-v-1a8e80be 0.6s infinite;\n}\n.loader div[data-v-1a8e80be]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n}\n.loader div[data-v-1a8e80be]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n}\n.loader div[data-v-1a8e80be]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis3-data-v-1a8e80be 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-1a8e80be {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-1a8e80be {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-1a8e80be {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-1a8e80be {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-1a8e80be {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-1a8e80be {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n\n\n/*endloader*/\n.beat-title[data-v-1a8e80be]{\n    min-width: 85%;\n    height: 60%;\n}\n.back-btn[data-v-1a8e80be]{\n    width: 45px;\n    height: 40px;\n    margin: .5rem !important;\n    color: #111111;\n    transition: transform .3s ease-in-out;\n}\n.back-btn[data-v-1a8e80be]:hover{\n    transform: scale(1.5);\n}\n.edit-beat[data-v-1a8e80be]{\n    width: 40px;\n    height: 40px;\n    color: #007bff;\n    transition: transform .3s ease-in-out;\n}\n.edit-beat[data-v-1a8e80be]:hover{\n    transform: scale(1.5);\n}\n.delete-beat[data-v-1a8e80be]{\n    margin-left: 10px;\n    width: 40px;\n    height: 40px;\n    color: red;\n    transition: transform .3s ease-in-out;\n}\n.delete-beat[data-v-1a8e80be]:hover{\n    transform: scale(1.5);\n}\n\n\n\n/*//extraaa*/\n.payment[data-v-1a8e80be]{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n.payswitch[data-v-1a8e80be]{\n    position: relative;\n    height:20px;\n    width:50px;\n    -webkit-appearance: none;\n    background:#c6c6c6;\n    outline:none;\n    border-radius: 10px;\n    box-shadow:inset 0 0 5px rgba(0,0,0,.2);\n}\n.payswitch[data-v-1a8e80be]:checked{\n    background:#03a9f4;\n}\n.payswitch[data-v-1a8e80be]:before{\n    content: \"\";\n    position: absolute;\n    top:.25px;\n    left: .5px;\n    height: 19.5px;\n    width:19.5px;\n    background-color: white;\n    border-radius: 50%;\n    box-shadow: inset 0 2px 5px rgba(0,0,0,.2);\n    transition: .5s;\n}\n.payswitch[data-v-1a8e80be]:checked:before{\n    left: 29.5px;\n}\n.basic label i[data-v-1a8e80be]{\n    color: #ffd300;\n}\n.premium label i[data-v-1a8e80be]{\n    color: #007bff;\n}\n.unlimited label i[data-v-1a8e80be]{\n    color: green;\n}\n.tags-list[data-v-1a8e80be]{\n    height: 15%;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    margin-top: 10px;\n}\n.tags-list span[data-v-1a8e80be]{\n    font-weight: bold;\n    margin: 5px;\n}\n.tags-ul[data-v-1a8e80be] {\n    display: flex;\n}\n.tags-ul .tag-item[data-v-1a8e80be]{\n    height: 100%;\n    background-color: #111111;\n    color: white;\n    border-radius: 5px;\n}\n.track-tags[data-v-1a8e80be]{\n    font-size: .75rem;\n}\n.track-tags span[data-v-1a8e80be] {\n    color: white;\n    background-color: #908887;\n    padding: 3px 7px;\n    margin: 0px 3px;\n    border-radius: 5px;\n}\n.posting-beat[data-v-1a8e80be]{\n    position: absolute;\n    top: 49%;\n    left: 43%;\n}\n.loader[data-v-1a8e80be] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-1a8e80be] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-1a8e80be]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis1-data-v-1a8e80be 0.6s infinite;\n}\n.loader div[data-v-1a8e80be]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n}\n.loader div[data-v-1a8e80be]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis2-data-v-1a8e80be 0.6s infinite;\n}\n.loader div[data-v-1a8e80be]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-1a8e80be 0.6s infinite;\n            animation: lds-ellipsis3-data-v-1a8e80be 0.6s infinite;\n}\n@keyframes lds-ellipsis1-data-v-1a8e80be {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis3-data-v-1a8e80be {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis2-data-v-1a8e80be {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n.content-link input[data-v-1a8e80be], .beat-title input[data-v-1a8e80be]{\n    width: 100%;\n}\n.link-n-title[data-v-1a8e80be]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n}\n.add-beat-body[data-v-1a8e80be]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    min-height:60vh;\n}\n.beat-cover[data-v-1a8e80be]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: flex-start;\n}\n.beat-title[data-v-1a8e80be]{\n}\n.beat-head[data-v-1a8e80be]{\n    min-height: 85%;\n    width: 100%;\n}\n.withmb[data-v-1a8e80be]{\n    margin-bottom: 30px;\n}\n.beat-item img[data-v-1a8e80be]{\n    height: 10%;\n    width: 10%;\n\n    -o-object-fit: contain;\n\n       object-fit: contain;\n}\n\n\n\n", ""]);
 
 // exports
 
@@ -62667,10 +62785,476 @@ var render = function() {
           ])
         ])
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "EditBeatModal",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "EditBeatModalTitle",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered modal-lg",
+            attrs: { role: "document" }
+          },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _vm.isPosting
+                  ? _c("div", { staticClass: "posting-beat" }, [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("h6", [_vm._v("Posting...")])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("div", { staticClass: "add-beat-body px-1 " }, [
+                  _c("div", { staticClass: "row beat-head " }, [
+                    _c("div", { staticClass: "cover-key-tags col-md-6" }, [
+                      _c("div", { staticClass: "cover withmb" }, [
+                        _c("label", { attrs: { for: "beat-cover" } }, [
+                          _vm._v("Beat Cover")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "form-control mt-2",
+                          attrs: {
+                            id: "beat-cover",
+                            required: "",
+                            type: "file"
+                          },
+                          on: { change: _vm.getBeatCover }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "content-link withmb" }, [
+                        _c("label", { attrs: { for: "sample" } }, [
+                          _vm._v("Sample Audio")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "form-control mt-2",
+                          attrs: { id: "sample", required: "", type: "file" },
+                          on: { change: _vm.getBeatSample }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "zip withmb" }, [
+                        _c("label", { attrs: { for: "beat-key" } }, [
+                          _vm._v("BPM , Key")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editedBeat.bpmkey,
+                              expression: "editedBeat.bpmkey"
+                            }
+                          ],
+                          staticClass: "form-control mt-2",
+                          attrs: {
+                            id: "beat-key",
+                            required: "",
+                            type: "text",
+                            placeholder: "As 96.0 , C# Major ...."
+                          },
+                          domProps: { value: _vm.editedBeat.bpmkey },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.editedBeat,
+                                "bpmkey",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "tags " }, [
+                        _c("label", { attrs: { for: "beat-tags" } }, [
+                          _vm._v("Beat Tags")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model.trim",
+                              value: _vm.tag,
+                              expression: "tag",
+                              modifiers: { trim: true }
+                            }
+                          ],
+                          staticClass: "form-control mt-2",
+                          attrs: {
+                            id: "beat-tags",
+                            required: "",
+                            type: "text",
+                            placeholder: "Afrobeat , Gengetone , Hip Hop ...."
+                          },
+                          domProps: { value: _vm.tag },
+                          on: {
+                            keypress: function($event) {
+                              if (
+                                !$event.type.indexOf("key") &&
+                                _vm._k(
+                                  $event.keyCode,
+                                  "enter",
+                                  13,
+                                  $event.key,
+                                  "Enter"
+                                )
+                              ) {
+                                return null
+                              }
+                              $event.preventDefault()
+                              $event.stopPropagation()
+                              return _vm.addTag($event)
+                            },
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.tag = $event.target.value.trim()
+                            },
+                            blur: function($event) {
+                              return _vm.$forceUpdate()
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "link-n-title col-md-6 " }, [
+                      _c("div", { staticClass: "beat-title withmb" }, [
+                        _c("label", { attrs: { for: "title" } }, [
+                          _vm._v("Beat Title")
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editedBeat.title,
+                              expression: "editedBeat.title"
+                            }
+                          ],
+                          staticClass: "form-control mt-2",
+                          attrs: {
+                            type: "text",
+                            id: "title",
+                            required: "",
+                            name: "title",
+                            placeholder: "Beat title goes here ...."
+                          },
+                          domProps: { value: _vm.editedBeat.title },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.editedBeat,
+                                "title",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "basic withmb" }, [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editedBeat.basic,
+                              expression: "editedBeat.basic"
+                            }
+                          ],
+                          staticClass: "form-control mt-2",
+                          attrs: {
+                            id: "basic-link",
+                            required: "",
+                            type: "text",
+                            placeholder: "Link to Basic Beat"
+                          },
+                          domProps: { value: _vm.editedBeat.basic },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.editedBeat,
+                                "basic",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "premium withmb" }, [
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editedBeat.premium,
+                              expression: "editedBeat.premium"
+                            }
+                          ],
+                          staticClass: "form-control mt-2",
+                          attrs: {
+                            id: "premium-link",
+                            required: "",
+                            type: "text",
+                            placeholder: "Link to Premium Beat"
+                          },
+                          domProps: { value: _vm.editedBeat.premium },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.editedBeat,
+                                "premium",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "unlimited " }, [
+                        _vm._m(4),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.editedBeat.unlimited,
+                              expression: "editedBeat.unlimited"
+                            }
+                          ],
+                          staticClass: "form-control mt-2 ",
+                          attrs: {
+                            id: "unlimited-link",
+                            required: "",
+                            type: "text",
+                            placeholder: "Link to Unlimited Beat"
+                          },
+                          domProps: { value: _vm.editedBeat.unlimited },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.editedBeat,
+                                "unlimited",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      directives: [
+                        {
+                          name: "show",
+                          rawName: "v-show",
+                          value: _vm.tags.length > 0,
+                          expression: "tags.length > 0"
+                        }
+                      ],
+                      staticClass: "tags-list col-md-12 mt-3"
+                    },
+                    [
+                      _c("span", [_vm._v("TAGS ")]),
+                      _vm._v(" "),
+                      _c(
+                        "ul",
+                        { staticClass: "tags-ul" },
+                        _vm._l(_vm.setTags, function(tag, index) {
+                          return _c(
+                            "li",
+                            { key: index, staticClass: "tag-item px-2 mx-1" },
+                            [
+                              _c("span", [_vm._v(_vm._s(tag))]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  staticStyle: { cursor: "pointer" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.tags.splice(index, 1)
+                                    }
+                                  }
+                                },
+                                [_vm._v("×")]
+                              )
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "payment mt-2" }, [
+                    _c("input", {
+                      staticClass: "payswitch",
+                      attrs: { type: "checkbox" },
+                      domProps: { checked: _vm.isPaid },
+                      on: { change: _vm.setBeatValue }
+                    }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "" } }, [
+                      _vm._v(
+                        _vm._s(_vm.isPaid ? "PAID BEAT" : "FREE BEAT") + " "
+                      )
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Cancel")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button" },
+                    on: { click: _vm.updateBeat }
+                  },
+                  [_vm._v("Post")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "h4",
+        {
+          staticClass: "modal-title",
+          staticStyle: { display: "inline-block" },
+          attrs: { id: "addBeatModalLongTitle" }
+        },
+        [_vm._v("Edit Beat")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "loader" }, [
+      _c("div"),
+      _c("div"),
+      _c("div"),
+      _c("div")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "basic-link " } }, [
+      _vm._v("MP3 LINK\n                                        "),
+      _c("i", { staticClass: "fa fa-usd", attrs: { "aria-hidden": "true" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "premium-link " } }, [
+      _vm._v("MP3 + WAV LINK\n                                        "),
+      _c("i", { staticClass: "fa fa-usd", attrs: { "aria-hidden": "true" } }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fa fa-usd", attrs: { "aria-hidden": "true" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "unlimited-link " } }, [
+      _vm._v(
+        "MP3 + WAV + STEMS LINK\n                                        "
+      ),
+      _c("i", { staticClass: "fa fa-usd", attrs: { "aria-hidden": "true" } }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fa fa-usd", attrs: { "aria-hidden": "true" } }),
+      _vm._v(" "),
+      _c("i", { staticClass: "fa fa-usd", attrs: { "aria-hidden": "true" } })
+    ])
+  }
+]
 render._withStripped = true
 
 
