@@ -52,7 +52,7 @@
         </header>
     <div class=" mail-body ">
 
-        <h2>RE : {{ $subject ?? 'FORWARDED MAIL' }}</h2>
+        <h2>RE : DM - {{ $subject ?? 'FORWARDED MAIL' }}</h2>
         <p>{{ $msg ?? 'Laravel is a web application framework with expressive, elegant syntax. We’ve already laid the foundation — freeing you to create without sweating the small things.'}}</p>
         <br><br>
         <h4>From </h4>

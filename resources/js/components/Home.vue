@@ -6,50 +6,23 @@
 
 
 
-            <div class="promo" v-show="promo == 0 && beats.length > 0">
+            <div class="promo" v-show="promo != null">
                   <div class="promo-img">
-                      <img class="promo-cover" height="350" :src="beats[0].cover" :alt="beats[0].title.slice(0,10)+' Beat Cover' " >
+                      <img class="promo-cover" height="350" :src="promo.image" :alt="promo.title.slice(0,10)" >
                   </div>
                   <div class="promo-about">
-                      <div class="promo-title">{{ beats[0].title }}</div>
-                      <div class="promo-bpm"><strong>BPM & KEY :  </strong>{{ beats[0].bpmkey }}</div>
-                      <div class="promo-tags ">
-                          <strong>TAGS :  </strong>
-                           <span  v-for="tag in beats[0].tags.split(',')">
-                                #{{ tag }}
-                            </span>
-                      </div>
+                      <div class="promo-title">{{ promo.title }}</div>
+                      <div class="promo-bpm" v-html="(promo.content.length > 200) ? promo.content.slice(0,200)+ '...' : promo.content"></div>
                       <div class="promo-cta">
-                          <div class="play-promo">
-                              <button @click="selectTrack(beats[0])">PLAY <i class="fas fa-play"></i></button>
-                          </div>
+
                           <div class="buy-promo" >
-                              <button class="btn-buy" v-show="beats[0].isPaid" @click="addToCart(beats[0])">BUY @ ${{ $store.getters.getBasicPrice.amount }}</button>
-                              <button class="btn-dwnl" v-show="!beats[0].isPaid" >DOWNLOAD</button>
+                              <button class="btn-dwnl" >READ</button>
                           </div>
                       </div>
                   </div>
               </div>
 
-            <div class="promo" v-show="promo == 1 && drumkits.length > 0">
-                <div class="promo-img">
-                    <img class="promo-cover" height="350" :src="drumkits[0].image" :alt="drumkits[0].title.slice(0 ,10)+' Kit Cover' " >
-                </div>
-                <div class="promo-about">
-                    <div class="promo-title">{{ drumkits[0].title }}</div>
-                    <div class="promo-type"><strong>TYPE :  </strong>{{ drumkits[0].type }}</div>
-                    <p class="promo-desc" v-html="drumkits[0].about"></p>
-                    <div class="promo-cta" >
-                        <div class="play-promo">
-                            <button @click.prevent="viewDrumkit(drumkits[0])" >PREVIEW</button>
-                        </div>
-                        <div class="buy-promo " >
-                            <button class="btn-buy" v-show="!drumkits[0].isFree" @click="checkDrumkit(drumkits[0])">BUY @ ${{ drumkits[0].price }}</button>
-                            <button class="btn-dwnl" v-show="drumkits[0].isFree" @click="checkDrumkit(drumkits[0])" >DOWNLOAD</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
 
         <div id="beats"  class=" my-5" >
@@ -175,54 +148,57 @@
         <div id="gallery" class="my-5">
             <h2 class="text-center">GALLERY</h2>
             <div class="galleryHolder">
-                <div class="box">
-                    <img loading="lazy" src="https://source.unsplash.com/1000x800">
-                </div>
-                <div class="box">
-                    <img loading="lazy" src="https://source.unsplash.com/1000x802">
-                </div>
-                <div class="box">
-                    <img loading="lazy" src="https://source.unsplash.com/1000x804">
-                </div>
-                <div class="box">
-                    <img loading="lazy" src="https://source.unsplash.com/1000x806">
-                </div>
-                <div class="box">
-                    <img loading="lazy" src="https://source.unsplash.com/1000x800">
-                </div>
-                <div class="box">
-                    <img loading="lazy" src="https://source.unsplash.com/1000x802">
-                </div>
-                <div class="box">
-                    <img loading="lazy" src="https://source.unsplash.com/1000x804">
-                </div>
-                <div class="box">
-                    <img loading="lazy" src="https://source.unsplash.com/1000x806">
-                </div>
-                <div class="imgBox">
-                    <img loading="lazy" src="https://source.unsplash.com/1000x800">
-                </div>
-                <div class="imgBox">
-                    <img loading="lazy" src="https://source.unsplash.com/1000x804">
-                </div>
-                <div class="imgBox">
-                    <img loading="lazy" src="https://source.unsplash.com/1000x806">
-                </div>
-                <div class="imgBox">
-                    <img loading="lazy" src="https://source.unsplash.com/1000x802">
-                </div>
-                <div class="imgBox">
-                    <img loading="lazy" src="https://source.unsplash.com/1000x806">
-                </div>
-                <div class="imgBox">
-                    <img loading="lazy" src="https://source.unsplash.com/1000x800">
-                </div>
-                <div class="imgBox">
-                    <img loading="lazy" src="https://source.unsplash.com/1000x802">
-                </div>
-                <div class="imgBox">
-                    <img loading="lazy" src="https://source.unsplash.com/1000x804">
-                </div>
+                <div class="box" v-for="gal in imgGallery" :key="gal.name">
+                    <img loading="lazy" :src="gal.img_url" :alt="gal.name.toLowerCase()">
+                 </div>
+ <!--                <div class="box">-->
+<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x800">-->
+<!--                </div>-->
+<!--                <div class="box">-->
+<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x802">-->
+<!--                </div>-->
+<!--                <div class="box">-->
+<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x804">-->
+<!--                </div>-->
+<!--                <div class="box">-->
+<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x806">-->
+<!--                </div>-->
+<!--                <div class="box">-->
+<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x800">-->
+<!--                </div>-->
+<!--                <div class="box">-->
+<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x802">-->
+<!--                </div>-->
+<!--                <div class="box">-->
+<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x804">-->
+<!--                </div>-->
+<!--                <div class="box">-->
+<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x806">-->
+<!--                </div>-->
+<!--                <div class="imgBox">-->
+<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x800">-->
+<!--                </div>-->
+<!--                <div class="imgBox">-->
+<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x804">-->
+<!--                </div>-->
+<!--                <div class="imgBox">-->
+<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x806">-->
+<!--                </div>-->
+<!--                <div class="imgBox">-->
+<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x802">-->
+<!--                </div>-->
+<!--                <div class="imgBox">-->
+<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x806">-->
+<!--                </div>-->
+<!--                <div class="imgBox">-->
+<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x800">-->
+<!--                </div>-->
+<!--                <div class="imgBox">-->
+<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x802">-->
+<!--                </div>-->
+<!--                <div class="imgBox">-->
+<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x804">-->
+<!--                </div>-->
             </div>
         </div>
 
@@ -298,6 +274,7 @@
                 beats: [],
                 blogs: [],
                 drumkits: [],
+                imgGallery: [],
                 newsletterMail:'',
                 contact:{
                     name: '',
@@ -452,7 +429,7 @@
             },
             subscribe(){
 
-                axios.post('/subscribe')
+                axios.post('/subscribe', { email : this.newsletterMail })
                     .then(response =>{
                         if(response.status == 201){
 
@@ -501,6 +478,15 @@
                 axios.get('/getBlogs')
                     .then(response =>{
                         this.blogs = response.data.data;
+
+                    })
+                    .catch(err =>{
+                        console.log(err);
+                    });
+
+                axios.get('/getGallery')
+                    .then(response =>{
+                        this.imgGallery = response.data.data;
 
                     })
                     .catch(err =>{
@@ -567,16 +553,9 @@
         },
         computed:{
             promo: function(){
-                if(this.drumkits.length == 0){
-                    return 0;
-                }
 
-                if(this.beats.length == 0){
-                    return 1
-                }
-
-                let num = Math.floor(Math.random() * 10)
-                return (num < 6) ? 0 : 1;
+                let index = Math.floor(Math.random() * this.blogs.length)
+                return this.blogs[index];
             }
         },
         mounted() {
@@ -1027,7 +1006,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
+        /*background-color: #2f4858;*/
         margin-top: 60px;
         background: linear-gradient(
             rgba(17, 17, 17, 0.75),

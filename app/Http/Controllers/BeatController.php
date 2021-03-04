@@ -20,7 +20,7 @@ class BeatController extends Controller
 
     public function getFrontBeats()
     {
-        $beats = Beat::orderBy('created_at', 'DESC')->paginate(10);
+        $beats = Beat::orderBy('created_at', 'DESC')->paginate(8);
 
         return BeatsResource::collection($beats)->response()->setStatusCode(Response::HTTP_OK);
     }
