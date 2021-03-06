@@ -107,7 +107,27 @@
             }
         },
         methods:{
+            loadPrices(){
+                axios.get('/prices')
+                    .then(response =>{
+                        this.$store.commit('setLicenses', response.data)
+                    })
+                    .catch(err =>{
+                        console.log(err);
+                    });
 
+                axios.get('/basic')
+                    .then(response =>{
+
+                        this.$store.commit('setBasicLicense', response.data)
+
+                    })
+                    .catch(err =>{
+                        console.log(err);
+                    });
+
+
+            },
             selectTrack(song){
 
                 this.$store.commit('setSong',song);
@@ -142,6 +162,8 @@
 
             },
             fetchBeats(beatsurl){
+                this.loadPrices();
+
                 let beats_url = beatsurl || '/frontBeats';
 
                 axios.get(beats_url)
