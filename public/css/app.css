@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);/*!
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,500&display=swap);@import url(https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap);@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap);/*!
  * Bootstrap v4.5.2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
@@ -21993,6 +21993,15 @@ figure figcaption p {
   .footer-base section span a {
     font-size: 10px !important;
   }
+
+  .promo-img {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .promo-img img {
+    width: 85% !important;
+  }
 }
 
 @media screen and (max-width: 1149px) {
@@ -22357,6 +22366,15 @@ figure figcaption p {
   .footer-base section span a {
     font-size: 10px !important;
   }
+
+  .promo-img {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .promo-img img {
+    width: 85% !important;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -22720,9 +22738,28 @@ figure figcaption p {
   .footer-base section span a {
     font-size: 10px !important;
   }
+
+  .promo-img {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .promo-img img {
+    width: 85% !important;
+  }
 }
 
 @media screen and (max-width: 760px) {
+  .promo-img {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .promo-img img {
+    width: 85% !important;
+    height: initial !important;
+  }
+
   .card__title {
     margin-top: 40px;
     margin-bottom: 2px;
@@ -23855,10 +23892,6 @@ figure figcaption p {
 
   #sign-up h4 {
     font-size: 0.9rem !important;
-  }
-
-  .c-formContainer {
-    margin-top: 10px !important;
   }
 
   .c-formContainer,

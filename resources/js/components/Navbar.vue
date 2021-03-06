@@ -21,7 +21,7 @@
              <!--   right navbar-->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item " >
-                        <a href="/#hero" class="nav-link"  :class="{ 'active-link':  ('/' == currPath)}">Home</a>
+                        <a href="/#hero" class="nav-link"  :class="{ 'active-link':  ('/' == currPath || '/#hero' == currPath)}">Home</a>
                     </li>
                     <li class="nav-item ">
                         <a href="/#beats" class="nav-link" :class="{ 'active-link': ('/#beats' == currPath) }">Beats</a>

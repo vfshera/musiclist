@@ -8,9 +8,9 @@ Route::get('/', function (){
     return view('welcome');
 });
 
-Route::get('/mailtest', function (){
-    return view('mails.contact.forward');
-});
+//Route::get('/mailtest', function (){
+//    return view('mails.contact.forward');
+//});
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/contact', 'ContactController@store');
@@ -22,7 +22,7 @@ Route::get('c2b', 'PaymentsController@c2b');
 Route::get('b2c','PaymentsController@b2c');
 Route::post('confirm','PaymentsController@confirmmpesa');
 Route::post('validate','PaymentsController@validatempesa');
-Route::post('/result','PaymentsController@result');
+Route::post('result','PaymentsController@result');
 Route::post('qtimeout','PaymentsController@qtimeout');
 Route::get('registerurl', 'PaymentsController@register_urls');
 Route::get('reverse','PaymentsController@reverse');

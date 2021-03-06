@@ -13,7 +13,7 @@ class PaymentsController extends Controller
 
     public function stkpush(Request $request)
     {
-       $link = 'https://56dcc7b4eee9.ngrok.io';
+      $link = 'https://5cfededf5c16.ngrok.io';
 
         $details = $request->validate([
             'phone' => 'required|string',

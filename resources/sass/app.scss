@@ -1,5 +1,8 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 // Variables
 @import 'variables';
@@ -424,6 +427,18 @@ figure figcaption p {
     .footer-base section span a{
         font-size: 10px !important;
     }
+
+
+
+    //promo
+    .promo-img{
+        display: flex !important;
+        justify-content: center !important;
+    }
+    .promo-img img{
+        width: 85% !important;
+    }
+    //promo end
 }
 
 
@@ -815,6 +830,16 @@ figure figcaption p {
     .footer-base section span a{
         font-size: 10px !important;
     }
+
+    //promo
+    .promo-img{
+        display: flex !important;
+        justify-content: center !important;
+    }
+    .promo-img img{
+        width: 85% !important;
+    }
+    //promo end
 }
 
 
@@ -1186,10 +1211,29 @@ figure figcaption p {
     .footer-base section span a{
         font-size: 10px !important;
     }
+
+    //promo
+    .promo-img{
+        display: flex !important;
+        justify-content: center !important;
+    }
+    .promo-img img{
+        width: 85% !important;
+    }
+    //promo end
 }
 
 @media screen and (max-width: 760px) {
-
+    //promo
+    .promo-img{
+        display: flex !important;
+        justify-content: center !important;
+    }
+    .promo-img img{
+        width: 85% !important;
+        height: initial !important;
+    }
+    //promo end
     .card__title {
         margin-top: 40px;
         margin-bottom: 2px;
@@ -2368,9 +2412,7 @@ figure figcaption p {
         font-size: .9rem !important;
     }
 
-    .c-formContainer{
-        margin-top: 10px !important;
-    }
+
     .c-formContainer,
     .c-form,
     .c-form__toggle {

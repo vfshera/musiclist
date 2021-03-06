@@ -1,18 +1,25 @@
 <template>
     <div id="home">
         <div class="lds-dual-ring" v-show="isProcessing"></div>
-        <div id="hero" >
+        <div id="hero" :style="{
+             background: `linear-gradient(rgba(17, 17, 17, 0.55), rgba(17, 17, 17, 0.55)), url(${promo.image})`,
+             backgroundPosition: 'center',
+             backgroundRepeat: 'no-repeat',
+             backgroundSize: 'cover',
+             backdropFilter: 'blur(28px)'
+
+        }">
                <span class="whatsnew">Whats New?</span>
 
 
 
             <div class="promo" v-show="promo != null">
                   <div class="promo-img">
-                      <img class="promo-cover" height="350" :src="promo.image" :alt="promo.title.slice(0,10)" >
+                      <img class="promo-cover" height="350" :src="promo.image" :alt="promo.title.toLowerCase().replace(' ','-')" >
                   </div>
                   <div class="promo-about">
                       <div class="promo-title">{{ promo.title }}</div>
-                      <div class="promo-bpm" v-html="(promo.content.length > 290) ? promo.content.slice(0,290)+ '.......' : promo.content"></div>
+                      <div class="promo-content" v-html="(promo.content.length > 290) ? promo.content.slice(0,290)+ '.......' : promo.content"></div>
                       <div class="promo-cta">
 
                           <div class="read-promo" >
@@ -227,6 +234,7 @@
                 </form>
             </div>
         </div>
+
 
         <div id="contact" class=" col-sm-11 col-xs-11 container my-5 ">
             <h2 class="text-center">CONTACT</h2>
@@ -583,6 +591,7 @@
     }
     /*promo*/
     .promo{
+
         display: flex;
         height: 100%;
         justify-content: space-between;
@@ -620,15 +629,14 @@
         font-size: 2.8rem;
         line-height: 1;
     }
-    .promo-bpm{
+    .promo-content{
         margin-top: 50px;
         color: white;
         font-size: .8rem;
     }
-    .promo-tags{
-        color: white;
-        font-size: .8rem;
-        margin-top: 35px;
+
+    .promo-content > p{
+        color: white !important;
     }
     .promo-tags span{
         color: white;
@@ -804,14 +812,7 @@
         transform: scale(1.05, 1.05);
     }
 
-    /*.card__info {*/
-    /*    z-index: 100;*/
-    /*    position: absolute;*/
-    /*    background-color: #fff;*/
-    /*    border-bottom-left-radius: 12px;*/
-    /*    border-bottom-right-radius: 12px;*/
-    /*    padding: 16px 24px 24px 24px;*/
-    /*}*/
+
 
     .card__info{
         z-index: 100 ;
@@ -839,17 +840,7 @@
         font-size: 1rem;
     }
 
-    /*.card__by {*/
-    /*    font-size: 12px;*/
-    /*    font-family: 'Raleway', sans-serif;*/
-    /*    font-weight: 500;*/
-    /*}*/
 
-    /*.card__author {*/
-    /*    font-weight: 600;*/
-    /*    text-decoration: none;*/
-    /*    color: #AD7D52;*/
-    /*}*/
 
     .blog-card :hover .card__img--hover {
         height: 100%;
@@ -995,10 +986,10 @@
         align-items: center;
         /*background-color: #2f4858;*/
         margin-top: 60px;
-        background: linear-gradient(
-            rgba(17, 17, 17, 0.75),
-            rgba(17, 17, 17, 0.75)
-        ), url("/storage/site-img/mixer.jpg");
+        /*background: linear-gradient(*/
+        /*    rgba(17, 17, 17, 0.75),*/
+        /*    rgba(17, 17, 17, 0.75)*/
+        /*), url("/storage/site-img/mixer.jpg");*/
         object-fit: contain;
         background-size: cover;
         background-position: center center;
@@ -1038,7 +1029,7 @@
     }
 
     #sign-up {
-        height: 170px;
+        height: 200px;
         background-color: #152238;
         color: white;
         display: flex;
@@ -1217,6 +1208,9 @@
 
 /*    notify newsletter */
 
+    .c-formContainer{
+        margin-top: 10px ;
+    }
    .c-checkbox {
        display: none;
    }
