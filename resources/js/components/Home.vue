@@ -164,6 +164,13 @@
                 <div class="box" v-for="gal in imgGallery" :key="gal.name">
                     <img loading="lazy" :src="gal.img_url" :alt="gal.name.toLowerCase()">
                  </div>
+
+                <div class="imgBox" v-for="gal in imgGallery" :key="gal.name" :style="{
+                        backgroundImage: `url(${gal.img_url})`,
+                        backgroundPosition: 'center',
+                        backgroundSize: 'cover'
+                    }">
+                 </div>
             </div>
         </div>
 
