@@ -40,13 +40,13 @@
                 copySuccess(){
                     Toast.fire({
                         icon :'success',
-                        text : 'Link Copied!'
+                        text : this.shared+' Link Copied!'
                     })
                 },
                 copyError(){
                     Toast.fire({
                         icon :'error',
-                        text : 'Link Not Copied!'
+                        text : this.shared+' Link Not Copied!'
                     })
                 }
         },

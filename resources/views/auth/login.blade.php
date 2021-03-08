@@ -22,16 +22,16 @@
 						Password
 					</span>
                 <div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
-						<span class="btn-show-pass">
+						<span class="btn-show-pass" onclick="togglePass('#passField')">
 							<i class="fa fa-eye"></i>
 						</span>
-                    <input class="input100" type="password"  name="password" required autocomplete="current-password">
+                    <input class="input100" type="password" id="passField" name="password" required autocomplete="current-password">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="flex-sb-m w-full p-b-48">
                     <div class="contact100-form-checkbox">
-                        <input class="input-checkbox100" id="ckb1" type="checkbox"  type="checkbox" name="remember"{{ old('remember') ? 'checked' : '' }}>
+                        <input class="input-checkbox100" id="ckb1" type="checkbox"  type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
                         <label class="label-checkbox100" for="ckb1">
                             Remember me
                         </label>
@@ -56,4 +56,23 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('extra-scripts')
+
+    <script>
+        function togglePass(elID){
+           const passInput = document.querySelector(elID)
+
+            if (passInput.type == 'text'){
+
+                passInput.type = 'password'
+
+            }else if (passInput.type == 'password'){
+
+                passInput.type = 'text'
+
+            }
+        }
+    </script>
 @endsection

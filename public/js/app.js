@@ -7395,13 +7395,13 @@ __webpack_require__.r(__webpack_exports__);
     copySuccess: function copySuccess() {
       Toast.fire({
         icon: 'success',
-        text: 'Link Copied!'
+        text: this.shared + ' Link Copied!'
       });
     },
     copyError: function copyError() {
       Toast.fire({
         icon: 'error',
-        text: 'Link Not Copied!'
+        text: this.shared + ' Link Not Copied!'
       });
     }
   },
