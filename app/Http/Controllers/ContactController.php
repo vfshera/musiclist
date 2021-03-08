@@ -35,7 +35,7 @@ class ContactController extends Controller
        if(Contact::create($contact)){
 
            Mail::to($contact['email'])->send(new ContactReceivedEmail($contact['name']));
-           Mail::to(env('SUPPORT_MAIL_ADDRESS'))->send(new ContactForwardEmail(json_decode(json_encode($contact))));
+           Mail::to(env('SUPPORT_MAIL_ADDRESS'))->cc(env('CC_MAIL_ADDRESS'))->send(new ContactForwardEmail(json_decode(json_encode($contact))));
 
            return response($contact['name'].' Your Message Was Sent!', Response::HTTP_CREATED);
 

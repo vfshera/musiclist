@@ -37,7 +37,7 @@ class ContactForwardEmail extends Mailable
      */
     public function build()
     {
-        return $this->from($this->email, $this->name)->subject($this->subject)->view('mails.contact.forward');
+        return $this->from($this->email, 'Contact Mail From '.$this->name)->subject($this->subject)->view('mails.contact.forward');
 
     }
 }
