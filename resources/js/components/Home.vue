@@ -8,10 +8,9 @@
              backgroundSize: 'cover',
              backdropFilter: 'blur(28px)'
 
-        }">
-               <span class="whatsnew">Whats New?</span>
-
-
+        }"
+        >
+           <span class="whatsnew">Whats New?</span>
 
             <div class="promo" v-show="promo != null">
                   <div class="promo-img">
@@ -19,11 +18,14 @@
                   </div>
                   <div class="promo-about">
                       <div class="promo-title">{{ promo.title }}</div>
+                      <div class="promo-category">
+                          <span>{{ promo.category }}</span>
+                      </div>
                       <div class="promo-content" v-html="(promo.content.length > 290) ? promo.content.slice(0,290)+ '.......' : promo.content"></div>
                       <div class="promo-cta">
 
                           <div class="read-promo" >
-                              <button class="btn-read" >READ</button>
+                              <button class="btn-read" @click.prevent="viewBlog(promo)">READ</button>
                           </div>
                       </div>
                   </div>
@@ -36,7 +38,7 @@
             <h2 class="text-center">BEATS</h2>
 
             <!--                mobile-->
-            <div class="mobile-track d-none" v-for=" track in beats">
+            <div class="mobile-track d-none" v-for=" (track , index) in beats" :key="index">
                 <div  class="m-cover-container" @click="selectTrack(track)">
                     <img class="m-cover" :src="track.cover" :alt="track.title.slice(0 ,10)+' Beat Cover'" >
                 </div>
@@ -47,11 +49,11 @@
                     <p class="m-free-price" v-if="!track.isPaid">
                         <span class="m-price-amount">FREE</span>
                     </p>
-                    <p class="m-price" v-if="track.isPaid">
+                    <p class="m-price" v-if="track.isPaid" @click="addToCart(track)">
                         <svg id="Layer_1" enable-background="new 0 0 480 480" height="22" viewBox="0 0 480 480" width="26" xmlns="http://www.w3.org/2000/svg">
                             <path fill="white" d="m372.052 480h-264.104c-23.46 0-41.906-20.152-39.845-43.516l24.353-276c1.835-20.799 18.964-36.484 39.845-36.484h24.699v-41c0-45.767 37.233-83 83-83s83 37.233 83 83v41h24.699c4.418 0 8 3.582 8 8s-3.582 8-8 8h-24.699v36c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-105c-4.418 0-8-3.582-8-8s3.582-8 8-8h105v-41c0-36.944-30.056-67-67-67s-67 30.056-67 67v93c0 4.418-3.582 8-8 8s-8-3.582-8-8v-36h-24.699c-12.528 0-22.806 9.411-23.907 21.891l-24.353 276c-1.241 14.062 9.807 26.109 23.907 26.109h264.104c14.117 0 25.147-12.064 23.907-26.109l-24.353-276c-.388-4.401 2.865-8.284 7.266-8.672 4.399-.385 8.284 2.865 8.672 7.266l24.353 276c2.062 23.369-16.39 43.515-39.845 43.515zm-178.052-69h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8zm0-40h-58c-4.418 0-8 3.582-8 8s3.582 8 8 8h58c4.418 0 8-3.582 8-8s-3.582-8-8-8z"/>
                         </svg>
-                        <span class="m-price-amount">{{ track.license }}</span>
+                        <span class="m-price-amount">${{ $store.getters.getBasicPrice.amount }}</span>
                     </p>
                 </div>
             </div>
@@ -68,7 +70,7 @@
                     <div id="price" class="col-md-2 text-center">LICENSE</div>
                 </div>
 
-                <div class="track row " v-for=" track in beats" >
+                <div class="track row " v-for="(track , index) in beats" :key="index">
                     <div  class="col-md-1 ">
                         <img class="cover" :src="track.cover" :alt="track.title.slice(0 ,10)+' Beat Cover' " @click="selectTrack(track)">
                     </div>
@@ -80,7 +82,7 @@
                         <span class="bpm font-italic">{{ track.bpmkey }}</span>
                     </div>
                     <div class="col-md-3 track-tags">
-                            <span  v-for="tag in track.tags.split(',')">
+                            <span  v-for="(tag , index) in track.tags.split(',')" :key="index" >
                                 #{{ tag }}
                             </span>
                     </div>
@@ -110,7 +112,7 @@
         <div id="drumkits" class="my-5">
             <h2 class="text-center ">DRUMKITS</h2>
             <div class="kits my-4" :class="{ 'd-flex justify-content-between': (drumkits.length > 2) ,  'd-flex justify-content-center': (drumkits.length == 1)}">
-                <a href="#" class="mobile-kit" v-for="drumkit in drumkits" @click.prevent="viewDrumkit(drumkit)" :class="{ 'm-2': (drumkits.length == 2) }">
+                <a href="#" class="mobile-kit" v-for="(drumkit , index) in drumkits" @click.prevent="viewDrumkit(drumkit)" :class="{ 'm-2': (drumkits.length == 2) }" :key="index">
                     <figure class="col-xs-12" :style="{ backgroundImage: `url(${ drumkit.image } )` }">
                         <div :class="{ 'free': (drumkit.isFree) , 'date': (!drumkit.isFree)}"><span class="card-date-day">{{ drumkit.dprice }}</span></div>
                         <figcaption>
@@ -121,7 +123,7 @@
                 </a>
             </div>
             <div id="more-kits" class=" d-flex justify-content-center container">
-                <router-link :to="{ path : '/soundkits' }"class="btn btn-primary  ">ALL SOUND KITS</router-link>
+                <router-link :to="{ path : '/soundkits' }" class="btn btn-primary  ">ALL SOUND KITS</router-link>
             </div>
         </div>
         <div id="front-blogs" class="my-5">
@@ -152,62 +154,21 @@
 
             <router-link :to="{ path: '/blog-posts' }" class="btn btn-primary mt-md-4 mt-sm-3 mt-xs-3 "> MORE STORIES</router-link>
         </div>
+
+
+
+
         <div id="gallery" class="my-5">
             <h2 class="text-center">GALLERY</h2>
             <div class="galleryHolder">
                 <div class="box" v-for="gal in imgGallery" :key="gal.name">
                     <img loading="lazy" :src="gal.img_url" :alt="gal.name.toLowerCase()">
                  </div>
- <!--                <div class="box">-->
-<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x800">-->
-<!--                </div>-->
-<!--                <div class="box">-->
-<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x802">-->
-<!--                </div>-->
-<!--                <div class="box">-->
-<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x804">-->
-<!--                </div>-->
-<!--                <div class="box">-->
-<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x806">-->
-<!--                </div>-->
-<!--                <div class="box">-->
-<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x800">-->
-<!--                </div>-->
-<!--                <div class="box">-->
-<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x802">-->
-<!--                </div>-->
-<!--                <div class="box">-->
-<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x804">-->
-<!--                </div>-->
-<!--                <div class="box">-->
-<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x806">-->
-<!--                </div>-->
-<!--                <div class="imgBox">-->
-<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x800">-->
-<!--                </div>-->
-<!--                <div class="imgBox">-->
-<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x804">-->
-<!--                </div>-->
-<!--                <div class="imgBox">-->
-<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x806">-->
-<!--                </div>-->
-<!--                <div class="imgBox">-->
-<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x802">-->
-<!--                </div>-->
-<!--                <div class="imgBox">-->
-<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x806">-->
-<!--                </div>-->
-<!--                <div class="imgBox">-->
-<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x800">-->
-<!--                </div>-->
-<!--                <div class="imgBox">-->
-<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x802">-->
-<!--                </div>-->
-<!--                <div class="imgBox">-->
-<!--                    <img loading="lazy" src="https://source.unsplash.com/1000x804">-->
-<!--                </div>-->
             </div>
         </div>
+
+
+
 
         <div id="bio" class="my-5 pt-2">
             <h2 class="text-center mt-2">BIO</h2>
@@ -626,25 +587,25 @@
 
     .promo-title{
         color: white;
-        font-size: 2.8rem;
+        font-size: 2.6rem;
         line-height: 1;
     }
     .promo-content{
-        margin-top: 50px;
+        margin-top: 30px;
         color: white;
         font-size: .8rem;
     }
 
-    .promo-content > p{
-        color: white !important;
-    }
-    .promo-tags span{
+    .promo-content  p{
         color: white;
-        font-size: .8rem;
-        padding: 5px 10px;
-        margin: 0px 10px;
-        background: #cccccc55;
-        border-radius: 5px;
+    }
+    .promo-category span{
+        color: white;
+        font-size: .7rem;
+        padding: 5px 15px;
+        margin: 40px 0px 0px 0px;
+        background:#908887aa;
+        min-width: 40%;
     }
     .promo-cta{
         margin-top: 25px;
@@ -951,7 +912,7 @@
         width: 99%;
     }
     .price-amount{
-        font-size: 22px;
+        font-size: 20px;
     }
     #labels{
         margin-bottom: 12px;
