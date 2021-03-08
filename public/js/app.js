@@ -7384,6 +7384,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Share',
   props: ["title", "summary", "image", "shared"],
@@ -7391,8 +7392,17 @@ __webpack_require__.r(__webpack_exports__);
     return {};
   },
   methods: {
-    copyClip: function copyClip() {
-      alert("Copy To Clipboard!!");
+    copySuccess: function copySuccess() {
+      Toast.fire({
+        icon: 'success',
+        text: 'Link Copied!'
+      });
+    },
+    copyError: function copyError() {
+      Toast.fire({
+        icon: 'error',
+        text: 'Link Not Copied!'
+      });
     }
   },
   computed: {
@@ -14394,7 +14404,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*PROMO-AREA*/\n.whatsnew[data-v-f2b6376c]{\n        color: white;\n        display: flex;\n        align-content: center;\n        margin-top: 15px;\n        font-weight: lighter;\n        font-style: italic;\n        font-size: 1.5rem;\n}\n    /*promo*/\n.promo[data-v-f2b6376c]{\n\n        display: flex;\n        height: 100%;\n        justify-content: space-between;\n        align-items: center;\n\n        padding: 40px 200px;\n}\n.promo-img[data-v-f2b6376c]{\n        height: 100%;\n        width: 50%;\n}\n.promo-img img[data-v-f2b6376c]{\n        width: 100%;\n        background-size: cover;\n        background-position: center;\n        border-radius: 15px;\n}\n.promo-desc ~ *[data-v-f2b6376c]{\n        color: white;\n        font-size: .8rem;\n}\n.promo-about[data-v-f2b6376c]{\n        height: 100%;\n        width: 50%;\n\n        display: flex;\n        flex-direction: column;\n        padding: 5px 30px;\n}\n.promo-title[data-v-f2b6376c]{\n        color: white;\n        font-size: 2.6rem;\n        line-height: 1;\n}\n.promo-content[data-v-f2b6376c]{\n        margin-top: 30px;\n        color: white;\n        font-size: .8rem;\n}\n.promo-content  p[data-v-f2b6376c]{\n        color: white;\n}\n.promo-category span[data-v-f2b6376c]{\n        color: white;\n        font-size: .7rem;\n        padding: 5px 15px;\n        margin: 40px 0px 0px 0px;\n        background:#908887aa;\n        min-width: 40%;\n}\n.promo-cta[data-v-f2b6376c]{\n        margin-top: 25px;\n        color: white;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n}\n.read-promo[data-v-f2b6376c]{\n        width: 100%;\n}\n.read-promo button[data-v-f2b6376c]{\n        padding: 10px 25px;\n        font-weight: bolder;\n}\n.read-promo .btn-read[data-v-f2b6376c]{\n        background: white;\n        color: #111111;\n        width: 40%;\n        margin-left: auto;\n}\n\n    /*promo-END*/\n\n/*PROMO-AREA-END*/\n#beats h2[data-v-f2b6376c],#bio h2[data-v-f2b6376c], #drumkits h2[data-v-f2b6376c], #front-blogs h2[data-v-f2b6376c], #gallery h2[data-v-f2b6376c] {\n        font-family: \"Poppins\", 'Helvetica', sans-serif;\n        font-weight: 500 !important;\n}\n\n\n/*<!--    bio-->*/\n#bio[data-v-f2b6376c]{\n    display: flex;\n   flex-direction: column;\n    align-items: center;\n}\n.bio-info[data-v-f2b6376c]{\n    display: flex;\n    justify-content: space-between;\n    width: 80%;\n    padding: 2%;\n}\n.circle-img[data-v-f2b6376c]{\n    border-radius: 1000px;\n    border: rgba(189, 195, 199, .2) 10px solid;\n    box-shadow: 0 10px 30px 0px #11111144;\n    height: 300px;\n    width: 300px;\n}\n.bio-img[data-v-f2b6376c]{\n   max-width: 35%;\n}\n.bio-text[data-v-f2b6376c]{\n    display: flex;\n    align-items: center;\n    max-width: 65%;\n    text-align: justify;\n    text-justify: inter-word;\n}\n.bio-text p[data-v-f2b6376c]  {\n    font-size: 17px;\n    font-weight: 500;\n    color: #111111;\n    /*mix-blend-mode: darken;*/\n    text-shadow: 1px 1px ghostwhite;\n}\n\n\n/*end bio*/\n\n\n\n\n\n    /*BLOG CARDS*/\n.cards[data-v-f2b6376c] {\n        width: 100%;\n        display: flex;\n        display: -webkit-flex;\n        justify-content: center;\n        -webkit-justify-content: center;\n        max-width: 1200px;\n        flex-wrap: wrap;\n        -webkit-flex-wrap: wrap;\n}\n.card__like[data-v-f2b6376c] {\n        width: 18px;\n}\n.card__clock[data-v-f2b6376c] {\n        width: 15px;\n        vertical-align: middle;\n        fill: #AD7D52;\n}\n.card__time[data-v-f2b6376c] {\n        font-size: 12px;\n        color: #AD7D52;\n        vertical-align: middle;\n        margin-left: 5px;\n}\n.card__clock-info[data-v-f2b6376c] {\n        float: right;\n}\n.card__img[data-v-f2b6376c] {\n        visibility: hidden;\n        background-size: cover;\n        background-position: center;\n        background-repeat: no-repeat;\n        width: 100%;\n        height: 125px;\n        border-top-left-radius: 12px;\n        border-top-right-radius: 12px;\n}\n.card__info-hover[data-v-f2b6376c] {\n        position: absolute;\n        padding: 16px;\n        width: 100%;\n        opacity: 0;\n        top: 0;\n}\n.card__img--hover[data-v-f2b6376c] {\n        transition: 0.2s all ease-out;\n        background-size: cover;\n        background-position: center;\n        background-repeat: no-repeat;\n        width: 100%;\n        position: absolute;\n        height: 100%;\n        border-top-left-radius: 12px;\n        border-top-right-radius: 12px;\n        top: 0;\n}\n.blog-card[data-v-f2b6376c] {\n        transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);\n        background-color: #fff;\n        width: 20%;\n        position: relative;\n        margin: 8px;\n        border-radius: 12px;\n        overflow: hidden;\n        box-shadow: 0px 13px 10px -7px rgba(0, 0, 0,0.1);\n        height: 300px;\n}\n.blog-card[data-v-f2b6376c]:hover {\n        box-shadow: 0px 30px 18px -8px rgba(0, 0, 0,0.1);\n        transform: scale(1.05, 1.05);\n}\n.card__info[data-v-f2b6376c]{\n        z-index: 100 ;\n        position: absolute;\n        bottom: 0px;\n        background-color: #ffffffdd;\n        width: 100%;\n        padding: 10px 16px;\n        font-size: 1rem;\n}\n.card__category[data-v-f2b6376c] {\n        font-family: 'Raleway', sans-serif;\n        text-transform: uppercase;\n        font-size: 13px;\n        letter-spacing: 2px;\n        font-weight: 500;\n        color: #868686;\n}\n.card__title[data-v-f2b6376c] {\n        /*margin-top: 10px;*/\n        /*margin-bottom: 2px;*/\n        font-family: 'Roboto Slab', serif;\n        font-size: 1rem;\n}\n.blog-card :hover .card__img--hover[data-v-f2b6376c] {\n        height: 100%;\n        opacity: 0.9;\n}\n.blog-card :hover .card__info[data-v-f2b6376c] {\n        background-color: transparent;\n        position: relative;\n}\n.blog-card :hover .card__info-hover[data-v-f2b6376c] {\n        opacity: 1;\n}\n\n\n    /*END BLOG CARDS*/\n#contact form[data-v-f2b6376c]{\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n}\n.download-btn[data-v-f2b6376c]{\n       margin: 0 10px;\n}\n.share-btn[data-v-f2b6376c]{\n       margin: 0 10px;\n}\nsvg[data-v-f2b6376c]:hover{\n        transform: scale(1.08);\n        transition: 2ms ease-in;\n}\n.price[data-v-f2b6376c]{\n        background-color: orangered;\n        height: 40px;\n        width: 100px;\n        border-radius: 10px;\n        margin: auto;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        color: white;\n        font-weight: 300;\n}\n.m-title[data-v-f2b6376c]{\n\n        font-size: .8rem;\n}\n.title-container[data-v-f2b6376c]{\n        cursor: pointer;\n}\n.m-title-container[data-v-f2b6376c]{\n        padding: 0 5px;\n}\n.m-price[data-v-f2b6376c]{\n        background-color: orangered;\n        height: 40px;\n        width: 70px;\n        border-radius: 10px;\n        margin: auto;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        color: white;\n        font-weight: 300;\n        font-size: 14px !important;\n}\n.free-price[data-v-f2b6376c]{\n        background-color: #F4F3F177;\n        height: 40px;\n        width: 100px;\n        border-radius: 10px;\n        margin: auto;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        color: black;\n        font-weight: 500;\n}\n.m-free-price[data-v-f2b6376c]{\n        background-color: #F4F3F177;\n        height: 20px;\n        width: 50px;\n        border-radius: 10px;\n        margin: auto;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        color: black;\n        font-weight: 500;\n}\n.mobile-track[data-v-f2b6376c]{\n        margin-top: 5px;\n        display: flex;\n        flex-direction: row;\n        justify-content: space-between;\n        align-items: center;\n        border-bottom: 2px solid rgba(0,0,0,.1);\n        height: 60px;\n        width: 99%;\n}\n.price-amount[data-v-f2b6376c]{\n        font-size: 20px;\n}\n#labels[data-v-f2b6376c]{\n        margin-bottom: 12px;\n}\n.track[data-v-f2b6376c]{\n\n        margin-top: 5px;\n        display: flex;\n        align-items: center;\n        border-bottom: 2px solid rgba(0,0,0,.1);\n        height: 60px;\n}\n.cover[data-v-f2b6376c]{\n        height: 50px;\n        width: 50px;\n        cursor: pointer;\n}\n.m-cover[data-v-f2b6376c]{\n        height: 50px;\n        width: 50px;\n}\n#home[data-v-f2b6376c]{\n}\n#hero[data-v-f2b6376c] {\n        display: flex;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n        /*background-color: #2f4858;*/\n        margin-top: 60px;\n        /*background: linear-gradient(*/\n        /*    rgba(17, 17, 17, 0.75),*/\n        /*    rgba(17, 17, 17, 0.75)*/\n        /*), url(\"/storage/site-img/mixer.jpg\");*/\n        -o-object-fit: contain;\n           object-fit: contain;\n        background-size: cover;\n        background-position: center center;\n        height: 500px;\n        box-sizing: border-box;\n}\n#beats[data-v-f2b6376c] {\n}\n#drumkits[data-v-f2b6376c]{\n        margin-top: 100px !important;\n        display: flex;\n        justify-content: space-between;\n        flex-direction: column;\n        align-items: center;\n}\n#front-blogs[data-v-f2b6376c] {\n        margin-top: 100px !important;\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n}\n#bio[data-v-f2b6376c] {\n}\n#gallery[data-v-f2b6376c] {\n        margin-top: 100px !important;\n}\n.imgBox[data-v-f2b6376c]{\n        display: none;\n}\n#sign-up[data-v-f2b6376c] {\n        height: 200px;\n        background-color: #152238;\n        color: white;\n        display: flex;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n}\n#sign-up div[data-v-f2b6376c] {\n        display: flex;\n        justify-content: space-between;\n}\n#contact[data-v-f2b6376c] {\n        margin-top: 5px;\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n}\n\n\n/*    GALLERY*/\n.galleryHolder[data-v-f2b6376c] {\n        display: flex;\n        width: 100%;\n        padding: 2% 1%;\n        box-sizing: border-box;\n        height: 60vh;\n}\n.box[data-v-f2b6376c] {\n        flex: 1;\n        overflow: hidden;\n        transition: .5s;\n        margin: 0 2%;\n        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);\n        line-height: 0;\n}\n.box > img[data-v-f2b6376c] {\n        width: 200%;\n        height: 100%;\n        -o-object-fit: cover;\n        object-fit: cover;\n        transition: .5s;\n}\n.box[data-v-f2b6376c]:hover {\n        flex: 1 1 35%;\n}\n.box:hover > img[data-v-f2b6376c] {\n        width: 100%;\n        height: 100%;\n}\n\n    /*    END GALLERY*/\n\n/*    MATERIAL SEND BUTTON*/\n.pure-material-button-contained[data-v-f2b6376c] {\n        position: relative;\n        display: inline-block;\n        box-sizing: border-box;\n        border: none;\n        border-radius: 4px;\n        padding: 0 16px;\n        min-width: 84px;\n        height: 40px;\n        vertical-align: middle;\n        text-align: center;\n        text-overflow: ellipsis;\n        text-transform: uppercase;\n        color: rgb(255, 255, 255);\n        background-color: orangered;\n        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),\n        0 1px 5px 0 rgba(0, 0, 0, 0.12);\n        font-size: 18px;\n        font-weight: 700;\n        line-height: 36px;\n        overflow: hidden;\n        outline: none;\n        cursor: pointer;\n        transition: box-shadow 0.2s;\n}\n.pure-material-button-contained[data-v-f2b6376c]::-moz-focus-inner {\n        border: none;\n}\n\n    /* Overlay */\n.pure-material-button-contained[data-v-f2b6376c]::before {\n        content: \"\";\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        left: 0;\n        right: 0;\n        background-color: rgb( 255, 255, 255);\n        opacity: 0;\n        transition: opacity 0.2s;\n}\n\n    /* Ripple */\n.pure-material-button-contained[data-v-f2b6376c]::after {\n        content: \"\";\n        position: absolute;\n        left: 50%;\n        top: 50%;\n        border-radius: 50%;\n        padding: 50%;\n        width: 32px; /* Safari */\n        height: 32px; /* Safari */\n        background-color: rgb(255, 255, 255);\n        opacity: 0;\n        transform: translate(-50%, -50%) scale(1);\n        transition: opacity 1s, transform 0.5s;\n}\n\n    /* Hover, Focus */\n.pure-material-button-contained[data-v-f2b6376c]:hover,\n    .pure-material-button-contained[data-v-f2b6376c]:focus {\n        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),\n        0 1px 10px 0 rgba(0, 0, 0, 0.12);\n}\n.pure-material-button-contained[data-v-f2b6376c]:hover::before {\n        opacity: 0.08;\n}\n.pure-material-button-contained[data-v-f2b6376c]:focus::before {\n        opacity: 0.24;\n}\n.pure-material-button-contained[data-v-f2b6376c]:hover:focus::before {\n        opacity: 0.3;\n}\n\n    /* Active */\n.pure-material-button-contained[data-v-f2b6376c]:active {\n        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\n        0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\n}\n.pure-material-button-contained[data-v-f2b6376c]:active::after {\n        opacity: 0.32;\n        transform: translate(-50%, -50%) scale(0);\n        transition: transform 0s;\n}\n\n    /* Disabled */\n.pure-material-button-contained[data-v-f2b6376c]:disabled {\n        color: rgba( 0, 0, 0, 0.38);\n        background-color: rgba(0, 0, 0, 0.12);\n        box-shadow: none;\n        cursor: initial;\n}\n.pure-material-button-contained[data-v-f2b6376c]:disabled::before {\n        opacity: 0;\n}\n.pure-material-button-contained[data-v-f2b6376c]:disabled::after {\n        opacity: 0;\n}\n\n    /*    END MATERIAL SEND BUTTON*/\n\n\n\n\n\n\n/*    notify newsletter */\n.c-formContainer[data-v-f2b6376c]{\n        margin-top: 10px ;\n}\n.c-checkbox[data-v-f2b6376c] {\n       display: none;\n}\n.c-checkbox:checked + .c-formContainer .c-form[data-v-f2b6376c] {\n       width: 37.5em;\n}\n.c-checkbox:checked + .c-formContainer .c-form__toggle[data-v-f2b6376c] {\n       visibility: hidden;\n       opacity: 0;\n       transform: scale(0.7);\n}\n.c-checkbox:checked + .c-formContainer .c-form__input[data-v-f2b6376c],\n   .c-checkbox:checked + .c-formContainer .c-form__buttonLabel[data-v-f2b6376c] {\n       transition: 0.2s 0.1s;\n       visibility: visible;\n       opacity: 1;\n       transform: scale(1);\n}\n.c-checkbox:not(:checked) + .c-formContainer .c-form__input:required:valid ~ .c-form__toggle[data-v-f2b6376c]::before, .c-checkbox:checked + .c-formContainer .c-form__input:required:valid ~ .c-form__toggle[data-v-f2b6376c]::before {\n       content: 'Thank You! \\1F60A';\n}\n.c-checkbox:not(:checked) + .c-formContainer .c-form__input:required:valid ~ .c-form__toggle[data-v-f2b6376c] {\n       pointer-events: none;\n       cursor: default;\n}\n.c-formContainer[data-v-f2b6376c],\n   .c-form[data-v-f2b6376c],\n   .c-form__toggle[data-v-f2b6376c] {\n       width: 20em;\n       height: 4.25em;\n}\n.c-formContainer[data-v-f2b6376c] {\n       position: relative;\n       font-weight: 700;\n}\n.c-form[data-v-f2b6376c],\n   .c-form__toggle[data-v-f2b6376c] {\n       position: absolute;\n       border-radius: 6.25em;\n       background-color: #ffffff;\n       transition: 0.2s;\n}\n.c-form[data-v-f2b6376c] {\n       left: 50%;\n       transform: translateX(-50%);\n       padding: 0.625em;\n       box-sizing: border-box;\n       box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.3);\n       display: flex;\n       justify-content: center;\n}\n.c-form__toggle[data-v-f2b6376c] {\n       color: orangered;\n       top: 0;\n       cursor: pointer;\n       z-index: 1;\n       display: flex;\n       align-items: center;\n       justify-content: center;\n}\n.c-form__toggle[data-v-f2b6376c]::before {\n       font-size: 1.75em;\n       content: attr(data-title);\n}\n.c-form__input[data-v-f2b6376c],\n   .c-form__button[data-v-f2b6376c] {\n       font: inherit;\n       border: 0;\n       outline: 0;\n       border-radius: 5em;\n       box-sizing: border-box;\n}\n.c-form__input[data-v-f2b6376c],\n   .c-form__buttonLabel[data-v-f2b6376c] {\n       font-size: 1.75em;\n       opacity: 0;\n       visibility: hidden;\n       transform: scale(0.7);\n       transition: 0s;\n}\n.c-form__input[data-v-f2b6376c] {\n       color: #ff7b73;\n       height: 100%;\n       width: 100%;\n       padding: 0 0.714em;\n}\n.c-form__input[data-v-f2b6376c]::-moz-placeholder {\n       color: currentColor;\n}\n.c-form__input[data-v-f2b6376c]:-ms-input-placeholder {\n       color: currentColor;\n}\n.c-form__input[data-v-f2b6376c]::placeholder {\n       color: currentColor;\n}\n.c-form__input[data-v-f2b6376c]:required:valid {\n       color: #ff7b73;\n}\n.c-form__input:required:valid + .c-form__buttonLabel[data-v-f2b6376c] {\n       color: #ffffff;\n}\n.c-form__input:required:valid + .c-form__buttonLabel[data-v-f2b6376c]::before {\n       pointer-events: initial;\n}\n.c-form__buttonLabel[data-v-f2b6376c] {\n       color: #ffaea9;\n       height: 100%;\n       width: auto;\n}\n.c-form__buttonLabel[data-v-f2b6376c]::before {\n       content: '';\n       position: absolute;\n       width: 100%;\n       height: 100%;\n       pointer-events: none;\n       cursor: pointer;\n}\n.c-form__button[data-v-f2b6376c] {\n       color: white;\n       padding: 0;\n       height: 100%;\n       width: 5em;\n       background-color: orangered;\n}\n\n   /*    newsletter end*/\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/*PROMO-AREA*/\n.whatsnew[data-v-f2b6376c]{\n        color: white;\n        display: flex;\n        align-content: center;\n        margin-top: 15px;\n        font-weight: lighter;\n        font-style: italic;\n        font-size: 1.5rem;\n}\n    /*promo*/\n.promo[data-v-f2b6376c]{\n\n        display: flex;\n        height: 100%;\n        justify-content: space-between;\n        align-items: center;\n\n        padding: 40px 200px;\n}\n.promo-img[data-v-f2b6376c]{\n        height: 100%;\n        width: 50%;\n}\n.promo-img img[data-v-f2b6376c]{\n        width: 100%;\n        background-size: cover;\n        background-position: center;\n        border-radius: 15px;\n}\n.promo-desc ~ *[data-v-f2b6376c]{\n        color: white;\n        font-size: .8rem;\n}\n.promo-about[data-v-f2b6376c]{\n        height: 100%;\n        width: 50%;\n\n        display: flex;\n        flex-direction: column;\n        padding: 5px 30px;\n}\n.promo-title[data-v-f2b6376c]{\n        color: white;\n        font-size: 2.6rem;\n        line-height: 1;\n}\n.promo-content[data-v-f2b6376c]{\n        margin-top: 30px;\n        color: white;\n        font-size: .8rem;\n}\n.promo-content  p[data-v-f2b6376c]{\n        color: white;\n}\n.promo-category span[data-v-f2b6376c]{\n        color: white;\n        font-size: .7rem;\n        padding: 5px 15px;\n        margin: 40px 0px 0px 0px;\n        background:#908887aa;\n        min-width: 40%;\n}\n.promo-cta[data-v-f2b6376c]{\n        margin-top: 25px;\n        color: white;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n}\n.read-promo[data-v-f2b6376c]{\n        width: 100%;\n}\n.read-promo button[data-v-f2b6376c]{\n        padding: 10px 25px;\n        font-weight: bolder;\n}\n.read-promo .btn-read[data-v-f2b6376c]{\n        background: white;\n        color: #111111;\n        width: 40%;\n        margin-left: auto;\n}\n\n    /*promo-END*/\n\n/*PROMO-AREA-END*/\n#beats h2[data-v-f2b6376c],#bio h2[data-v-f2b6376c], #drumkits h2[data-v-f2b6376c], #front-blogs h2[data-v-f2b6376c], #gallery h2[data-v-f2b6376c] {\n        font-family: \"Poppins\", 'Helvetica', sans-serif;\n        font-weight: 500 !important;\n}\n\n\n/*<!--    bio-->*/\n#bio[data-v-f2b6376c]{\n    display: flex;\n   flex-direction: column;\n    align-items: center;\n}\n.bio-info[data-v-f2b6376c]{\n    display: flex;\n    justify-content: space-between;\n    width: 80%;\n    padding: 2%;\n}\n.circle-img[data-v-f2b6376c]{\n    border-radius: 1000px;\n    border: rgba(189, 195, 199, .2) 10px solid;\n    box-shadow: 0 10px 30px 0px #11111144;\n    height: 300px;\n    width: 300px;\n}\n.bio-img[data-v-f2b6376c]{\n   max-width: 35%;\n}\n.bio-text[data-v-f2b6376c]{\n    display: flex;\n    align-items: center;\n    max-width: 65%;\n    text-align: justify;\n    text-justify: inter-word;\n}\n.bio-text p[data-v-f2b6376c]{\n    font-size: 17px;\n    font-weight: 500;\n    color: #111111;\n    /*mix-blend-mode: darken;*/\n    text-shadow: 1px 1px ghostwhite;\n}\n\n\n/*end bio*/\n\n\n\n\n\n    /*BLOG CARDS*/\n.cards[data-v-f2b6376c] {\n        width: 100%;\n        display: flex;\n        display: -webkit-flex;\n        justify-content: center;\n        -webkit-justify-content: center;\n        max-width: 1200px;\n        flex-wrap: wrap;\n        -webkit-flex-wrap: wrap;\n}\n.card__like[data-v-f2b6376c] {\n        width: 18px;\n}\n.card__clock[data-v-f2b6376c] {\n        width: 15px;\n        vertical-align: middle;\n        fill: #AD7D52;\n}\n.card__time[data-v-f2b6376c] {\n        font-size: 12px;\n        color: #AD7D52;\n        vertical-align: middle;\n        margin-left: 5px;\n}\n.card__clock-info[data-v-f2b6376c] {\n        float: right;\n}\n.card__img[data-v-f2b6376c] {\n        visibility: hidden;\n        background-size: cover;\n        background-position: center;\n        background-repeat: no-repeat;\n        width: 100%;\n        height: 125px;\n        border-top-left-radius: 12px;\n        border-top-right-radius: 12px;\n}\n.card__info-hover[data-v-f2b6376c] {\n        position: absolute;\n        padding: 16px;\n        width: 100%;\n        opacity: 0;\n        top: 0;\n}\n.card__img--hover[data-v-f2b6376c] {\n        transition: 0.2s all ease-out;\n        background-size: cover;\n        background-position: center;\n        background-repeat: no-repeat;\n        width: 100%;\n        position: absolute;\n        height: 100%;\n        border-top-left-radius: 12px;\n        border-top-right-radius: 12px;\n        top: 0;\n}\n.blog-card[data-v-f2b6376c] {\n        transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);\n        background-color: #fff;\n        width: 20%;\n        position: relative;\n        margin: 8px;\n        border-radius: 12px;\n        overflow: hidden;\n        box-shadow: 0px 13px 10px -7px rgba(0, 0, 0,0.1);\n        height: 300px;\n}\n.blog-card[data-v-f2b6376c]:hover {\n        box-shadow: 0px 30px 18px -8px rgba(0, 0, 0,0.1);\n        transform: scale(1.05, 1.05);\n}\n.card__info[data-v-f2b6376c]{\n        z-index: 100 ;\n        position: absolute;\n        bottom: 0px;\n        background-color: #ffffffdd;\n        width: 100%;\n        padding: 10px 16px;\n        font-size: 1rem;\n}\n.card__category[data-v-f2b6376c] {\n        font-family: 'Raleway', sans-serif;\n        text-transform: uppercase;\n        font-size: 13px;\n        letter-spacing: 2px;\n        font-weight: 500;\n        color: #868686;\n}\n.card__title[data-v-f2b6376c] {\n        /*margin-top: 10px;*/\n        /*margin-bottom: 2px;*/\n        font-family: 'Roboto Slab', serif;\n        font-size: 1rem;\n}\n.blog-card :hover .card__img--hover[data-v-f2b6376c] {\n        height: 100%;\n        opacity: 0.9;\n}\n.blog-card :hover .card__info[data-v-f2b6376c] {\n        background-color: transparent;\n        position: relative;\n}\n.blog-card :hover .card__info-hover[data-v-f2b6376c] {\n        opacity: 1;\n}\n\n\n    /*END BLOG CARDS*/\n#contact form[data-v-f2b6376c]{\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n}\n.download-btn[data-v-f2b6376c]{\n       margin: 0 10px;\n}\n.share-btn[data-v-f2b6376c]{\n       margin: 0 10px;\n}\nsvg[data-v-f2b6376c]:hover{\n        transform: scale(1.08);\n        transition: 2ms ease-in;\n}\n.price[data-v-f2b6376c]{\n        background-color: orangered;\n        height: 40px;\n        width: 100px;\n        border-radius: 10px;\n        margin: auto;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        color: white;\n        font-weight: 300;\n}\n.m-title[data-v-f2b6376c]{\n\n        font-size: .8rem;\n}\n.title-container[data-v-f2b6376c]{\n        cursor: pointer;\n}\n.m-title-container[data-v-f2b6376c]{\n        padding: 0 5px;\n}\n.m-price[data-v-f2b6376c]{\n        background-color: orangered;\n        height: 40px;\n        width: 70px;\n        border-radius: 10px;\n        margin: auto;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        color: white;\n        font-weight: 300;\n        font-size: 14px !important;\n}\n.free-price[data-v-f2b6376c]{\n        background-color: #F4F3F177;\n        height: 40px;\n        width: 100px;\n        border-radius: 10px;\n        margin: auto;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        color: black;\n        font-weight: 500;\n}\n.m-free-price[data-v-f2b6376c]{\n        background-color: #F4F3F177;\n        height: 20px;\n        width: 50px;\n        border-radius: 10px;\n        margin: auto;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        color: black;\n        font-weight: 500;\n}\n.mobile-track[data-v-f2b6376c]{\n        margin-top: 5px;\n        display: flex;\n        flex-direction: row;\n        justify-content: space-between;\n        align-items: center;\n        border-bottom: 2px solid rgba(0,0,0,.1);\n        height: 60px;\n        width: 99%;\n}\n.price-amount[data-v-f2b6376c]{\n        font-size: 20px;\n}\n#labels[data-v-f2b6376c]{\n        margin-bottom: 12px;\n}\n.track[data-v-f2b6376c]{\n\n        margin-top: 5px;\n        display: flex;\n        align-items: center;\n        border-bottom: 2px solid rgba(0,0,0,.1);\n        height: 60px;\n}\n.cover[data-v-f2b6376c]{\n        height: 50px;\n        width: 50px;\n        cursor: pointer;\n}\n.m-cover[data-v-f2b6376c]{\n        height: 50px;\n        width: 50px;\n}\n#home[data-v-f2b6376c]{\n}\n#hero[data-v-f2b6376c] {\n        display: flex;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n        /*background-color: #2f4858;*/\n        margin-top: 60px;\n        /*background: linear-gradient(*/\n        /*    rgba(17, 17, 17, 0.75),*/\n        /*    rgba(17, 17, 17, 0.75)*/\n        /*), url(\"/storage/site-img/mixer.jpg\");*/\n        -o-object-fit: contain;\n           object-fit: contain;\n        background-size: cover;\n        background-position: center center;\n        height: 500px;\n        box-sizing: border-box;\n}\n#beats[data-v-f2b6376c] {\n}\n#drumkits[data-v-f2b6376c]{\n        margin-top: 100px !important;\n        display: flex;\n        justify-content: space-between;\n        flex-direction: column;\n        align-items: center;\n}\n#front-blogs[data-v-f2b6376c] {\n        margin-top: 100px !important;\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n}\n#bio[data-v-f2b6376c] {\n}\n#gallery[data-v-f2b6376c] {\n        margin-top: 100px !important;\n}\n.imgBox[data-v-f2b6376c]{\n        display: none;\n}\n#sign-up[data-v-f2b6376c] {\n        height: 200px;\n        background-color: #152238;\n        color: white;\n        display: flex;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n}\n#sign-up div[data-v-f2b6376c] {\n        display: flex;\n        justify-content: space-between;\n}\n#contact[data-v-f2b6376c] {\n        margin-top: 5px;\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n}\n\n\n/*    GALLERY*/\n.galleryHolder[data-v-f2b6376c] {\n        display: flex;\n        width: 100%;\n        padding: 2% 1%;\n        box-sizing: border-box;\n        height: 60vh;\n}\n.box[data-v-f2b6376c] {\n        flex: 1;\n        overflow: hidden;\n        transition: .5s;\n        margin: 0 2%;\n        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);\n        line-height: 0;\n}\n.box > img[data-v-f2b6376c] {\n        width: 200%;\n        height: 100%;\n        -o-object-fit: cover;\n        object-fit: cover;\n        transition: .5s;\n}\n.box[data-v-f2b6376c]:hover {\n        flex: 1 1 35%;\n}\n.box:hover > img[data-v-f2b6376c] {\n        width: 100%;\n        height: 100%;\n}\n\n    /*    END GALLERY*/\n\n/*    MATERIAL SEND BUTTON*/\n.pure-material-button-contained[data-v-f2b6376c] {\n        position: relative;\n        display: inline-block;\n        box-sizing: border-box;\n        border: none;\n        border-radius: 4px;\n        padding: 0 16px;\n        min-width: 84px;\n        height: 40px;\n        vertical-align: middle;\n        text-align: center;\n        text-overflow: ellipsis;\n        text-transform: uppercase;\n        color: rgb(255, 255, 255);\n        background-color: orangered;\n        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),\n        0 1px 5px 0 rgba(0, 0, 0, 0.12);\n        font-size: 18px;\n        font-weight: 700;\n        line-height: 36px;\n        overflow: hidden;\n        outline: none;\n        cursor: pointer;\n        transition: box-shadow 0.2s;\n}\n.pure-material-button-contained[data-v-f2b6376c]::-moz-focus-inner {\n        border: none;\n}\n\n    /* Overlay */\n.pure-material-button-contained[data-v-f2b6376c]::before {\n        content: \"\";\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        left: 0;\n        right: 0;\n        background-color: rgb( 255, 255, 255);\n        opacity: 0;\n        transition: opacity 0.2s;\n}\n\n    /* Ripple */\n.pure-material-button-contained[data-v-f2b6376c]::after {\n        content: \"\";\n        position: absolute;\n        left: 50%;\n        top: 50%;\n        border-radius: 50%;\n        padding: 50%;\n        width: 32px; /* Safari */\n        height: 32px; /* Safari */\n        background-color: rgb(255, 255, 255);\n        opacity: 0;\n        transform: translate(-50%, -50%) scale(1);\n        transition: opacity 1s, transform 0.5s;\n}\n\n    /* Hover, Focus */\n.pure-material-button-contained[data-v-f2b6376c]:hover,\n    .pure-material-button-contained[data-v-f2b6376c]:focus {\n        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),\n        0 1px 10px 0 rgba(0, 0, 0, 0.12);\n}\n.pure-material-button-contained[data-v-f2b6376c]:hover::before {\n        opacity: 0.08;\n}\n.pure-material-button-contained[data-v-f2b6376c]:focus::before {\n        opacity: 0.24;\n}\n.pure-material-button-contained[data-v-f2b6376c]:hover:focus::before {\n        opacity: 0.3;\n}\n\n    /* Active */\n.pure-material-button-contained[data-v-f2b6376c]:active {\n        box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),\n        0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);\n}\n.pure-material-button-contained[data-v-f2b6376c]:active::after {\n        opacity: 0.32;\n        transform: translate(-50%, -50%) scale(0);\n        transition: transform 0s;\n}\n\n    /* Disabled */\n.pure-material-button-contained[data-v-f2b6376c]:disabled {\n        color: rgba( 0, 0, 0, 0.38);\n        background-color: rgba(0, 0, 0, 0.12);\n        box-shadow: none;\n        cursor: initial;\n}\n.pure-material-button-contained[data-v-f2b6376c]:disabled::before {\n        opacity: 0;\n}\n.pure-material-button-contained[data-v-f2b6376c]:disabled::after {\n        opacity: 0;\n}\n\n    /*    END MATERIAL SEND BUTTON*/\n\n\n\n\n\n\n/*    notify newsletter */\n.c-formContainer[data-v-f2b6376c]{\n        margin-top: 10px ;\n}\n.c-checkbox[data-v-f2b6376c] {\n       display: none;\n}\n.c-checkbox:checked + .c-formContainer .c-form[data-v-f2b6376c] {\n       width: 37.5em;\n}\n.c-checkbox:checked + .c-formContainer .c-form__toggle[data-v-f2b6376c] {\n       visibility: hidden;\n       opacity: 0;\n       transform: scale(0.7);\n}\n.c-checkbox:checked + .c-formContainer .c-form__input[data-v-f2b6376c],\n   .c-checkbox:checked + .c-formContainer .c-form__buttonLabel[data-v-f2b6376c] {\n       transition: 0.2s 0.1s;\n       visibility: visible;\n       opacity: 1;\n       transform: scale(1);\n}\n.c-checkbox:not(:checked) + .c-formContainer .c-form__input:required:valid ~ .c-form__toggle[data-v-f2b6376c]::before, .c-checkbox:checked + .c-formContainer .c-form__input:required:valid ~ .c-form__toggle[data-v-f2b6376c]::before {\n       content: 'Thank You! \\1F60A';\n}\n.c-checkbox:not(:checked) + .c-formContainer .c-form__input:required:valid ~ .c-form__toggle[data-v-f2b6376c] {\n       pointer-events: none;\n       cursor: default;\n}\n.c-formContainer[data-v-f2b6376c],\n   .c-form[data-v-f2b6376c],\n   .c-form__toggle[data-v-f2b6376c] {\n       width: 20em;\n       height: 4.25em;\n}\n.c-formContainer[data-v-f2b6376c] {\n       position: relative;\n       font-weight: 700;\n}\n.c-form[data-v-f2b6376c],\n   .c-form__toggle[data-v-f2b6376c] {\n       position: absolute;\n       border-radius: 6.25em;\n       background-color: #ffffff;\n       transition: 0.2s;\n}\n.c-form[data-v-f2b6376c] {\n       left: 50%;\n       transform: translateX(-50%);\n       padding: 0.625em;\n       box-sizing: border-box;\n       box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.3);\n       display: flex;\n       justify-content: center;\n}\n.c-form__toggle[data-v-f2b6376c] {\n       color: orangered;\n       top: 0;\n       cursor: pointer;\n       z-index: 1;\n       display: flex;\n       align-items: center;\n       justify-content: center;\n}\n.c-form__toggle[data-v-f2b6376c]::before {\n       font-size: 1.75em;\n       content: attr(data-title);\n}\n.c-form__input[data-v-f2b6376c],\n   .c-form__button[data-v-f2b6376c] {\n       font: inherit;\n       border: 0;\n       outline: 0;\n       border-radius: 5em;\n       box-sizing: border-box;\n}\n.c-form__input[data-v-f2b6376c],\n   .c-form__buttonLabel[data-v-f2b6376c] {\n       font-size: 1.75em;\n       opacity: 0;\n       visibility: hidden;\n       transform: scale(0.7);\n       transition: 0s;\n}\n.c-form__input[data-v-f2b6376c] {\n       color: #ff7b73;\n       height: 100%;\n       width: 100%;\n       padding: 0 0.714em;\n}\n.c-form__input[data-v-f2b6376c]::-moz-placeholder {\n       color: currentColor;\n}\n.c-form__input[data-v-f2b6376c]:-ms-input-placeholder {\n       color: currentColor;\n}\n.c-form__input[data-v-f2b6376c]::placeholder {\n       color: currentColor;\n}\n.c-form__input[data-v-f2b6376c]:required:valid {\n       color: #ff7b73;\n}\n.c-form__input:required:valid + .c-form__buttonLabel[data-v-f2b6376c] {\n       color: #ffffff;\n}\n.c-form__input:required:valid + .c-form__buttonLabel[data-v-f2b6376c]::before {\n       pointer-events: initial;\n}\n.c-form__buttonLabel[data-v-f2b6376c] {\n       color: #ffaea9;\n       height: 100%;\n       width: auto;\n}\n.c-form__buttonLabel[data-v-f2b6376c]::before {\n       content: '';\n       position: absolute;\n       width: 100%;\n       height: 100%;\n       pointer-events: none;\n       cursor: pointer;\n}\n.c-form__button[data-v-f2b6376c] {\n       color: white;\n       padding: 0;\n       height: 100%;\n       width: 5em;\n       background-color: orangered;\n}\n\n   /*    newsletter end*/\n", ""]);
 
 // exports
 
@@ -62371,6 +62381,956 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-clipboards/dist/vue-clipboards.es.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/vue-clipboards/dist/vue-clipboards.es.js ***!
+  \***************************************************************/
+/*! exports provided: default, clipboard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clipboard", function() { return clipboard$1; });
+function _typeof(obj) {
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
+
+var commonjsGlobal = typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
+
+function unwrapExports (x) {
+	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+}
+
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
+
+function select(element) {
+    var selectedText;
+
+    if (element.nodeName === 'SELECT') {
+        element.focus();
+
+        selectedText = element.value;
+    }
+    else if (element.nodeName === 'INPUT' || element.nodeName === 'TEXTAREA') {
+        var isReadOnly = element.hasAttribute('readonly');
+
+        if (!isReadOnly) {
+            element.setAttribute('readonly', '');
+        }
+
+        element.select();
+        element.setSelectionRange(0, element.value.length);
+
+        if (!isReadOnly) {
+            element.removeAttribute('readonly');
+        }
+
+        selectedText = element.value;
+    }
+    else {
+        if (element.hasAttribute('contenteditable')) {
+            element.focus();
+        }
+
+        var selection = window.getSelection();
+        var range = document.createRange();
+
+        range.selectNodeContents(element);
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        selectedText = selection.toString();
+    }
+
+    return selectedText;
+}
+
+var select_1 = select;
+
+var clipboardAction = createCommonjsModule(function (module, exports) {
+(function (global, factory) {
+    if (false) {} else {
+        factory(module, select_1);
+    }
+})(commonjsGlobal, function (module, _select) {
+
+    var _select2 = _interopRequireDefault(_select);
+
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
+    }
+
+    var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+        return typeof obj;
+    } : function (obj) {
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    var _createClass = function () {
+        function defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+                var descriptor = props[i];
+                descriptor.enumerable = descriptor.enumerable || false;
+                descriptor.configurable = true;
+                if ("value" in descriptor) descriptor.writable = true;
+                Object.defineProperty(target, descriptor.key, descriptor);
+            }
+        }
+
+        return function (Constructor, protoProps, staticProps) {
+            if (protoProps) defineProperties(Constructor.prototype, protoProps);
+            if (staticProps) defineProperties(Constructor, staticProps);
+            return Constructor;
+        };
+    }();
+
+    var ClipboardAction = function () {
+        /**
+         * @param {Object} options
+         */
+        function ClipboardAction(options) {
+            _classCallCheck(this, ClipboardAction);
+
+            this.resolveOptions(options);
+            this.initSelection();
+        }
+
+        /**
+         * Defines base properties passed from constructor.
+         * @param {Object} options
+         */
+
+
+        _createClass(ClipboardAction, [{
+            key: 'resolveOptions',
+            value: function resolveOptions() {
+                var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+                this.action = options.action;
+                this.container = options.container;
+                this.emitter = options.emitter;
+                this.target = options.target;
+                this.text = options.text;
+                this.trigger = options.trigger;
+
+                this.selectedText = '';
+            }
+        }, {
+            key: 'initSelection',
+            value: function initSelection() {
+                if (this.text) {
+                    this.selectFake();
+                } else if (this.target) {
+                    this.selectTarget();
+                }
+            }
+        }, {
+            key: 'selectFake',
+            value: function selectFake() {
+                var _this = this;
+
+                var isRTL = document.documentElement.getAttribute('dir') == 'rtl';
+
+                this.removeFake();
+
+                this.fakeHandlerCallback = function () {
+                    return _this.removeFake();
+                };
+                this.fakeHandler = this.container.addEventListener('click', this.fakeHandlerCallback) || true;
+
+                this.fakeElem = document.createElement('textarea');
+                // Prevent zooming on iOS
+                this.fakeElem.style.fontSize = '12pt';
+                // Reset box model
+                this.fakeElem.style.border = '0';
+                this.fakeElem.style.padding = '0';
+                this.fakeElem.style.margin = '0';
+                // Move element out of screen horizontally
+                this.fakeElem.style.position = 'absolute';
+                this.fakeElem.style[isRTL ? 'right' : 'left'] = '-9999px';
+                // Move element to the same position vertically
+                var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+                this.fakeElem.style.top = yPosition + 'px';
+
+                this.fakeElem.setAttribute('readonly', '');
+                this.fakeElem.value = this.text;
+
+                this.container.appendChild(this.fakeElem);
+
+                this.selectedText = (0, _select2.default)(this.fakeElem);
+                this.copyText();
+            }
+        }, {
+            key: 'removeFake',
+            value: function removeFake() {
+                if (this.fakeHandler) {
+                    this.container.removeEventListener('click', this.fakeHandlerCallback);
+                    this.fakeHandler = null;
+                    this.fakeHandlerCallback = null;
+                }
+
+                if (this.fakeElem) {
+                    this.container.removeChild(this.fakeElem);
+                    this.fakeElem = null;
+                }
+            }
+        }, {
+            key: 'selectTarget',
+            value: function selectTarget() {
+                this.selectedText = (0, _select2.default)(this.target);
+                this.copyText();
+            }
+        }, {
+            key: 'copyText',
+            value: function copyText() {
+                var succeeded = void 0;
+
+                try {
+                    succeeded = document.execCommand(this.action);
+                } catch (err) {
+                    succeeded = false;
+                }
+
+                this.handleResult(succeeded);
+            }
+        }, {
+            key: 'handleResult',
+            value: function handleResult(succeeded) {
+                this.emitter.emit(succeeded ? 'success' : 'error', {
+                    action: this.action,
+                    text: this.selectedText,
+                    trigger: this.trigger,
+                    clearSelection: this.clearSelection.bind(this)
+                });
+            }
+        }, {
+            key: 'clearSelection',
+            value: function clearSelection() {
+                if (this.trigger) {
+                    this.trigger.focus();
+                }
+
+                window.getSelection().removeAllRanges();
+            }
+        }, {
+            key: 'destroy',
+            value: function destroy() {
+                this.removeFake();
+            }
+        }, {
+            key: 'action',
+            set: function set() {
+                var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'copy';
+
+                this._action = action;
+
+                if (this._action !== 'copy' && this._action !== 'cut') {
+                    throw new Error('Invalid "action" value, use either "copy" or "cut"');
+                }
+            },
+            get: function get() {
+                return this._action;
+            }
+        }, {
+            key: 'target',
+            set: function set(target) {
+                if (target !== undefined) {
+                    if (target && (typeof target === 'undefined' ? 'undefined' : _typeof(target)) === 'object' && target.nodeType === 1) {
+                        if (this.action === 'copy' && target.hasAttribute('disabled')) {
+                            throw new Error('Invalid "target" attribute. Please use "readonly" instead of "disabled" attribute');
+                        }
+
+                        if (this.action === 'cut' && (target.hasAttribute('readonly') || target.hasAttribute('disabled'))) {
+                            throw new Error('Invalid "target" attribute. You can\'t cut text from elements with "readonly" or "disabled" attributes');
+                        }
+
+                        this._target = target;
+                    } else {
+                        throw new Error('Invalid "target" value, use a valid Element');
+                    }
+                }
+            },
+            get: function get() {
+                return this._target;
+            }
+        }]);
+
+        return ClipboardAction;
+    }();
+
+    module.exports = ClipboardAction;
+});
+});
+
+unwrapExports(clipboardAction);
+
+function E () {
+  // Keep this empty so it's easier to inherit from
+  // (via https://github.com/lipsmack from https://github.com/scottcorgan/tiny-emitter/issues/3)
+}
+
+E.prototype = {
+  on: function (name, callback, ctx) {
+    var e = this.e || (this.e = {});
+
+    (e[name] || (e[name] = [])).push({
+      fn: callback,
+      ctx: ctx
+    });
+
+    return this;
+  },
+
+  once: function (name, callback, ctx) {
+    var self = this;
+    function listener () {
+      self.off(name, listener);
+      callback.apply(ctx, arguments);
+    }
+    listener._ = callback;
+    return this.on(name, listener, ctx);
+  },
+
+  emit: function (name) {
+    var data = [].slice.call(arguments, 1);
+    var evtArr = ((this.e || (this.e = {}))[name] || []).slice();
+    var i = 0;
+    var len = evtArr.length;
+
+    for (i; i < len; i++) {
+      evtArr[i].fn.apply(evtArr[i].ctx, data);
+    }
+
+    return this;
+  },
+
+  off: function (name, callback) {
+    var e = this.e || (this.e = {});
+    var evts = e[name];
+    var liveEvents = [];
+
+    if (evts && callback) {
+      for (var i = 0, len = evts.length; i < len; i++) {
+        if (evts[i].fn !== callback && evts[i].fn._ !== callback)
+          liveEvents.push(evts[i]);
+      }
+    }
+
+    // Remove event from queue to prevent memory leak
+    // Suggested by https://github.com/lazd
+    // Ref: https://github.com/scottcorgan/tiny-emitter/commit/c6ebfaa9bc973b33d110a84a307742b7cf94c953#commitcomment-5024910
+
+    (liveEvents.length)
+      ? e[name] = liveEvents
+      : delete e[name];
+
+    return this;
+  }
+};
+
+var tinyEmitter = E;
+
+var is = createCommonjsModule(function (module, exports) {
+/**
+ * Check if argument is a HTML element.
+ *
+ * @param {Object} value
+ * @return {Boolean}
+ */
+exports.node = function(value) {
+    return value !== undefined
+        && value instanceof HTMLElement
+        && value.nodeType === 1;
+};
+
+/**
+ * Check if argument is a list of HTML elements.
+ *
+ * @param {Object} value
+ * @return {Boolean}
+ */
+exports.nodeList = function(value) {
+    var type = Object.prototype.toString.call(value);
+
+    return value !== undefined
+        && (type === '[object NodeList]' || type === '[object HTMLCollection]')
+        && ('length' in value)
+        && (value.length === 0 || exports.node(value[0]));
+};
+
+/**
+ * Check if argument is a string.
+ *
+ * @param {Object} value
+ * @return {Boolean}
+ */
+exports.string = function(value) {
+    return typeof value === 'string'
+        || value instanceof String;
+};
+
+/**
+ * Check if argument is a function.
+ *
+ * @param {Object} value
+ * @return {Boolean}
+ */
+exports.fn = function(value) {
+    var type = Object.prototype.toString.call(value);
+
+    return type === '[object Function]';
+};
+});
+var is_1 = is.node;
+var is_2 = is.nodeList;
+var is_3 = is.string;
+var is_4 = is.fn;
+
+var DOCUMENT_NODE_TYPE = 9;
+
+/**
+ * A polyfill for Element.matches()
+ */
+if (typeof Element !== 'undefined' && !Element.prototype.matches) {
+    var proto = Element.prototype;
+
+    proto.matches = proto.matchesSelector ||
+                    proto.mozMatchesSelector ||
+                    proto.msMatchesSelector ||
+                    proto.oMatchesSelector ||
+                    proto.webkitMatchesSelector;
+}
+
+/**
+ * Finds the closest parent that matches a selector.
+ *
+ * @param {Element} element
+ * @param {String} selector
+ * @return {Function}
+ */
+function closest (element, selector) {
+    while (element && element.nodeType !== DOCUMENT_NODE_TYPE) {
+        if (typeof element.matches === 'function' &&
+            element.matches(selector)) {
+          return element;
+        }
+        element = element.parentNode;
+    }
+}
+
+var closest_1 = closest;
+
+/**
+ * Delegates event to a selector.
+ *
+ * @param {Element} element
+ * @param {String} selector
+ * @param {String} type
+ * @param {Function} callback
+ * @param {Boolean} useCapture
+ * @return {Object}
+ */
+function _delegate(element, selector, type, callback, useCapture) {
+    var listenerFn = listener.apply(this, arguments);
+
+    element.addEventListener(type, listenerFn, useCapture);
+
+    return {
+        destroy: function() {
+            element.removeEventListener(type, listenerFn, useCapture);
+        }
+    }
+}
+
+/**
+ * Delegates event to a selector.
+ *
+ * @param {Element|String|Array} [elements]
+ * @param {String} selector
+ * @param {String} type
+ * @param {Function} callback
+ * @param {Boolean} useCapture
+ * @return {Object}
+ */
+function delegate(elements, selector, type, callback, useCapture) {
+    // Handle the regular Element usage
+    if (typeof elements.addEventListener === 'function') {
+        return _delegate.apply(null, arguments);
+    }
+
+    // Handle Element-less usage, it defaults to global delegation
+    if (typeof type === 'function') {
+        // Use `document` as the first parameter, then apply arguments
+        // This is a short way to .unshift `arguments` without running into deoptimizations
+        return _delegate.bind(null, document).apply(null, arguments);
+    }
+
+    // Handle Selector-based usage
+    if (typeof elements === 'string') {
+        elements = document.querySelectorAll(elements);
+    }
+
+    // Handle Array-like based usage
+    return Array.prototype.map.call(elements, function (element) {
+        return _delegate(element, selector, type, callback, useCapture);
+    });
+}
+
+/**
+ * Finds closest match and invokes callback.
+ *
+ * @param {Element} element
+ * @param {String} selector
+ * @param {String} type
+ * @param {Function} callback
+ * @return {Function}
+ */
+function listener(element, selector, type, callback) {
+    return function(e) {
+        e.delegateTarget = closest_1(e.target, selector);
+
+        if (e.delegateTarget) {
+            callback.call(element, e);
+        }
+    }
+}
+
+var delegate_1 = delegate;
+
+/**
+ * Validates all params and calls the right
+ * listener function based on its target type.
+ *
+ * @param {String|HTMLElement|HTMLCollection|NodeList} target
+ * @param {String} type
+ * @param {Function} callback
+ * @return {Object}
+ */
+function listen(target, type, callback) {
+    if (!target && !type && !callback) {
+        throw new Error('Missing required arguments');
+    }
+
+    if (!is.string(type)) {
+        throw new TypeError('Second argument must be a String');
+    }
+
+    if (!is.fn(callback)) {
+        throw new TypeError('Third argument must be a Function');
+    }
+
+    if (is.node(target)) {
+        return listenNode(target, type, callback);
+    }
+    else if (is.nodeList(target)) {
+        return listenNodeList(target, type, callback);
+    }
+    else if (is.string(target)) {
+        return listenSelector(target, type, callback);
+    }
+    else {
+        throw new TypeError('First argument must be a String, HTMLElement, HTMLCollection, or NodeList');
+    }
+}
+
+/**
+ * Adds an event listener to a HTML element
+ * and returns a remove listener function.
+ *
+ * @param {HTMLElement} node
+ * @param {String} type
+ * @param {Function} callback
+ * @return {Object}
+ */
+function listenNode(node, type, callback) {
+    node.addEventListener(type, callback);
+
+    return {
+        destroy: function() {
+            node.removeEventListener(type, callback);
+        }
+    }
+}
+
+/**
+ * Add an event listener to a list of HTML elements
+ * and returns a remove listener function.
+ *
+ * @param {NodeList|HTMLCollection} nodeList
+ * @param {String} type
+ * @param {Function} callback
+ * @return {Object}
+ */
+function listenNodeList(nodeList, type, callback) {
+    Array.prototype.forEach.call(nodeList, function(node) {
+        node.addEventListener(type, callback);
+    });
+
+    return {
+        destroy: function() {
+            Array.prototype.forEach.call(nodeList, function(node) {
+                node.removeEventListener(type, callback);
+            });
+        }
+    }
+}
+
+/**
+ * Add an event listener to a selector
+ * and returns a remove listener function.
+ *
+ * @param {String} selector
+ * @param {String} type
+ * @param {Function} callback
+ * @return {Object}
+ */
+function listenSelector(selector, type, callback) {
+    return delegate_1(document.body, selector, type, callback);
+}
+
+var listen_1 = listen;
+
+var clipboard = createCommonjsModule(function (module, exports) {
+(function (global, factory) {
+    if (false) {} else {
+        factory(module, clipboardAction, tinyEmitter, listen_1);
+    }
+})(commonjsGlobal, function (module, _clipboardAction, _tinyEmitter, _goodListener) {
+
+    var _clipboardAction2 = _interopRequireDefault(_clipboardAction);
+
+    var _tinyEmitter2 = _interopRequireDefault(_tinyEmitter);
+
+    var _goodListener2 = _interopRequireDefault(_goodListener);
+
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
+    }
+
+    var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+        return typeof obj;
+    } : function (obj) {
+        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    var _createClass = function () {
+        function defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+                var descriptor = props[i];
+                descriptor.enumerable = descriptor.enumerable || false;
+                descriptor.configurable = true;
+                if ("value" in descriptor) descriptor.writable = true;
+                Object.defineProperty(target, descriptor.key, descriptor);
+            }
+        }
+
+        return function (Constructor, protoProps, staticProps) {
+            if (protoProps) defineProperties(Constructor.prototype, protoProps);
+            if (staticProps) defineProperties(Constructor, staticProps);
+            return Constructor;
+        };
+    }();
+
+    function _possibleConstructorReturn(self, call) {
+        if (!self) {
+            throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+        }
+
+        return call && (typeof call === "object" || typeof call === "function") ? call : self;
+    }
+
+    function _inherits(subClass, superClass) {
+        if (typeof superClass !== "function" && superClass !== null) {
+            throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+        }
+
+        subClass.prototype = Object.create(superClass && superClass.prototype, {
+            constructor: {
+                value: subClass,
+                enumerable: false,
+                writable: true,
+                configurable: true
+            }
+        });
+        if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+    }
+
+    var Clipboard = function (_Emitter) {
+        _inherits(Clipboard, _Emitter);
+
+        /**
+         * @param {String|HTMLElement|HTMLCollection|NodeList} trigger
+         * @param {Object} options
+         */
+        function Clipboard(trigger, options) {
+            _classCallCheck(this, Clipboard);
+
+            var _this = _possibleConstructorReturn(this, (Clipboard.__proto__ || Object.getPrototypeOf(Clipboard)).call(this));
+
+            _this.resolveOptions(options);
+            _this.listenClick(trigger);
+            return _this;
+        }
+
+        /**
+         * Defines if attributes would be resolved using internal setter functions
+         * or custom functions that were passed in the constructor.
+         * @param {Object} options
+         */
+
+
+        _createClass(Clipboard, [{
+            key: 'resolveOptions',
+            value: function resolveOptions() {
+                var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+                this.action = typeof options.action === 'function' ? options.action : this.defaultAction;
+                this.target = typeof options.target === 'function' ? options.target : this.defaultTarget;
+                this.text = typeof options.text === 'function' ? options.text : this.defaultText;
+                this.container = _typeof(options.container) === 'object' ? options.container : document.body;
+            }
+        }, {
+            key: 'listenClick',
+            value: function listenClick(trigger) {
+                var _this2 = this;
+
+                this.listener = (0, _goodListener2.default)(trigger, 'click', function (e) {
+                    return _this2.onClick(e);
+                });
+            }
+        }, {
+            key: 'onClick',
+            value: function onClick(e) {
+                var trigger = e.delegateTarget || e.currentTarget;
+
+                if (this.clipboardAction) {
+                    this.clipboardAction = null;
+                }
+
+                this.clipboardAction = new _clipboardAction2.default({
+                    action: this.action(trigger),
+                    target: this.target(trigger),
+                    text: this.text(trigger),
+                    container: this.container,
+                    trigger: trigger,
+                    emitter: this
+                });
+            }
+        }, {
+            key: 'defaultAction',
+            value: function defaultAction(trigger) {
+                return getAttributeValue('action', trigger);
+            }
+        }, {
+            key: 'defaultTarget',
+            value: function defaultTarget(trigger) {
+                var selector = getAttributeValue('target', trigger);
+
+                if (selector) {
+                    return document.querySelector(selector);
+                }
+            }
+        }, {
+            key: 'defaultText',
+            value: function defaultText(trigger) {
+                return getAttributeValue('text', trigger);
+            }
+        }, {
+            key: 'destroy',
+            value: function destroy() {
+                this.listener.destroy();
+
+                if (this.clipboardAction) {
+                    this.clipboardAction.destroy();
+                    this.clipboardAction = null;
+                }
+            }
+        }], [{
+            key: 'isSupported',
+            value: function isSupported() {
+                var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ['copy', 'cut'];
+
+                var actions = typeof action === 'string' ? [action] : action;
+                var support = !!document.queryCommandSupported;
+
+                actions.forEach(function (action) {
+                    support = support && !!document.queryCommandSupported(action);
+                });
+
+                return support;
+            }
+        }]);
+
+        return Clipboard;
+    }(_tinyEmitter2.default);
+
+    /**
+     * Helper function to retrieve attribute value.
+     * @param {String} suffix
+     * @param {Element} element
+     */
+    function getAttributeValue(suffix, element) {
+        var attribute = 'data-clipboard-' + suffix;
+
+        if (!element.hasAttribute(attribute)) {
+            return;
+        }
+
+        return element.getAttribute(attribute);
+    }
+
+    module.exports = Clipboard;
+});
+});
+
+var Clipboard = unwrapExports(clipboard);
+
+if (!Clipboard) {
+  throw new Error('[vue-clipboards] cannot locate Clipboard.');
+}
+
+function isDom(obj) {
+  return _typeof(window.HTMLElement) === 'object' ? obj instanceof window.HTMLElement : obj && _typeof(obj) === 'object' && obj.nodeType === 1 && typeof obj.nodeName === 'string';
+}
+
+function doubleClickHandler(e) {
+  var target = e.target;
+
+  if (document.createRange) {
+    var rng = document.createRange();
+    var sel = window.getSelection();
+    rng.selectNode(target);
+    sel.removeAllRanges();
+    sel.addRange(rng);
+  } else {
+    var _rng = document.body.createTextRange();
+
+    _rng.moveToElementText(target);
+
+    _rng.select();
+  }
+}
+
+var clipboard$1 = {
+  bind: function bind(el, _ref, vnode) {
+    return new Promise(function ($return, $error) {
+      var text, modifiers, option, $parent, componentOptions, data, listeners, on, events, withNativeSelection;
+      text = _ref.value, modifiers = _ref.modifiers;
+      option = {};
+      $parent = null;
+
+      if (text && typeof text === 'function') {
+        return Promise.resolve(text()).then(function ($await_2) {
+          try {
+            text = $await_2;
+            return $If_1.call(this);
+          } catch ($boundEx) {
+            return $error($boundEx);
+          }
+        }.bind(this), $error);
+      }
+
+      function $If_1() {
+        if (/(string|number)/.test(_typeof(text))) {
+          option.text = function () {
+            return "".concat(text);
+          };
+        } else {
+          return $error(new Error('[vue-clipboards] Invalid value. Please use a valid value.'));
+        }
+
+        if (vnode.data.attrs && vnode.data.attrs.model) {
+          $parent = isDom(vnode.data.attrs.model) ? vnode.data.attrs.model : document.querySelector(vnode.data.attrs.model);
+        } // 修复按钮脱离文档流时，clipboard监听失败问题
+
+
+        if (vnode.elm.offsetParent) {
+          option.container = vnode.elm.offsetParent;
+        } else if (isDom($parent)) {
+          option.container = $parent;
+        } else {
+          // if root element should use document.body
+          option.container = el.parentElement || document.body;
+        }
+
+        vnode.elm.$clipboards = new Clipboard(el, option);
+        componentOptions = vnode.componentOptions, data = vnode.data;
+        listeners = componentOptions ? componentOptions.listeners : null;
+        on = data ? data.on : null;
+        events = listeners && listeners || on && on;
+
+        if (events && _typeof(events) === 'object' && Object.keys(events).length) {
+          // fixed with Vue 2.2.x, event object `fn` rename to `fns`
+          Object.keys(events).map(function (cb) {
+            return vnode.elm.$clipboards.on(cb, events[cb].fn || events[cb].fns);
+          });
+        } // add native user selection for dblclick
+
+
+        withNativeSelection = modifiers.nselect || false;
+
+        if (withNativeSelection) {
+          vnode.elm.addEventListener('dblclick', doubleClickHandler);
+        }
+
+        return $return(vnode.elm.$clipboards);
+      }
+
+      return $If_1.call(this);
+    });
+  },
+  unbind: function unbind(vnode) {
+    if (vnode.elm && vnode.elm.$clipboards && vnode.elm.$clipboards.destroy) {
+      vnode.elm.$clipboards.destroy();
+      vnode.elm.removeEventListener('dblclick', doubleClickHandler);
+      delete vnode.elm.$clipboards;
+    }
+  },
+  update: function update(el, binding, vnode) {
+    binding.def.unbind(vnode);
+    vnode.elm.removeEventListener('dblclick', doubleClickHandler);
+    binding.def.bind(el, binding, vnode);
+  }
+};
+function vueClipboards (Vue) {
+  Vue.directive('clipboard', clipboard$1);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (vueClipboards);
+
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/Main.vue?vue&type=template&id=01a582d7&scoped=true&":
 /*!********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/Main.vue?vue&type=template&id=01a582d7&scoped=true& ***!
@@ -69556,9 +70516,9 @@ var render = function() {
             ])
           }),
           _vm._v(" "),
-          _vm._l(_vm.imgGallery, function(gal) {
+          _vm._l(_vm.imgGallery, function(gal, index) {
             return _c("div", {
-              key: gal.name,
+              key: index,
               staticClass: "imgBox",
               style: {
                 backgroundImage: "url(" + gal.img_url + ")",
@@ -71379,13 +72339,16 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("i", {
-                    staticClass: "ti-clipboard share-items share-icons",
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        return _vm.copyClip($event)
+                    directives: [
+                      {
+                        name: "clipboard",
+                        rawName: "v-clipboard",
+                        value: _vm.sharableLink,
+                        expression: "sharableLink"
                       }
-                    }
+                    ],
+                    staticClass: "ti-clipboard share-items share-icons",
+                    on: { success: _vm.copySuccess, error: _vm.copyError }
                   })
                 ])
               ])
@@ -87671,8 +88634,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapMutations", function() { return mapMutations; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mapState", function() { return mapState; });
 /*!
- * vuex v3.5.1
- * (c) 2020 Evan You
+ * vuex v3.6.2
+ * (c) 2021 Evan You
  * @license MIT
  */
 function applyMixin (Vue) {
@@ -87958,7 +88921,11 @@ ModuleCollection.prototype.isRegistered = function isRegistered (path) {
   var parent = this.get(path.slice(0, -1));
   var key = path[path.length - 1];
 
-  return parent.hasChild(key)
+  if (parent) {
+    return parent.hasChild(key)
+  }
+
+  return false
 };
 
 function update (path, targetModule, newModule) {
@@ -88633,7 +89600,7 @@ var mapState = normalizeNamespace(function (namespace, states) {
 /**
  * Reduce the code which written in Vue.js for committing the mutation
  * @param {String} [namespace] - Module's namespace
- * @param {Object|Array} mutations # Object's item can be a function which accept `commit` function as the first param, it can accept anthor params. You can commit mutation and do any other things in this function. specially, You need to pass anthor params from the mapped function.
+ * @param {Object|Array} mutations # Object's item can be a function which accept `commit` function as the first param, it can accept another params. You can commit mutation and do any other things in this function. specially, You need to pass anthor params from the mapped function.
  * @return {Object}
  */
 var mapMutations = normalizeNamespace(function (namespace, mutations) {
@@ -88898,7 +89865,7 @@ function pad (num, maxLength) {
 var index = {
   Store: Store,
   install: install,
-  version: '3.5.1',
+  version: '3.6.2',
   mapState: mapState,
   mapMutations: mapMutations,
   mapGetters: mapGetters,
@@ -89235,9 +90202,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _helpers_titleHelper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers/titleHelper */ "./resources/js/helpers/titleHelper.js");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
+/* harmony import */ var vue_clipboards__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-clipboards */ "./node_modules/vue-clipboards/dist/vue-clipboards.es.js");
+/* harmony import */ var _helpers_titleHelper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers/titleHelper */ "./resources/js/helpers/titleHelper.js");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./store */ "./resources/js/store.js");
 
 
 
@@ -89245,10 +90213,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_clipboards__WEBPACK_IMPORTED_MODULE_3__["default"]);
+
 var plugin = {
   install: function install() {
-    vue__WEBPACK_IMPORTED_MODULE_0___default.a.seohelpers = _helpers_titleHelper__WEBPACK_IMPORTED_MODULE_3__["default"];
-    vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$seohelpers = _helpers_titleHelper__WEBPACK_IMPORTED_MODULE_3__["default"];
+    vue__WEBPACK_IMPORTED_MODULE_0___default.a.seohelpers = _helpers_titleHelper__WEBPACK_IMPORTED_MODULE_4__["default"];
+    vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$seohelpers = _helpers_titleHelper__WEBPACK_IMPORTED_MODULE_4__["default"];
   }
 };
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(plugin);
@@ -89270,7 +90240,7 @@ window.Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.mixin({
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
-  routes: _routes__WEBPACK_IMPORTED_MODULE_4__["routes"],
+  routes: _routes__WEBPACK_IMPORTED_MODULE_5__["routes"],
   mode: 'history'
 });
 
@@ -89301,7 +90271,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('master', __webpack_require
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   router: router,
-  store: _store__WEBPACK_IMPORTED_MODULE_5__["default"]
+  store: _store__WEBPACK_IMPORTED_MODULE_6__["default"]
 });
 
 /***/ }),

@@ -7,6 +7,9 @@ import Swal from 'sweetalert2'
 require('./bootstrap');
 
 
+import VueClipboards from 'vue-clipboards';
+
+Vue.use(VueClipboards);
 
 
 import titleHelpers from './helpers/titleHelper'

@@ -165,7 +165,7 @@
                     <img loading="lazy" :src="gal.img_url" :alt="gal.name.toLowerCase()">
                  </div>
 
-                <div class="imgBox" v-for="gal in imgGallery" :key="gal.name" :style="{
+                <div class="imgBox" v-for="(gal , index) in imgGallery" :key="index" :style="{
                         backgroundImage: `url(${gal.img_url})`,
                         backgroundPosition: 'center',
                         backgroundSize: 'cover'
@@ -529,7 +529,6 @@
         },
         computed:{
             promo: function(){
-
                 let index = Math.floor(Math.random() * this.blogs.length)
                 return this.blogs[index];
             }
@@ -538,6 +537,7 @@
             this.isProcessing = true;
             this.fetchData();
             this.$seohelpers.setSEO('Home');
+
         },
 
     }
@@ -682,7 +682,7 @@
 }
 
 
-.bio-text p  {
+.bio-text p{
     font-size: 17px;
     font-weight: 500;
     color: #111111;

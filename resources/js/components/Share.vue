@@ -2,6 +2,7 @@
     <div class="container">
         <!--        share modal-->
 
+
         <div class="modal fade" id="shareModal" tabindex="-1" role="dialog" aria-labelledby="shareModalTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
                 <div class="modal-content">
@@ -12,7 +13,7 @@
                             <a :href="shareTweeter" class="share-items" onclick="window.open(this.href, 'twitterwindow','left=70,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;"><i class="ti-twitter share-icons"></i></a>
                             <a :href="shareFacebook" class="share-items" onclick="window.open(this.href, 'facebookwindow','left=70,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;"><i class="ti-facebook share-icons"></i></a>
                             <a :href="shareWhatsApp" class="share-items" onclick="window.open(this.href, 'whatsappwindow','left=70,top=20,width=600,height=700,toolbar=0,resizable=1'); return false;" ><i class="fa fa-whatsapp share-icons"></i></a>
-                            <i class="ti-clipboard share-items share-icons" @click.prevent="copyClip">
+                            <i class="ti-clipboard share-items share-icons" v-clipboard="sharableLink"  @success="copySuccess" @error="copyError">
 
                             </i>
                         </div>
@@ -26,6 +27,7 @@
 </template>
 
 <script>
+
     export default {
         name: 'Share',
         props: ["title","summary","image","shared"],
@@ -34,11 +36,20 @@
 
             }
         },
-    methods:{
-            copyClip(){
-                alert("Copy To Clipboard!!")
-            }
-    },
+        methods:{
+                copySuccess(){
+                    Toast.fire({
+                        icon :'success',
+                        text : 'Link Copied!'
+                    })
+                },
+                copyError(){
+                    Toast.fire({
+                        icon :'error',
+                        text : 'Link Not Copied!'
+                    })
+                }
+        },
         computed:{
             sharableLink:function () {
                 return window.location.href;
