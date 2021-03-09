@@ -9,9 +9,12 @@
 export default {
     name: "PreLoader",
     mounted(){
-        window.addEventListener('load',() =>{
-            setTimeout(() => document.querySelector('.pre-loader').style.display = "none",1500)
-        })
+        document.onreadystatechange = () => {
+            if(document.readyState == 'complete'){
+                document.querySelector('.pre-loader').style.display = "none"
+            }
+        }
+
     }
 }
 </script>
