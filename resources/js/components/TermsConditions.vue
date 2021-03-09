@@ -39,16 +39,16 @@
                     </p>
                     <p class="item-points">
                         This License grants Licensee a worldwide, non-exclusive license to use the Beat as incorporated in the New Song in the manners and for the purposes expressly provided for herein, subject to the sale restrictions, limitations and prohibited uses stated in this Agreement. Licensee acknowledges and agrees that any and all rights granted to Licensee in the Beat pursuant to this Agreement are on a NON-EXCLUSIVE basis and Producer shall continue to license the Beat upon the same or similar terms and conditions as this Agreement to other potential third-party licensees.
-                            <p class="outline-bullets">
+                            <p class="outlined-points">
                                 The New Song <span class="font-weight-bold">MAY</span> be used for any promotional purposes, including but not limited to, a release in a single format, for inclusion in a mixtape or free compilation of music bundled together (EP or album), and/or promotional, non-monetized digital streaming;
                             </p>
-                            <p class="outline-bullets">
+                            <p class="outlined-points">
                                 Licensee may perform the song publicly for-profit performances, including but not limited to, at a live performance (i.e. concert, festival, nightclub etc.), on terrestrial or satellite radio, and/or on the internet via third-party streaming services (Spotify, YouTube, iTunes Radio etc.). The New Song may be played on 2 terrestrial or satellite radio stations;
                             </p>
-                            <p class="outline-bullets">
+                            <p class="outlined-points">
                                 The Licensee may use the New Song in synchronization with <span class="font-weight-bold">One (1)</span>  audiovisual work no longer than five (5) minutes in length (a “Video”). In the event that the New Song itself is longer than five (5) minutes in length, the Video may not play for longer than the length of the New Song. The Video may be broadcast on any television network and/or uploaded to the internet for digital streaming and/or free download by the public including but not limited to on YouTube and/or Vevo. Producer grants no other synchronization rights to Licensee;
                             </p>
-                            <p class="outline-bullets">
+                            <p class="outlined-points">
                                 The Licensee may make the New Song available for sale in physical and/or digital form and sell <span class="font-weight-bold">50000</span> downloads/physical music products and are allowed <span class="font-weight-bold">50000</span> streams. The New Song may be available for sale as a single and/or included in a compilation of other songs bundled together by Licensee as an EP or a full-length Album. The New Song may be sold via digital retailers for permanent digital download in mp3 format and/or physical format, including compact disc and vinyl records. For clarity and avoidance of doubt, the Licensee does NOT have the right to sell the Beat in the form that it was delivered to Licensee. The Licensee must create a New Song (or instrumental as detailed above) for its rights under this provision to a vest. Any sale of the Beat in its original form by Licensee shall be a material breach of this Agreement and the Licensee shall be liable to the Licensor for damages as provided hereunder.
                             </p>
                     </p>
@@ -83,14 +83,14 @@
 
                 <p class="item-points">
                     <strong>As applicable to both the underlying composition in the Beat and to the master recording of the Beat: </strong>
-                    <p class="rom-num-points">
+                    <p class="outlined-points">
                         The parties acknowledge and agree that the New Song is a “derivative work”, as that term is used in the United States Copyright Act;
 
                     </p>
-                    <p class="rom-num-points">
+                    <p class="outlined-points">
                         As applicable to the Beat and/or the New Song, there is no intention by the parties to create a joint work; and
                     </p>
-                    <p class="rom-num-points">
+                    <p class="outlined-points">
                         There is no intention by the Licensor to grant any rights in and/or to any other derivative works that may have been created by other third-party licensees.
                     </p>
                 </p>
@@ -105,7 +105,7 @@
 
                 <p class="item-points">
                      For the avoidance of doubt, you do not own the master or the sound recording rights in the New Song. You have been licensed the right to use the Beat in the New Song and to commercially exploit the New Song based on the terms and conditions of this Agreement.
-                            <p class="outline-bullets">
+                            <p class="outlines-dash">
                                 Notwithstanding the above, you do own the lyrics or other original musical components of the New Song that were written or composed solely by you.
                             </p>
                 </p>
@@ -118,10 +118,10 @@
                         <p class="outlined-points">
                             <span class="font-weight-bold"> Producer ({{ producerName }}) </span>, owns <span class="font-weight-bold">50%</span> of the writers share.
                         </p>
-                            <p class="outline-bullets">
+                            <p class="outlines-dash">
                                 Producer shall own, control, and administer One Hundred Percent <span class="font-weight-bold">(100%)</span> of the so-called “Publisher’s Share” of the underlying composition.
                             </p>
-                            <p class="outline-bullets-2">
+                            <p class="outlines-dash">
                                 In the event that Licensee wishes to register his/her interests and rights to the underlying composition of the New Song with their Performing Rights Organization (“PRO”), Licensee must simultaneously identify and register the Producer’s share and ownership interest in the composition to indicate that Producer wrote and owns 50% of the composition in the New Song and as the owner of 100% of the Publisher’s share of the New Song.
                             </p>
                 </p>
@@ -232,37 +232,73 @@
         align-items: center;
         min-height:70vh;
     }
+    .standard-license{
+        counter-reset: item-lic-counter;
+    }
 
-    .lic-item , .item-points , .outlined-points , .outline-bullets , .lic-item strong , .intro ,.rom-num-points{
+    .lic-item , .item-points , .outlined-points , .outlines-dash , .lic-item strong , .intro {
         width: 100ch;
         display: block;
+        color: #111;
+        font-size: 15px;
     }
 
     .lic-item{
         margin: 10px 0px;
-    }
-    .item-points {
-        margin-left: 10px;
-    }
-    .item-points::before {
-        content: '';
-        height: 4px;
-        width: 4px;
-        background: black;
-        border-radius: 50%;
-    }
-    .outlined-points {
-        margin-left: 20px;
+        counter-reset: point-counter;
     }
 
-    .outline-bullets {
-        margin-left: 30px;
+    .lic-item::before{
+        counter-increment: item-lic-counter;
+        content: counter(item-lic-counter) '.  ';
+        position: absolute;
+        font-weight: bolder;
+        font-size: 19px;
     }
-    .outline-bullets-2 {
+
+    .lic-item strong{
+        margin-left: 20px;
+        font-size: 18px;
+        color: #070707;
+    }
+    .item-points {
+        margin-left: 30px;
+        counter-reset: outpoint-counter;
+    }
+    .item-points::before {
+        counter-increment: point-counter;
+        content: '(' counter(point-counter, lower-alpha) ').   ';
+        font-weight: bolder;
+        font-size: 17px;
+
+    }
+    .outlined-points {
+        margin-left: 90px;
+    }
+
+    .outlined-points::before {
+        counter-increment: outpoint-counter;
+        content: '(' counter(outpoint-counter, lower-roman) '). ';
+        font-weight: bolder;
+    }
+
+
+
+    .outlines-dash {
+        margin-left: 130px;
+    }
+
+    .outlines-dash::before{
+        counter-increment: bullet-counter;
+        content: '\e622';
+        font-weight: bolder;
+        font-family: 'themify';
+    }
+    .outlines-dash-2 {
         width: 85ch;
         margin-left: 100px;
     }
     .rom-num-points{
-        margin-left: 15px;
+        margin-left: 35px;
     }
 </style>

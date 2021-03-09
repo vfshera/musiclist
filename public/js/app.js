@@ -14753,7 +14753,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.terms-conditions[data-v-70908484]{\n    margin-top: 60px;\n    padding-top:20px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    min-height:70vh;\n}\n.lic-item[data-v-70908484], .item-points[data-v-70908484], .outlined-points[data-v-70908484], .outline-bullets[data-v-70908484], .lic-item strong[data-v-70908484], .intro[data-v-70908484],.rom-num-points[data-v-70908484]{\n    width: 100ch;\n    display: block;\n}\n.lic-item[data-v-70908484]{\n    margin: 10px 0px;\n}\n.item-points[data-v-70908484] {\n    margin-left: 10px;\n}\n.item-points[data-v-70908484]::before {\n    content: '';\n    height: 4px;\n    width: 4px;\n    background: black;\n    border-radius: 50%;\n}\n.outlined-points[data-v-70908484] {\n    margin-left: 20px;\n}\n.outline-bullets[data-v-70908484] {\n    margin-left: 30px;\n}\n.outline-bullets-2[data-v-70908484] {\n    width: 85ch;\n    margin-left: 100px;\n}\n.rom-num-points[data-v-70908484]{\n    margin-left: 15px;\n}\n", ""]);
+exports.push([module.i, "\n.terms-conditions[data-v-70908484]{\n    margin-top: 60px;\n    padding-top:20px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    min-height:70vh;\n}\n.standard-license[data-v-70908484]{\n    counter-reset: item-lic-counter;\n}\n.lic-item[data-v-70908484], .item-points[data-v-70908484], .outlined-points[data-v-70908484], .outlines-dash[data-v-70908484], .lic-item strong[data-v-70908484], .intro[data-v-70908484] {\n    width: 100ch;\n    display: block;\n    color: #111;\n    font-size: 15px;\n}\n.lic-item[data-v-70908484]{\n    margin: 10px 0px;\n    counter-reset: point-counter;\n}\n.lic-item[data-v-70908484]::before{\n    counter-increment: item-lic-counter;\n    content: counter(item-lic-counter) '.  ';\n    position: absolute;\n    font-weight: bolder;\n    font-size: 19px;\n}\n.lic-item strong[data-v-70908484]{\n    margin-left: 20px;\n    font-size: 18px;\n    color: #070707;\n}\n.item-points[data-v-70908484] {\n    margin-left: 30px;\n    counter-reset: outpoint-counter;\n}\n.item-points[data-v-70908484]::before {\n    counter-increment: point-counter;\n    content: '(' counter(point-counter, lower-alpha) ').   ';\n    font-weight: bolder;\n    font-size: 17px;\n}\n.outlined-points[data-v-70908484] {\n    margin-left: 90px;\n}\n.outlined-points[data-v-70908484]::before {\n    counter-increment: outpoint-counter;\n    content: '(' counter(outpoint-counter, lower-roman) '). ';\n    font-weight: bolder;\n}\n.outlines-dash[data-v-70908484] {\n    margin-left: 130px;\n}\n.outlines-dash[data-v-70908484]::before{\n    counter-increment: bullet-counter;\n    content: '\\E622';\n    font-weight: bolder;\n    font-family: 'themify';\n}\n.outlines-dash-2[data-v-70908484] {\n    width: 85ch;\n    margin-left: 100px;\n}\n.rom-num-points[data-v-70908484]{\n    margin-left: 35px;\n}\n", ""]);
 
 // exports
 
@@ -72905,7 +72905,7 @@ var render = function() {
     ]),
     _vm._m(6),
     _vm._v(" "),
-    _c("p", { staticClass: "outline-bullets" }, [
+    _c("p", { staticClass: "outlined-points" }, [
       _vm._v(
         "\n                            Licensee may perform the song publicly for-profit performances, including but not limited to, at a live performance (i.e. concert, festival, nightclub etc.), on terrestrial or satellite radio, and/or on the internet via third-party streaming services (Spotify, YouTube, iTunes Radio etc.). The New Song may be played on 2 terrestrial or satellite radio stations;\n                        "
       )
@@ -72945,19 +72945,19 @@ var render = function() {
     _vm._m(12),
     _vm._v(" "),
     _vm._m(13),
-    _c("p", { staticClass: "rom-num-points" }, [
+    _c("p", { staticClass: "outlined-points" }, [
       _vm._v(
         "\n                    The parties acknowledge and agree that the New Song is a “derivative work”, as that term is used in the United States Copyright Act;\n\n                "
       )
     ]),
     _vm._v(" "),
-    _c("p", { staticClass: "rom-num-points" }, [
+    _c("p", { staticClass: "outlined-points" }, [
       _vm._v(
         "\n                    As applicable to the Beat and/or the New Song, there is no intention by the parties to create a joint work; and\n                "
       )
     ]),
     _vm._v(" "),
-    _c("p", { staticClass: "rom-num-points" }, [
+    _c("p", { staticClass: "outlined-points" }, [
       _vm._v(
         "\n                    There is no intention by the Licensor to grant any rights in and/or to any other derivative works that may have been created by other third-party licensees.\n                "
       )
@@ -72979,7 +72979,7 @@ var render = function() {
         "\n                 For the avoidance of doubt, you do not own the master or the sound recording rights in the New Song. You have been licensed the right to use the Beat in the New Song and to commercially exploit the New Song based on the terms and conditions of this Agreement.\n                        "
       )
     ]),
-    _c("p", { staticClass: "outline-bullets" }, [
+    _c("p", { staticClass: "outlines-dash" }, [
       _vm._v(
         "\n                            Notwithstanding the above, you do own the lyrics or other original musical components of the New Song that were written or composed solely by you.\n                        "
       )
@@ -73005,7 +73005,7 @@ var render = function() {
     _vm._v(" "),
     _vm._m(16),
     _vm._v(" "),
-    _c("p", { staticClass: "outline-bullets-2" }, [
+    _c("p", { staticClass: "outlines-dash" }, [
       _vm._v(
         "\n                            In the event that Licensee wishes to register his/her interests and rights to the underlying composition of the New Song with their Performing Rights Organization (“PRO”), Licensee must simultaneously identify and register the Producer’s share and ownership interest in the composition to indicate that Producer wrote and owns 50% of the composition in the New Song and as the owner of 100% of the Publisher’s share of the New Song.\n                        "
       )
@@ -73151,7 +73151,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "outline-bullets" }, [
+    return _c("p", { staticClass: "outlined-points" }, [
       _vm._v("\n                            The New Song "),
       _c("span", { staticClass: "font-weight-bold" }, [_vm._v("MAY")]),
       _vm._v(
@@ -73163,7 +73163,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "outline-bullets" }, [
+    return _c("p", { staticClass: "outlined-points" }, [
       _vm._v(
         "\n                            The Licensee may use the New Song in synchronization with "
       ),
@@ -73177,7 +73177,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "outline-bullets" }, [
+    return _c("p", { staticClass: "outlined-points" }, [
       _vm._v(
         "\n                            The Licensee may make the New Song available for sale in physical and/or digital form and sell "
       ),
@@ -73278,7 +73278,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "outline-bullets" }, [
+    return _c("p", { staticClass: "outlines-dash" }, [
       _vm._v(
         "\n                            Producer shall own, control, and administer One Hundred Percent "
       ),
