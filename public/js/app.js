@@ -8315,12 +8315,73 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "TermsNConditions",
   data: function data() {
     return {
       producerName: 'Tony Gregory',
-      previewStage: 1
+      previewStage: 0,
+      packages: [{
+        id: 1,
+        name: 'Basic',
+        popular: false,
+        filesType: 'MP3',
+        fee: 0.00,
+        use: 'Non Profit Use ONLY',
+        streams: 'Up to 10000 Streams',
+        youtube: 'YouTube (without Monetization)'
+      }, {
+        id: 2,
+        name: 'Standard',
+        fee: 29.95,
+        popular: false,
+        filesType: 'MP3 & WAV',
+        use: 'Non Profit Use ONLY',
+        streams: 'Up to 50000 Streams',
+        youtube: 'YouTube (without Monetization)'
+      }, {
+        id: 3,
+        name: 'Premium',
+        fee: 99.95,
+        popular: true,
+        filesType: 'MP3 , WAV & TRACKSTEMS',
+        use: 'Profit & Non Profit',
+        streams: 'Up to 100000 Streams',
+        youtube: 'YouTube (with Monetization)'
+      }, {
+        id: 4,
+        name: 'Unlimited',
+        fee: 199.95,
+        popular: false,
+        filesType: 'MP3 , WAV & TRACKSTEMS',
+        use: 'Profit & Non Profit',
+        streams: 'Unlimited Streams',
+        youtube: 'YouTube (with Monetization)'
+      }]
     };
   },
   methods: {
@@ -15283,7 +15344,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.terms-conditions[data-v-70908484]{\n    margin-top: 60px;\n    padding-top:20px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    min-height:70vh;\n}\n.terms-conditions h3[data-v-70908484]{\n    color: black;\n    font-weight: bold;\n}\n.standard-license[data-v-70908484], .basic-license[data-v-70908484], .popular-premium-license[data-v-70908484]{\n    margin-top: 20px;\n    counter-reset: item-lic-counter;\n}\n.lic-item[data-v-70908484], .item-points[data-v-70908484], .outlined-points[data-v-70908484], .outlines-dash[data-v-70908484], .lic-item strong[data-v-70908484], .intro[data-v-70908484] {\n    width: 100ch;\n    display: block;\n    color: #111;\n    font-size: 15px;\n}\n.lic-item[data-v-70908484]{\n    margin: 10px 0px;\n    counter-reset: point-counter;\n}\n.lic-item[data-v-70908484]::before{\n    counter-increment: item-lic-counter;\n    content: counter(item-lic-counter) '.  ';\n    position: absolute;\n    font-weight: bolder;\n    font-size: 19px;\n}\n.lic-item strong[data-v-70908484]{\n    margin-left: 20px;\n    font-size: 18px;\n    color: #070707;\n}\n.item-points[data-v-70908484] {\n    margin-left: 30px;\n    counter-reset: outpoint-counter;\n}\n.item-points[data-v-70908484]::before {\n    counter-increment: point-counter;\n    content: '(' counter(point-counter, lower-alpha) ').   ';\n    font-weight: bolder;\n    font-size: 17px;\n}\n.outlined-points[data-v-70908484] {\n    margin-left: 45px;\n}\n.outlined-points[data-v-70908484]::before {\n    counter-increment: outpoint-counter;\n    content: '(' counter(outpoint-counter, lower-roman) '). ';\n    font-weight: bolder;\n}\n.outlines-dash[data-v-70908484] {\n    margin-left: 100px;\n}\n.outlines-dash[data-v-70908484]::before{\n    counter-increment: bullet-counter;\n    content: '\\E622';\n    font-weight: bolder;\n    font-family: 'themify';\n}\n\n", ""]);
+exports.push([module.i, "\n.terms-conditions[data-v-70908484]{\n    margin-top: 60px;\n    padding-top:20px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    min-height:70vh;\n}\n.terms-conditions h3[data-v-70908484]{\n    color: black;\n    font-weight: bold;\n}\n.shortlist[data-v-70908484]{\n    margin-top: 30px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.license-holder[data-v-70908484]{\n    margin-top: 40px;\n    min-height: 60vh;\n    width: 75vw;\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n}\n.package[data-v-70908484]{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    border-radius: 10px;\n    width: 23%;\n    overflow: hidden;\n}\n.pack-head[data-v-70908484], .pack-info[data-v-70908484], .pack-cta[data-v-70908484]{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n}\n.pack-head[data-v-70908484]{\n    /*border-top-left-radius: 10px;*/\n    /*border-top-right-radius: 10px;*/\n    height: 20%;\n    width: 100%;\n    padding: 2%;\n}\n.pack-info[data-v-70908484]{\n    height: 60%;\n    width: 100%;\n    padding: 2%;\n}\n.pack-cta[data-v-70908484]{\n    height: 20%;\n    width: 100%;\n    padding: 2%;\n}\n.pack-name[data-v-70908484]{\n    font-weight: bolder;\n    font-size: 32px;\n}\n.pack-fee[data-v-70908484]{\n    font-weight: bolder;\n    font-size: 24px;\n}\n.pack-fee[data-v-70908484]{\n}\n.popular .pack-head[data-v-70908484]{\n    background-color: #617999;\n    color: white;\n}\n.non-popular .pack-head[data-v-70908484]{\n    background-color: #dbf2ff;\n    color: black;\n}\n.pack-cta button[data-v-70908484]{\n    padding: 10px 30px;\n    font-weight: bolder;\n    cursor: pointer;\n}\n.popular[data-v-70908484]{\n    transform: scale(1.05);\n    border: 2px #8c8c8cbb solid;\n    transition: 250ms ease-in-out;\n}\n.non-popular[data-v-70908484]{\n    transform: scale(.99);\n    border: 1px #8c8c8caa solid;\n    transition: 250ms ease-in-out;\n}\n.popular[data-v-70908484]:hover{\n    transform: scale(1.06);\n}\n.non-popular[data-v-70908484]:hover{\n    transform: scale(1.02);\n}\n.popular .pack-cta button[data-v-70908484]{\n    background-color: orangered;\n    color: white;\n}\n.non-popular .pack-cta button[data-v-70908484]{\n    background-color: #86aee1;\n    color: black;\n}\n.pack-use[data-v-70908484], .pack-deliverable[data-v-70908484],.pack-tag[data-v-70908484],.pack-monetization[data-v-70908484]{\n    margin: 10px 0px;\n    text-align: center;\n}\n.standard-license[data-v-70908484], .basic-license[data-v-70908484], .popular-premium-license[data-v-70908484], .unlimited-license[data-v-70908484]{\n    margin-top: 20px;\n    counter-reset: item-lic-counter;\n}\n.lic-item[data-v-70908484], .item-points[data-v-70908484], .outlined-points[data-v-70908484], .outlines-dash[data-v-70908484], .lic-item strong[data-v-70908484], .intro[data-v-70908484] {\n    width: 100ch;\n    display: block;\n    color: #111;\n    font-size: 15px;\n}\n.lic-item[data-v-70908484]{\n    margin: 10px 0px;\n    counter-reset: point-counter;\n}\n.lic-item[data-v-70908484]::before{\n    counter-increment: item-lic-counter;\n    content: counter(item-lic-counter) '.  ';\n    position: absolute;\n    font-weight: bolder;\n    font-size: 19px;\n}\n.lic-item strong[data-v-70908484]{\n    margin-left: 20px;\n    font-size: 18px;\n    color: #070707;\n}\n.item-points[data-v-70908484] {\n    margin-left: 30px;\n    counter-reset: outpoint-counter;\n}\n.item-points[data-v-70908484]::before {\n    counter-increment: point-counter;\n    content: '(' counter(point-counter, lower-alpha) ').   ';\n    font-weight: bolder;\n    font-size: 17px;\n}\n.outlined-points[data-v-70908484] {\n    margin-left: 45px;\n}\n.outlined-points[data-v-70908484]::before {\n    counter-increment: outpoint-counter;\n    content: '(' counter(outpoint-counter, lower-roman) '). ';\n    font-weight: bolder;\n}\n.outlines-dash[data-v-70908484] {\n    margin-left: 100px;\n}\n.outlines-dash[data-v-70908484]::before{\n    counter-increment: bullet-counter;\n    content: '\\E622';\n    font-weight: bolder;\n    font-family: 'themify';\n}\n\n", ""]);
 
 // exports
 
@@ -73361,934 +73422,1078 @@ var render = function() {
   return _c("div", { staticClass: "terms-conditions" }, [
     _c("h3", [_vm._v("Terms & Conditions")]),
     _vm._v(" "),
-    _c("div", { staticClass: "basic-license d-none" }, [
-      _c("p", { staticClass: "intro" }, [
-        _vm._v("\n             This "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("Non-Exclusive  Basic Lease License Agreement")
-        ]),
-        _vm._v(" (the “Agreement”), having been made on and effective as of "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v(" " + _vm._s(new Date()))
-        ]),
-        _vm._v(" (the “Effective Date”) by and between "),
-        _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Producer")]),
-        _vm._v(" p/k/a  "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v(_vm._s(_vm.producerName))
-        ]),
-        _vm._v(" (the “Producer” or “Licensor”); and "),
-        _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Licensee")]),
-        _vm._v(
-          " residing at [N/A] (“You” or “Licensee”), sets forth the terms and conditions of the Licensee’s use, and the rights granted in, the Producer’s instrumental music file entitled "
-        ),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("The Beat Title (Contract Preview Only)")
-        ]),
-        _vm._v(" (the “Beat”) in consideration for Licensee’s payment of "),
-        _c("span", { staticClass: "font-weight-bold" }, [_vm._v("$0.00")]),
-        _vm._v(" (the “License Fee”), on a so-called "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("“Basic Lease”")
-        ]),
-        _vm._v(
-          " basis.\n            This Agreement is issued solely in connection with and for Licensee's use of the Beat pursuant and subject to all terms and conditions set forth herein.\n\n        "
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.previewStage === 0,
+            expression: "previewStage === 0"
+          }
+        ],
+        staticClass: "shortlist"
+      },
+      [
+        _c("h4", [_vm._v("Beat Licenses")]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "license-holder" },
+          _vm._l(_vm.packages, function(beatPack) {
+            return _c(
+              "div",
+              {
+                key: beatPack.id,
+                staticClass: "package",
+                class: {
+                  popular: beatPack.popular,
+                  "non-popular": !beatPack.popular
+                }
+              },
+              [
+                _c("div", { staticClass: "pack-head" }, [
+                  _c("span", { staticClass: "pack-name" }, [
+                    _vm._v(_vm._s(beatPack.name))
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "pack-fee" }, [
+                    _vm._v("$ " + _vm._s(beatPack.fee))
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "pack-info" }, [
+                  _c("div", { staticClass: "pack-deliverable" }, [
+                    _vm._v(_vm._s(beatPack.filesType))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "pack-use" }, [
+                    _vm._v(_vm._s(beatPack.use))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "pack-streams" }, [
+                    _vm._v(_vm._s(beatPack.streams))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "pack-monetization" }, [
+                    _vm._v(_vm._s(beatPack.youtube))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "pack-tag" }, [
+                    _vm._v("One signature tag")
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(0, true)
+              ]
+            )
+          }),
+          0
         )
-      ]),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._m(2),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                    Licensor shall use commercially reasonable efforts to deliver the Beat to Licensee immediately after payment of the License Fee is made. Licensee will receive the Beat via email, to the email address Licensee provided to Licensor.\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(3),
-      _vm._v(" "),
-      _vm._m(4),
-      _vm._m(5),
-      _vm._v(" "),
-      _vm._m(6),
-      _vm._m(7),
-      _vm._v(" "),
-      _vm._m(8),
-      _vm._v(" "),
-      _vm._m(9),
-      _vm._v(" "),
-      _vm._m(10),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                     Subject to the Licensee’s compliance with the terms and conditions of this Agreement, Licensee shall not be required to account or pay to Producer any royalties, fees, or monies paid to or collected by the Licensee (expressly excluding mechanical royalties), or which would otherwise be payable to Producer in connection with the use/exploitation of the New Song as set forth in this Agreement.\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(11),
-      _vm._m(12),
-      _vm._v(" "),
-      _vm._m(13),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                The Licensee shall not have the right to license or sublicense any use of the Beat or of the New Song, in whole or in part, for any so-called “samples”.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                Licensee shall not engage in any unlawful copying, streaming, duplicating, selling, lending, renting, hiring, broadcasting, uploading, or downloading to any database, servers, computers, peer to peer sharing, or other file-sharing services, posting on websites, or distribution of the Beat in the form, or a substantially similar form, as delivered to Licensee. Licensee may send the Beat file to any individual musician, engineer, studio manager or other people who are working on the New Song.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(14),
-      _vm._v(" "),
-      _vm._m(15),
-      _c("p", { staticClass: "outlined-points" }, [
-        _vm._v(
-          "\n                    The parties acknowledge and agree that the New Song is a “derivative work”, as that term is used in the United States Copyright Act;\n\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlined-points" }, [
-        _vm._v(
-          "\n                    As applicable to the Beat and/or the New Song, there is no intention by the parties to create a joint work; and\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlined-points" }, [
-        _vm._v(
-          "\n                    There is no intention by the Licensor to grant any rights in and/or to any other derivative works that may have been created by other third-party licensees.\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(16),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                The Producer is and shall remain the sole owner and holder of all rights, title, and interest in the Beat, including all copyrights to and in the sound recording and the underlying musical compositions written and composed by Producer. Nothing contained herein shall constitute an assignment by Producer to Licensee of any of the foregoing rights. Licensee may not, under any circumstances, register or attempt to register the New Song and/or the Beat with the U.S. Copyright Office. The aforementioned right to register the New Song and/or the Beat shall be strictly limited to Producer. Licensee will, upon request, execute, acknowledge and deliver to Producer such additional documents as Producer may deem necessary to evidence and effectuate Producer’s rights hereunder, and Licensee hereby grants to Producer the right as attorney-in-fact to execute, acknowledge, deliver and record in the U.S. Copyright Office or elsewhere any and all such documents if Licensee shall fail to execute same within five (5) days after so requested by Producer.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                 For the avoidance of doubt, you do not own the master or the sound recording rights in the New Song. You have been licensed the right to use the Beat in the New Song and to commercially exploit the New Song based on the terms and conditions of this Agreement.\n                        "
-        )
-      ]),
-      _c("p", { staticClass: "outlines-dash" }, [
-        _vm._v(
-          "\n                            Notwithstanding the above, you do own the lyrics or other original musical components of the New Song that were written or composed solely by you.\n                        "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                 With respect to the publishing rights and ownership of the underlying composition embodied in the New Song, the Licensee, and the Producer hereby acknowledge and agree that the underlying composition shall be owned/split between them as follows:\n                    "
-        )
-      ]),
-      _vm._m(17),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlined-points" }, [
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v(" Producer (" + _vm._s(_vm.producerName) + ") ")
-        ]),
-        _vm._v(", owns "),
-        _c("span", { staticClass: "font-weight-bold" }, [_vm._v("50%")]),
-        _vm._v(" of the writers share.\n                    ")
-      ]),
-      _vm._v(" "),
-      _vm._m(18),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlines-dash" }, [
-        _vm._v(
-          "\n                            In the event that Licensee wishes to register his/her interests and rights to the underlying composition of the New Song with their Performing Rights Organization (“PRO”), Licensee must simultaneously identify and register the Producer’s share and ownership interest in the composition to indicate that Producer wrote and owns 50% of the composition in the New Song and as the owner of 100% of the Publisher’s share of the New Song.\n                        "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                The licensee shall be deemed to have signed, affirmed and ratified its acceptance of the terms of this Agreement by virtue of its payment of the License Fee to Licensor and its electronic acceptance of its terms and conditions at the time Licensee made payment of the License Fee.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(19),
-      _vm._v(" "),
-      _c("p", { staticClass: "lic-item" }, [
-        _c("strong", [_vm._v("Credit: ")]),
-        _vm._v(
-          "Licensee shall have the right to use and permit others to use Producer’s approved name, approved likeness, and other approved identification and approved biographical material concerning the Producer solely for purposes of trade and otherwise without restriction solely in connection with the New Song recorded hereunder. Licensee shall use best efforts to have Producer credited as a “producer” and shall give Producer appropriate production and songwriting credit on all compact discs, record, music video, and digital labels or any other record configuration manufactured which is now known or created in the future that embodies the New Song created hereunder and on all cover liner notes, any records containing the New Song and on the front and/or back cover of any album listing the New Song and other musician credits. The licensee shall use its best efforts to ensure that Producer is properly credited and Licensee shall check all proofs for the accuracy of credits, and shall use its best efforts to cure any mistakes regarding Producer's credit. In the event of any failure by Licensee to issue the credit to Producer, Licensee must use reasonable efforts to correct any such failure immediately and on a prospective basis. Such credit shall be in the substantial form: “"
-        ),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("Produced by  " + _vm._s(_vm.producerName))
-        ]),
-        _vm._v("”.\n        ")
-      ]),
-      _vm._v(" "),
-      _vm._m(20),
-      _vm._v(" "),
-      _vm._m(21),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                The licensee shall have five (5) business days from its receipt of written notice by Producer and/or Producer’s authorized representative to cure any alleged breach of this Agreement by Licensee. Licensee’s failure to cure the alleged breach within five (5) business days shall result in Licensee’s default of its obligations, its breach of this Agreement, and at Producer's sole discretion, the termination of Licensee’s rights hereunder.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                If Licensee engages in the commercial exploitation and/or sale of the Beat or New Song outside of the manner and amount expressly provided for in this Agreement, Licensee shall be liable to Producer for monetary damages in an amount equal to any and all monies paid, collected by, or received by Licensee, or any third party on its behalf, in connection with such unauthorized commercial exploitation of the Beat and/or New Song.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                 Licensee recognizes and agrees that a breach or threatened breach of this Agreement by Licensee give rise to irreparable injury to Producer, which may not be adequately compensated by damages. Accordingly, in the event of a breach or threatened breach by the Licensee of the provisions of this Agreement, Producer may seek and shall be entitled to a temporary restraining order and a preliminary injunction restraining the Licensee from violating the provisions of this Agreement. Nothing herein shall prohibit Producer from pursuing any other available legal or equitable remedy from such breach or threatened breach, including but not limited to the recovery of damages from the Licensee. The Licensee shall be responsible for all costs, expenses or damages that Producer incurs as a result of any violation by the Licensee of any provision of this Agreement. Licensee’ obligation shall include court costs, litigation expenses, and reasonable attorneys' fees.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(22),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                Licensee hereby agrees that Licensor has not made any guarantees or promises that the Beat fits the particular creative use or musical purpose intended or desired by the Licensee. The Beat, its sound recording, and the underlying musical composition embodied therein are licensed to the Licensee “as is” without warranties of any kind or fitness for a particular purpose.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                 Producer warrants and represents that he has the full right and ability to enter into this agreement, and is not under any disability, restriction, or prohibition with respect to the grant of rights hereunder. Producer warrants that the manufacture, sale, distribution, or other exploitation of the New Song hereunder will not infringe upon or violate any common law or statutory right of any person, firm, or corporation; including, without limitation, contractual rights, copyrights, and right(s) of privacy and publicity and will not constitute libel and/or slander. Licensee warrants that the manufacture, sale, distribution, or other exploitation of the New Song hereunder will not infringe upon or violate any common law or statutory right of any person, firm, or corporation; including, without limitation, contractual rights, copyrights, and right(s) of privacy and publicity and will not constitute libel and/or slander. The foregoing notwithstanding, Producer undertakes no responsibility whatsoever as to any elements added to the New Song by Licensee, and Licensee indemnifies and holds Producer harmless for any such elements. Producer warrants that he did not “sample” (as that term is commonly understood in the recording industry) any copyrighted material or sound recordings belonging to any other person, firm, or corporation (hereinafter referred to as “Owner”) without first having notified Licensee. The licensee shall have no obligation to approve the use of any sample thereof; however, if approved, any payment in connection therewith, including any associated legal clearance costs, shall be borne by Licensee. Knowledge by Licensee that “samples” were used by Producer which was not affirmatively disclosed by Producer to Licensee shall shift, in whole or in part, the liability for infringement or violation of the rights of any third party arising from the use of any such “sample” from Producer to Licensee.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                Parties hereto shall indemnify and hold each other harmless from any and all third party claims, liabilities, costs, losses, damages or expenses as are actually incurred by the non-defaulting party and shall hold the non-defaulting party, free, safe, and harmless against and from any and all claims, suits, demands, costs, liabilities, loss, damages, judgments, recoveries, costs, and expenses; (including, without limitation, reasonable attorneys' fees), which may be made or brought, paid, or incurred by reason of any breach or claim of breach of the warranties and representations hereunder by the defaulting party, their agents, heirs, successors, assigns and employees, which have been reduced to final judgment; provided that prior to final judgment, arising out of any breach of any representations or warranties of the defaulting party contained in this agreement or any failure by defaulting party to perform any obligations on its part to be performed hereunder the non-defaulting party has given the defaulting party prompt written notice of all claims and the right to participate in the defense with counsel of its choice at its sole expense. In no event shall Artist be entitled to seek injunctive or any other equitable relief for any breach or non-compliance with any provision of this agreement.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(23)
-    ]),
+      ]
+    ),
     _vm._v(" "),
-    _c("div", { staticClass: "standard-license d-none" }, [
-      _c("p", { staticClass: "intro" }, [
-        _vm._v("\n             This "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("Non-Exclusive  Standard Lease License Agreement")
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.previewStage === 1,
+            expression: "previewStage === 1"
+          }
+        ],
+        staticClass: "basic-license "
+      },
+      [
+        _c("p", { staticClass: "intro" }, [
+          _vm._v("\n             This "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Non-Exclusive  Basic Lease License Agreement")
+          ]),
+          _vm._v(
+            " (the “Agreement”), having been made on and effective as of "
+          ),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v(" " + _vm._s(new Date()))
+          ]),
+          _vm._v(" (the “Effective Date”) by and between "),
+          _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Producer")]),
+          _vm._v(" p/k/a  "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v(_vm._s(_vm.producerName))
+          ]),
+          _vm._v(" (the “Producer” or “Licensor”); and "),
+          _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Licensee")]),
+          _vm._v(
+            " residing at [N/A] (“You” or “Licensee”), sets forth the terms and conditions of the Licensee’s use, and the rights granted in, the Producer’s instrumental music file entitled "
+          ),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("The Beat Title (Contract Preview Only)")
+          ]),
+          _vm._v(" (the “Beat”) in consideration for Licensee’s payment of "),
+          _c("span", { staticClass: "font-weight-bold" }, [_vm._v("$0.00")]),
+          _vm._v(" (the “License Fee”), on a so-called "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("“Basic Lease”")
+          ]),
+          _vm._v(
+            " basis.\n            This Agreement is issued solely in connection with and for Licensee's use of the Beat pursuant and subject to all terms and conditions set forth herein.\n\n        "
+          )
         ]),
-        _vm._v(" (the “Agreement”), having been made on and effective as of "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v(" " + _vm._s(new Date()))
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._m(3),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                    Licensor shall use commercially reasonable efforts to deliver the Beat to Licensee immediately after payment of the License Fee is made. Licensee will receive the Beat via email, to the email address Licensee provided to Licensor.\n                "
+          )
         ]),
-        _vm._v(" (the “Effective Date”) by and between "),
-        _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Producer")]),
-        _vm._v(" p/k/a  "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v(_vm._s(_vm.producerName))
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(4),
+        _vm._v(" "),
+        _vm._m(5),
+        _vm._m(6),
+        _vm._v(" "),
+        _vm._m(7),
+        _vm._m(8),
+        _vm._v(" "),
+        _vm._m(9),
+        _vm._v(" "),
+        _vm._m(10),
+        _vm._v(" "),
+        _vm._m(11),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                     Subject to the Licensee’s compliance with the terms and conditions of this Agreement, Licensee shall not be required to account or pay to Producer any royalties, fees, or monies paid to or collected by the Licensee (expressly excluding mechanical royalties), or which would otherwise be payable to Producer in connection with the use/exploitation of the New Song as set forth in this Agreement.\n                "
+          )
         ]),
-        _vm._v(" (the “Producer” or “Licensor”); and "),
-        _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Licensee")]),
-        _vm._v(
-          " residing at [N/A] (“You” or “Licensee”), sets forth the terms and conditions of the Licensee’s use, and the rights granted in, the Producer’s instrumental music file entitled "
-        ),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("The Beat Title (Contract Preview Only)")
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(12),
+        _vm._m(13),
+        _vm._v(" "),
+        _vm._m(14),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                The Licensee shall not have the right to license or sublicense any use of the Beat or of the New Song, in whole or in part, for any so-called “samples”.\n            "
+          )
         ]),
-        _vm._v(" (the “Beat”) in consideration for Licensee’s payment of "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("$" + _vm._s(_vm.$store.getters.getBasicPrice.amount))
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                Licensee shall not engage in any unlawful copying, streaming, duplicating, selling, lending, renting, hiring, broadcasting, uploading, or downloading to any database, servers, computers, peer to peer sharing, or other file-sharing services, posting on websites, or distribution of the Beat in the form, or a substantially similar form, as delivered to Licensee. Licensee may send the Beat file to any individual musician, engineer, studio manager or other people who are working on the New Song.\n            "
+          )
         ]),
-        _vm._v(" (the “License Fee”), on a so-called "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("“Standard Lease”")
+        _vm._v(" "),
+        _vm._m(15),
+        _vm._v(" "),
+        _vm._m(16),
+        _c("p", { staticClass: "outlined-points" }, [
+          _vm._v(
+            "\n                    The parties acknowledge and agree that the New Song is a “derivative work”, as that term is used in the United States Copyright Act;\n\n                "
+          )
         ]),
-        _vm._v(
-          " basis.\n            This Agreement is issued solely in connection with and for Licensee's use of the Beat pursuant and subject to all terms and conditions set forth herein.\n\n        "
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(24),
-      _vm._v(" "),
-      _vm._m(25),
-      _vm._m(26),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                    Licensor shall use commercially reasonable efforts to deliver the Beat to Licensee immediately after payment of the License Fee is made. Licensee will receive the Beat via email, to the email address Licensee provided to Licensor.\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(27),
-      _vm._v(" "),
-      _vm._m(28),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                     In consideration for Licensee’s payment of the License Fee, the Producer hereby grants Licensee a limited non-exclusive, nontransferable license and the right to incorporate, include and/or use the Beat in the preparation of one (1) new song or to incorporate the Beat into a new piece of instrumental music created by the Licensee. Licensee may create the new song or new instrumental music by recording his/her written lyrics over the Beat and/or by incorporating portions/samples of the Beat into pre-existing instrumental music written, produced and/or owned by Licensee. The new song or piece of instrumental music created by the Licensee which incorporates some or all of the Beat shall be referred to as the “New Song”. Permission is granted to Licensee to modify the arrangement, length, tempo, or pitch of the Beat in preparation of the New Song for public release.\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                    This License grants Licensee a worldwide, non-exclusive license to use the Beat as incorporated in the New Song in the manners and for the purposes expressly provided for herein, subject to the sale restrictions, limitations and prohibited uses stated in this Agreement. Licensee acknowledges and agrees that any and all rights granted to Licensee in the Beat pursuant to this Agreement are on a NON-EXCLUSIVE basis and Producer shall continue to license the Beat upon the same or similar terms and conditions as this Agreement to other potential third-party licensees.\n                        "
-        )
-      ]),
-      _vm._m(29),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlined-points" }, [
-        _vm._v(
-          "\n                            Licensee may perform the song publicly for-profit performances, including but not limited to, at a live performance (i.e. concert, festival, nightclub etc.), on terrestrial or satellite radio, and/or on the internet via third-party streaming services (Spotify, YouTube, iTunes Radio etc.). The New Song may be played on 2 terrestrial or satellite radio stations;\n                        "
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(30),
-      _vm._v(" "),
-      _vm._m(31),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                     Subject to the Licensee’s compliance with the terms and conditions of this Agreement, Licensee shall not be required to account or pay to Producer any royalties, fees, or monies paid to or collected by the Licensee (expressly excluding mechanical royalties), or which would otherwise be payable to Producer in connection with the use/exploitation of the New Song as set forth in this Agreement.\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(32),
-      _vm._m(33),
-      _vm._v(" "),
-      _vm._m(34),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                The Licensee shall not have the right to license or sublicense any use of the Beat or of the New Song, in whole or in part, for any so-called “samples”.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                Licensee shall not engage in any unlawful copying, streaming, duplicating, selling, lending, renting, hiring, broadcasting, uploading, or downloading to any database, servers, computers, peer to peer sharing, or other file-sharing services, posting on websites, or distribution of the Beat in the form, or a substantially similar form, as delivered to Licensee. Licensee may send the Beat file to any individual musician, engineer, studio manager or other people who are working on the New Song.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(35),
-      _vm._v(" "),
-      _vm._m(36),
-      _c("p", { staticClass: "outlined-points" }, [
-        _vm._v(
-          "\n                    The parties acknowledge and agree that the New Song is a “derivative work”, as that term is used in the United States Copyright Act;\n\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlined-points" }, [
-        _vm._v(
-          "\n                    As applicable to the Beat and/or the New Song, there is no intention by the parties to create a joint work; and\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlined-points" }, [
-        _vm._v(
-          "\n                    There is no intention by the Licensor to grant any rights in and/or to any other derivative works that may have been created by other third-party licensees.\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(37),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                The Producer is and shall remain the sole owner and holder of all rights, title, and interest in the Beat, including all copyrights to and in the sound recording and the underlying musical compositions written and composed by Producer. Nothing contained herein shall constitute an assignment by Producer to Licensee of any of the foregoing rights. Licensee may not, under any circumstances, register or attempt to register the New Song and/or the Beat with the U.S. Copyright Office. The aforementioned right to register the New Song and/or the Beat shall be strictly limited to Producer. Licensee will, upon request, execute, acknowledge and deliver to Producer such additional documents as Producer may deem necessary to evidence and effectuate Producer’s rights hereunder, and Licensee hereby grants to Producer the right as attorney-in-fact to execute, acknowledge, deliver and record in the U.S. Copyright Office or elsewhere any and all such documents if Licensee shall fail to execute same within five (5) days after so requested by Producer.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                 For the avoidance of doubt, you do not own the master or the sound recording rights in the New Song. You have been licensed the right to use the Beat in the New Song and to commercially exploit the New Song based on the terms and conditions of this Agreement.\n                        "
-        )
-      ]),
-      _c("p", { staticClass: "outlines-dash" }, [
-        _vm._v(
-          "\n                            Notwithstanding the above, you do own the lyrics or other original musical components of the New Song that were written or composed solely by you.\n                        "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                 With respect to the publishing rights and ownership of the underlying composition embodied in the New Song, the Licensee, and the Producer hereby acknowledge and agree that the underlying composition shall be owned/split between them as follows:\n                    "
-        )
-      ]),
-      _vm._m(38),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlined-points" }, [
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v(" Producer (" + _vm._s(_vm.producerName) + ") ")
+        _vm._v(" "),
+        _c("p", { staticClass: "outlined-points" }, [
+          _vm._v(
+            "\n                    As applicable to the Beat and/or the New Song, there is no intention by the parties to create a joint work; and\n                "
+          )
         ]),
-        _vm._v(", owns "),
-        _c("span", { staticClass: "font-weight-bold" }, [_vm._v("50%")]),
-        _vm._v(" of the writers share.\n                    ")
-      ]),
-      _vm._v(" "),
-      _vm._m(39),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlines-dash" }, [
-        _vm._v(
-          "\n                            In the event that Licensee wishes to register his/her interests and rights to the underlying composition of the New Song with their Performing Rights Organization (“PRO”), Licensee must simultaneously identify and register the Producer’s share and ownership interest in the composition to indicate that Producer wrote and owns 50% of the composition in the New Song and as the owner of 100% of the Publisher’s share of the New Song.\n                        "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                The licensee shall be deemed to have signed, affirmed and ratified its acceptance of the terms of this Agreement by virtue of its payment of the License Fee to Licensor and its electronic acceptance of its terms and conditions at the time Licensee made payment of the License Fee.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(40),
-      _vm._v(" "),
-      _c("p", { staticClass: "lic-item" }, [
-        _c("strong", [_vm._v("Credit: ")]),
-        _vm._v(
-          "Licensee shall have the right to use and permit others to use Producer’s approved name, approved likeness, and other approved identification and approved biographical material concerning the Producer solely for purposes of trade and otherwise without restriction solely in connection with the New Song recorded hereunder. Licensee shall use best efforts to have Producer credited as a “producer” and shall give Producer appropriate production and songwriting credit on all compact discs, record, music video, and digital labels or any other record configuration manufactured which is now known or created in the future that embodies the New Song created hereunder and on all cover liner notes, any records containing the New Song and on the front and/or back cover of any album listing the New Song and other musician credits. The licensee shall use its best efforts to ensure that Producer is properly credited and Licensee shall check all proofs for the accuracy of credits, and shall use its best efforts to cure any mistakes regarding Producer's credit. In the event of any failure by Licensee to issue the credit to Producer, Licensee must use reasonable efforts to correct any such failure immediately and on a prospective basis. Such credit shall be in the substantial form: “"
-        ),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("Produced by  " + _vm._s(_vm.producerName))
+        _vm._v(" "),
+        _c("p", { staticClass: "outlined-points" }, [
+          _vm._v(
+            "\n                    There is no intention by the Licensor to grant any rights in and/or to any other derivative works that may have been created by other third-party licensees.\n                "
+          )
         ]),
-        _vm._v("”.\n        ")
-      ]),
-      _vm._v(" "),
-      _vm._m(41),
-      _vm._v(" "),
-      _vm._m(42),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                The licensee shall have five (5) business days from its receipt of written notice by Producer and/or Producer’s authorized representative to cure any alleged breach of this Agreement by Licensee. Licensee’s failure to cure the alleged breach within five (5) business days shall result in Licensee’s default of its obligations, its breach of this Agreement, and at Producer's sole discretion, the termination of Licensee’s rights hereunder.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                If Licensee engages in the commercial exploitation and/or sale of the Beat or New Song outside of the manner and amount expressly provided for in this Agreement, Licensee shall be liable to Producer for monetary damages in an amount equal to any and all monies paid, collected by, or received by Licensee, or any third party on its behalf, in connection with such unauthorized commercial exploitation of the Beat and/or New Song.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                 Licensee recognizes and agrees that a breach or threatened breach of this Agreement by Licensee give rise to irreparable injury to Producer, which may not be adequately compensated by damages. Accordingly, in the event of a breach or threatened breach by the Licensee of the provisions of this Agreement, Producer may seek and shall be entitled to a temporary restraining order and a preliminary injunction restraining the Licensee from violating the provisions of this Agreement. Nothing herein shall prohibit Producer from pursuing any other available legal or equitable remedy from such breach or threatened breach, including but not limited to the recovery of damages from the Licensee. The Licensee shall be responsible for all costs, expenses or damages that Producer incurs as a result of any violation by the Licensee of any provision of this Agreement. Licensee’ obligation shall include court costs, litigation expenses, and reasonable attorneys' fees.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(43),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                Licensee hereby agrees that Licensor has not made any guarantees or promises that the Beat fits the particular creative use or musical purpose intended or desired by the Licensee. The Beat, its sound recording, and the underlying musical composition embodied therein are licensed to the Licensee “as is” without warranties of any kind or fitness for a particular purpose.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                 Producer warrants and represents that he has the full right and ability to enter into this agreement, and is not under any disability, restriction, or prohibition with respect to the grant of rights hereunder. Producer warrants that the manufacture, sale, distribution, or other exploitation of the New Song hereunder will not infringe upon or violate any common law or statutory right of any person, firm, or corporation; including, without limitation, contractual rights, copyrights, and right(s) of privacy and publicity and will not constitute libel and/or slander. Licensee warrants that the manufacture, sale, distribution, or other exploitation of the New Song hereunder will not infringe upon or violate any common law or statutory right of any person, firm, or corporation; including, without limitation, contractual rights, copyrights, and right(s) of privacy and publicity and will not constitute libel and/or slander. The foregoing notwithstanding, Producer undertakes no responsibility whatsoever as to any elements added to the New Song by Licensee, and Licensee indemnifies and holds Producer harmless for any such elements. Producer warrants that he did not “sample” (as that term is commonly understood in the recording industry) any copyrighted material or sound recordings belonging to any other person, firm, or corporation (hereinafter referred to as “Owner”) without first having notified Licensee. The licensee shall have no obligation to approve the use of any sample thereof; however, if approved, any payment in connection therewith, including any associated legal clearance costs, shall be borne by Licensee. Knowledge by Licensee that “samples” were used by Producer which was not affirmatively disclosed by Producer to Licensee shall shift, in whole or in part, the liability for infringement or violation of the rights of any third party arising from the use of any such “sample” from Producer to Licensee.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                Parties hereto shall indemnify and hold each other harmless from any and all third party claims, liabilities, costs, losses, damages or expenses as are actually incurred by the non-defaulting party and shall hold the non-defaulting party, free, safe, and harmless against and from any and all claims, suits, demands, costs, liabilities, loss, damages, judgments, recoveries, costs, and expenses; (including, without limitation, reasonable attorneys' fees), which may be made or brought, paid, or incurred by reason of any breach or claim of breach of the warranties and representations hereunder by the defaulting party, their agents, heirs, successors, assigns and employees, which have been reduced to final judgment; provided that prior to final judgment, arising out of any breach of any representations or warranties of the defaulting party contained in this agreement or any failure by defaulting party to perform any obligations on its part to be performed hereunder the non-defaulting party has given the defaulting party prompt written notice of all claims and the right to participate in the defense with counsel of its choice at its sole expense. In no event shall Artist be entitled to seek injunctive or any other equitable relief for any breach or non-compliance with any provision of this agreement.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(44)
-    ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(17),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                The Producer is and shall remain the sole owner and holder of all rights, title, and interest in the Beat, including all copyrights to and in the sound recording and the underlying musical compositions written and composed by Producer. Nothing contained herein shall constitute an assignment by Producer to Licensee of any of the foregoing rights. Licensee may not, under any circumstances, register or attempt to register the New Song and/or the Beat with the U.S. Copyright Office. The aforementioned right to register the New Song and/or the Beat shall be strictly limited to Producer. Licensee will, upon request, execute, acknowledge and deliver to Producer such additional documents as Producer may deem necessary to evidence and effectuate Producer’s rights hereunder, and Licensee hereby grants to Producer the right as attorney-in-fact to execute, acknowledge, deliver and record in the U.S. Copyright Office or elsewhere any and all such documents if Licensee shall fail to execute same within five (5) days after so requested by Producer.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                 For the avoidance of doubt, you do not own the master or the sound recording rights in the New Song. You have been licensed the right to use the Beat in the New Song and to commercially exploit the New Song based on the terms and conditions of this Agreement.\n                        "
+          )
+        ]),
+        _c("p", { staticClass: "outlines-dash" }, [
+          _vm._v(
+            "\n                            Notwithstanding the above, you do own the lyrics or other original musical components of the New Song that were written or composed solely by you.\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                 With respect to the publishing rights and ownership of the underlying composition embodied in the New Song, the Licensee, and the Producer hereby acknowledge and agree that the underlying composition shall be owned/split between them as follows:\n                    "
+          )
+        ]),
+        _vm._m(18),
+        _vm._v(" "),
+        _c("p", { staticClass: "outlined-points" }, [
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v(" Producer (" + _vm._s(_vm.producerName) + ") ")
+          ]),
+          _vm._v(", owns "),
+          _c("span", { staticClass: "font-weight-bold" }, [_vm._v("50%")]),
+          _vm._v(" of the writers share.\n                    ")
+        ]),
+        _vm._v(" "),
+        _vm._m(19),
+        _vm._v(" "),
+        _c("p", { staticClass: "outlines-dash" }, [
+          _vm._v(
+            "\n                            In the event that Licensee wishes to register his/her interests and rights to the underlying composition of the New Song with their Performing Rights Organization (“PRO”), Licensee must simultaneously identify and register the Producer’s share and ownership interest in the composition to indicate that Producer wrote and owns 50% of the composition in the New Song and as the owner of 100% of the Publisher’s share of the New Song.\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                The licensee shall be deemed to have signed, affirmed and ratified its acceptance of the terms of this Agreement by virtue of its payment of the License Fee to Licensor and its electronic acceptance of its terms and conditions at the time Licensee made payment of the License Fee.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(20),
+        _vm._v(" "),
+        _c("p", { staticClass: "lic-item" }, [
+          _c("strong", [_vm._v("Credit: ")]),
+          _vm._v(
+            "Licensee shall have the right to use and permit others to use Producer’s approved name, approved likeness, and other approved identification and approved biographical material concerning the Producer solely for purposes of trade and otherwise without restriction solely in connection with the New Song recorded hereunder. Licensee shall use best efforts to have Producer credited as a “producer” and shall give Producer appropriate production and songwriting credit on all compact discs, record, music video, and digital labels or any other record configuration manufactured which is now known or created in the future that embodies the New Song created hereunder and on all cover liner notes, any records containing the New Song and on the front and/or back cover of any album listing the New Song and other musician credits. The licensee shall use its best efforts to ensure that Producer is properly credited and Licensee shall check all proofs for the accuracy of credits, and shall use its best efforts to cure any mistakes regarding Producer's credit. In the event of any failure by Licensee to issue the credit to Producer, Licensee must use reasonable efforts to correct any such failure immediately and on a prospective basis. Such credit shall be in the substantial form: “"
+          ),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Produced by  " + _vm._s(_vm.producerName))
+          ]),
+          _vm._v("”.\n        ")
+        ]),
+        _vm._v(" "),
+        _vm._m(21),
+        _vm._v(" "),
+        _vm._m(22),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                The licensee shall have five (5) business days from its receipt of written notice by Producer and/or Producer’s authorized representative to cure any alleged breach of this Agreement by Licensee. Licensee’s failure to cure the alleged breach within five (5) business days shall result in Licensee’s default of its obligations, its breach of this Agreement, and at Producer's sole discretion, the termination of Licensee’s rights hereunder.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                If Licensee engages in the commercial exploitation and/or sale of the Beat or New Song outside of the manner and amount expressly provided for in this Agreement, Licensee shall be liable to Producer for monetary damages in an amount equal to any and all monies paid, collected by, or received by Licensee, or any third party on its behalf, in connection with such unauthorized commercial exploitation of the Beat and/or New Song.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                 Licensee recognizes and agrees that a breach or threatened breach of this Agreement by Licensee give rise to irreparable injury to Producer, which may not be adequately compensated by damages. Accordingly, in the event of a breach or threatened breach by the Licensee of the provisions of this Agreement, Producer may seek and shall be entitled to a temporary restraining order and a preliminary injunction restraining the Licensee from violating the provisions of this Agreement. Nothing herein shall prohibit Producer from pursuing any other available legal or equitable remedy from such breach or threatened breach, including but not limited to the recovery of damages from the Licensee. The Licensee shall be responsible for all costs, expenses or damages that Producer incurs as a result of any violation by the Licensee of any provision of this Agreement. Licensee’ obligation shall include court costs, litigation expenses, and reasonable attorneys' fees.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(23),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                Licensee hereby agrees that Licensor has not made any guarantees or promises that the Beat fits the particular creative use or musical purpose intended or desired by the Licensee. The Beat, its sound recording, and the underlying musical composition embodied therein are licensed to the Licensee “as is” without warranties of any kind or fitness for a particular purpose.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                 Producer warrants and represents that he has the full right and ability to enter into this agreement, and is not under any disability, restriction, or prohibition with respect to the grant of rights hereunder. Producer warrants that the manufacture, sale, distribution, or other exploitation of the New Song hereunder will not infringe upon or violate any common law or statutory right of any person, firm, or corporation; including, without limitation, contractual rights, copyrights, and right(s) of privacy and publicity and will not constitute libel and/or slander. Licensee warrants that the manufacture, sale, distribution, or other exploitation of the New Song hereunder will not infringe upon or violate any common law or statutory right of any person, firm, or corporation; including, without limitation, contractual rights, copyrights, and right(s) of privacy and publicity and will not constitute libel and/or slander. The foregoing notwithstanding, Producer undertakes no responsibility whatsoever as to any elements added to the New Song by Licensee, and Licensee indemnifies and holds Producer harmless for any such elements. Producer warrants that he did not “sample” (as that term is commonly understood in the recording industry) any copyrighted material or sound recordings belonging to any other person, firm, or corporation (hereinafter referred to as “Owner”) without first having notified Licensee. The licensee shall have no obligation to approve the use of any sample thereof; however, if approved, any payment in connection therewith, including any associated legal clearance costs, shall be borne by Licensee. Knowledge by Licensee that “samples” were used by Producer which was not affirmatively disclosed by Producer to Licensee shall shift, in whole or in part, the liability for infringement or violation of the rights of any third party arising from the use of any such “sample” from Producer to Licensee.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                Parties hereto shall indemnify and hold each other harmless from any and all third party claims, liabilities, costs, losses, damages or expenses as are actually incurred by the non-defaulting party and shall hold the non-defaulting party, free, safe, and harmless against and from any and all claims, suits, demands, costs, liabilities, loss, damages, judgments, recoveries, costs, and expenses; (including, without limitation, reasonable attorneys' fees), which may be made or brought, paid, or incurred by reason of any breach or claim of breach of the warranties and representations hereunder by the defaulting party, their agents, heirs, successors, assigns and employees, which have been reduced to final judgment; provided that prior to final judgment, arising out of any breach of any representations or warranties of the defaulting party contained in this agreement or any failure by defaulting party to perform any obligations on its part to be performed hereunder the non-defaulting party has given the defaulting party prompt written notice of all claims and the right to participate in the defense with counsel of its choice at its sole expense. In no event shall Artist be entitled to seek injunctive or any other equitable relief for any breach or non-compliance with any provision of this agreement.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(24)
+      ]
+    ),
     _vm._v(" "),
-    _c("div", { staticClass: "popular-premium-license d-none" }, [
-      _c("p", { staticClass: "intro" }, [
-        _vm._v("\n             This "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("Non-Exclusive  Premium Stems License Agreement")
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.previewStage === 2,
+            expression: "previewStage === 2"
+          }
+        ],
+        staticClass: "standard-license "
+      },
+      [
+        _c("p", { staticClass: "intro" }, [
+          _vm._v("\n             This "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Non-Exclusive  Standard Lease License Agreement")
+          ]),
+          _vm._v(
+            " (the “Agreement”), having been made on and effective as of "
+          ),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v(" " + _vm._s(new Date()))
+          ]),
+          _vm._v(" (the “Effective Date”) by and between "),
+          _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Producer")]),
+          _vm._v(" p/k/a  "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v(_vm._s(_vm.producerName))
+          ]),
+          _vm._v(" (the “Producer” or “Licensor”); and "),
+          _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Licensee")]),
+          _vm._v(
+            " residing at [N/A] (“You” or “Licensee”), sets forth the terms and conditions of the Licensee’s use, and the rights granted in, the Producer’s instrumental music file entitled "
+          ),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("The Beat Title (Contract Preview Only)")
+          ]),
+          _vm._v(" (the “Beat”) in consideration for Licensee’s payment of "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("$" + _vm._s(_vm.$store.getters.getBasicPrice.amount))
+          ]),
+          _vm._v(" (the “License Fee”), on a so-called "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("“Standard Lease”")
+          ]),
+          _vm._v(
+            " basis.\n            This Agreement is issued solely in connection with and for Licensee's use of the Beat pursuant and subject to all terms and conditions set forth herein.\n\n        "
+          )
         ]),
-        _vm._v(" (the “Agreement”), having been made on and effective as of "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v(" " + _vm._s(new Date()))
+        _vm._v(" "),
+        _vm._m(25),
+        _vm._v(" "),
+        _vm._m(26),
+        _vm._m(27),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                    Licensor shall use commercially reasonable efforts to deliver the Beat to Licensee immediately after payment of the License Fee is made. Licensee will receive the Beat via email, to the email address Licensee provided to Licensor.\n                "
+          )
         ]),
-        _vm._v(" (the “Effective Date”) by and between "),
-        _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Producer")]),
-        _vm._v(" p/k/a  "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v(_vm._s(_vm.producerName))
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(28),
+        _vm._v(" "),
+        _vm._m(29),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                     In consideration for Licensee’s payment of the License Fee, the Producer hereby grants Licensee a limited non-exclusive, nontransferable license and the right to incorporate, include and/or use the Beat in the preparation of one (1) new song or to incorporate the Beat into a new piece of instrumental music created by the Licensee. Licensee may create the new song or new instrumental music by recording his/her written lyrics over the Beat and/or by incorporating portions/samples of the Beat into pre-existing instrumental music written, produced and/or owned by Licensee. The new song or piece of instrumental music created by the Licensee which incorporates some or all of the Beat shall be referred to as the “New Song”. Permission is granted to Licensee to modify the arrangement, length, tempo, or pitch of the Beat in preparation of the New Song for public release.\n                "
+          )
         ]),
-        _vm._v(" (the “Producer” or “Licensor”); and "),
-        _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Licensee")]),
-        _vm._v(
-          " residing at [N/A] (“You” or “Licensee”), sets forth the terms and conditions of the Licensee’s use, and the rights granted in, the Producer’s instrumental music file entitled "
-        ),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("The Beat Title (Contract Preview Only)")
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                    This License grants Licensee a worldwide, non-exclusive license to use the Beat as incorporated in the New Song in the manners and for the purposes expressly provided for herein, subject to the sale restrictions, limitations and prohibited uses stated in this Agreement. Licensee acknowledges and agrees that any and all rights granted to Licensee in the Beat pursuant to this Agreement are on a NON-EXCLUSIVE basis and Producer shall continue to license the Beat upon the same or similar terms and conditions as this Agreement to other potential third-party licensees.\n                        "
+          )
         ]),
-        _vm._v(" (the “Beat”) in consideration for Licensee’s payment of "),
-        _c("span", { staticClass: "font-weight-bold" }, [_vm._v("$99.95")]),
-        _vm._v(" (the “License Fee”), on a so-called "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("“Premium Stems”")
+        _vm._m(30),
+        _vm._v(" "),
+        _c("p", { staticClass: "outlined-points" }, [
+          _vm._v(
+            "\n                            Licensee may perform the song publicly for-profit performances, including but not limited to, at a live performance (i.e. concert, festival, nightclub etc.), on terrestrial or satellite radio, and/or on the internet via third-party streaming services (Spotify, YouTube, iTunes Radio etc.). The New Song may be played on 2 terrestrial or satellite radio stations;\n                        "
+          )
         ]),
-        _vm._v(
-          " basis.\n            This Agreement is issued solely in connection with and for Licensee's use of the Beat pursuant and subject to all terms and conditions set forth herein.\n\n        "
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(45),
-      _vm._v(" "),
-      _vm._m(46),
-      _vm._m(47),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                    Licensor shall use commercially reasonable efforts to deliver the Beat to Licensee immediately after payment of the License Fee is made. Licensee will receive the Beat via email, to the email address Licensee provided to Licensor.\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(48),
-      _vm._v(" "),
-      _vm._m(49),
-      _vm._m(50),
-      _vm._v(" "),
-      _vm._m(51),
-      _vm._m(52),
-      _vm._v(" "),
-      _vm._m(53),
-      _vm._v(" "),
-      _vm._m(54),
-      _vm._v(" "),
-      _vm._m(55),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                     Subject to the Licensee’s compliance with the terms and conditions of this Agreement, Licensee shall not be required to account or pay to Producer any royalties, fees, or monies paid to or collected by the Licensee (expressly excluding mechanical royalties), or which would otherwise be payable to Producer in connection with the use/exploitation of the New Song as set forth in this Agreement.\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(56),
-      _vm._m(57),
-      _vm._v(" "),
-      _vm._m(58),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                The Licensee shall not have the right to license or sublicense any use of the Beat or of the New Song, in whole or in part, for any so-called “samples”.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                Licensee shall not engage in any unlawful copying, streaming, duplicating, selling, lending, renting, hiring, broadcasting, uploading, or downloading to any database, servers, computers, peer to peer sharing, or other file-sharing services, posting on websites, or distribution of the Beat in the form, or a substantially similar form, as delivered to Licensee. Licensee may send the Beat file to any individual musician, engineer, studio manager or other people who are working on the New Song.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(59),
-      _vm._v(" "),
-      _vm._m(60),
-      _c("p", { staticClass: "outlined-points" }, [
-        _vm._v(
-          "\n                    The parties acknowledge and agree that the New Song is a “derivative work”, as that term is used in the United States Copyright Act;\n\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlined-points" }, [
-        _vm._v(
-          "\n                    As applicable to the Beat and/or the New Song, there is no intention by the parties to create a joint work; and\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlined-points" }, [
-        _vm._v(
-          "\n                    There is no intention by the Licensor to grant any rights in and/or to any other derivative works that may have been created by other third-party licensees.\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(61),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                The Producer is and shall remain the sole owner and holder of all rights, title, and interest in the Beat, including all copyrights to and in the sound recording and the underlying musical compositions written and composed by Producer. Nothing contained herein shall constitute an assignment by Producer to Licensee of any of the foregoing rights. Licensee may not, under any circumstances, register or attempt to register the New Song and/or the Beat with the U.S. Copyright Office. The aforementioned right to register the New Song and/or the Beat shall be strictly limited to Producer. Licensee will, upon request, execute, acknowledge and deliver to Producer such additional documents as Producer may deem necessary to evidence and effectuate Producer’s rights hereunder, and Licensee hereby grants to Producer the right as attorney-in-fact to execute, acknowledge, deliver and record in the U.S. Copyright Office or elsewhere any and all such documents if Licensee shall fail to execute same within five (5) days after so requested by Producer.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                 For the avoidance of doubt, you do not own the master or the sound recording rights in the New Song. You have been licensed the right to use the Beat in the New Song and to commercially exploit the New Song based on the terms and conditions of this Agreement.\n                        "
-        )
-      ]),
-      _c("p", { staticClass: "outlines-dash" }, [
-        _vm._v(
-          "\n                            Notwithstanding the above, you do own the lyrics or other original musical components of the New Song that were written or composed solely by you.\n                        "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                 With respect to the publishing rights and ownership of the underlying composition embodied in the New Song, the Licensee, and the Producer hereby acknowledge and agree that the underlying composition shall be owned/split between them as follows:\n                    "
-        )
-      ]),
-      _vm._m(62),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlined-points" }, [
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v(" Producer (" + _vm._s(_vm.producerName) + ") ")
+        _vm._v(" "),
+        _vm._m(31),
+        _vm._v(" "),
+        _vm._m(32),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                     Subject to the Licensee’s compliance with the terms and conditions of this Agreement, Licensee shall not be required to account or pay to Producer any royalties, fees, or monies paid to or collected by the Licensee (expressly excluding mechanical royalties), or which would otherwise be payable to Producer in connection with the use/exploitation of the New Song as set forth in this Agreement.\n                "
+          )
         ]),
-        _vm._v(", owns "),
-        _c("span", { staticClass: "font-weight-bold" }, [_vm._v("50%")]),
-        _vm._v(" of the writers share.\n                    ")
-      ]),
-      _vm._v(" "),
-      _vm._m(63),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlines-dash" }, [
-        _vm._v(
-          "\n                            In the event that Licensee wishes to register his/her interests and rights to the underlying composition of the New Song with their Performing Rights Organization (“PRO”), Licensee must simultaneously identify and register the Producer’s share and ownership interest in the composition to indicate that Producer wrote and owns 50% of the composition in the New Song and as the owner of 100% of the Publisher’s share of the New Song.\n                        "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                The licensee shall be deemed to have signed, affirmed and ratified its acceptance of the terms of this Agreement by virtue of its payment of the License Fee to Licensor and its electronic acceptance of its terms and conditions at the time Licensee made payment of the License Fee.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(64),
-      _vm._v(" "),
-      _c("p", { staticClass: "lic-item" }, [
-        _c("strong", [_vm._v("Credit: ")]),
-        _vm._v(
-          "Licensee shall have the right to use and permit others to use Producer’s approved name, approved likeness, and other approved identification and approved biographical material concerning the Producer solely for purposes of trade and otherwise without restriction solely in connection with the New Song recorded hereunder. Licensee shall use best efforts to have Producer credited as a “producer” and shall give Producer appropriate production and songwriting credit on all compact discs, record, music video, and digital labels or any other record configuration manufactured which is now known or created in the future that embodies the New Song created hereunder and on all cover liner notes, any records containing the New Song and on the front and/or back cover of any album listing the New Song and other musician credits. The licensee shall use its best efforts to ensure that Producer is properly credited and Licensee shall check all proofs for the accuracy of credits, and shall use its best efforts to cure any mistakes regarding Producer's credit. In the event of any failure by Licensee to issue the credit to Producer, Licensee must use reasonable efforts to correct any such failure immediately and on a prospective basis. Such credit shall be in the substantial form: “"
-        ),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("Produced by  " + _vm._s(_vm.producerName))
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(33),
+        _vm._m(34),
+        _vm._v(" "),
+        _vm._m(35),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                The Licensee shall not have the right to license or sublicense any use of the Beat or of the New Song, in whole or in part, for any so-called “samples”.\n            "
+          )
         ]),
-        _vm._v("”.\n        ")
-      ]),
-      _vm._v(" "),
-      _vm._m(65),
-      _vm._v(" "),
-      _vm._m(66),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                The licensee shall have five (5) business days from its receipt of written notice by Producer and/or Producer’s authorized representative to cure any alleged breach of this Agreement by Licensee. Licensee’s failure to cure the alleged breach within five (5) business days shall result in Licensee’s default of its obligations, its breach of this Agreement, and at Producer's sole discretion, the termination of Licensee’s rights hereunder.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                If Licensee engages in the commercial exploitation and/or sale of the Beat or New Song outside of the manner and amount expressly provided for in this Agreement, Licensee shall be liable to Producer for monetary damages in an amount equal to any and all monies paid, collected by, or received by Licensee, or any third party on its behalf, in connection with such unauthorized commercial exploitation of the Beat and/or New Song.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                 Licensee recognizes and agrees that a breach or threatened breach of this Agreement by Licensee give rise to irreparable injury to Producer, which may not be adequately compensated by damages. Accordingly, in the event of a breach or threatened breach by the Licensee of the provisions of this Agreement, Producer may seek and shall be entitled to a temporary restraining order and a preliminary injunction restraining the Licensee from violating the provisions of this Agreement. Nothing herein shall prohibit Producer from pursuing any other available legal or equitable remedy from such breach or threatened breach, including but not limited to the recovery of damages from the Licensee. The Licensee shall be responsible for all costs, expenses or damages that Producer incurs as a result of any violation by the Licensee of any provision of this Agreement. Licensee’ obligation shall include court costs, litigation expenses, and reasonable attorneys' fees.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(67),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                Licensee hereby agrees that Licensor has not made any guarantees or promises that the Beat fits the particular creative use or musical purpose intended or desired by the Licensee. The Beat, its sound recording, and the underlying musical composition embodied therein are licensed to the Licensee “as is” without warranties of any kind or fitness for a particular purpose.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                 Producer warrants and represents that he has the full right and ability to enter into this agreement, and is not under any disability, restriction, or prohibition with respect to the grant of rights hereunder. Producer warrants that the manufacture, sale, distribution, or other exploitation of the New Song hereunder will not infringe upon or violate any common law or statutory right of any person, firm, or corporation; including, without limitation, contractual rights, copyrights, and right(s) of privacy and publicity and will not constitute libel and/or slander. Licensee warrants that the manufacture, sale, distribution, or other exploitation of the New Song hereunder will not infringe upon or violate any common law or statutory right of any person, firm, or corporation; including, without limitation, contractual rights, copyrights, and right(s) of privacy and publicity and will not constitute libel and/or slander. The foregoing notwithstanding, Producer undertakes no responsibility whatsoever as to any elements added to the New Song by Licensee, and Licensee indemnifies and holds Producer harmless for any such elements. Producer warrants that he did not “sample” (as that term is commonly understood in the recording industry) any copyrighted material or sound recordings belonging to any other person, firm, or corporation (hereinafter referred to as “Owner”) without first having notified Licensee. The licensee shall have no obligation to approve the use of any sample thereof; however, if approved, any payment in connection therewith, including any associated legal clearance costs, shall be borne by Licensee. Knowledge by Licensee that “samples” were used by Producer which was not affirmatively disclosed by Producer to Licensee shall shift, in whole or in part, the liability for infringement or violation of the rights of any third party arising from the use of any such “sample” from Producer to Licensee.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                Parties hereto shall indemnify and hold each other harmless from any and all third party claims, liabilities, costs, losses, damages or expenses as are actually incurred by the non-defaulting party and shall hold the non-defaulting party, free, safe, and harmless against and from any and all claims, suits, demands, costs, liabilities, loss, damages, judgments, recoveries, costs, and expenses; (including, without limitation, reasonable attorneys' fees), which may be made or brought, paid, or incurred by reason of any breach or claim of breach of the warranties and representations hereunder by the defaulting party, their agents, heirs, successors, assigns and employees, which have been reduced to final judgment; provided that prior to final judgment, arising out of any breach of any representations or warranties of the defaulting party contained in this agreement or any failure by defaulting party to perform any obligations on its part to be performed hereunder the non-defaulting party has given the defaulting party prompt written notice of all claims and the right to participate in the defense with counsel of its choice at its sole expense. In no event shall Artist be entitled to seek injunctive or any other equitable relief for any breach or non-compliance with any provision of this agreement.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(68)
-    ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                Licensee shall not engage in any unlawful copying, streaming, duplicating, selling, lending, renting, hiring, broadcasting, uploading, or downloading to any database, servers, computers, peer to peer sharing, or other file-sharing services, posting on websites, or distribution of the Beat in the form, or a substantially similar form, as delivered to Licensee. Licensee may send the Beat file to any individual musician, engineer, studio manager or other people who are working on the New Song.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(36),
+        _vm._v(" "),
+        _vm._m(37),
+        _c("p", { staticClass: "outlined-points" }, [
+          _vm._v(
+            "\n                    The parties acknowledge and agree that the New Song is a “derivative work”, as that term is used in the United States Copyright Act;\n\n                "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "outlined-points" }, [
+          _vm._v(
+            "\n                    As applicable to the Beat and/or the New Song, there is no intention by the parties to create a joint work; and\n                "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "outlined-points" }, [
+          _vm._v(
+            "\n                    There is no intention by the Licensor to grant any rights in and/or to any other derivative works that may have been created by other third-party licensees.\n                "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(38),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                The Producer is and shall remain the sole owner and holder of all rights, title, and interest in the Beat, including all copyrights to and in the sound recording and the underlying musical compositions written and composed by Producer. Nothing contained herein shall constitute an assignment by Producer to Licensee of any of the foregoing rights. Licensee may not, under any circumstances, register or attempt to register the New Song and/or the Beat with the U.S. Copyright Office. The aforementioned right to register the New Song and/or the Beat shall be strictly limited to Producer. Licensee will, upon request, execute, acknowledge and deliver to Producer such additional documents as Producer may deem necessary to evidence and effectuate Producer’s rights hereunder, and Licensee hereby grants to Producer the right as attorney-in-fact to execute, acknowledge, deliver and record in the U.S. Copyright Office or elsewhere any and all such documents if Licensee shall fail to execute same within five (5) days after so requested by Producer.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                 For the avoidance of doubt, you do not own the master or the sound recording rights in the New Song. You have been licensed the right to use the Beat in the New Song and to commercially exploit the New Song based on the terms and conditions of this Agreement.\n                        "
+          )
+        ]),
+        _c("p", { staticClass: "outlines-dash" }, [
+          _vm._v(
+            "\n                            Notwithstanding the above, you do own the lyrics or other original musical components of the New Song that were written or composed solely by you.\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                 With respect to the publishing rights and ownership of the underlying composition embodied in the New Song, the Licensee, and the Producer hereby acknowledge and agree that the underlying composition shall be owned/split between them as follows:\n                    "
+          )
+        ]),
+        _vm._m(39),
+        _vm._v(" "),
+        _c("p", { staticClass: "outlined-points" }, [
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v(" Producer (" + _vm._s(_vm.producerName) + ") ")
+          ]),
+          _vm._v(", owns "),
+          _c("span", { staticClass: "font-weight-bold" }, [_vm._v("50%")]),
+          _vm._v(" of the writers share.\n                    ")
+        ]),
+        _vm._v(" "),
+        _vm._m(40),
+        _vm._v(" "),
+        _c("p", { staticClass: "outlines-dash" }, [
+          _vm._v(
+            "\n                            In the event that Licensee wishes to register his/her interests and rights to the underlying composition of the New Song with their Performing Rights Organization (“PRO”), Licensee must simultaneously identify and register the Producer’s share and ownership interest in the composition to indicate that Producer wrote and owns 50% of the composition in the New Song and as the owner of 100% of the Publisher’s share of the New Song.\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                The licensee shall be deemed to have signed, affirmed and ratified its acceptance of the terms of this Agreement by virtue of its payment of the License Fee to Licensor and its electronic acceptance of its terms and conditions at the time Licensee made payment of the License Fee.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(41),
+        _vm._v(" "),
+        _c("p", { staticClass: "lic-item" }, [
+          _c("strong", [_vm._v("Credit: ")]),
+          _vm._v(
+            "Licensee shall have the right to use and permit others to use Producer’s approved name, approved likeness, and other approved identification and approved biographical material concerning the Producer solely for purposes of trade and otherwise without restriction solely in connection with the New Song recorded hereunder. Licensee shall use best efforts to have Producer credited as a “producer” and shall give Producer appropriate production and songwriting credit on all compact discs, record, music video, and digital labels or any other record configuration manufactured which is now known or created in the future that embodies the New Song created hereunder and on all cover liner notes, any records containing the New Song and on the front and/or back cover of any album listing the New Song and other musician credits. The licensee shall use its best efforts to ensure that Producer is properly credited and Licensee shall check all proofs for the accuracy of credits, and shall use its best efforts to cure any mistakes regarding Producer's credit. In the event of any failure by Licensee to issue the credit to Producer, Licensee must use reasonable efforts to correct any such failure immediately and on a prospective basis. Such credit shall be in the substantial form: “"
+          ),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Produced by  " + _vm._s(_vm.producerName))
+          ]),
+          _vm._v("”.\n        ")
+        ]),
+        _vm._v(" "),
+        _vm._m(42),
+        _vm._v(" "),
+        _vm._m(43),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                The licensee shall have five (5) business days from its receipt of written notice by Producer and/or Producer’s authorized representative to cure any alleged breach of this Agreement by Licensee. Licensee’s failure to cure the alleged breach within five (5) business days shall result in Licensee’s default of its obligations, its breach of this Agreement, and at Producer's sole discretion, the termination of Licensee’s rights hereunder.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                If Licensee engages in the commercial exploitation and/or sale of the Beat or New Song outside of the manner and amount expressly provided for in this Agreement, Licensee shall be liable to Producer for monetary damages in an amount equal to any and all monies paid, collected by, or received by Licensee, or any third party on its behalf, in connection with such unauthorized commercial exploitation of the Beat and/or New Song.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                 Licensee recognizes and agrees that a breach or threatened breach of this Agreement by Licensee give rise to irreparable injury to Producer, which may not be adequately compensated by damages. Accordingly, in the event of a breach or threatened breach by the Licensee of the provisions of this Agreement, Producer may seek and shall be entitled to a temporary restraining order and a preliminary injunction restraining the Licensee from violating the provisions of this Agreement. Nothing herein shall prohibit Producer from pursuing any other available legal or equitable remedy from such breach or threatened breach, including but not limited to the recovery of damages from the Licensee. The Licensee shall be responsible for all costs, expenses or damages that Producer incurs as a result of any violation by the Licensee of any provision of this Agreement. Licensee’ obligation shall include court costs, litigation expenses, and reasonable attorneys' fees.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(44),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                Licensee hereby agrees that Licensor has not made any guarantees or promises that the Beat fits the particular creative use or musical purpose intended or desired by the Licensee. The Beat, its sound recording, and the underlying musical composition embodied therein are licensed to the Licensee “as is” without warranties of any kind or fitness for a particular purpose.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                 Producer warrants and represents that he has the full right and ability to enter into this agreement, and is not under any disability, restriction, or prohibition with respect to the grant of rights hereunder. Producer warrants that the manufacture, sale, distribution, or other exploitation of the New Song hereunder will not infringe upon or violate any common law or statutory right of any person, firm, or corporation; including, without limitation, contractual rights, copyrights, and right(s) of privacy and publicity and will not constitute libel and/or slander. Licensee warrants that the manufacture, sale, distribution, or other exploitation of the New Song hereunder will not infringe upon or violate any common law or statutory right of any person, firm, or corporation; including, without limitation, contractual rights, copyrights, and right(s) of privacy and publicity and will not constitute libel and/or slander. The foregoing notwithstanding, Producer undertakes no responsibility whatsoever as to any elements added to the New Song by Licensee, and Licensee indemnifies and holds Producer harmless for any such elements. Producer warrants that he did not “sample” (as that term is commonly understood in the recording industry) any copyrighted material or sound recordings belonging to any other person, firm, or corporation (hereinafter referred to as “Owner”) without first having notified Licensee. The licensee shall have no obligation to approve the use of any sample thereof; however, if approved, any payment in connection therewith, including any associated legal clearance costs, shall be borne by Licensee. Knowledge by Licensee that “samples” were used by Producer which was not affirmatively disclosed by Producer to Licensee shall shift, in whole or in part, the liability for infringement or violation of the rights of any third party arising from the use of any such “sample” from Producer to Licensee.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                Parties hereto shall indemnify and hold each other harmless from any and all third party claims, liabilities, costs, losses, damages or expenses as are actually incurred by the non-defaulting party and shall hold the non-defaulting party, free, safe, and harmless against and from any and all claims, suits, demands, costs, liabilities, loss, damages, judgments, recoveries, costs, and expenses; (including, without limitation, reasonable attorneys' fees), which may be made or brought, paid, or incurred by reason of any breach or claim of breach of the warranties and representations hereunder by the defaulting party, their agents, heirs, successors, assigns and employees, which have been reduced to final judgment; provided that prior to final judgment, arising out of any breach of any representations or warranties of the defaulting party contained in this agreement or any failure by defaulting party to perform any obligations on its part to be performed hereunder the non-defaulting party has given the defaulting party prompt written notice of all claims and the right to participate in the defense with counsel of its choice at its sole expense. In no event shall Artist be entitled to seek injunctive or any other equitable relief for any breach or non-compliance with any provision of this agreement.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(45)
+      ]
+    ),
     _vm._v(" "),
-    _c("div", { staticClass: "unlimited-license" }, [
-      _c("p", { staticClass: "intro" }, [
-        _vm._v("\n             This "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("Non-Exclusive  Unlimited License Agreement")
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.previewStage === 3,
+            expression: "previewStage === 3"
+          }
+        ],
+        staticClass: "popular-premium-license"
+      },
+      [
+        _c("p", { staticClass: "intro" }, [
+          _vm._v("\n             This "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Non-Exclusive  Premium Stems License Agreement")
+          ]),
+          _vm._v(
+            " (the “Agreement”), having been made on and effective as of "
+          ),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v(" " + _vm._s(new Date()))
+          ]),
+          _vm._v(" (the “Effective Date”) by and between "),
+          _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Producer")]),
+          _vm._v(" p/k/a  "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v(_vm._s(_vm.producerName))
+          ]),
+          _vm._v(" (the “Producer” or “Licensor”); and "),
+          _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Licensee")]),
+          _vm._v(
+            " residing at [N/A] (“You” or “Licensee”), sets forth the terms and conditions of the Licensee’s use, and the rights granted in, the Producer’s instrumental music file entitled "
+          ),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("The Beat Title (Contract Preview Only)")
+          ]),
+          _vm._v(" (the “Beat”) in consideration for Licensee’s payment of "),
+          _c("span", { staticClass: "font-weight-bold" }, [_vm._v("$99.95")]),
+          _vm._v(" (the “License Fee”), on a so-called "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("“Premium Stems”")
+          ]),
+          _vm._v(
+            " basis.\n            This Agreement is issued solely in connection with and for Licensee's use of the Beat pursuant and subject to all terms and conditions set forth herein.\n\n        "
+          )
         ]),
-        _vm._v(" (the “Agreement”), having been made on and effective as of "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v(" " + _vm._s(new Date()))
+        _vm._v(" "),
+        _vm._m(46),
+        _vm._v(" "),
+        _vm._m(47),
+        _vm._m(48),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                    Licensor shall use commercially reasonable efforts to deliver the Beat to Licensee immediately after payment of the License Fee is made. Licensee will receive the Beat via email, to the email address Licensee provided to Licensor.\n                "
+          )
         ]),
-        _vm._v(" (the “Effective Date”) by and between "),
-        _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Producer")]),
-        _vm._v(" p/k/a  "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v(_vm._s(_vm.producerName))
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(49),
+        _vm._v(" "),
+        _vm._m(50),
+        _vm._m(51),
+        _vm._v(" "),
+        _vm._m(52),
+        _vm._m(53),
+        _vm._v(" "),
+        _vm._m(54),
+        _vm._v(" "),
+        _vm._m(55),
+        _vm._v(" "),
+        _vm._m(56),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                     Subject to the Licensee’s compliance with the terms and conditions of this Agreement, Licensee shall not be required to account or pay to Producer any royalties, fees, or monies paid to or collected by the Licensee (expressly excluding mechanical royalties), or which would otherwise be payable to Producer in connection with the use/exploitation of the New Song as set forth in this Agreement.\n                "
+          )
         ]),
-        _vm._v(" (the “Producer” or “Licensor”); and "),
-        _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Licensee")]),
-        _vm._v(
-          " residing at [N/A] (“You” or “Licensee”), sets forth the terms and conditions of the Licensee’s use, and the rights granted in, the Producer’s instrumental music file entitled "
-        ),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("The Beat Title (Contract Preview Only)")
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(57),
+        _vm._m(58),
+        _vm._v(" "),
+        _vm._m(59),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                The Licensee shall not have the right to license or sublicense any use of the Beat or of the New Song, in whole or in part, for any so-called “samples”.\n            "
+          )
         ]),
-        _vm._v(" (the “Beat”) in consideration for Licensee’s payment of "),
-        _c("span", { staticClass: "font-weight-bold" }, [_vm._v("$199.95")]),
-        _vm._v(" (the “License Fee”), on a so-called "),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("“Unlimited”")
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                Licensee shall not engage in any unlawful copying, streaming, duplicating, selling, lending, renting, hiring, broadcasting, uploading, or downloading to any database, servers, computers, peer to peer sharing, or other file-sharing services, posting on websites, or distribution of the Beat in the form, or a substantially similar form, as delivered to Licensee. Licensee may send the Beat file to any individual musician, engineer, studio manager or other people who are working on the New Song.\n            "
+          )
         ]),
-        _vm._v(
-          " basis.\n            This Agreement is issued solely in connection with and for Licensee's use of the Beat pursuant and subject to all terms and conditions set forth herein.\n\n        "
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(69),
-      _vm._v(" "),
-      _vm._m(70),
-      _vm._m(71),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                    Licensor shall use commercially reasonable efforts to deliver the Beat to Licensee immediately after payment of the License Fee is made. Licensee will receive the Beat via email, to the email address Licensee provided to Licensor.\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(72),
-      _vm._v(" "),
-      _vm._m(73),
-      _vm._m(74),
-      _vm._v(" "),
-      _vm._m(75),
-      _vm._m(76),
-      _vm._v(" "),
-      _vm._m(77),
-      _vm._v(" "),
-      _vm._m(78),
-      _vm._v(" "),
-      _vm._m(79),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                     Subject to the Licensee’s compliance with the terms and conditions of this Agreement, Licensee shall not be required to account or pay to Producer any royalties, fees, or monies paid to or collected by the Licensee (expressly excluding mechanical royalties), or which would otherwise be payable to Producer in connection with the use/exploitation of the New Song as set forth in this Agreement.\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(80),
-      _vm._m(81),
-      _vm._v(" "),
-      _vm._m(82),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                The Licensee shall not have the right to license or sublicense any use of the Beat or of the New Song, in whole or in part, for any so-called “samples”.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                Licensee shall not engage in any unlawful copying, streaming, duplicating, selling, lending, renting, hiring, broadcasting, uploading, or downloading to any database, servers, computers, peer to peer sharing, or other file-sharing services, posting on websites, or distribution of the Beat in the form, or a substantially similar form, as delivered to Licensee. Licensee may send the Beat file to any individual musician, engineer, studio manager or other people who are working on the New Song.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(83),
-      _vm._v(" "),
-      _vm._m(84),
-      _c("p", { staticClass: "outlined-points" }, [
-        _vm._v(
-          "\n                    The parties acknowledge and agree that the New Song is a “derivative work”, as that term is used in the United States Copyright Act;\n\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlined-points" }, [
-        _vm._v(
-          "\n                    As applicable to the Beat and/or the New Song, there is no intention by the parties to create a joint work; and\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlined-points" }, [
-        _vm._v(
-          "\n                    There is no intention by the Licensor to grant any rights in and/or to any other derivative works that may have been created by other third-party licensees.\n                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(85),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                The Producer is and shall remain the sole owner and holder of all rights, title, and interest in the Beat, including all copyrights to and in the sound recording and the underlying musical compositions written and composed by Producer. Nothing contained herein shall constitute an assignment by Producer to Licensee of any of the foregoing rights. Licensee may not, under any circumstances, register or attempt to register the New Song and/or the Beat with the U.S. Copyright Office. The aforementioned right to register the New Song and/or the Beat shall be strictly limited to Producer. Licensee will, upon request, execute, acknowledge and deliver to Producer such additional documents as Producer may deem necessary to evidence and effectuate Producer’s rights hereunder, and Licensee hereby grants to Producer the right as attorney-in-fact to execute, acknowledge, deliver and record in the U.S. Copyright Office or elsewhere any and all such documents if Licensee shall fail to execute same within five (5) days after so requested by Producer.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                 For the avoidance of doubt, you do not own the master or the sound recording rights in the New Song. You have been licensed the right to use the Beat in the New Song and to commercially exploit the New Song based on the terms and conditions of this Agreement.\n                        "
-        )
-      ]),
-      _c("p", { staticClass: "outlines-dash" }, [
-        _vm._v(
-          "\n                            Notwithstanding the above, you do own the lyrics or other original musical components of the New Song that were written or composed solely by you.\n                        "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                 With respect to the publishing rights and ownership of the underlying composition embodied in the New Song, the Licensee, and the Producer hereby acknowledge and agree that the underlying composition shall be owned/split between them as follows:\n                    "
-        )
-      ]),
-      _vm._m(86),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlined-points" }, [
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v(" Producer (" + _vm._s(_vm.producerName) + ") ")
+        _vm._v(" "),
+        _vm._m(60),
+        _vm._v(" "),
+        _vm._m(61),
+        _c("p", { staticClass: "outlined-points" }, [
+          _vm._v(
+            "\n                    The parties acknowledge and agree that the New Song is a “derivative work”, as that term is used in the United States Copyright Act;\n\n                "
+          )
         ]),
-        _vm._v(", owns "),
-        _c("span", { staticClass: "font-weight-bold" }, [_vm._v("50%")]),
-        _vm._v(" of the writers share.\n                    ")
-      ]),
-      _vm._v(" "),
-      _vm._m(87),
-      _vm._v(" "),
-      _c("p", { staticClass: "outlines-dash" }, [
-        _vm._v(
-          "\n                            In the event that Licensee wishes to register his/her interests and rights to the underlying composition of the New Song with their Performing Rights Organization (“PRO”), Licensee must simultaneously identify and register the Producer’s share and ownership interest in the composition to indicate that Producer wrote and owns 50% of the composition in the New Song and as the owner of 100% of the Publisher’s share of the New Song.\n                        "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                The licensee shall be deemed to have signed, affirmed and ratified its acceptance of the terms of this Agreement by virtue of its payment of the License Fee to Licensor and its electronic acceptance of its terms and conditions at the time Licensee made payment of the License Fee.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(88),
-      _vm._v(" "),
-      _c("p", { staticClass: "lic-item" }, [
-        _c("strong", [_vm._v("Credit: ")]),
-        _vm._v(
-          "Licensee shall have the right to use and permit others to use Producer’s approved name, approved likeness, and other approved identification and approved biographical material concerning the Producer solely for purposes of trade and otherwise without restriction solely in connection with the New Song recorded hereunder. Licensee shall use best efforts to have Producer credited as a “producer” and shall give Producer appropriate production and songwriting credit on all compact discs, record, music video, and digital labels or any other record configuration manufactured which is now known or created in the future that embodies the New Song created hereunder and on all cover liner notes, any records containing the New Song and on the front and/or back cover of any album listing the New Song and other musician credits. The licensee shall use its best efforts to ensure that Producer is properly credited and Licensee shall check all proofs for the accuracy of credits, and shall use its best efforts to cure any mistakes regarding Producer's credit. In the event of any failure by Licensee to issue the credit to Producer, Licensee must use reasonable efforts to correct any such failure immediately and on a prospective basis. Such credit shall be in the substantial form: “"
-        ),
-        _c("span", { staticClass: "font-weight-bold" }, [
-          _vm._v("Produced by  " + _vm._s(_vm.producerName))
+        _vm._v(" "),
+        _c("p", { staticClass: "outlined-points" }, [
+          _vm._v(
+            "\n                    As applicable to the Beat and/or the New Song, there is no intention by the parties to create a joint work; and\n                "
+          )
         ]),
-        _vm._v("”.\n        ")
-      ]),
-      _vm._v(" "),
-      _vm._m(89),
-      _vm._v(" "),
-      _vm._m(90),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                The licensee shall have five (5) business days from its receipt of written notice by Producer and/or Producer’s authorized representative to cure any alleged breach of this Agreement by Licensee. Licensee’s failure to cure the alleged breach within five (5) business days shall result in Licensee’s default of its obligations, its breach of this Agreement, and at Producer's sole discretion, the termination of Licensee’s rights hereunder.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                If Licensee engages in the commercial exploitation and/or sale of the Beat or New Song outside of the manner and amount expressly provided for in this Agreement, Licensee shall be liable to Producer for monetary damages in an amount equal to any and all monies paid, collected by, or received by Licensee, or any third party on its behalf, in connection with such unauthorized commercial exploitation of the Beat and/or New Song.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                 Licensee recognizes and agrees that a breach or threatened breach of this Agreement by Licensee give rise to irreparable injury to Producer, which may not be adequately compensated by damages. Accordingly, in the event of a breach or threatened breach by the Licensee of the provisions of this Agreement, Producer may seek and shall be entitled to a temporary restraining order and a preliminary injunction restraining the Licensee from violating the provisions of this Agreement. Nothing herein shall prohibit Producer from pursuing any other available legal or equitable remedy from such breach or threatened breach, including but not limited to the recovery of damages from the Licensee. The Licensee shall be responsible for all costs, expenses or damages that Producer incurs as a result of any violation by the Licensee of any provision of this Agreement. Licensee’ obligation shall include court costs, litigation expenses, and reasonable attorneys' fees.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(91),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                Licensee hereby agrees that Licensor has not made any guarantees or promises that the Beat fits the particular creative use or musical purpose intended or desired by the Licensee. The Beat, its sound recording, and the underlying musical composition embodied therein are licensed to the Licensee “as is” without warranties of any kind or fitness for a particular purpose.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                 Producer warrants and represents that he has the full right and ability to enter into this agreement, and is not under any disability, restriction, or prohibition with respect to the grant of rights hereunder. Producer warrants that the manufacture, sale, distribution, or other exploitation of the New Song hereunder will not infringe upon or violate any common law or statutory right of any person, firm, or corporation; including, without limitation, contractual rights, copyrights, and right(s) of privacy and publicity and will not constitute libel and/or slander. Licensee warrants that the manufacture, sale, distribution, or other exploitation of the New Song hereunder will not infringe upon or violate any common law or statutory right of any person, firm, or corporation; including, without limitation, contractual rights, copyrights, and right(s) of privacy and publicity and will not constitute libel and/or slander. The foregoing notwithstanding, Producer undertakes no responsibility whatsoever as to any elements added to the New Song by Licensee, and Licensee indemnifies and holds Producer harmless for any such elements. Producer warrants that he did not “sample” (as that term is commonly understood in the recording industry) any copyrighted material or sound recordings belonging to any other person, firm, or corporation (hereinafter referred to as “Owner”) without first having notified Licensee. The licensee shall have no obligation to approve the use of any sample thereof; however, if approved, any payment in connection therewith, including any associated legal clearance costs, shall be borne by Licensee. Knowledge by Licensee that “samples” were used by Producer which was not affirmatively disclosed by Producer to Licensee shall shift, in whole or in part, the liability for infringement or violation of the rights of any third party arising from the use of any such “sample” from Producer to Licensee.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", { staticClass: "item-points" }, [
-        _vm._v(
-          "\n                Parties hereto shall indemnify and hold each other harmless from any and all third party claims, liabilities, costs, losses, damages or expenses as are actually incurred by the non-defaulting party and shall hold the non-defaulting party, free, safe, and harmless against and from any and all claims, suits, demands, costs, liabilities, loss, damages, judgments, recoveries, costs, and expenses; (including, without limitation, reasonable attorneys' fees), which may be made or brought, paid, or incurred by reason of any breach or claim of breach of the warranties and representations hereunder by the defaulting party, their agents, heirs, successors, assigns and employees, which have been reduced to final judgment; provided that prior to final judgment, arising out of any breach of any representations or warranties of the defaulting party contained in this agreement or any failure by defaulting party to perform any obligations on its part to be performed hereunder the non-defaulting party has given the defaulting party prompt written notice of all claims and the right to participate in the defense with counsel of its choice at its sole expense. In no event shall Artist be entitled to seek injunctive or any other equitable relief for any breach or non-compliance with any provision of this agreement.\n            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p"),
-      _vm._v(" "),
-      _vm._m(92)
-    ])
+        _vm._v(" "),
+        _c("p", { staticClass: "outlined-points" }, [
+          _vm._v(
+            "\n                    There is no intention by the Licensor to grant any rights in and/or to any other derivative works that may have been created by other third-party licensees.\n                "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(62),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                The Producer is and shall remain the sole owner and holder of all rights, title, and interest in the Beat, including all copyrights to and in the sound recording and the underlying musical compositions written and composed by Producer. Nothing contained herein shall constitute an assignment by Producer to Licensee of any of the foregoing rights. Licensee may not, under any circumstances, register or attempt to register the New Song and/or the Beat with the U.S. Copyright Office. The aforementioned right to register the New Song and/or the Beat shall be strictly limited to Producer. Licensee will, upon request, execute, acknowledge and deliver to Producer such additional documents as Producer may deem necessary to evidence and effectuate Producer’s rights hereunder, and Licensee hereby grants to Producer the right as attorney-in-fact to execute, acknowledge, deliver and record in the U.S. Copyright Office or elsewhere any and all such documents if Licensee shall fail to execute same within five (5) days after so requested by Producer.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                 For the avoidance of doubt, you do not own the master or the sound recording rights in the New Song. You have been licensed the right to use the Beat in the New Song and to commercially exploit the New Song based on the terms and conditions of this Agreement.\n                        "
+          )
+        ]),
+        _c("p", { staticClass: "outlines-dash" }, [
+          _vm._v(
+            "\n                            Notwithstanding the above, you do own the lyrics or other original musical components of the New Song that were written or composed solely by you.\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                 With respect to the publishing rights and ownership of the underlying composition embodied in the New Song, the Licensee, and the Producer hereby acknowledge and agree that the underlying composition shall be owned/split between them as follows:\n                    "
+          )
+        ]),
+        _vm._m(63),
+        _vm._v(" "),
+        _c("p", { staticClass: "outlined-points" }, [
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v(" Producer (" + _vm._s(_vm.producerName) + ") ")
+          ]),
+          _vm._v(", owns "),
+          _c("span", { staticClass: "font-weight-bold" }, [_vm._v("50%")]),
+          _vm._v(" of the writers share.\n                    ")
+        ]),
+        _vm._v(" "),
+        _vm._m(64),
+        _vm._v(" "),
+        _c("p", { staticClass: "outlines-dash" }, [
+          _vm._v(
+            "\n                            In the event that Licensee wishes to register his/her interests and rights to the underlying composition of the New Song with their Performing Rights Organization (“PRO”), Licensee must simultaneously identify and register the Producer’s share and ownership interest in the composition to indicate that Producer wrote and owns 50% of the composition in the New Song and as the owner of 100% of the Publisher’s share of the New Song.\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                The licensee shall be deemed to have signed, affirmed and ratified its acceptance of the terms of this Agreement by virtue of its payment of the License Fee to Licensor and its electronic acceptance of its terms and conditions at the time Licensee made payment of the License Fee.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(65),
+        _vm._v(" "),
+        _c("p", { staticClass: "lic-item" }, [
+          _c("strong", [_vm._v("Credit: ")]),
+          _vm._v(
+            "Licensee shall have the right to use and permit others to use Producer’s approved name, approved likeness, and other approved identification and approved biographical material concerning the Producer solely for purposes of trade and otherwise without restriction solely in connection with the New Song recorded hereunder. Licensee shall use best efforts to have Producer credited as a “producer” and shall give Producer appropriate production and songwriting credit on all compact discs, record, music video, and digital labels or any other record configuration manufactured which is now known or created in the future that embodies the New Song created hereunder and on all cover liner notes, any records containing the New Song and on the front and/or back cover of any album listing the New Song and other musician credits. The licensee shall use its best efforts to ensure that Producer is properly credited and Licensee shall check all proofs for the accuracy of credits, and shall use its best efforts to cure any mistakes regarding Producer's credit. In the event of any failure by Licensee to issue the credit to Producer, Licensee must use reasonable efforts to correct any such failure immediately and on a prospective basis. Such credit shall be in the substantial form: “"
+          ),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Produced by  " + _vm._s(_vm.producerName))
+          ]),
+          _vm._v("”.\n        ")
+        ]),
+        _vm._v(" "),
+        _vm._m(66),
+        _vm._v(" "),
+        _vm._m(67),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                The licensee shall have five (5) business days from its receipt of written notice by Producer and/or Producer’s authorized representative to cure any alleged breach of this Agreement by Licensee. Licensee’s failure to cure the alleged breach within five (5) business days shall result in Licensee’s default of its obligations, its breach of this Agreement, and at Producer's sole discretion, the termination of Licensee’s rights hereunder.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                If Licensee engages in the commercial exploitation and/or sale of the Beat or New Song outside of the manner and amount expressly provided for in this Agreement, Licensee shall be liable to Producer for monetary damages in an amount equal to any and all monies paid, collected by, or received by Licensee, or any third party on its behalf, in connection with such unauthorized commercial exploitation of the Beat and/or New Song.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                 Licensee recognizes and agrees that a breach or threatened breach of this Agreement by Licensee give rise to irreparable injury to Producer, which may not be adequately compensated by damages. Accordingly, in the event of a breach or threatened breach by the Licensee of the provisions of this Agreement, Producer may seek and shall be entitled to a temporary restraining order and a preliminary injunction restraining the Licensee from violating the provisions of this Agreement. Nothing herein shall prohibit Producer from pursuing any other available legal or equitable remedy from such breach or threatened breach, including but not limited to the recovery of damages from the Licensee. The Licensee shall be responsible for all costs, expenses or damages that Producer incurs as a result of any violation by the Licensee of any provision of this Agreement. Licensee’ obligation shall include court costs, litigation expenses, and reasonable attorneys' fees.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(68),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                Licensee hereby agrees that Licensor has not made any guarantees or promises that the Beat fits the particular creative use or musical purpose intended or desired by the Licensee. The Beat, its sound recording, and the underlying musical composition embodied therein are licensed to the Licensee “as is” without warranties of any kind or fitness for a particular purpose.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                 Producer warrants and represents that he has the full right and ability to enter into this agreement, and is not under any disability, restriction, or prohibition with respect to the grant of rights hereunder. Producer warrants that the manufacture, sale, distribution, or other exploitation of the New Song hereunder will not infringe upon or violate any common law or statutory right of any person, firm, or corporation; including, without limitation, contractual rights, copyrights, and right(s) of privacy and publicity and will not constitute libel and/or slander. Licensee warrants that the manufacture, sale, distribution, or other exploitation of the New Song hereunder will not infringe upon or violate any common law or statutory right of any person, firm, or corporation; including, without limitation, contractual rights, copyrights, and right(s) of privacy and publicity and will not constitute libel and/or slander. The foregoing notwithstanding, Producer undertakes no responsibility whatsoever as to any elements added to the New Song by Licensee, and Licensee indemnifies and holds Producer harmless for any such elements. Producer warrants that he did not “sample” (as that term is commonly understood in the recording industry) any copyrighted material or sound recordings belonging to any other person, firm, or corporation (hereinafter referred to as “Owner”) without first having notified Licensee. The licensee shall have no obligation to approve the use of any sample thereof; however, if approved, any payment in connection therewith, including any associated legal clearance costs, shall be borne by Licensee. Knowledge by Licensee that “samples” were used by Producer which was not affirmatively disclosed by Producer to Licensee shall shift, in whole or in part, the liability for infringement or violation of the rights of any third party arising from the use of any such “sample” from Producer to Licensee.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                Parties hereto shall indemnify and hold each other harmless from any and all third party claims, liabilities, costs, losses, damages or expenses as are actually incurred by the non-defaulting party and shall hold the non-defaulting party, free, safe, and harmless against and from any and all claims, suits, demands, costs, liabilities, loss, damages, judgments, recoveries, costs, and expenses; (including, without limitation, reasonable attorneys' fees), which may be made or brought, paid, or incurred by reason of any breach or claim of breach of the warranties and representations hereunder by the defaulting party, their agents, heirs, successors, assigns and employees, which have been reduced to final judgment; provided that prior to final judgment, arising out of any breach of any representations or warranties of the defaulting party contained in this agreement or any failure by defaulting party to perform any obligations on its part to be performed hereunder the non-defaulting party has given the defaulting party prompt written notice of all claims and the right to participate in the defense with counsel of its choice at its sole expense. In no event shall Artist be entitled to seek injunctive or any other equitable relief for any breach or non-compliance with any provision of this agreement.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(69)
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.previewStage === 4,
+            expression: "previewStage === 4"
+          }
+        ],
+        staticClass: "unlimited-license"
+      },
+      [
+        _c("p", { staticClass: "intro" }, [
+          _vm._v("\n             This "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Non-Exclusive  Unlimited License Agreement")
+          ]),
+          _vm._v(
+            " (the “Agreement”), having been made on and effective as of "
+          ),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v(" " + _vm._s(new Date()))
+          ]),
+          _vm._v(" (the “Effective Date”) by and between "),
+          _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Producer")]),
+          _vm._v(" p/k/a  "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v(_vm._s(_vm.producerName))
+          ]),
+          _vm._v(" (the “Producer” or “Licensor”); and "),
+          _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Licensee")]),
+          _vm._v(
+            " residing at [N/A] (“You” or “Licensee”), sets forth the terms and conditions of the Licensee’s use, and the rights granted in, the Producer’s instrumental music file entitled "
+          ),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("The Beat Title (Contract Preview Only)")
+          ]),
+          _vm._v(" (the “Beat”) in consideration for Licensee’s payment of "),
+          _c("span", { staticClass: "font-weight-bold" }, [_vm._v("$199.95")]),
+          _vm._v(" (the “License Fee”), on a so-called "),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("“Unlimited”")
+          ]),
+          _vm._v(
+            " basis.\n            This Agreement is issued solely in connection with and for Licensee's use of the Beat pursuant and subject to all terms and conditions set forth herein.\n\n        "
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(70),
+        _vm._v(" "),
+        _vm._m(71),
+        _vm._m(72),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                    Licensor shall use commercially reasonable efforts to deliver the Beat to Licensee immediately after payment of the License Fee is made. Licensee will receive the Beat via email, to the email address Licensee provided to Licensor.\n                "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(73),
+        _vm._v(" "),
+        _vm._m(74),
+        _vm._m(75),
+        _vm._v(" "),
+        _vm._m(76),
+        _vm._m(77),
+        _vm._v(" "),
+        _vm._m(78),
+        _vm._v(" "),
+        _vm._m(79),
+        _vm._v(" "),
+        _vm._m(80),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                     Subject to the Licensee’s compliance with the terms and conditions of this Agreement, Licensee shall not be required to account or pay to Producer any royalties, fees, or monies paid to or collected by the Licensee (expressly excluding mechanical royalties), or which would otherwise be payable to Producer in connection with the use/exploitation of the New Song as set forth in this Agreement.\n                "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(81),
+        _vm._m(82),
+        _vm._v(" "),
+        _vm._m(83),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                The Licensee shall not have the right to license or sublicense any use of the Beat or of the New Song, in whole or in part, for any so-called “samples”.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                Licensee shall not engage in any unlawful copying, streaming, duplicating, selling, lending, renting, hiring, broadcasting, uploading, or downloading to any database, servers, computers, peer to peer sharing, or other file-sharing services, posting on websites, or distribution of the Beat in the form, or a substantially similar form, as delivered to Licensee. Licensee may send the Beat file to any individual musician, engineer, studio manager or other people who are working on the New Song.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _vm._m(84),
+        _vm._v(" "),
+        _vm._m(85),
+        _c("p", { staticClass: "outlined-points" }, [
+          _vm._v(
+            "\n                    The parties acknowledge and agree that the New Song is a “derivative work”, as that term is used in the United States Copyright Act;\n\n                "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "outlined-points" }, [
+          _vm._v(
+            "\n                    As applicable to the Beat and/or the New Song, there is no intention by the parties to create a joint work; and\n                "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "outlined-points" }, [
+          _vm._v(
+            "\n                    There is no intention by the Licensor to grant any rights in and/or to any other derivative works that may have been created by other third-party licensees.\n                "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(86),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                The Producer is and shall remain the sole owner and holder of all rights, title, and interest in the Beat, including all copyrights to and in the sound recording and the underlying musical compositions written and composed by Producer. Nothing contained herein shall constitute an assignment by Producer to Licensee of any of the foregoing rights. Licensee may not, under any circumstances, register or attempt to register the New Song and/or the Beat with the U.S. Copyright Office. The aforementioned right to register the New Song and/or the Beat shall be strictly limited to Producer. Licensee will, upon request, execute, acknowledge and deliver to Producer such additional documents as Producer may deem necessary to evidence and effectuate Producer’s rights hereunder, and Licensee hereby grants to Producer the right as attorney-in-fact to execute, acknowledge, deliver and record in the U.S. Copyright Office or elsewhere any and all such documents if Licensee shall fail to execute same within five (5) days after so requested by Producer.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                 For the avoidance of doubt, you do not own the master or the sound recording rights in the New Song. You have been licensed the right to use the Beat in the New Song and to commercially exploit the New Song based on the terms and conditions of this Agreement.\n                        "
+          )
+        ]),
+        _c("p", { staticClass: "outlines-dash" }, [
+          _vm._v(
+            "\n                            Notwithstanding the above, you do own the lyrics or other original musical components of the New Song that were written or composed solely by you.\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                 With respect to the publishing rights and ownership of the underlying composition embodied in the New Song, the Licensee, and the Producer hereby acknowledge and agree that the underlying composition shall be owned/split between them as follows:\n                    "
+          )
+        ]),
+        _vm._m(87),
+        _vm._v(" "),
+        _c("p", { staticClass: "outlined-points" }, [
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v(" Producer (" + _vm._s(_vm.producerName) + ") ")
+          ]),
+          _vm._v(", owns "),
+          _c("span", { staticClass: "font-weight-bold" }, [_vm._v("50%")]),
+          _vm._v(" of the writers share.\n                    ")
+        ]),
+        _vm._v(" "),
+        _vm._m(88),
+        _vm._v(" "),
+        _c("p", { staticClass: "outlines-dash" }, [
+          _vm._v(
+            "\n                            In the event that Licensee wishes to register his/her interests and rights to the underlying composition of the New Song with their Performing Rights Organization (“PRO”), Licensee must simultaneously identify and register the Producer’s share and ownership interest in the composition to indicate that Producer wrote and owns 50% of the composition in the New Song and as the owner of 100% of the Publisher’s share of the New Song.\n                        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                The licensee shall be deemed to have signed, affirmed and ratified its acceptance of the terms of this Agreement by virtue of its payment of the License Fee to Licensor and its electronic acceptance of its terms and conditions at the time Licensee made payment of the License Fee.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(89),
+        _vm._v(" "),
+        _c("p", { staticClass: "lic-item" }, [
+          _c("strong", [_vm._v("Credit: ")]),
+          _vm._v(
+            "Licensee shall have the right to use and permit others to use Producer’s approved name, approved likeness, and other approved identification and approved biographical material concerning the Producer solely for purposes of trade and otherwise without restriction solely in connection with the New Song recorded hereunder. Licensee shall use best efforts to have Producer credited as a “producer” and shall give Producer appropriate production and songwriting credit on all compact discs, record, music video, and digital labels or any other record configuration manufactured which is now known or created in the future that embodies the New Song created hereunder and on all cover liner notes, any records containing the New Song and on the front and/or back cover of any album listing the New Song and other musician credits. The licensee shall use its best efforts to ensure that Producer is properly credited and Licensee shall check all proofs for the accuracy of credits, and shall use its best efforts to cure any mistakes regarding Producer's credit. In the event of any failure by Licensee to issue the credit to Producer, Licensee must use reasonable efforts to correct any such failure immediately and on a prospective basis. Such credit shall be in the substantial form: “"
+          ),
+          _c("span", { staticClass: "font-weight-bold" }, [
+            _vm._v("Produced by  " + _vm._s(_vm.producerName))
+          ]),
+          _vm._v("”.\n        ")
+        ]),
+        _vm._v(" "),
+        _vm._m(90),
+        _vm._v(" "),
+        _vm._m(91),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                The licensee shall have five (5) business days from its receipt of written notice by Producer and/or Producer’s authorized representative to cure any alleged breach of this Agreement by Licensee. Licensee’s failure to cure the alleged breach within five (5) business days shall result in Licensee’s default of its obligations, its breach of this Agreement, and at Producer's sole discretion, the termination of Licensee’s rights hereunder.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                If Licensee engages in the commercial exploitation and/or sale of the Beat or New Song outside of the manner and amount expressly provided for in this Agreement, Licensee shall be liable to Producer for monetary damages in an amount equal to any and all monies paid, collected by, or received by Licensee, or any third party on its behalf, in connection with such unauthorized commercial exploitation of the Beat and/or New Song.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                 Licensee recognizes and agrees that a breach or threatened breach of this Agreement by Licensee give rise to irreparable injury to Producer, which may not be adequately compensated by damages. Accordingly, in the event of a breach or threatened breach by the Licensee of the provisions of this Agreement, Producer may seek and shall be entitled to a temporary restraining order and a preliminary injunction restraining the Licensee from violating the provisions of this Agreement. Nothing herein shall prohibit Producer from pursuing any other available legal or equitable remedy from such breach or threatened breach, including but not limited to the recovery of damages from the Licensee. The Licensee shall be responsible for all costs, expenses or damages that Producer incurs as a result of any violation by the Licensee of any provision of this Agreement. Licensee’ obligation shall include court costs, litigation expenses, and reasonable attorneys' fees.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(92),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                Licensee hereby agrees that Licensor has not made any guarantees or promises that the Beat fits the particular creative use or musical purpose intended or desired by the Licensee. The Beat, its sound recording, and the underlying musical composition embodied therein are licensed to the Licensee “as is” without warranties of any kind or fitness for a particular purpose.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                 Producer warrants and represents that he has the full right and ability to enter into this agreement, and is not under any disability, restriction, or prohibition with respect to the grant of rights hereunder. Producer warrants that the manufacture, sale, distribution, or other exploitation of the New Song hereunder will not infringe upon or violate any common law or statutory right of any person, firm, or corporation; including, without limitation, contractual rights, copyrights, and right(s) of privacy and publicity and will not constitute libel and/or slander. Licensee warrants that the manufacture, sale, distribution, or other exploitation of the New Song hereunder will not infringe upon or violate any common law or statutory right of any person, firm, or corporation; including, without limitation, contractual rights, copyrights, and right(s) of privacy and publicity and will not constitute libel and/or slander. The foregoing notwithstanding, Producer undertakes no responsibility whatsoever as to any elements added to the New Song by Licensee, and Licensee indemnifies and holds Producer harmless for any such elements. Producer warrants that he did not “sample” (as that term is commonly understood in the recording industry) any copyrighted material or sound recordings belonging to any other person, firm, or corporation (hereinafter referred to as “Owner”) without first having notified Licensee. The licensee shall have no obligation to approve the use of any sample thereof; however, if approved, any payment in connection therewith, including any associated legal clearance costs, shall be borne by Licensee. Knowledge by Licensee that “samples” were used by Producer which was not affirmatively disclosed by Producer to Licensee shall shift, in whole or in part, the liability for infringement or violation of the rights of any third party arising from the use of any such “sample” from Producer to Licensee.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", { staticClass: "item-points" }, [
+          _vm._v(
+            "\n                Parties hereto shall indemnify and hold each other harmless from any and all third party claims, liabilities, costs, losses, damages or expenses as are actually incurred by the non-defaulting party and shall hold the non-defaulting party, free, safe, and harmless against and from any and all claims, suits, demands, costs, liabilities, loss, damages, judgments, recoveries, costs, and expenses; (including, without limitation, reasonable attorneys' fees), which may be made or brought, paid, or incurred by reason of any breach or claim of breach of the warranties and representations hereunder by the defaulting party, their agents, heirs, successors, assigns and employees, which have been reduced to final judgment; provided that prior to final judgment, arising out of any breach of any representations or warranties of the defaulting party contained in this agreement or any failure by defaulting party to perform any obligations on its part to be performed hereunder the non-defaulting party has given the defaulting party prompt written notice of all claims and the right to participate in the defense with counsel of its choice at its sole expense. In no event shall Artist be entitled to seek injunctive or any other equitable relief for any breach or non-compliance with any provision of this agreement.\n            "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p"),
+        _vm._v(" "),
+        _vm._m(93)
+      ]
+    )
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "pack-cta" }, [
+      _c("button", [_vm._v("Read License")])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

@@ -2,9 +2,31 @@
     <div class="terms-conditions">
        <h3>Terms & Conditions</h3>
 
+        <div class="shortlist" v-show="previewStage === 0">
+            <h4>Beat Licenses</h4>
 
+            <div class="license-holder">
+                <div class="package" :class="{ 'popular': beatPack.popular , 'non-popular': !beatPack.popular}" v-for="beatPack in packages" :key="beatPack.id">
+                    <div class="pack-head">
+                        <span class="pack-name">{{ beatPack.name }}</span>
+                        <span class="pack-fee">$ {{ beatPack.fee }}</span>
+                    </div>
 
-        <div class="basic-license d-none" >
+                    <div class="pack-info">
+                        <div class="pack-deliverable">{{ beatPack.filesType }}</div>
+                        <div class="pack-use">{{ beatPack.use }}</div>
+                        <div class="pack-streams">{{ beatPack.streams }}</div>
+                        <div class="pack-monetization">{{ beatPack.youtube }}</div>
+                        <div class="pack-tag">One signature tag</div>
+                    </div>
+                    <div class="pack-cta">
+                        <button>Read License</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div v-show="previewStage === 1" class="basic-license " >
             <p class="intro">
                  This <span class="font-weight-bold">Non-Exclusive  Basic Lease License Agreement</span> (the “Agreement”), having been made on and effective as of <span class="font-weight-bold"> {{ new Date() }}</span> (the “Effective Date”) by and between <span class="font-weight-bold">Producer</span> p/k/a  <span class="font-weight-bold">{{ producerName }}</span> (the “Producer” or “Licensor”); and <span class="font-weight-bold">Licensee</span> residing at [N/A] (“You” or “Licensee”), sets forth the terms and conditions of the Licensee’s use, and the rights granted in, the Producer’s instrumental music file entitled <span class="font-weight-bold">The Beat Title (Contract Preview Only)</span> (the “Beat”) in consideration for Licensee’s payment of <span class="font-weight-bold">$0.00</span> (the “License Fee”), on a so-called <span class="font-weight-bold">“Basic Lease”</span> basis.
                 This Agreement is issued solely in connection with and for Licensee's use of the Beat pursuant and subject to all terms and conditions set forth herein.
@@ -177,7 +199,7 @@
              </p>
 
         </div>
-        <div class="standard-license d-none" >
+        <div v-show="previewStage === 2"class="standard-license " >
             <p class="intro">
                  This <span class="font-weight-bold">Non-Exclusive  Standard Lease License Agreement</span> (the “Agreement”), having been made on and effective as of <span class="font-weight-bold"> {{ new Date() }}</span> (the “Effective Date”) by and between <span class="font-weight-bold">Producer</span> p/k/a  <span class="font-weight-bold">{{ producerName }}</span> (the “Producer” or “Licensor”); and <span class="font-weight-bold">Licensee</span> residing at [N/A] (“You” or “Licensee”), sets forth the terms and conditions of the Licensee’s use, and the rights granted in, the Producer’s instrumental music file entitled <span class="font-weight-bold">The Beat Title (Contract Preview Only)</span> (the “Beat”) in consideration for Licensee’s payment of <span class="font-weight-bold">${{ $store.getters.getBasicPrice.amount }}</span> (the “License Fee”), on a so-called <span class="font-weight-bold">“Standard Lease”</span> basis.
                 This Agreement is issued solely in connection with and for Licensee's use of the Beat pursuant and subject to all terms and conditions set forth herein.
@@ -350,7 +372,7 @@
              </p>
 
         </div>
-        <div class="popular-premium-license d-none" >
+        <div v-show="previewStage === 3" class="popular-premium-license" >
             <p class="intro">
                  This <span class="font-weight-bold">Non-Exclusive  Premium Stems License Agreement</span> (the “Agreement”), having been made on and effective as of <span class="font-weight-bold"> {{ new Date() }}</span> (the “Effective Date”) by and between <span class="font-weight-bold">Producer</span> p/k/a  <span class="font-weight-bold">{{ producerName }}</span> (the “Producer” or “Licensor”); and <span class="font-weight-bold">Licensee</span> residing at [N/A] (“You” or “Licensee”), sets forth the terms and conditions of the Licensee’s use, and the rights granted in, the Producer’s instrumental music file entitled <span class="font-weight-bold">The Beat Title (Contract Preview Only)</span> (the “Beat”) in consideration for Licensee’s payment of <span class="font-weight-bold">$99.95</span> (the “License Fee”), on a so-called <span class="font-weight-bold">“Premium Stems”</span> basis.
                 This Agreement is issued solely in connection with and for Licensee's use of the Beat pursuant and subject to all terms and conditions set forth herein.
@@ -523,7 +545,7 @@
              </p>
 
         </div>
-        <div class="unlimited-license" >
+        <div v-show="previewStage === 4" class="unlimited-license" >
             <p class="intro">
                  This <span class="font-weight-bold">Non-Exclusive  Unlimited License Agreement</span> (the “Agreement”), having been made on and effective as of <span class="font-weight-bold"> {{ new Date() }}</span> (the “Effective Date”) by and between <span class="font-weight-bold">Producer</span> p/k/a  <span class="font-weight-bold">{{ producerName }}</span> (the “Producer” or “Licensor”); and <span class="font-weight-bold">Licensee</span> residing at [N/A] (“You” or “Licensee”), sets forth the terms and conditions of the Licensee’s use, and the rights granted in, the Producer’s instrumental music file entitled <span class="font-weight-bold">The Beat Title (Contract Preview Only)</span> (the “Beat”) in consideration for Licensee’s payment of <span class="font-weight-bold">$199.95</span> (the “License Fee”), on a so-called <span class="font-weight-bold">“Unlimited”</span> basis.
                 This Agreement is issued solely in connection with and for Licensee's use of the Beat pursuant and subject to all terms and conditions set forth herein.
@@ -696,6 +718,8 @@
              </p>
 
         </div>
+
+
     </div>
 </template>
 
@@ -705,7 +729,53 @@
         data(){
             return{
                 producerName: 'Tony Gregory',
-                previewStage: 1
+                previewStage: 0,
+                packages: [
+                    {
+                        id : 1,
+                        name : 'Basic',
+                        popular: false,
+                        filesType: 'MP3',
+                        fee : 0.00,
+                        use: 'Non Profit Use ONLY',
+                        streams: 'Up to 10000 Streams',
+                        youtube: 'YouTube (without Monetization)'
+                    },
+
+                    {
+                        id : 2,
+                        name : 'Standard',
+                        fee : 29.95,
+                        popular: false,
+                        filesType: 'MP3 & WAV',
+                        use: 'Non Profit Use ONLY',
+                        streams: 'Up to 50000 Streams',
+                        youtube: 'YouTube (without Monetization)'
+                    },
+
+                    {
+                        id : 3,
+                        name : 'Premium',
+                        fee : 99.95,
+                        popular: true,
+                        filesType: 'MP3 , WAV & TRACKSTEMS',
+                        use: 'Profit & Non Profit',
+                        streams: 'Up to 100000 Streams',
+                        youtube: 'YouTube (with Monetization)'
+                    },
+
+                    {
+                        id : 4,
+                        name : 'Unlimited',
+                        fee : 199.95,
+                        popular: false,
+                        filesType: 'MP3 , WAV & TRACKSTEMS',
+                        use: 'Profit & Non Profit',
+                        streams: 'Unlimited Streams',
+                        youtube: 'YouTube (with Monetization)'
+                    }
+
+                ]
             }
         },
         methods:{
@@ -756,7 +826,135 @@
         color: black;
         font-weight: bold;
     }
-    .standard-license , .basic-license , .popular-premium-license{
+
+    .shortlist{
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .license-holder{
+        margin-top: 40px;
+        min-height: 60vh;
+        width: 75vw;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .package{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 10px;
+        width: 23%;
+        overflow: hidden;
+    }
+
+
+    .pack-head , .pack-info , .pack-cta{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .pack-head{
+        /*border-top-left-radius: 10px;*/
+        /*border-top-right-radius: 10px;*/
+        height: 20%;
+        width: 100%;
+        padding: 2%;
+    }
+
+    .pack-info{
+        height: 60%;
+        width: 100%;
+        padding: 2%;
+    }
+
+    .pack-cta{
+        height: 20%;
+        width: 100%;
+        padding: 2%;
+    }
+
+    .pack-name{
+        font-weight: bolder;
+        font-size: 32px;
+    }
+    .pack-fee{
+        font-weight: bolder;
+        font-size: 24px;
+    }
+
+    .pack-fee{
+
+    }
+
+    .popular .pack-head{
+        background-color: #617999;
+        color: white;
+    }
+
+    .non-popular .pack-head{
+        background-color: #dbf2ff;
+        color: black;
+    }
+
+    .pack-cta button{
+        padding: 10px 30px;
+        font-weight: bolder;
+        cursor: pointer;
+    }
+
+    .popular{
+        transform: scale(1.05);
+        border: 2px #8c8c8cbb solid;
+        transition: 250ms ease-in-out;
+    }
+
+    .non-popular{
+        transform: scale(.99);
+        border: 1px #8c8c8caa solid;
+        transition: 250ms ease-in-out;
+    }
+
+    .popular:hover{
+        transform: scale(1.06);
+    }
+
+    .non-popular:hover{
+        transform: scale(1.02);
+    }
+
+
+    .popular .pack-cta button{
+        background-color: orangered;
+        color: white;
+    }
+
+    .non-popular .pack-cta button{
+        background-color: #86aee1;
+        color: black;
+    }
+
+    .pack-use , .pack-deliverable ,.pack-tag ,.pack-monetization{
+        margin: 10px 0px;
+        text-align: center;
+    }
+
+
+
+
+
+
+
+
+
+
+    .standard-license , .basic-license , .popular-premium-license , .unlimited-license{
         margin-top: 20px;
         counter-reset: item-lic-counter;
     }
