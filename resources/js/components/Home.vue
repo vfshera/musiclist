@@ -184,7 +184,9 @@
                    <img loading="lazy" class="circle-img" src="/storage/site-img/greg.jpg">
                </div>
                 <div class="bio-text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores assumenda beatae eos explicabo hic minima modi provident quos sapiente sunt. Blanditiis delectus maiores maxime minus necessitatibus, nostrum obcaecati possimus rem soluta, sunt tempora tempore voluptates! Alias animi architecto consequatur doloremque eligendi exercitationem, explicabo minima nam nemo nesciunt nisi non, officia perspiciatis porro quam quod quos recusandae ut veniam, vitae! Architecto cumque odit quod? Assumenda aut eaque fugiat nulla quia, veniam.</p>
+                <p>
+                    Hailing from Nairobi, {{ currAge }} year old recording artist and producer is quickly becoming one of Kenya's favorite underground musician. He is a master of his craft with the sound design and production capabilities to match the long time professionals, but, its his bold commitment to integrity that sets his work apart. Hip hop fans across the country have already tuned in to hear his unique combination of melodic rap and raw lyricism. Now, with a versatile catalogue of music and an ever growing number of streams online, Tony is ready to bring his talents to the world stage.
+                </p>
                 </div>
             </div>
         </div>
@@ -531,6 +533,17 @@
             promo: function(){
                 let index = Math.floor(Math.random() * this.blogs.length)
                 return this.blogs[index];
+            },
+            currAge: function () {
+                    const todayDate = Date.now();
+                    const tonyDOB =  Date.parse('October 24, 1999');
+
+                    const minutes = 1000 * 60;
+                    const hours = minutes * 60;
+                    const days = hours * 24;
+                    const years = days * 365;
+
+                    return Math.round( (todayDate - tonyDOB) / years);
             }
         },
         mounted() {
@@ -689,7 +702,10 @@
     /*mix-blend-mode: darken;*/
     text-shadow: 1px 1px ghostwhite;
 }
-
+/*.bio-text p::before{*/
+/*    content: open-quote;*/
+/*    font-size: 4rem;*/
+/*}*/
 
 /*end bio*/
 
