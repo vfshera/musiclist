@@ -8339,12 +8339,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "TermsNConditions",
   data: function data() {
     return {
       producerName: 'Tony Gregory',
-      previewStage: 0,
+      previewStage: 1,
       packages: [{
         id: 1,
         name: 'Basic',
@@ -8352,7 +8361,7 @@ __webpack_require__.r(__webpack_exports__);
         filesType: 'MP3',
         fee: 0.00,
         use: 'Non Profit Use ONLY',
-        streams: 'Up to 10000 Streams',
+        streams: 'Up to 10,000 Streams',
         youtube: 'YouTube (without Monetization)'
       }, {
         id: 2,
@@ -8361,7 +8370,7 @@ __webpack_require__.r(__webpack_exports__);
         popular: false,
         filesType: 'MP3 & WAV',
         use: 'Non Profit Use ONLY',
-        streams: 'Up to 50000 Streams',
+        streams: 'Up to 50,000 Streams',
         youtube: 'YouTube (without Monetization)'
       }, {
         id: 3,
@@ -8370,7 +8379,7 @@ __webpack_require__.r(__webpack_exports__);
         popular: true,
         filesType: 'MP3 , WAV & TRACKSTEMS',
         use: 'Profit & Non Profit',
-        streams: 'Up to 100000 Streams',
+        streams: 'Up to 100,000 Streams',
         youtube: 'YouTube (with Monetization)'
       }, {
         id: 4,
@@ -8388,6 +8397,9 @@ __webpack_require__.r(__webpack_exports__);
     scrollToTop: function scrollToTop() {
       window.scrollTo(0, 0);
     },
+    setPreview: function setPreview(id) {
+      this.previewStage = id;
+    },
     loadPrices: function loadPrices() {
       var _this = this;
 
@@ -8401,6 +8413,12 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log(err);
       });
+    }
+  },
+  computed: {
+    navName: function navName() {
+      var index = this.previewStage === 0 ? this.previewStage : this.previewStage - 1;
+      return this.packages[index].name + ' License Preview';
     }
   },
   mounted: function mounted() {
@@ -15344,7 +15362,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.terms-conditions[data-v-70908484]{\n    margin-top: 60px;\n    padding-top:20px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    min-height:70vh;\n}\n.terms-conditions h3[data-v-70908484]{\n    color: black;\n    font-weight: bold;\n}\n.shortlist[data-v-70908484]{\n    margin-top: 30px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.license-holder[data-v-70908484]{\n    margin-top: 40px;\n    min-height: 60vh;\n    width: 75vw;\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n}\n.package[data-v-70908484]{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    border-radius: 10px;\n    width: 23%;\n    overflow: hidden;\n}\n.pack-head[data-v-70908484], .pack-info[data-v-70908484], .pack-cta[data-v-70908484]{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n}\n.pack-head[data-v-70908484]{\n    /*border-top-left-radius: 10px;*/\n    /*border-top-right-radius: 10px;*/\n    height: 20%;\n    width: 100%;\n    padding: 2%;\n}\n.pack-info[data-v-70908484]{\n    height: 60%;\n    width: 100%;\n    padding: 2%;\n}\n.pack-cta[data-v-70908484]{\n    height: 20%;\n    width: 100%;\n    padding: 2%;\n}\n.pack-name[data-v-70908484]{\n    font-weight: bolder;\n    font-size: 32px;\n}\n.pack-fee[data-v-70908484]{\n    font-weight: bolder;\n    font-size: 24px;\n}\n.pack-fee[data-v-70908484]{\n}\n.popular .pack-head[data-v-70908484]{\n    background-color: #617999;\n    color: white;\n}\n.non-popular .pack-head[data-v-70908484]{\n    background-color: #dbf2ff;\n    color: black;\n}\n.pack-cta button[data-v-70908484]{\n    padding: 10px 30px;\n    font-weight: bolder;\n    cursor: pointer;\n}\n.popular[data-v-70908484]{\n    transform: scale(1.05);\n    border: 2px #8c8c8cbb solid;\n    transition: 250ms ease-in-out;\n}\n.non-popular[data-v-70908484]{\n    transform: scale(.99);\n    border: 1px #8c8c8caa solid;\n    transition: 250ms ease-in-out;\n}\n.popular[data-v-70908484]:hover{\n    transform: scale(1.06);\n}\n.non-popular[data-v-70908484]:hover{\n    transform: scale(1.02);\n}\n.popular .pack-cta button[data-v-70908484]{\n    background-color: orangered;\n    color: white;\n}\n.non-popular .pack-cta button[data-v-70908484]{\n    background-color: #86aee1;\n    color: black;\n}\n.pack-use[data-v-70908484], .pack-deliverable[data-v-70908484],.pack-tag[data-v-70908484],.pack-monetization[data-v-70908484]{\n    margin: 10px 0px;\n    text-align: center;\n}\n.standard-license[data-v-70908484], .basic-license[data-v-70908484], .popular-premium-license[data-v-70908484], .unlimited-license[data-v-70908484]{\n    margin-top: 20px;\n    counter-reset: item-lic-counter;\n}\n.lic-item[data-v-70908484], .item-points[data-v-70908484], .outlined-points[data-v-70908484], .outlines-dash[data-v-70908484], .lic-item strong[data-v-70908484], .intro[data-v-70908484] {\n    width: 100ch;\n    display: block;\n    color: #111;\n    font-size: 15px;\n}\n.lic-item[data-v-70908484]{\n    margin: 10px 0px;\n    counter-reset: point-counter;\n}\n.lic-item[data-v-70908484]::before{\n    counter-increment: item-lic-counter;\n    content: counter(item-lic-counter) '.  ';\n    position: absolute;\n    font-weight: bolder;\n    font-size: 19px;\n}\n.lic-item strong[data-v-70908484]{\n    margin-left: 20px;\n    font-size: 18px;\n    color: #070707;\n}\n.item-points[data-v-70908484] {\n    margin-left: 30px;\n    counter-reset: outpoint-counter;\n}\n.item-points[data-v-70908484]::before {\n    counter-increment: point-counter;\n    content: '(' counter(point-counter, lower-alpha) ').   ';\n    font-weight: bolder;\n    font-size: 17px;\n}\n.outlined-points[data-v-70908484] {\n    margin-left: 45px;\n}\n.outlined-points[data-v-70908484]::before {\n    counter-increment: outpoint-counter;\n    content: '(' counter(outpoint-counter, lower-roman) '). ';\n    font-weight: bolder;\n}\n.outlines-dash[data-v-70908484] {\n    margin-left: 100px;\n}\n.outlines-dash[data-v-70908484]::before{\n    counter-increment: bullet-counter;\n    content: '\\E622';\n    font-weight: bolder;\n    font-family: 'themify';\n}\n\n", ""]);
+exports.push([module.i, "\n.terms-conditions[data-v-70908484]{\n    margin-top: 60px;\n    padding-top:20px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    min-height:70vh;\n}\n.terms-conditions h2[data-v-70908484]{\n    color: black;\n    font-weight: bold;\n}\n.shortlist[data-v-70908484]{\n    margin-top: 30px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.license-holder[data-v-70908484]{\n    margin-top: 40px;\n    min-height: 60vh;\n    width: 75vw;\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n}\n.package[data-v-70908484]{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    border-radius: 10px;\n    width: 23%;\n    overflow: hidden;\n    margin-bottom: 25px;\n}\n.pack-head[data-v-70908484], .pack-info[data-v-70908484], .pack-cta[data-v-70908484]{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n}\n.pack-head[data-v-70908484]{\n    /*border-top-left-radius: 10px;*/\n    /*border-top-right-radius: 10px;*/\n    height: 20%;\n    width: 100%;\n    padding: 2%;\n}\n.pack-info[data-v-70908484]{\n    height: 60%;\n    width: 100%;\n    padding: 2%;\n}\n.pack-cta[data-v-70908484]{\n    height: 20%;\n    width: 100%;\n    padding: 2%;\n}\n.pack-name[data-v-70908484]{\n    font-weight: bolder;\n    font-size: 32px;\n}\n.pack-fee[data-v-70908484]{\n    font-weight: bolder;\n    font-size: 24px;\n}\n.popular .pack-head[data-v-70908484]{\n    background-color: #617999;\n    color: white;\n}\n.non-popular .pack-head[data-v-70908484]{\n    background-color: #dbf2ff;\n    color: black;\n}\n.pack-cta button[data-v-70908484]{\n    padding: 10px 30px;\n    font-weight: bolder;\n    cursor: pointer;\n}\n.popular[data-v-70908484]{\n    transform: scale(1.05);\n    border: 2px #8c8c8cbb solid;\n    transition: 250ms ease-in-out;\n}\n.non-popular[data-v-70908484]{\n    transform: scale(.99);\n    border: 1px #8c8c8caa solid;\n    transition: 250ms ease-in-out;\n}\n.popular[data-v-70908484]:hover{\n    transform: scale(1.06);\n}\n.non-popular[data-v-70908484]:hover{\n    transform: scale(1.02);\n}\n.popular .pack-cta button[data-v-70908484]{\n    background-color: orangered;\n    color: white;\n}\n.non-popular .pack-cta button[data-v-70908484]{\n    background-color: #86aee1;\n    color: black;\n}\n.pack-use[data-v-70908484], .pack-deliverable[data-v-70908484],.pack-tag[data-v-70908484],.pack-monetization[data-v-70908484]{\n    margin: 10px 0px;\n    text-align: center;\n}\n.lic-header-nav[data-v-70908484]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    width: 30%;\n    margin: 15px 0px;\n}\n.lic-header-nav-back[data-v-70908484]{\n    font-weight: bold;\n    font-size: 18px;\n    cursor: pointer;\n}\n.lic-header-nav-title[data-v-70908484]{\n    margin-left: 20px;\n    font-weight: bold;\n    font-size: 24px;\n    color: #007bff;\n}\n.standard-license[data-v-70908484], .basic-license[data-v-70908484], .popular-premium-license[data-v-70908484], .unlimited-license[data-v-70908484]{\n    margin-top: 20px;\n    counter-reset: item-lic-counter;\n}\n.lic-item[data-v-70908484], .item-points[data-v-70908484], .outlined-points[data-v-70908484], .outlines-dash[data-v-70908484], .lic-item strong[data-v-70908484], .intro[data-v-70908484] {\n    width: 100ch;\n    display: block;\n    color: #111;\n    font-size: 15px;\n}\n.lic-item[data-v-70908484]{\n    margin: 10px 0px;\n    counter-reset: point-counter;\n}\n.lic-item[data-v-70908484]::before{\n    counter-increment: item-lic-counter;\n    content: counter(item-lic-counter) '.  ';\n    position: absolute;\n    font-weight: bolder;\n    font-size: 19px;\n}\n.lic-item strong[data-v-70908484]{\n    margin-left: 20px;\n    font-size: 18px;\n    color: #070707;\n}\n.item-points[data-v-70908484] {\n    margin-left: 30px;\n    counter-reset: outpoint-counter;\n}\n.item-points[data-v-70908484]::before {\n    counter-increment: point-counter;\n    content: '(' counter(point-counter, lower-alpha) ').   ';\n    font-weight: bolder;\n    font-size: 17px;\n}\n.outlined-points[data-v-70908484] {\n    margin-left: 45px;\n}\n.outlined-points[data-v-70908484]::before {\n    counter-increment: outpoint-counter;\n    content: '(' counter(outpoint-counter, lower-roman) '). ';\n    font-weight: bolder;\n}\n.outlines-dash[data-v-70908484] {\n    margin-left: 100px;\n}\n.outlines-dash[data-v-70908484]::before{\n    counter-increment: bullet-counter;\n    content: '\\E622';\n    font-weight: bolder;\n    font-family: 'themify';\n}\n\n", ""]);
 
 // exports
 
@@ -73420,7 +73438,44 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "terms-conditions" }, [
-    _c("h3", [_vm._v("Terms & Conditions")]),
+    _c("h2", [_vm._v("Terms & Conditions")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.previewStage != 0,
+            expression: "previewStage != 0"
+          }
+        ],
+        staticClass: "lic-header-nav"
+      },
+      [
+        _c(
+          "span",
+          {
+            staticClass: "lic-header-nav-back",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.setPreview(0)
+              }
+            }
+          },
+          [
+            _c("i", { staticClass: "ti-arrow-left" }),
+            _vm._v("\n                Go Back\n        ")
+          ]
+        ),
+        _vm._v(" "),
+        _c("span", { staticClass: "lic-header-nav-title" }, [
+          _vm._v("\n            " + _vm._s(_vm.navName) + "\n        ")
+        ])
+      ]
+    ),
     _vm._v(" "),
     _c(
       "div",
@@ -73485,7 +73540,20 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(0, true)
+                _c("div", { staticClass: "pack-cta" }, [
+                  _c(
+                    "button",
+                    {
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.setPreview(beatPack.id)
+                        }
+                      }
+                    },
+                    [_vm._v("Read License")]
+                  )
+                ])
               ]
             )
           }),
@@ -73544,10 +73612,10 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(1),
+        _vm._m(0),
         _vm._v(" "),
+        _vm._m(1),
         _vm._m(2),
-        _vm._m(3),
         _vm._v(" "),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
@@ -73557,19 +73625,19 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
         _vm._m(4),
-        _vm._v(" "),
         _vm._m(5),
-        _vm._m(6),
         _vm._v(" "),
+        _vm._m(6),
         _vm._m(7),
+        _vm._v(" "),
         _vm._m(8),
         _vm._v(" "),
         _vm._m(9),
         _vm._v(" "),
         _vm._m(10),
-        _vm._v(" "),
-        _vm._m(11),
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
@@ -73581,10 +73649,10 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
+        _vm._m(11),
         _vm._m(12),
-        _vm._m(13),
         _vm._v(" "),
-        _vm._m(14),
+        _vm._m(13),
         _vm._v(" "),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
@@ -73598,9 +73666,9 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(15),
+        _vm._m(14),
         _vm._v(" "),
-        _vm._m(16),
+        _vm._m(15),
         _c("p", { staticClass: "outlined-points" }, [
           _vm._v(
             "\n                    The parties acknowledge and agree that the New Song is a “derivative work”, as that term is used in the United States Copyright Act;\n\n                "
@@ -73623,7 +73691,7 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(17),
+        _vm._m(16),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
             "\n                The Producer is and shall remain the sole owner and holder of all rights, title, and interest in the Beat, including all copyrights to and in the sound recording and the underlying musical compositions written and composed by Producer. Nothing contained herein shall constitute an assignment by Producer to Licensee of any of the foregoing rights. Licensee may not, under any circumstances, register or attempt to register the New Song and/or the Beat with the U.S. Copyright Office. The aforementioned right to register the New Song and/or the Beat shall be strictly limited to Producer. Licensee will, upon request, execute, acknowledge and deliver to Producer such additional documents as Producer may deem necessary to evidence and effectuate Producer’s rights hereunder, and Licensee hereby grants to Producer the right as attorney-in-fact to execute, acknowledge, deliver and record in the U.S. Copyright Office or elsewhere any and all such documents if Licensee shall fail to execute same within five (5) days after so requested by Producer.\n            "
@@ -73648,7 +73716,7 @@ var render = function() {
             "\n                 With respect to the publishing rights and ownership of the underlying composition embodied in the New Song, the Licensee, and the Producer hereby acknowledge and agree that the underlying composition shall be owned/split between them as follows:\n                    "
           )
         ]),
-        _vm._m(18),
+        _vm._m(17),
         _vm._v(" "),
         _c("p", { staticClass: "outlined-points" }, [
           _c("span", { staticClass: "font-weight-bold" }, [
@@ -73659,7 +73727,7 @@ var render = function() {
           _vm._v(" of the writers share.\n                    ")
         ]),
         _vm._v(" "),
-        _vm._m(19),
+        _vm._m(18),
         _vm._v(" "),
         _c("p", { staticClass: "outlines-dash" }, [
           _vm._v(
@@ -73677,7 +73745,7 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(20),
+        _vm._m(19),
         _vm._v(" "),
         _c("p", { staticClass: "lic-item" }, [
           _c("strong", [_vm._v("Credit: ")]),
@@ -73690,9 +73758,9 @@ var render = function() {
           _vm._v("”.\n        ")
         ]),
         _vm._v(" "),
-        _vm._m(21),
+        _vm._m(20),
         _vm._v(" "),
-        _vm._m(22),
+        _vm._m(21),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
             "\n                The licensee shall have five (5) business days from its receipt of written notice by Producer and/or Producer’s authorized representative to cure any alleged breach of this Agreement by Licensee. Licensee’s failure to cure the alleged breach within five (5) business days shall result in Licensee’s default of its obligations, its breach of this Agreement, and at Producer's sole discretion, the termination of Licensee’s rights hereunder.\n            "
@@ -73713,7 +73781,7 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(23),
+        _vm._m(22),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
             "\n                Licensee hereby agrees that Licensor has not made any guarantees or promises that the Beat fits the particular creative use or musical purpose intended or desired by the Licensee. The Beat, its sound recording, and the underlying musical composition embodied therein are licensed to the Licensee “as is” without warranties of any kind or fitness for a particular purpose.\n            "
@@ -73734,7 +73802,7 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(24)
+        _vm._m(23)
       ]
     ),
     _vm._v(" "),
@@ -73790,10 +73858,10 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(25),
+        _vm._m(24),
         _vm._v(" "),
+        _vm._m(25),
         _vm._m(26),
-        _vm._m(27),
         _vm._v(" "),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
@@ -73803,9 +73871,9 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(28),
+        _vm._m(27),
         _vm._v(" "),
-        _vm._m(29),
+        _vm._m(28),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
             "\n                     In consideration for Licensee’s payment of the License Fee, the Producer hereby grants Licensee a limited non-exclusive, nontransferable license and the right to incorporate, include and/or use the Beat in the preparation of one (1) new song or to incorporate the Beat into a new piece of instrumental music created by the Licensee. Licensee may create the new song or new instrumental music by recording his/her written lyrics over the Beat and/or by incorporating portions/samples of the Beat into pre-existing instrumental music written, produced and/or owned by Licensee. The new song or piece of instrumental music created by the Licensee which incorporates some or all of the Beat shall be referred to as the “New Song”. Permission is granted to Licensee to modify the arrangement, length, tempo, or pitch of the Beat in preparation of the New Song for public release.\n                "
@@ -73817,7 +73885,7 @@ var render = function() {
             "\n                    This License grants Licensee a worldwide, non-exclusive license to use the Beat as incorporated in the New Song in the manners and for the purposes expressly provided for herein, subject to the sale restrictions, limitations and prohibited uses stated in this Agreement. Licensee acknowledges and agrees that any and all rights granted to Licensee in the Beat pursuant to this Agreement are on a NON-EXCLUSIVE basis and Producer shall continue to license the Beat upon the same or similar terms and conditions as this Agreement to other potential third-party licensees.\n                        "
           )
         ]),
-        _vm._m(30),
+        _vm._m(29),
         _vm._v(" "),
         _c("p", { staticClass: "outlined-points" }, [
           _vm._v(
@@ -73825,9 +73893,9 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(31),
+        _vm._m(30),
         _vm._v(" "),
-        _vm._m(32),
+        _vm._m(31),
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
@@ -73839,10 +73907,10 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
+        _vm._m(32),
         _vm._m(33),
-        _vm._m(34),
         _vm._v(" "),
-        _vm._m(35),
+        _vm._m(34),
         _vm._v(" "),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
@@ -73856,9 +73924,9 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(36),
+        _vm._m(35),
         _vm._v(" "),
-        _vm._m(37),
+        _vm._m(36),
         _c("p", { staticClass: "outlined-points" }, [
           _vm._v(
             "\n                    The parties acknowledge and agree that the New Song is a “derivative work”, as that term is used in the United States Copyright Act;\n\n                "
@@ -73881,7 +73949,7 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(38),
+        _vm._m(37),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
             "\n                The Producer is and shall remain the sole owner and holder of all rights, title, and interest in the Beat, including all copyrights to and in the sound recording and the underlying musical compositions written and composed by Producer. Nothing contained herein shall constitute an assignment by Producer to Licensee of any of the foregoing rights. Licensee may not, under any circumstances, register or attempt to register the New Song and/or the Beat with the U.S. Copyright Office. The aforementioned right to register the New Song and/or the Beat shall be strictly limited to Producer. Licensee will, upon request, execute, acknowledge and deliver to Producer such additional documents as Producer may deem necessary to evidence and effectuate Producer’s rights hereunder, and Licensee hereby grants to Producer the right as attorney-in-fact to execute, acknowledge, deliver and record in the U.S. Copyright Office or elsewhere any and all such documents if Licensee shall fail to execute same within five (5) days after so requested by Producer.\n            "
@@ -73906,7 +73974,7 @@ var render = function() {
             "\n                 With respect to the publishing rights and ownership of the underlying composition embodied in the New Song, the Licensee, and the Producer hereby acknowledge and agree that the underlying composition shall be owned/split between them as follows:\n                    "
           )
         ]),
-        _vm._m(39),
+        _vm._m(38),
         _vm._v(" "),
         _c("p", { staticClass: "outlined-points" }, [
           _c("span", { staticClass: "font-weight-bold" }, [
@@ -73917,7 +73985,7 @@ var render = function() {
           _vm._v(" of the writers share.\n                    ")
         ]),
         _vm._v(" "),
-        _vm._m(40),
+        _vm._m(39),
         _vm._v(" "),
         _c("p", { staticClass: "outlines-dash" }, [
           _vm._v(
@@ -73935,7 +74003,7 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(41),
+        _vm._m(40),
         _vm._v(" "),
         _c("p", { staticClass: "lic-item" }, [
           _c("strong", [_vm._v("Credit: ")]),
@@ -73948,9 +74016,9 @@ var render = function() {
           _vm._v("”.\n        ")
         ]),
         _vm._v(" "),
-        _vm._m(42),
+        _vm._m(41),
         _vm._v(" "),
-        _vm._m(43),
+        _vm._m(42),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
             "\n                The licensee shall have five (5) business days from its receipt of written notice by Producer and/or Producer’s authorized representative to cure any alleged breach of this Agreement by Licensee. Licensee’s failure to cure the alleged breach within five (5) business days shall result in Licensee’s default of its obligations, its breach of this Agreement, and at Producer's sole discretion, the termination of Licensee’s rights hereunder.\n            "
@@ -73971,7 +74039,7 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(44),
+        _vm._m(43),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
             "\n                Licensee hereby agrees that Licensor has not made any guarantees or promises that the Beat fits the particular creative use or musical purpose intended or desired by the Licensee. The Beat, its sound recording, and the underlying musical composition embodied therein are licensed to the Licensee “as is” without warranties of any kind or fitness for a particular purpose.\n            "
@@ -73992,7 +74060,7 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(45)
+        _vm._m(44)
       ]
     ),
     _vm._v(" "),
@@ -74046,10 +74114,10 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(46),
+        _vm._m(45),
         _vm._v(" "),
+        _vm._m(46),
         _vm._m(47),
-        _vm._m(48),
         _vm._v(" "),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
@@ -74059,19 +74127,19 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
+        _vm._m(48),
+        _vm._v(" "),
         _vm._m(49),
-        _vm._v(" "),
         _vm._m(50),
-        _vm._m(51),
         _vm._v(" "),
+        _vm._m(51),
         _vm._m(52),
+        _vm._v(" "),
         _vm._m(53),
         _vm._v(" "),
         _vm._m(54),
         _vm._v(" "),
         _vm._m(55),
-        _vm._v(" "),
-        _vm._m(56),
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
@@ -74083,10 +74151,10 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
+        _vm._m(56),
         _vm._m(57),
-        _vm._m(58),
         _vm._v(" "),
-        _vm._m(59),
+        _vm._m(58),
         _vm._v(" "),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
@@ -74100,9 +74168,9 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(60),
+        _vm._m(59),
         _vm._v(" "),
-        _vm._m(61),
+        _vm._m(60),
         _c("p", { staticClass: "outlined-points" }, [
           _vm._v(
             "\n                    The parties acknowledge and agree that the New Song is a “derivative work”, as that term is used in the United States Copyright Act;\n\n                "
@@ -74125,7 +74193,7 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(62),
+        _vm._m(61),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
             "\n                The Producer is and shall remain the sole owner and holder of all rights, title, and interest in the Beat, including all copyrights to and in the sound recording and the underlying musical compositions written and composed by Producer. Nothing contained herein shall constitute an assignment by Producer to Licensee of any of the foregoing rights. Licensee may not, under any circumstances, register or attempt to register the New Song and/or the Beat with the U.S. Copyright Office. The aforementioned right to register the New Song and/or the Beat shall be strictly limited to Producer. Licensee will, upon request, execute, acknowledge and deliver to Producer such additional documents as Producer may deem necessary to evidence and effectuate Producer’s rights hereunder, and Licensee hereby grants to Producer the right as attorney-in-fact to execute, acknowledge, deliver and record in the U.S. Copyright Office or elsewhere any and all such documents if Licensee shall fail to execute same within five (5) days after so requested by Producer.\n            "
@@ -74150,7 +74218,7 @@ var render = function() {
             "\n                 With respect to the publishing rights and ownership of the underlying composition embodied in the New Song, the Licensee, and the Producer hereby acknowledge and agree that the underlying composition shall be owned/split between them as follows:\n                    "
           )
         ]),
-        _vm._m(63),
+        _vm._m(62),
         _vm._v(" "),
         _c("p", { staticClass: "outlined-points" }, [
           _c("span", { staticClass: "font-weight-bold" }, [
@@ -74161,7 +74229,7 @@ var render = function() {
           _vm._v(" of the writers share.\n                    ")
         ]),
         _vm._v(" "),
-        _vm._m(64),
+        _vm._m(63),
         _vm._v(" "),
         _c("p", { staticClass: "outlines-dash" }, [
           _vm._v(
@@ -74179,7 +74247,7 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(65),
+        _vm._m(64),
         _vm._v(" "),
         _c("p", { staticClass: "lic-item" }, [
           _c("strong", [_vm._v("Credit: ")]),
@@ -74192,9 +74260,9 @@ var render = function() {
           _vm._v("”.\n        ")
         ]),
         _vm._v(" "),
-        _vm._m(66),
+        _vm._m(65),
         _vm._v(" "),
-        _vm._m(67),
+        _vm._m(66),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
             "\n                The licensee shall have five (5) business days from its receipt of written notice by Producer and/or Producer’s authorized representative to cure any alleged breach of this Agreement by Licensee. Licensee’s failure to cure the alleged breach within five (5) business days shall result in Licensee’s default of its obligations, its breach of this Agreement, and at Producer's sole discretion, the termination of Licensee’s rights hereunder.\n            "
@@ -74215,7 +74283,7 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(68),
+        _vm._m(67),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
             "\n                Licensee hereby agrees that Licensor has not made any guarantees or promises that the Beat fits the particular creative use or musical purpose intended or desired by the Licensee. The Beat, its sound recording, and the underlying musical composition embodied therein are licensed to the Licensee “as is” without warranties of any kind or fitness for a particular purpose.\n            "
@@ -74236,7 +74304,7 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(69)
+        _vm._m(68)
       ]
     ),
     _vm._v(" "),
@@ -74290,10 +74358,10 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(70),
+        _vm._m(69),
         _vm._v(" "),
+        _vm._m(70),
         _vm._m(71),
-        _vm._m(72),
         _vm._v(" "),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
@@ -74303,19 +74371,19 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
+        _vm._m(72),
+        _vm._v(" "),
         _vm._m(73),
-        _vm._v(" "),
         _vm._m(74),
-        _vm._m(75),
         _vm._v(" "),
+        _vm._m(75),
         _vm._m(76),
+        _vm._v(" "),
         _vm._m(77),
         _vm._v(" "),
         _vm._m(78),
         _vm._v(" "),
         _vm._m(79),
-        _vm._v(" "),
-        _vm._m(80),
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
@@ -74327,10 +74395,10 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
+        _vm._m(80),
         _vm._m(81),
-        _vm._m(82),
         _vm._v(" "),
-        _vm._m(83),
+        _vm._m(82),
         _vm._v(" "),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
@@ -74344,9 +74412,9 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _vm._m(84),
+        _vm._m(83),
         _vm._v(" "),
-        _vm._m(85),
+        _vm._m(84),
         _c("p", { staticClass: "outlined-points" }, [
           _vm._v(
             "\n                    The parties acknowledge and agree that the New Song is a “derivative work”, as that term is used in the United States Copyright Act;\n\n                "
@@ -74369,7 +74437,7 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(86),
+        _vm._m(85),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
             "\n                The Producer is and shall remain the sole owner and holder of all rights, title, and interest in the Beat, including all copyrights to and in the sound recording and the underlying musical compositions written and composed by Producer. Nothing contained herein shall constitute an assignment by Producer to Licensee of any of the foregoing rights. Licensee may not, under any circumstances, register or attempt to register the New Song and/or the Beat with the U.S. Copyright Office. The aforementioned right to register the New Song and/or the Beat shall be strictly limited to Producer. Licensee will, upon request, execute, acknowledge and deliver to Producer such additional documents as Producer may deem necessary to evidence and effectuate Producer’s rights hereunder, and Licensee hereby grants to Producer the right as attorney-in-fact to execute, acknowledge, deliver and record in the U.S. Copyright Office or elsewhere any and all such documents if Licensee shall fail to execute same within five (5) days after so requested by Producer.\n            "
@@ -74394,7 +74462,7 @@ var render = function() {
             "\n                 With respect to the publishing rights and ownership of the underlying composition embodied in the New Song, the Licensee, and the Producer hereby acknowledge and agree that the underlying composition shall be owned/split between them as follows:\n                    "
           )
         ]),
-        _vm._m(87),
+        _vm._m(86),
         _vm._v(" "),
         _c("p", { staticClass: "outlined-points" }, [
           _c("span", { staticClass: "font-weight-bold" }, [
@@ -74405,7 +74473,7 @@ var render = function() {
           _vm._v(" of the writers share.\n                    ")
         ]),
         _vm._v(" "),
-        _vm._m(88),
+        _vm._m(87),
         _vm._v(" "),
         _c("p", { staticClass: "outlines-dash" }, [
           _vm._v(
@@ -74423,7 +74491,7 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(89),
+        _vm._m(88),
         _vm._v(" "),
         _c("p", { staticClass: "lic-item" }, [
           _c("strong", [_vm._v("Credit: ")]),
@@ -74436,9 +74504,9 @@ var render = function() {
           _vm._v("”.\n        ")
         ]),
         _vm._v(" "),
-        _vm._m(90),
+        _vm._m(89),
         _vm._v(" "),
-        _vm._m(91),
+        _vm._m(90),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
             "\n                The licensee shall have five (5) business days from its receipt of written notice by Producer and/or Producer’s authorized representative to cure any alleged breach of this Agreement by Licensee. Licensee’s failure to cure the alleged breach within five (5) business days shall result in Licensee’s default of its obligations, its breach of this Agreement, and at Producer's sole discretion, the termination of Licensee’s rights hereunder.\n            "
@@ -74459,7 +74527,7 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(92),
+        _vm._m(91),
         _c("p", { staticClass: "item-points" }, [
           _vm._v(
             "\n                Licensee hereby agrees that Licensor has not made any guarantees or promises that the Beat fits the particular creative use or musical purpose intended or desired by the Licensee. The Beat, its sound recording, and the underlying musical composition embodied therein are licensed to the Licensee “as is” without warranties of any kind or fitness for a particular purpose.\n            "
@@ -74480,20 +74548,12 @@ var render = function() {
         _vm._v(" "),
         _c("p"),
         _vm._v(" "),
-        _vm._m(93)
+        _vm._m(92)
       ]
     )
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "pack-cta" }, [
-      _c("button", [_vm._v("Read License")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

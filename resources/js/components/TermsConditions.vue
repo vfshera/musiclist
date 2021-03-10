@@ -1,6 +1,15 @@
 <template>
     <div class="terms-conditions">
-       <h3>Terms & Conditions</h3>
+       <h2>Terms & Conditions</h2>
+        <div class="lic-header-nav" v-show="previewStage != 0">
+            <span class="lic-header-nav-back" @click.prevent="setPreview(0)">
+                 <i class="ti-arrow-left"></i>
+                    Go Back
+            </span>
+            <span class="lic-header-nav-title">
+                {{ navName }}
+            </span>
+        </div>
 
         <div class="shortlist" v-show="previewStage === 0">
             <h4>Beat Licenses</h4>
@@ -20,7 +29,7 @@
                         <div class="pack-tag">One signature tag</div>
                     </div>
                     <div class="pack-cta">
-                        <button>Read License</button>
+                        <button @click.prevent="setPreview(beatPack.id)">Read License</button>
                     </div>
                 </div>
             </div>
@@ -729,7 +738,7 @@
         data(){
             return{
                 producerName: 'Tony Gregory',
-                previewStage: 0,
+                previewStage: 1,
                 packages: [
                     {
                         id : 1,
@@ -738,7 +747,7 @@
                         filesType: 'MP3',
                         fee : 0.00,
                         use: 'Non Profit Use ONLY',
-                        streams: 'Up to 10000 Streams',
+                        streams: 'Up to 10,000 Streams',
                         youtube: 'YouTube (without Monetization)'
                     },
 
@@ -749,7 +758,7 @@
                         popular: false,
                         filesType: 'MP3 & WAV',
                         use: 'Non Profit Use ONLY',
-                        streams: 'Up to 50000 Streams',
+                        streams: 'Up to 50,000 Streams',
                         youtube: 'YouTube (without Monetization)'
                     },
 
@@ -760,7 +769,7 @@
                         popular: true,
                         filesType: 'MP3 , WAV & TRACKSTEMS',
                         use: 'Profit & Non Profit',
-                        streams: 'Up to 100000 Streams',
+                        streams: 'Up to 100,000 Streams',
                         youtube: 'YouTube (with Monetization)'
                     },
 
@@ -781,6 +790,9 @@
         methods:{
             scrollToTop() {
                 window.scrollTo(0,0)
+            },
+            setPreview(id){
+                this.previewStage = id;
             },
             loadPrices(){
                 axios.get('/prices')
@@ -804,6 +816,13 @@
 
             },
         },
+        computed:{
+            navName: function () {
+                let index = (this.previewStage === 0) ? this.previewStage : this.previewStage - 1;
+
+                return this.packages[index].name + ' License Preview';
+            }
+        },
         mounted() {
             this.loadPrices();
             this.scrollToTop();
@@ -822,7 +841,7 @@
         min-height:70vh;
     }
 
-    .terms-conditions h3{
+    .terms-conditions h2{
         color: black;
         font-weight: bold;
     }
@@ -850,6 +869,7 @@
         border-radius: 10px;
         width: 23%;
         overflow: hidden;
+        margin-bottom: 25px;
     }
 
 
@@ -889,9 +909,7 @@
         font-size: 24px;
     }
 
-    .pack-fee{
 
-    }
 
     .popular .pack-head{
         background-color: #617999;
@@ -944,6 +962,33 @@
         margin: 10px 0px;
         text-align: center;
     }
+
+    .lic-header-nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 30%;
+        margin: 15px 0px;
+    }
+
+    .lic-header-nav-back{
+        font-weight: bold;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .lic-header-nav-title{
+        margin-left: 20px;
+        font-weight: bold;
+        font-size: 24px;
+        color: #007bff;
+    }
+
+
+
+
+
+
 
 
 

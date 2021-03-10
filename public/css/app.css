@@ -22004,6 +22004,10 @@ figure figcaption p {
 }
 
 @media screen and (max-width: 1210px) {
+  .license-holder {
+    width: 80vw !important;
+  }
+
   .promo {
     padding: 40px 0px !important;
   }
@@ -22044,6 +22048,15 @@ figure figcaption p {
 }
 
 @media screen and (max-width: 1149px) {
+  .license-holder {
+    width: 75vw !important;
+    flex-wrap: wrap !important;
+  }
+
+  .package {
+    width: 26% !important;
+  }
+
   .promo {
     padding: 40px 40px !important;
   }
@@ -22417,6 +22430,25 @@ figure figcaption p {
 }
 
 @media screen and (max-width: 800px) {
+  .license-holder {
+    width: 80vw !important;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .package {
+    width: 30% !important;
+  }
+
+  .pack-name {
+    font-size: 24px !important;
+  }
+
+  .pack-fee {
+    font-size: 18px !important;
+  }
+
   .promo {
     padding: 10px !important;
   }
@@ -22789,6 +22821,26 @@ figure figcaption p {
 }
 
 @media screen and (max-width: 760px) {
+  .license-holder {
+    width: 70vw !important;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .package {
+    width: 45% !important;
+    margin-bottom: 35px !important;
+  }
+
+  .pack-name {
+    font-size: 24px !important;
+  }
+
+  .pack-fee {
+    font-size: 18px !important;
+  }
+
   .promo-img {
     display: flex !important;
     justify-content: center !important;
@@ -23045,6 +23097,86 @@ figure figcaption p {
 }
 
 @media screen and (max-width: 523px) {
+  .standard-license,
+  .basic-license,
+  .popular-premium-license,
+  .unlimited-license {
+    margin-top: 20px;
+    counter-reset: item-lic-counter;
+    width: 90% !important;
+  }
+
+  .lic-item,
+  .lic-item strong,
+  .intro {
+    width: 35ch !important;
+    display: block;
+    color: #111;
+    font-size: 15px;
+  }
+
+  .item-points,
+  .outlined-points,
+  .outlines-dash {
+    width: 30ch !important;
+    display: block;
+    color: #111;
+    font-size: 15px;
+  }
+
+  .item-points {
+    margin-left: 20px !important;
+  }
+
+  .outlined-points {
+    margin-left: 30px !important;
+  }
+
+  .outlines-dash {
+    margin-left: 40px !important;
+  }
+
+  .lic-header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90% !important;
+    margin: 10px 0px !important;
+  }
+
+  .lic-header-nav-back {
+    font-weight: bold;
+    font-size: 14px !important;
+    cursor: pointer;
+  }
+
+  .lic-header-nav-title {
+    margin-left: 10px !important;
+    font-weight: bold;
+    font-size: 16px !important;
+    color: #007bff;
+  }
+
+  .license-holder {
+    width: 75vw !important;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .package {
+    width: 100% !important;
+    margin-bottom: 35px !important;
+  }
+
+  .pack-name {
+    font-size: 20px !important;
+  }
+
+  .pack-fee {
+    font-size: 16px !important;
+  }
+
   /*<!--    bio-->*/
 
   #bio {
