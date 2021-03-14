@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Drumkit;
 use App\Http\Resources\DrumkitsResource;
+use App\RejectFile;
 use App\Rules\AudioValidator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -149,16 +150,23 @@ class DrumkitController extends Controller
         $drumSample = 'public/drumkits/samples/'.$drumkit->drumkit;
 
 
-        if(Storage::exists($drumImg) && Storage::exists($drumSample) && Storage::delete([$drumImg,$drumSample])){
+        if(!Storage::delete([$drumImg,$drumSample])){
 
-            if($drumkit->delete()){
-                return response('Drumkit Deleted', Response::HTTP_OK);
-            }else{
-                return response('Unable To Delete Drumkit', Response::HTTP_FORBIDDEN);
-            }
+            $rejFile = new RejectFile();
+            $rejFile2 = new RejectFile();
 
+            $rejFile->url = $drumImg;
+            $rejFile->save();
+
+            $rejFile2->url = $drumImg;
+            $rejFile2->save();
+
+        }
+
+        if($drumkit->delete()){
+            return response('Drumkit Deleted', Response::HTTP_OK);
         }else{
-            return response('Not Found', Response::HTTP_FORBIDDEN);
+            return response('Unable To Delete Drumkit', Response::HTTP_FORBIDDEN);
         }
 
     }

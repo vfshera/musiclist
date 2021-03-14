@@ -738,7 +738,7 @@
         data(){
             return{
                 producerName: 'Tony Gregory',
-                previewStage: 1,
+                previewStage: 0,
                 packages: [
                     {
                         id : 1,
@@ -793,6 +793,7 @@
             },
             setPreview(id){
                 this.previewStage = id;
+                this.scrollToTop();
             },
             loadPrices(){
                 axios.get('/prices')
@@ -841,6 +842,7 @@
         min-height:70vh;
     }
 
+
     .terms-conditions h2{
         color: black;
         font-weight: bold;
@@ -881,8 +883,6 @@
     }
 
     .pack-head{
-        /*border-top-left-radius: 10px;*/
-        /*border-top-right-radius: 10px;*/
         height: 20%;
         width: 100%;
         padding: 2%;
@@ -988,15 +988,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
+/*detail part*/
 
 
     .standard-license , .basic-license , .popular-premium-license , .unlimited-license{
@@ -1062,5 +1054,6 @@
         font-weight: bolder;
         font-family: 'themify';
     }
+
 
 </style>

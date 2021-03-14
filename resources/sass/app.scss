@@ -451,6 +451,9 @@ figure figcaption p {
 
 @media screen and (max-width: 1149px) {
 
+
+
+
     //terms
     .license-holder{
 
@@ -865,6 +868,78 @@ figure figcaption p {
 
 @media screen and (max-width: 800px) {
 
+
+
+
+    //lic
+    .terms-conditions{
+        margin-top: 60px;
+        padding-top: 10px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height:70vh;
+    }
+    .standard-license , .basic-license , .popular-premium-license , .unlimited-license{
+        margin-top: 10px !important;
+        counter-reset: item-lic-counter;
+        width: 90% !important;
+    }
+
+    .lic-item ,  .lic-item strong , .intro {
+        width: 75ch !important;
+        display: block;
+        color: #111;
+        font-size: 15px;
+    }
+    .item-points , .outlined-points , .outlines-dash {
+        width: 65ch !important;
+        display: block;
+        color: #111;
+        font-size: 15px;
+    }
+
+    .item-points {
+        margin-left: 20px !important;
+    }
+
+    .outlined-points {
+        margin-left: 30px !important;
+    }
+
+    .outlines-dash {
+        margin-left: 40px !important;
+    }
+
+
+
+
+    .lic-header-nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90% !important;
+        margin: 10px 0px !important;
+        border-bottom: 1px #11111122 solid !important;
+    }
+
+    .lic-header-nav-back{
+        font-weight: bold;
+        font-size: 14px !important;
+        cursor: pointer;
+    }
+
+    .lic-header-nav-title{
+        margin-left: 10px !important;
+        font-weight: bold;
+        font-size: 16px !important;
+        color: #007bff;
+    }
+    //lic end
+
+
+
+
     //terms
     .license-holder{
 
@@ -1272,6 +1347,78 @@ figure figcaption p {
 }
 
 @media screen and (max-width: 760px) {
+
+
+
+
+    //lic
+    .terms-conditions{
+        margin-top: 60px;
+        padding-top: 10px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height:70vh;
+    }
+    .standard-license , .basic-license , .popular-premium-license , .unlimited-license{
+        margin-top: 10px !important;
+        counter-reset: item-lic-counter;
+        width: 90% !important;
+    }
+
+    .lic-item ,  .lic-item strong , .intro {
+        width: 44ch !important;
+        display: block;
+        color: #111;
+        font-size: 15px;
+    }
+    .item-points , .outlined-points , .outlines-dash {
+        width: 45ch !important;
+        display: block;
+        color: #111;
+        font-size: 15px;
+    }
+
+    .item-points {
+        margin-left: 20px !important;
+    }
+
+    .outlined-points {
+        margin-left: 30px !important;
+    }
+
+    .outlines-dash {
+        margin-left: 40px !important;
+    }
+
+
+
+
+    .lic-header-nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90% !important;
+        margin: 10px 0px !important;
+        border-bottom: 1px #11111122 solid !important;
+    }
+
+    .lic-header-nav-back{
+        font-weight: bold;
+        font-size: 14px !important;
+        cursor: pointer;
+    }
+
+    .lic-header-nav-title{
+        margin-left: 10px !important;
+        font-weight: bold;
+        font-size: 16px !important;
+        color: #007bff;
+    }
+    //lic end
+
+
+
     //terms
     .license-holder{
 
@@ -1562,14 +1709,22 @@ figure figcaption p {
 @media screen and (max-width: 523px) {
 
     //lic
+    .terms-conditions{
+        margin-top: 60px;
+        padding-top: 10px !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height:70vh;
+    }
     .standard-license , .basic-license , .popular-premium-license , .unlimited-license{
-        margin-top: 20px;
+        margin-top: 10px !important;
         counter-reset: item-lic-counter;
         width: 90% !important;
     }
 
-    .lic-item ,  .lic-item strong , .intro {
-        width: 35ch !important;
+    .lic-item ,  .intro , .lic-item strong{
+        width: 25ch !important;
         display: block;
         color: #111;
         font-size: 15px;
@@ -1602,6 +1757,7 @@ figure figcaption p {
         align-items: center;
         width: 90% !important;
         margin: 10px 0px !important;
+        border-bottom: 1px #11111122 solid !important;
     }
 
     .lic-header-nav-back{
