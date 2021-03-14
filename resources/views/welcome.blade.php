@@ -8,6 +8,8 @@
 
         <title>{{ config('app.name') }}</title>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+{{--        <script src="https//www.paypal.com/sdk/js?client-id={{ env('PAYPAL_CLIENT_ID') }}"></script>--}}
+    </head>
     <body>
          <div id="app">
              <entry></entry>

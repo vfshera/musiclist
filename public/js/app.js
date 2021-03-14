@@ -4228,6 +4228,7 @@ __webpack_require__.r(__webpack_exports__);
       window.scrollTo(0, 0);
     },
     getPayPalLogic: function getPayPalLogic() {
+      console.log(window.paypal);
       paypal.Buttons({
         createOrder: function createOrder(data, actions) {
           return actions.order.create({
@@ -4247,15 +4248,12 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
-
     var paypalScript = document.createElement("script");
-    paypalScript.src = "https//www.paypal.com/sdk/js?client-id=AdslMm1nSG90zJizxM2I0cymTRqsZojkybAWXhJHb5NYz5Tw19F9PA2P6JTYnz-2IPzVQ5TFdxHn4irQ";
-    paypalScript.addEventListener('load', function () {
-      return _this2.getPayPalLogic();
-    });
+    paypalScript.src = "https//www.paypal.com/sdk/js?client-id=AdslMm1nSG90zJizxM2I0cymTRqsZojkybAWXhJHb5NYz5Tw19F9PA2P6JTYnz-2IPzVQ5TFdxHn4irQ"; // paypalScript.addEventListener('load' , () => this.getPayPalLogic())
+
     paypalScript.async = true;
-    document.body.appendChild(paypalScript);
+    document.head.appendChild(paypalScript); // this.getPayPalLogic();
+
     this.scrollToTop();
     this.$seohelpers.setSEO('Donation');
     console.log('Donation Component mounted.');
@@ -15040,7 +15038,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.paypal-pre[data-v-aaf9adcc], .mpesa-pre[data-v-aaf9adcc]{\n    cursor: pointer;\n    transition: 150ms ease-in-out;\n    transform: scale(.8);\n}\n.paypal-pre[data-v-aaf9adcc]:hover, .mpesa-pre[data-v-aaf9adcc]:hover{\n    transform: scale(1);\n}\n.processor-icon img[data-v-aaf9adcc]{\n    height: 70% !important;\n    padding: 0 10px;\n}\nform[data-v-aaf9adcc]{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n.donate-page[data-v-aaf9adcc]{\n    margin-top: 100px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.donation-head[data-v-aaf9adcc]{\n    margin-bottom: 10px;\n}\n.donate[data-v-aaf9adcc]{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n.supported-methods[data-v-aaf9adcc]{\n    margin-top:20px\n}\n.supported-methods p[data-v-aaf9adcc]{\n   text-align: center;\n}\n.method-list[data-v-aaf9adcc]{\n    margin-top: 10px;\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n}\n\n\n/*mobile*/\n@media (max-width: 523px) {\n.form__label[data-v-aaf9adcc]{\n        font-size: 1rem !important;\n}\n.donate-page[data-v-aaf9adcc]{\n        margin-top: 70px;\n        margin-bottom: 30px;\n}\n.donation-head h1[data-v-aaf9adcc]{\n        font-size: 2rem;\n}\n}\n", ""]);
+exports.push([module.i, "\n.paypal-pre[data-v-aaf9adcc], .mpesa-pre[data-v-aaf9adcc]{\n    cursor: pointer;\n    transition: 150ms ease-in-out;\n    transform: scale(.8);\n}\n.paypal-pre[data-v-aaf9adcc]:hover, .mpesa-pre[data-v-aaf9adcc]:hover{\n    transform: scale(1);\n}\n.processor-icon img[data-v-aaf9adcc]{\n    height: 70% !important;\n    padding: 0 10px;\n}\nform[data-v-aaf9adcc]{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n.donate-page[data-v-aaf9adcc]{\n    margin-top: 200px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.donation-head[data-v-aaf9adcc]{\n    margin-bottom: 10px;\n}\n.donate[data-v-aaf9adcc]{\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n.supported-methods[data-v-aaf9adcc]{\n    margin-top:20px\n}\n.supported-methods p[data-v-aaf9adcc]{\n   text-align: center;\n}\n.method-list[data-v-aaf9adcc]{\n    margin-top: 10px;\n    display: flex;\n    justify-content: space-around;\n    align-items: center;\n}\n\n\n/*mobile*/\n@media (max-width: 523px) {\n.form__label[data-v-aaf9adcc]{\n        font-size: 1rem !important;\n}\n.donate-page[data-v-aaf9adcc]{\n        margin-top: 70px;\n        margin-bottom: 30px;\n}\n.donation-head h1[data-v-aaf9adcc]{\n        font-size: 2rem;\n}\n}\n", ""]);
 
 // exports
 
@@ -67967,7 +67965,13 @@ var render = function() {
             "span",
             {
               staticClass: "paypal-pre",
-              attrs: { "data-toggle": "modal", "data-target": "#paypalModal" }
+              attrs: { "data-toggle": "modal", "data-target": "#paypalModal" },
+              on: {
+                click: function($event) {
+                  $event.preventDefault()
+                  return _vm.getPayPalLogic($event)
+                }
+              }
             },
             [
               _c(

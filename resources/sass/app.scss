@@ -366,6 +366,15 @@ figure figcaption p {
         padding: 40px 0px !important;
     }
 
+
+    .promo-img{
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .promo-img img{
+        width: 85% !important;
+    }
     //promo end
     .tott-name{
         display: none;
@@ -1366,7 +1375,13 @@ figure figcaption p {
         width: 90% !important;
     }
 
-    .lic-item ,  .lic-item strong , .intro {
+    .lic-item , .intro {
+        width: 55ch !important;
+        display: block;
+        color: #111;
+        font-size: 15px;
+    }
+     .lic-item strong{
         width: 44ch !important;
         display: block;
         color: #111;
@@ -1723,12 +1738,20 @@ figure figcaption p {
         width: 90% !important;
     }
 
-    .lic-item ,  .intro , .lic-item strong{
+    .lic-item ,  .intro {
+        width: 35ch !important;
+        display: block;
+        color: #111;
+        font-size: 15px;
+    }
+
+    .lic-item strong{
         width: 25ch !important;
         display: block;
         color: #111;
         font-size: 15px;
     }
+
     .item-points , .outlined-points , .outlines-dash {
         width: 30ch !important;
         display: block;

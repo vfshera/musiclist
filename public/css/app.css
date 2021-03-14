@@ -21977,6 +21977,15 @@ figure figcaption p {
     padding: 40px 0px !important;
   }
 
+  .promo-img {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .promo-img img {
+    width: 85% !important;
+  }
+
   .tott-name {
     display: none;
   }
@@ -22910,8 +22919,14 @@ figure figcaption p {
   }
 
   .lic-item,
-  .lic-item strong,
   .intro {
+    width: 55ch !important;
+    display: block;
+    color: #111;
+    font-size: 15px;
+  }
+
+  .lic-item strong {
     width: 44ch !important;
     display: block;
     color: #111;
@@ -23256,7 +23271,13 @@ figure figcaption p {
   }
 
   .lic-item,
-  .intro,
+  .intro {
+    width: 35ch !important;
+    display: block;
+    color: #111;
+    font-size: 15px;
+  }
+
   .lic-item strong {
     width: 25ch !important;
     display: block;
