@@ -22634,6 +22634,8 @@ figure figcaption p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center !important;
+    width: 100% !important;
   }
 
   #bpm,
@@ -23537,7 +23539,7 @@ figure figcaption p {
     align-items: center !important;
     position: relative !important;
     bottom: -208px !important;
-    right: -140px !important;
+    justify-content: flex-end !important;
   }
 
   .btn-proceed,

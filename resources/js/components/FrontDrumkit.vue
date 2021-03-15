@@ -510,4 +510,12 @@ export default {
         padding:15px;
         color: black;
     }
+
+
+
+
+
+
+
+   
 </style>

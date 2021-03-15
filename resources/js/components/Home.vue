@@ -570,6 +570,8 @@
         font-style: italic;
         font-size: 1.5rem;
     }
+
+
     /*promo*/
     .promo{
 
@@ -581,10 +583,12 @@
         padding: 40px 200px;
     }
 
+
     .promo-img{
         height: 100%;
         width: 50%;
     }
+
     .promo-img img{
         width: 100%;
         background-size: cover;
@@ -932,7 +936,7 @@
         align-items: center;
         border-bottom: 2px solid rgba(0,0,0,.1);
         height: 60px;
-        width: 99%;
+        width: 94%;
     }
     .price-amount{
         font-size: 20px;
