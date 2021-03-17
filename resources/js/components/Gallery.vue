@@ -41,12 +41,7 @@
         <div class="modal fade" id="addGalleryModal" tabindex="-1" role="dialog" aria-labelledby="addGalleryModalTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title" id="addGalleryModalLongTitle" style="display: inline-block">Add gallery</h3>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
+
                     <div class="modal-body">
                         <div class="posting-gallery" v-if="isPosting">
                             <div class="loader"><div></div><div></div><div></div><div></div></div>
@@ -61,7 +56,7 @@
 
                         </div>
                     </div>
-                 o   <div class="modal-footer">
+                  <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         <button type="button" @click="postGallery" class="btn btn-primary">Post</button>
                     </div>
@@ -88,7 +83,10 @@
 </template>
 
 <script>
+
+
     export default {
+        name: 'Gallery',
         data(){
             return{
                 focused : false,
@@ -98,11 +96,11 @@
                 isProcessing: true,
                 isPosting: false,
                 gimg:null,
-                pagination: {}
-
+                pagination: {},
             }
         },
         methods:{
+
 
             resetgallery(){
                 this.gimg = null;
@@ -470,5 +468,10 @@
         height: 98%;
         background-color: #FFFFFF;
         box-shadow: #11111122 ;
+    }
+
+    .gal-image{
+        width: 100%;
+        height: 100%;
     }
 </style>

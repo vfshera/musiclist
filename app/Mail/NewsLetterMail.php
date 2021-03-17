@@ -11,23 +11,18 @@ class NewsLetterMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $info;
+
+
+
+    public function __construct($newsdata)
     {
-        //
+       $this->info = $newsdata;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
+
     public function build()
     {
-        return $this->view('mails.newsletter.subscribed');
+        return $this->from(env('SUPPORT_MAIL_ADDRESS'), env('APP_NAME').' Support Team')->subject('Newsletter Subscription!')->view('mails.newsletter.subscribed');
     }
 }

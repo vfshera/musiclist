@@ -35,7 +35,7 @@ export const  routes = [
         component : Donate
     },
     {
-        path : '/newsletter/cancel',
+        path : '/newsletter/:id/cancel/:mail',
         component : CancelNews
     },
     {

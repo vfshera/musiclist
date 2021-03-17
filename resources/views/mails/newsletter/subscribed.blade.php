@@ -1,81 +1,88 @@
 @extends('layouts.mail')
 
-@section('mail-styles')
-    <style>
-        .mail-body{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: black;
-            min-height: 80vh;
-            background: white;
-            padding: 20px 250px;
-        }
+@section('mail-content')
+    <html lang="en" style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif;">
+    <head>
+        <!-- TEMPLATE MADE BY FRANKLIN SHERA FOR TONY GREGORY | www.tonyonthetrack.com   -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TOTT NEWSLETTER</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@600;700;800;900&display=swap" rel="stylesheet">
 
-        .mail-header span{
-            font-size: 1.7rem;
-            margin-left: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+        <style>
+            @media (max-width: 600px) {
+                .image-wrapper {
+                    height: 35% !important;
+                }
+                .content-wrapper {
+                    height: 65% !important;
+                }
+                .big-par {
+                    font-size: 22px !important;
+                }
+                .small-par p {
+                    margin-top: 120px !important;
+                }
+                .thanks {
+                    font-size: 14px !important;
+                }
+            }
+        </style>
 
-        footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            min-height: 9.5vh;
-        }
+    </head>
 
-        .mail{
-            background: orangered;
-            min-height: 100vh;
-        }
+    <body style="border: 0; font-family: 'Catamaran', sans-serif; margin: 0 auto; padding: 2%; background-color: #d8dbdb; max-width: 800px;">
+        <div class="mail-body" style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif; height: 1080px; max-width: 800px; background-color: #f6faff;">
+            <div class="image-wrapper" style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif; height: 40%; width: 100%; background-image: url('/storage/site-img/newsbg.jpg'); background-repeat: no-repeat; background-position: center center; background-size: cover;">
+                <div class="brand" style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif; height: 80px; background: linear-gradient(180deg,#ffffff,#ffffffee ,#ffffffdd ,#ffffffdd , transparent); text-align: center; padding-top: 15px;">
+                        <span style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif;">
+                            <img src="/storage/site-img/adminlogo.png" height="25px" alt="" style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif;">
+                        <p class="brand-name" style="padding: 0; border: 0; font-family: 'Catamaran', sans-serif; margin: auto; color: orangered; font-weight: bold;">
+                            TONY ON THE TRACK NEWSLETTER
+                        </p>
+                        </span>
+                </div>
 
-        .mail-header{
-            background: orangered;
-            height: 10vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-        }
-        h5,h6{
-            text-align: center;
-            line-height: 2;
-        }
-        p{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-top: 100px;
-        }
-
-        .mail-content{
-            margin-top: 50px;
-        }
-
-
-    </style>
-@endsection
-@section('mail-body')
-    <div class="mail">
-        <header class="mail-header">
-            <svg xmlns="http://www.w3.org/2000/svg"  height="30px" fill="white" viewBox="0 0 472.87 474.5"><title>GREGSITELOGO</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path d="M144,52.84H0V.35H206.61V474.5H144Z"/><path d="M265.73,0H472.87V52.7H329.05V474.36H265.73Z"/><path d="M140.8,88.94c0,15.35.28,30.37-.24,45.36-.1,2.95-2.86,6.17-5.1,8.62C88.28,194.76,87.77,279.65,133.94,332c3.89,4.41,6.24,11.39,6.68,17.37,1,13.38.31,26.88.31,40.7-56.1-14.39-100.7-81.16-101-149.15C39.57,173.48,86,102.64,140.8,88.94Z"/><path d="M331.12,87.25c61.15,21.82,100.71,81,100.79,148.7C432,309,393.48,369.26,331.16,391.76c0-15.81-.27-31.12.23-46.41.1-2.92,2.79-6.14,5-8.56,48.84-53.25,49.19-137.84,1.14-191.67-3.64-4.07-5.78-10.67-6.14-16.25C330.53,115.37,331.12,101.77,331.12,87.25Z"/><path d="M261.43,408.15h-50.9V373h50.9Z"/><path d="M210.34,68.46h51v34.81h-51Z"/></g></g></svg>
-            <span> Tony On The Track </span>
-        </header>
-        <div class=" mail-body ">
-            <h2>Thanks For Subscribing To My Website!</h2>
-            <div class="mail-content">
-                From Now on You Will Be Getting Latest Updates on Blogs,Beats,Drumkits,Discounts and events
-                Stay Tuned
             </div>
-            <p>To Opt Out Of My Notification List <a href="http://tonyonthetrack.sc/newsletter/cancel" target="_blank" class="btn btn-dark">Click Here</a></p>
+            <!-- image-wrapper/ -->
+
+            <div class="content-wrapper" style="padding: 0; border: 0; font-family: 'Catamaran', sans-serif; margin: auto; height: 60%;">
+                <div class="thanks" style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif; height: 50px; background-color: orangered; color: white; box-shadow: 2px 2px 5px #11111155; font-weight: bold; font-size: 18px; text-align: center; vertical-align: middle; line-height: 50px;">THANKS FOR YOUR SUBSCRIPTION!</div>
+                <div class="big-par" style="padding: 0; border: 0; font-family: 'Catamaran', sans-serif; margin: auto; width: 100%; height: 10%; line-height: 1.4; margin-top: 40px; font-size: 24px; font-weight: bold;">
+                    <p style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif; text-align: center; color: #111111cc;">
+                        You Will From Now On Be Updated With <br style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif;">
+                        Latest Blogs , Kits and Beats
+                    </p>
+                </div>
+                <!-- big-paragraph/ -->
+
+                <div class="small-par" style="padding: 0; border: 0; font-family: 'Catamaran', sans-serif; margin: auto; width: 100%; height: 10%; line-height: 1.4;">
+                    <p style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif; text-align: center; color: #111111cc; margin-top: 70px; font-size: 20px; font-weight: 500;">
+                        If You Are Interested In Any Track <br style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif;">
+                        Make Sure To <a href="/#contact" class="cont-me" style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif; text-decoration: none; color: #2680EB;">Contact Me</a> and <br style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif;">
+                        Also Check The <br style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif;">
+                        <a href="/terms-and-conditions" class="temrslink" target="_blank" style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif; text-decoration: none; color: #46F233;">Terms & Conditions</a>
+                    </p>
+                </div>
+                <!-- small-paragraph/ -->
+                <div class="unsub" style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif; margin-top: 110px;">
+                    <p style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif; text-align: center;">You Want To Opt Out?</p>
+                    <div style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif; margin-top: 10px; text-align: center; display: block;">
+                        <a href="/newsletter/{{ $info['nid'] ?? '1428' }}/cancel/{{ $info['email'] ?? 'sc@xyz.com' }}" target="_blank" style="margin: 0; border: 0; font-family: 'Catamaran', sans-serif; padding: 7px 30px; text-decoration: none; background-color: #2680EB; border-radius: 30px; color: white;">Unsubscribe</a>
+                    </div>
+                </div>
+
+                <footer style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif; margin-top: 60px;">
+                    <p class="email" style="padding: 0; border: 0; font-family: 'Catamaran', sans-serif; width: 100%; margin: 5px 0; color: #111111cc; text-align: center;">info@tonyonthetrack.com</p>
+                    <p class="site" style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif; width: 100%; color: #111111; font-weight: bold; font-size: 20px; text-align: center; margin-bottom: 4px;">www.tonyonthetrack.com</p>
+                    <p class="copyright" style="margin: 0; padding: 0; border: 0; font-family: 'Catamaran', sans-serif; width: 100%; color: #111111; font-weight: bold; font-size: 20px; text-align: center; margin-bottom: 4px;">&copy;2021</p>
+                </footer>
+                <!-- footer/ -->
+            </div>
         </div>
-        <footer>
-            www.tonyonthetrack.com
-        </footer>
-    </div>
+        <!-- emal-body/ -->
+    </body>
+    </html>
 @endsection

@@ -7,7 +7,10 @@
                     <label for="">Email</label>
                     <input type="email" v-model="email" class="form-control" required >
                 </div>
-                <button class="btn btn-primary" type="submit">Opt Out</button>
+                <div class="form-group btns">
+                    <button class="btn btn-primary resend" type="submit">No Code?</button>
+                    <button class="btn btn-success optout" type="submit">Opt Out</button>
+                </div>
             </form>
         </div>
     </div>
@@ -28,16 +31,17 @@
                        icon: 'error',
                        title: 'Email Incorrect!'
                    })
-               }
 
-                Swal.fire({
-                    icon: 'question',
-                    title: 'Removing '+this.email+ 'From Newsletter'
-                })
+               }else{
+                   Swal.fire({
+                       icon: 'question',
+                       title: 'Removing '+this.email+ 'From Newsletter'
+                   })
+               }
             }
         },
         mounted() {
-
+            this.email = this.$route.params.mail
             console.log('Cancel News Component mounted.')
         }
     }
@@ -58,8 +62,22 @@
         align-items: center;
     }
 
-    form , form button{
+    form {
         width: 100%;
     }
 
+    label , input{
+
+        font-size: 18px;
+    }
+    .btns{
+        display: flex;
+        justify-content: space-between;
+    }
+    .resend , .optout{
+        width:40%;
+        padding: 10px 0px;
+        font-size: 18px;
+        font-weight: bold;
+    }
 </style>

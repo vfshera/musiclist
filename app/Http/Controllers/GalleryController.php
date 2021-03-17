@@ -10,17 +10,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class GalleryController extends Controller
 {
-
-    public function getRandomName(int $num){
-
-        $nm = ($num && $num > 0) ? $num : 10;
-
-        $randomName = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890');
-        $finalname = substr($randomName, 0, $nm);
-
-        return $finalname;
-    }
-
     public function index()
     {
         $imgs = Gallery::orderBy('created_at', 'DESC')->paginate(8);
@@ -34,7 +23,7 @@ class GalleryController extends Controller
        $request->validate(['image' => 'required|image']);
 
         $galImg =  $request->file('image');
-        $galImgFileName  = $this->getRandomName(10).time().'.'.$galImg->getClientOriginalExtension();
+        $galImgFileName  = getRandomName(10).time().'.'.$galImg->getClientOriginalExtension();
 
         if($galImg->storeAs('public/gallery', $galImgFileName ) ){
             $gmig = new Gallery();
@@ -50,6 +39,7 @@ class GalleryController extends Controller
             return response('Failed To Save Image!', Response::HTTP_FORBIDDEN);
         }
     }
+
 
 
     public function destroy(Gallery $gallery)

@@ -8,9 +8,9 @@ Route::get('/', function (){
     return view('welcome');
 });
 
-//Route::get('/mailtest', function (){
-//    return view('mails.newsletter.new-beat');
-//});
+Route::get('/mailtest', function (){
+    return view('mails.newsletter.subscribed');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/contact', 'ContactController@store');

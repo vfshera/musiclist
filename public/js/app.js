@@ -3737,6 +3737,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CancelNewsletter',
   data: function data() {
@@ -3751,15 +3754,16 @@ __webpack_require__.r(__webpack_exports__);
           icon: 'error',
           title: 'Email Incorrect!'
         });
+      } else {
+        Swal.fire({
+          icon: 'question',
+          title: 'Removing ' + this.email + 'From Newsletter'
+        });
       }
-
-      Swal.fire({
-        icon: 'question',
-        title: 'Removing ' + this.email + 'From Newsletter'
-      });
     }
   },
   mounted: function mounted() {
+    this.email = this.$route.params.mail;
     console.log('Cancel News Component mounted.');
   }
 });
@@ -5881,12 +5885,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Gallery',
   data: function data() {
     return {
       focused: false,
@@ -15000,7 +15000,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.cancel-news[data-v-6ba90e98]{\n    display:flex;\n    justify-content: center;\n    align-items: center;\n    min-height: 100vh;\n}\n.news-form[data-v-6ba90e98]{\n    width: 40%;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n}\nform[data-v-6ba90e98], form button[data-v-6ba90e98]{\n    width: 100%;\n}\n\n", ""]);
+exports.push([module.i, "\n.cancel-news[data-v-6ba90e98]{\n    display:flex;\n    justify-content: center;\n    align-items: center;\n    min-height: 100vh;\n}\n.news-form[data-v-6ba90e98]{\n    width: 40%;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n}\nform[data-v-6ba90e98] {\n    width: 100%;\n}\nlabel[data-v-6ba90e98], input[data-v-6ba90e98]{\n\n    font-size: 18px;\n}\n.btns[data-v-6ba90e98]{\n    display: flex;\n    justify-content: space-between;\n}\n.resend[data-v-6ba90e98], .optout[data-v-6ba90e98]{\n    width:40%;\n    padding: 10px 0px;\n    font-size: 18px;\n    font-weight: bold;\n}\n", ""]);
 
 // exports
 
@@ -15209,7 +15209,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.gimg-name[data-v-5761a7b7]{\n    position: relative;\n    right: 0px;\n    bottom: 40px;\n    z-index: 99;\n    background: white;\n    color: #111111;\n    padding: 10px 30px;\n}\n.lds-dual-ring[data-v-5761a7b7] {\n\n    display: inline-block;\n    width: 80px;\n    height: 80px;\n}\n.lds-dual-ring[data-v-5761a7b7]:after {\n    position: absolute;\n    top:45%;\n    left:56%;\n    content: \" \";\n    display: block;\n    width: 64px;\n    height: 64px;\n    margin: 8px;\n    border-radius: 50%;\n    border: 6px solid orangered;\n    border-color: orangered transparent orangered transparent;\n    -webkit-animation: lds-dual-ring-data-v-5761a7b7 1.2s linear infinite;\n            animation: lds-dual-ring-data-v-5761a7b7 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring-data-v-5761a7b7 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring-data-v-5761a7b7 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n.posting-gallery[data-v-5761a7b7]{\n    position: absolute;\n    top: 49%;\n    left: 43%;\n}\n.loader[data-v-5761a7b7] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-5761a7b7] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-5761a7b7]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-5761a7b7 0.6s infinite;\n            animation: lds-ellipsis1-data-v-5761a7b7 0.6s infinite;\n}\n.loader div[data-v-5761a7b7]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-5761a7b7 0.6s infinite;\n            animation: lds-ellipsis2-data-v-5761a7b7 0.6s infinite;\n}\n.loader div[data-v-5761a7b7]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-5761a7b7 0.6s infinite;\n            animation: lds-ellipsis2-data-v-5761a7b7 0.6s infinite;\n}\n.loader div[data-v-5761a7b7]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-5761a7b7 0.6s infinite;\n            animation: lds-ellipsis3-data-v-5761a7b7 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-5761a7b7 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-5761a7b7 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-5761a7b7 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-5761a7b7 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-5761a7b7 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-5761a7b7 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n.content-link input[data-v-5761a7b7], .gallery-title input[data-v-5761a7b7]{\n    width: 100%;\n}\n.add-gallery-body[data-v-5761a7b7]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    min-height:60vh;\n}\n.gallery-controls[data-v-5761a7b7]{\n    display: flex;\n    justify-content: flex-end;\n}\n.gallery-cards[data-v-5761a7b7]{\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n}\n.gallery-card img[data-v-5761a7b7]{\n    /*height: 80%;*/\n    width: 100%;\n    border-radius: 15px;\n    -o-object-fit: contain;\n       object-fit: contain;\n    z-index: 1;\n}\n.gallery-card[data-v-5761a7b7]{\n    width: 24%;\n    height: 25vh;\n    border-radius: 15px;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);\n    transition: .1s ease-in-out;\n    overflow: hidden;\n}\n.gallery-card[data-v-5761a7b7]:hover{\n    transform: scale(1.02);\n    border: 2px #007bff33 solid;\n    box-shadow: 0 4px 10px 0 #007bff45 , 0 6px 22px 0 #007bff45;\n}\n.new-btn[data-v-5761a7b7]{\n    width: 100px;\n}\n.new-btn[data-v-5761a7b7]:hover{\n    font-weight: bold;\n}\n.search-bar input[data-v-5761a7b7]{\n    width: 96%;\n    text-align: center;\n}\n.search-bar[data-v-5761a7b7]{\n    border: #11111133 1px solid;\n    width: 40%;\n    height: 40px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-radius: 25px;\n    transition: .2s ease-in-out;\n}\n.search-bar[data-v-5761a7b7]:hover{\n    border: #11111177 2px solid;\n}\n.search-bar-focused[data-v-5761a7b7]{\n    border: #0275d8 2px solid !important;\n}\n.gallery-menu[data-v-5761a7b7]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 3px #11111155 solid;\n}\n.gallery[data-v-5761a7b7]{\n    width: 80.5vw;\n    height: 83vh;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.gallery-container[data-v-5761a7b7]{\n    display: flex;\n    flex-direction: column;\n    border-radius: 10px;\n    width: 98%;\n    height: 98%;\n    background-color: #FFFFFF;\n    box-shadow: #11111122 ;\n}\n", ""]);
+exports.push([module.i, "\n.gimg-name[data-v-5761a7b7]{\n    position: relative;\n    right: 0px;\n    bottom: 40px;\n    z-index: 99;\n    background: white;\n    color: #111111;\n    padding: 10px 30px;\n}\n.lds-dual-ring[data-v-5761a7b7] {\n\n    display: inline-block;\n    width: 80px;\n    height: 80px;\n}\n.lds-dual-ring[data-v-5761a7b7]:after {\n    position: absolute;\n    top:45%;\n    left:56%;\n    content: \" \";\n    display: block;\n    width: 64px;\n    height: 64px;\n    margin: 8px;\n    border-radius: 50%;\n    border: 6px solid orangered;\n    border-color: orangered transparent orangered transparent;\n    -webkit-animation: lds-dual-ring-data-v-5761a7b7 1.2s linear infinite;\n            animation: lds-dual-ring-data-v-5761a7b7 1.2s linear infinite;\n}\n@-webkit-keyframes lds-dual-ring-data-v-5761a7b7 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n@keyframes lds-dual-ring-data-v-5761a7b7 {\n0% {\n        transform: rotate(0deg);\n}\n100% {\n        transform: rotate(360deg);\n}\n}\n.posting-gallery[data-v-5761a7b7]{\n    position: absolute;\n    top: 49%;\n    left: 43%;\n}\n.loader[data-v-5761a7b7] {\n    width: 80px;\n    height: 20px;\n}\n.loader div[data-v-5761a7b7] {\n    position: absolute;\n    width: 13px;\n    height: 13px;\n    border-radius: 50%;\n    background: orangered;\n    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);\n            animation-timing-function: cubic-bezier(0, 1, 1, 0);\n}\n.loader div[data-v-5761a7b7]:nth-child(1) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis1-data-v-5761a7b7 0.6s infinite;\n            animation: lds-ellipsis1-data-v-5761a7b7 0.6s infinite;\n}\n.loader div[data-v-5761a7b7]:nth-child(2) {\n    left: 8px;\n    -webkit-animation: lds-ellipsis2-data-v-5761a7b7 0.6s infinite;\n            animation: lds-ellipsis2-data-v-5761a7b7 0.6s infinite;\n}\n.loader div[data-v-5761a7b7]:nth-child(3) {\n    left: 32px;\n    -webkit-animation: lds-ellipsis2-data-v-5761a7b7 0.6s infinite;\n            animation: lds-ellipsis2-data-v-5761a7b7 0.6s infinite;\n}\n.loader div[data-v-5761a7b7]:nth-child(4) {\n    left: 56px;\n    -webkit-animation: lds-ellipsis3-data-v-5761a7b7 0.6s infinite;\n            animation: lds-ellipsis3-data-v-5761a7b7 0.6s infinite;\n}\n@-webkit-keyframes lds-ellipsis1-data-v-5761a7b7 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@keyframes lds-ellipsis1-data-v-5761a7b7 {\n0% {\n        transform: scale(0);\n}\n100% {\n        transform: scale(1);\n}\n}\n@-webkit-keyframes lds-ellipsis3-data-v-5761a7b7 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@keyframes lds-ellipsis3-data-v-5761a7b7 {\n0% {\n        transform: scale(1);\n}\n100% {\n        transform: scale(0);\n}\n}\n@-webkit-keyframes lds-ellipsis2-data-v-5761a7b7 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n@keyframes lds-ellipsis2-data-v-5761a7b7 {\n0% {\n        transform: translate(0, 0);\n}\n100% {\n        transform: translate(24px, 0);\n}\n}\n.content-link input[data-v-5761a7b7], .gallery-title input[data-v-5761a7b7]{\n    width: 100%;\n}\n.add-gallery-body[data-v-5761a7b7]{\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    min-height:60vh;\n}\n.gallery-controls[data-v-5761a7b7]{\n    display: flex;\n    justify-content: flex-end;\n}\n.gallery-cards[data-v-5761a7b7]{\n    display: flex;\n    justify-content: space-between;\n    flex-wrap: wrap;\n}\n.gallery-card img[data-v-5761a7b7]{\n    /*height: 80%;*/\n    width: 100%;\n    border-radius: 15px;\n    -o-object-fit: contain;\n       object-fit: contain;\n    z-index: 1;\n}\n.gallery-card[data-v-5761a7b7]{\n    width: 24%;\n    height: 25vh;\n    border-radius: 15px;\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);\n    transition: .1s ease-in-out;\n    overflow: hidden;\n}\n.gallery-card[data-v-5761a7b7]:hover{\n    transform: scale(1.02);\n    border: 2px #007bff33 solid;\n    box-shadow: 0 4px 10px 0 #007bff45 , 0 6px 22px 0 #007bff45;\n}\n.new-btn[data-v-5761a7b7]{\n    width: 100px;\n}\n.new-btn[data-v-5761a7b7]:hover{\n    font-weight: bold;\n}\n.search-bar input[data-v-5761a7b7]{\n    width: 96%;\n    text-align: center;\n}\n.search-bar[data-v-5761a7b7]{\n    border: #11111133 1px solid;\n    width: 40%;\n    height: 40px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    border-radius: 25px;\n    transition: .2s ease-in-out;\n}\n.search-bar[data-v-5761a7b7]:hover{\n    border: #11111177 2px solid;\n}\n.search-bar-focused[data-v-5761a7b7]{\n    border: #0275d8 2px solid !important;\n}\n.gallery-menu[data-v-5761a7b7]{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 3px #11111155 solid;\n}\n.gallery[data-v-5761a7b7]{\n    width: 80.5vw;\n    height: 83vh;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n.gallery-container[data-v-5761a7b7]{\n    display: flex;\n    flex-direction: column;\n    border-radius: 10px;\n    width: 98%;\n    height: 98%;\n    background-color: #FFFFFF;\n    box-shadow: #11111122 ;\n}\n.gal-image[data-v-5761a7b7]{\n    width: 100%;\n    height: 100%;\n}\n", ""]);
 
 // exports
 
@@ -67248,17 +67248,32 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "button",
-            { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-            [_vm._v("Opt Out")]
-          )
+          _vm._m(0)
         ]
       )
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group btns" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary resend", attrs: { type: "submit" } },
+        [_vm._v("No Code?")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-success optout", attrs: { type: "submit" } },
+        [_vm._v("Opt Out")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -70739,12 +70754,10 @@ var render = function() {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(1),
-              _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _vm.isPosting
                   ? _c("div", { staticClass: "posting-gallery" }, [
-                      _vm._m(2),
+                      _vm._m(1),
                       _vm._v(" "),
                       _c("h6", [_vm._v("Posting...")])
                     ])
@@ -70768,7 +70781,7 @@ var render = function() {
                   ])
                 ])
               ]),
-              _vm._v("\n             o   "),
+              _vm._v(" "),
               _c("div", { staticClass: "modal-footer" }, [
                 _c(
                   "button",
@@ -70865,35 +70878,6 @@ var staticRenderFns = [
       },
       [_c("span", { staticClass: "ti-pencil-alt mr-2" }), _vm._v("NEW")]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-header" }, [
-      _c(
-        "h3",
-        {
-          staticClass: "modal-title",
-          staticStyle: { display: "inline-block" },
-          attrs: { id: "addGalleryModalLongTitle" }
-        },
-        [_vm._v("Add gallery")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "close",
-          attrs: {
-            type: "button",
-            "data-dismiss": "modal",
-            "aria-label": "Close"
-          }
-        },
-        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-      )
-    ])
   },
   function() {
     var _vm = this
@@ -96101,7 +96085,7 @@ var routes = [{
   path: '/donate',
   component: _components_Donate__WEBPACK_IMPORTED_MODULE_10__["default"]
 }, {
-  path: '/newsletter/cancel',
+  path: '/newsletter/:id/cancel/:mail',
   component: _components_CancelNews__WEBPACK_IMPORTED_MODULE_19__["default"]
 }, {
   path: '/info',

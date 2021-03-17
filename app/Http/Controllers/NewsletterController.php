@@ -13,12 +13,16 @@ class NewsletterController extends Controller
 
     public function store(Request $request)
     {
-        $sub = $request->validate(['email' =>'required|email|unique:newsletters']);
+        $validMailsub = $request->validate(['email' => 'required|email|unique:newsletters']);
 
+        $sub =  [
+            'email' => $validMailsub['email'],
+            'nid' => getRandomName(14)
+        ];
 
         if(Newsletter::create($sub)){
 
-            Mail::to($sub['email'])->send(new NewsLetterMail());
+            Mail::to($sub['email'])->send(new NewsLetterMail($sub));
             return response('You Are Now Subscribed!', Response::HTTP_CREATED);
 
         }else{

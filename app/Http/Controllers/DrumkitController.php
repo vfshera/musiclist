@@ -26,15 +26,6 @@ class DrumkitController extends Controller
         return DrumkitsResource::collection($drumkits)->response()->setStatusCode(Response::HTTP_OK);
     }
 
-    public function getRandomName(int $num){
-
-        $nm = ($num && $num > 0) ? $num : 10;
-
-        $randomName = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890');
-        $finalname = substr($randomName, 0, $nm);
-
-        return $finalname;
-    }
 
     public function store(Request $request)
     {
@@ -49,10 +40,10 @@ class DrumkitController extends Controller
         ]);
 
         $drumkitImgFile =  $request->file('image');
-        $drumkitImgFileName = $this->getRandomName(10)."_DI_".time().'.'.$drumkitImgFile->getClientOriginalExtension();
+        $drumkitImgFileName = getRandomName(10)."_DI_".time().'.'.$drumkitImgFile->getClientOriginalExtension();
 
         $DrumkitSampleFile =  $request->file('sample');
-        $DrumkitSampleFileName = $this->getRandomName(10)."_DS_".time().'.'.$DrumkitSampleFile->getClientOriginalExtension();
+        $DrumkitSampleFileName = getRandomName(10)."_DS_".time().'.'.$DrumkitSampleFile->getClientOriginalExtension();
 
         if( $drumkitImgFile->storeAs('public/drumkits/covers/', $drumkitImgFileName )  &&  $DrumkitSampleFile->storeAs('public/drumkits/samples/', $DrumkitSampleFileName ) ){
 
@@ -89,10 +80,10 @@ class DrumkitController extends Controller
 
 
         $drumkitImgFile =  $request->file('image');
-        $drumkitImgFileName = $this->getRandomName(10)."_DI_".time().'.'.$drumkitImgFile->getClientOriginalExtension();
+        $drumkitImgFileName = getRandomName(10)."_DI_".time().'.'.$drumkitImgFile->getClientOriginalExtension();
 
         $DrumkitSampleFile =  $request->file('sample');
-        $DrumkitSampleFileName = $this->getRandomName(10)."_DS_".time().'.'.$DrumkitSampleFile->getClientOriginalExtension();
+        $DrumkitSampleFileName = getRandomName(10)."_DS_".time().'.'.$DrumkitSampleFile->getClientOriginalExtension();
 
         if( $drumkitImgFile->storeAs('public/drumkits/covers/', $drumkitImgFileName )  &&  $DrumkitSampleFile->storeAs('public/drumkits/samples/', $DrumkitSampleFileName ) ){
 
