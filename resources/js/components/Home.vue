@@ -362,7 +362,7 @@
 
             },
             sendMsg(){
-                if(contact.name != '' && contact.email != '' && contact.subject != '' && contact.message != ''){
+                if(contact.name !== '' && contact.email !== '' && contact.subject !== '' && contact.message !== ''){
 
                     axios.post('/contact', this.contact)
                         .then(res =>{
@@ -392,9 +392,10 @@
                             }
                         })
                         .catch(err =>{
+
                             Swal.fire({
                                 icon: 'error',
-                                title : err.message
+                                title : "Check Fields!"
                             })
                            // this.contactErr = err.errors;
                         });

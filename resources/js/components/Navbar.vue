@@ -61,6 +61,9 @@
         <div class="modal fade" id="miniCartModal" tabindex="-1" data-backdrop="false"  role="dialog" aria-labelledby="miniCartModalTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
                 <div class="modal-content">
+
+
+
                     <div class="modal-header">
                         <h4 class="modal-title" id="miniCartModalTitle" style="display: inline-block">Cart</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
